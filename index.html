@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小六國語 專屬複習 App - 課文特訓</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'PingFang TC', 'Heiti TC', '微軟正黑體', sans-serif;
+            background-color: #f0fdf4;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.4s ease-out forwards;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .option-btn:active {
+            transform: scale(0.98);
+        }
+
+        .hw-blank {
+            display: inline-block;
+            min-width: 80px;
+            border-bottom: 3px dashed #4b5563;
+            text-align: center;
+            font-weight: bold;
+            color: transparent;
+            margin: 0 6px;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+        .hw-blank.revealed {
+            color: #b91c1c;
+            border-bottom: 3px solid #b91c1c;
+        }
+        .font-kai {
+            font-family: 'TW-Kai', 'BiauKai', '標楷體', 'DFKai-SB', serif;
+        }
+    </style>
+</head>
+<body class="text-gray-800 h-screen flex flex-col">
+
+    <!-- App Header -->
+    <header class="bg-green-600 text-white p-5 shadow-md flex justify-between items-center z-10">
+        <h1 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+            <i class="fa-solid fa-leaf"></i> 國語複習特訓
+        </h1>
+        <button id="btn-home" class="hidden text-green-100 hover:text-white px-4 py-2 rounded-lg border-2 border-green-400 hover:bg-green-500 transition text-lg md:text-xl font-bold">
+            <i class="fa-solid fa-house"></i> 回首頁
+        </button>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="app-container" class="flex-1 overflow-y-auto p-6 md:p-10 flex justify-center items-start">
+        <!-- Dynamic content will be injected here -->
+    </main>
+
+    <script>
+       </script>
+    <script src='data.js'></script>
+    <script>
+        let appState = {
+            mode: 'lesson_select', 
+            currentLessonId: null,
+            quizMode: null, 
+            currentQuestions: [],
+            currentIndex: 0,
+            score: 0,
+            errorBook: [], 
+            errorCounts: {}, 
+            sessionMistakes: [],
+            sessionHistory: [], // 新增：記錄本次測驗的所有作答軌跡
+            fullHistory: [], // 新增：累積的所有歷史作答軌跡
+            selectedBatches: []
+        };
+
+        window.toggleBatch = function(checkbox) {
+            const val = checkbox.value;
+            if (checkbox.checked) {
+                if (!appState.selectedBatches.includes(val)) appState.selectedBatches.push(val);
+            } else {
+                appState.selectedBatches = appState.selectedBatches.filter(b => b !== val);
+            }
+            renderDashboard(appState.currentLessonId);
+        };
+
+        function loadErrorData() {
+            const savedBook = localStorage.getItem('g6_chinese_errorBook');
+            const savedCounts = localStorage.getItem('g6_chinese_errorCounts');
+            const savedHistory = localStorage.getItem('g6_chinese_full_history');
+            if (savedBook) appState.errorBook = JSON.parse(savedBook);
+            if (savedCounts) appState.errorCounts = JSON.parse(savedCounts);
+            if (savedHistory) appState.fullHistory = JSON.parse(savedHistory);
+        }
+
+        function saveErrorData() {
+            try {
+                localStorage.setItem('g6_chinese_errorBook', JSON.stringify(appState.errorBook));
+                localStorage.setItem('g6_chinese_errorCounts', JSON.stringify(appState.errorCounts));
+                localStorage.setItem('g6_chinese_full_history', JSON.stringify(appState.fullHistory));
+            } catch (e) {
+                console.warn('無法儲存錯題進度，可能是無痕模式限制：', e);
+            }
+        }
+
+        function recordMistake(q) {
+            if (!appState.errorBook.includes(q.id)) {
+                appState.errorBook.push(q.id);
+            }
+            appState.errorCounts[q.id] = (appState.errorCounts[q.id] || 0) + 1;
+            saveErrorData();
+            
+            if (!appState.sessionMistakes.some(m => m.id === q.id)) {
+                appState.sessionMistakes.push(q);
+            }
+        }
+
+        function recordSuccess(qId) {
+            if (appState.quizMode === 'error_book' && appState.errorBook.includes(qId)) {
+                appState.errorBook = appState.errorBook.filter(id => id !== qId);
+                saveErrorData();
+            }
+        }
+
+        function shuffleArray(array) {
+            const newArr = [...array];
+            for (let i = newArr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+            }
+            return newArr;
+        }
+
+        function renderStars(count, qId) {
+            let starsHtml = '';
+            for (let i = 0; i < 5; i++) {
+                if (i < count) starsHtml += '<i class="fa-solid fa-star text-yellow-400"></i>';
+                else starsHtml += '<i class="fa-regular fa-star text-gray-300"></i>';
+            }
+            if (appState.errorCounts[qId] >= 3) {
+                starsHtml += '<i class="fa-solid fa-fire text-red-500 ml-2 animate-pulse" title="易錯陷阱題！"></i>';
+            }
+            return starsHtml;
+        }
+
+        const appContainer = document.getElementById('app-container');
+        const btnHome = document.getElementById('btn-home');
+
+        function saveSessionToFullHistory() {
+            if (appState.sessionHistory.length === 0) return;
+            const dateString = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
+            const lesson = LESSONS.find(l => l.id === appState.currentLessonId);
+            const lessonTitle = lesson ? lesson.title : '錯題本特訓';
+            
+            const totalQ = appState.sessionHistory.length;
+            const correctQ = appState.sessionHistory.filter(h => h.isCorrect).length;
+            const score = Math.round((correctQ / totalQ) * 100) || 0;
+            
+            let modeName = '';
+            if(appState.quizMode === 'hw_char') modeName = '紙筆特訓 (寫國字)';
+            else if(appState.quizMode === 'hw_pinyin') modeName = '紙筆特訓 (寫注音)';
+            else if(appState.quizMode === 'mcq') modeName = '選擇題特訓';
+            else modeName = '錯題本消滅戰';
+
+            appState.fullHistory.push({
+                date: dateString,
+                lessonId: appState.currentLessonId,
+                lessonTitle: lessonTitle,
+                modeName: modeName,
+                score: score,
+                correctQ: correctQ,
+                totalQ: totalQ,
+                records: [...appState.sessionHistory]
+            });
+            saveErrorData();
+            appState.sessionHistory = []; // 清空避免重複儲存
+        }
+
+        btnHome.addEventListener('click', () => {
+            if (appState.mode === 'quiz') {
+                if(!confirm('確定要中斷測驗嗎？這會結束目前的測驗並將已答題目存入歷史紀錄！')) return;
+                saveSessionToFullHistory(); // 中斷時保存已作答進度
+            }
+
+            if (appState.mode === 'quiz' || appState.mode === 'result') {
+                renderDashboard(appState.currentLessonId); 
+            } else {
+                renderLessonSelect(); 
+            }
+        });
+
+        function renderLessonSelect() {
+            loadErrorData();
+            btnHome.classList.add('hidden');
+            appState.mode = 'lesson_select';
+            appState.currentLessonId = null;
+            
+            appContainer.innerHTML = `
+                <div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden fade-in p-10">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+                        <div class="text-left">
+                            <h2 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">📚 選擇複習課次</h2>
+                            <p class="text-xl md:text-2xl text-gray-500 font-medium">請選擇你要進行特訓的課文</p>
+                        </div>
+                        <button onclick="downloadFullHistory()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded-2xl shadow-xl transition-transform hover:scale-105 text-xl flex items-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-down"></i> 下載歷史作答紀錄
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        ${LESSONS.map(lesson => {
+                            const errorCount = QUESTION_BANK.filter(q => q.lessonId === lesson.id && appState.errorBook.includes(q.id)).length;
+                            const badgeHtml = errorCount > 0 ? `<span class="bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm"><i class="fa-solid fa-fire"></i> ${errorCount} 題待消滅</span>` : '';
+                            
+                            return `
+                            <button 
+                                ${lesson.active ? `onclick="renderDashboard('${lesson.id}')"` : 'disabled'}
+                                class="w-full text-left p-8 rounded-2xl border-4 transition-all duration-200 
+                                ${lesson.active 
+                                    ? 'border-green-200 hover:border-green-500 hover:shadow-lg bg-green-50 hover:bg-green-100 cursor-pointer group' 
+                                    : 'border-gray-100 bg-gray-50 opacity-60 cursor-not-allowed'}"
+                            >
+                                <div class="flex justify-between items-center gap-4">
+                                    <div class="flex flex-col gap-3">
+                                        <h3 class="text-2xl md:text-3xl font-bold ${lesson.active ? 'text-green-800' : 'text-gray-500'}">
+                                            ${lesson.title}
+                                        </h3>
+                                        <div>${badgeHtml}</div>
+                                    </div>
+                                    ${lesson.active 
+                                        ? '<i class="fa-solid fa-arrow-right text-3xl text-green-500 opacity-0 group-hover:opacity-100 transition-opacity"></i>' 
+                                        : '<i class="fa-solid fa-lock text-3xl text-gray-300"></i>'}
+                                </div>
+                            </button>
+                            `
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        window.renderDashboard = function(lessonId) {
+            appState.currentLessonId = lessonId;
+            appState.mode = 'dashboard';
+            btnHome.classList.remove('hidden');
+            btnHome.innerHTML = '<i class="fa-solid fa-book"></i> 換課文'; 
+
+            const lesson = LESSONS.find(l => l.id === lessonId);
+            const errorBookCount = QUESTION_BANK.filter(q => q.lessonId === lessonId && appState.errorBook.includes(q.id)).length;
+
+            const lessonQs = QUESTION_BANK.filter(q => q.lessonId === lessonId);
+            const batches = [...new Set(lessonQs.map(q => q.batch || '原本題庫'))];
+            if(appState.selectedBatches.length === 0) {
+                appState.selectedBatches = [...batches];
+            }
+
+            const batchTagsHtml = batches.map(batch => `
+                <label class="inline-flex items-center cursor-pointer bg-white border-2 px-4 py-2 rounded-xl hover:bg-gray-50 transition ${appState.selectedBatches.includes(batch) ? 'border-green-500 shadow-sm' : 'border-gray-200'}">
+                    <input type="checkbox" class="hidden" value="${batch}" ${appState.selectedBatches.includes(batch) ? 'checked' : ''} onchange="toggleBatch(this)">
+                    <span class="text-lg font-bold ${appState.selectedBatches.includes(batch) ? 'text-green-700' : 'text-gray-500'}">
+                        ${appState.selectedBatches.includes(batch) ? '<i class="fa-solid fa-check-circle text-green-500 mr-1"></i>' : '<i class="fa-regular fa-circle text-gray-300 mr-1"></i>'}
+                        ${batch}
+                    </span>
+                </label>
+            `).join('');
+
+            appContainer.innerHTML = `
+                <div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden fade-in">
+                    <div class="bg-green-100 p-10 text-center border-b-4 border-green-200">
+                        <h2 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">${lesson.title}</h2>
+                        <p class="text-xl md:text-2xl text-green-700 font-bold">請選擇你要進行的特訓模式，準備好紙筆了嗎？</p>
+                    </div>
+                    
+                    <div class="p-8 bg-gray-50 border-b-2 border-gray-100 flex flex-col gap-4">
+                        <h3 class="text-2xl font-bold text-gray-700"><i class="fa-solid fa-tags"></i> 選擇本次要測驗的題庫範圍：</h3>
+                        <div class="flex flex-wrap gap-4">
+                            ${batchTagsHtml}
+                        </div>
+                    </div>
+
+                    <div class="p-10 flex flex-col gap-6">
+                        <button onclick="startQuiz('hw_char')" class="w-full group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-left text-white shadow-md transition-transform hover:-translate-y-1 hover:shadow-xl">
+                            <div class="relative z-10 flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-3xl font-bold mb-3"><i class="fa-solid fa-pen-nib"></i> 紙筆特訓 (考國字)</h3>
+                                    <p class="text-blue-100 text-xl font-medium">準備紙筆，挑戰課文生字，確保每個字都會寫！</p>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-5xl opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </button>
+
+                        <button onclick="startQuiz('hw_pinyin')" class="w-full group relative overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 p-8 text-left text-white shadow-md transition-transform hover:-translate-y-1 hover:shadow-xl">
+                            <div class="relative z-10 flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-3xl font-bold mb-3"><i class="fa-solid fa-comment-dots"></i> 紙筆特訓 (考注音)</h3>
+                                    <p class="text-cyan-100 text-xl font-medium">針對本課容易誤讀的破音字與難讀字進行測驗。</p>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-5xl opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </button>
+
+                        <button onclick="startQuiz('mcq')" class="w-full group relative overflow-hidden rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 p-8 text-left text-white shadow-md transition-transform hover:-translate-y-1 hover:shadow-xl">
+                            <div class="relative z-10 flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-3xl font-bold mb-3"><i class="fa-solid fa-list-check"></i> 選擇題特訓 (常識與理解)</h3>
+                                    <p class="text-green-100 text-xl font-medium">包含字音字形、成語、修辭與課文深度理解。</p>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-5xl opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </button>
+
+                        <button onclick="startQuiz('error_book')" class="w-full group relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 p-8 text-left text-white shadow-md transition-transform hover:-translate-y-1 hover:shadow-xl ${errorBookCount === 0 ? 'opacity-60 cursor-not-allowed grayscale' : ''}" ${errorBookCount === 0 ? 'disabled' : ''}>
+                            <div class="relative z-10 flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        <i class="fa-solid fa-fire"></i> 錯題本消滅戰
+                                    </h3>
+                                    <p class="text-orange-100 text-xl font-medium">
+                                        ${errorBookCount > 0 
+                                            ? `本課目前累積 <span class="font-black text-white bg-red-500 px-4 py-1 rounded-full">${errorBookCount}</span> 個弱點，答對即可消除！` 
+                                            : '太棒了！本課目前沒有錯題記錄。'
+                                        }
+                                    </p>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-5xl opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.startQuiz = function(mode) {
+            appState.mode = 'quiz';
+            appState.quizMode = mode;
+            appState.currentIndex = 0;
+            appState.score = 0;
+            appState.sessionMistakes = []; 
+            appState.sessionHistory = []; // 每次重新測驗清空軌跡
+            
+            let pool = QUESTION_BANK.filter(q => q.lessonId === appState.currentLessonId);
+
+            if (mode === 'hw_char') pool = pool.filter(q => q.type === 'handwriting' && q.category === '寫國字');
+            else if (mode === 'hw_pinyin') pool = pool.filter(q => q.type === 'handwriting' && q.category === '寫注音');
+            else if (mode === 'mcq') pool = pool.filter(q => q.type === 'mcq');
+            else if (mode === 'error_book') pool = pool.filter(q => appState.errorBook.includes(q.id));
+
+            // 過濾出目前勾選的題庫批次
+            pool = pool.filter(q => appState.selectedBatches.includes(q.batch || '原本題庫'));
+            
+            if (pool.length === 0) {
+                alert('請至少選擇一個題庫範圍！');
+                return;
+            }
+
+            appState.currentQuestions = shuffleArray(pool).map(q => {
+                const newQ = { ...q };
+                if (newQ.type === 'mcq' && newQ.options) {
+                    newQ.options = shuffleArray([...newQ.options]);
+                }
+                return newQ;
+            });
+
+            btnHome.innerHTML = '<i class="fa-solid fa-arrow-left"></i> 中斷測驗';
+            renderCurrentQuestion();
+        }
+
+        function renderCurrentQuestion() {
+            if (appState.currentIndex >= appState.currentQuestions.length) {
+                renderResult();
+                return;
+            }
+
+            const q = appState.currentQuestions[appState.currentIndex];
+            const progressPct = ((appState.currentIndex) / appState.currentQuestions.length) * 100;
+            const modeText = appState.quizMode === 'error_book' ? '<span class="text-amber-500 font-bold ml-2">【錯題消滅模式】</span>' : '';
+
+            let questionContent = '';
+
+            if (q.type === 'mcq') {
+                questionContent = `
+                    <p class="text-3xl md:text-4xl font-bold text-gray-800 leading-relaxed mb-8 font-kai">${q.question}</p>
+                    <div class="space-y-4" id="options-container">
+                        ${q.options.map((opt, idx) => `
+                            <button onclick="handleMCQSelection(${idx})" class="option-btn w-full text-left p-6 rounded-2xl border-4 border-gray-200 bg-white hover:border-green-400 hover:bg-green-50 text-gray-700 font-bold text-2xl shadow-sm">
+                                <span class="inline-block w-10 font-black text-gray-400">${String.fromCharCode(65 + idx)}.</span>${opt.text}
+                            </button>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (q.type === 'handwriting') {
+                const formattedText = q.question.replace(/\[\[(.*?):(.*?):(.*?)\]\]/g, (match, type, prompt, answer) => {
+                    let hint = type === '國字' ? '寫國字' : '寫注音';
+                    return `<span class="inline-flex flex-col items-center mx-2 align-bottom">
+                                <span class="text-gray-800 font-black text-4xl">${prompt}</span>
+                                <span class="text-lg text-blue-600 mb-2 font-bold">(${hint})</span>
+                                <span class="hw-blank border-b-4 border-gray-400 w-24 md:w-32 text-center text-transparent font-bold h-12 flex items-end justify-center pb-1 transition-colors duration-300" data-answer="${answer}">_</span>
+                            </span>`;
+                });
+                
+                questionContent = `
+                    <div class="bg-blue-50 border-l-8 border-blue-400 p-6 rounded-xl mb-8">
+                        <p class="text-blue-800 font-bold text-2xl md:text-3xl mb-2"><i class="fa-solid fa-pen-nib"></i> 紙筆測驗時間</p>
+                        <p class="text-xl text-blue-700 font-medium">請在紙上寫下對應的國字或注音，寫完後點擊下方按鈕對答案。</p>
+                    </div>
+                    <p class="text-3xl md:text-4xl text-gray-800 leading-relaxed mb-12 hw-text-container leading-loose font-kai">${formattedText}</p>
+                    
+                    <div id="hw-action-area" class="text-center">
+                        <button onclick="showHandwritingAnswer()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-5 px-12 rounded-full shadow-xl transition-transform hover:scale-105 text-2xl">
+                            <i class="fa-solid fa-eye"></i> 查看正確答案
+                        </button>
+                    </div>
+                `;
+            }
+
+            appContainer.innerHTML = `
+                <div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden fade-in flex flex-col">
+                    <div class="w-full bg-gray-200 h-4">
+                        <div class="bg-green-500 h-4 transition-all duration-500" style="width: ${progressPct}%"></div>
+                    </div>
+                    
+                    <div class="p-8 md:p-12 flex-1">
+                        <div class="flex justify-between items-center mb-8 border-b-2 pb-6">
+                            <div class="flex items-center gap-4">
+                                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-lg md:text-xl font-bold border-2">
+                                    ${q.category}
+                                </span>
+                                <span class="text-xl text-gray-500 font-bold">
+                                    第 ${appState.currentIndex + 1} / ${appState.currentQuestions.length} 題
+                                    ${modeText}
+                                </span>
+                            </div>
+                            <div class="flex items-center text-3xl">
+                                ${renderStars(q.difficulty, q.id)}
+                            </div>
+                        </div>
+                        ${questionContent}
+                        <div id="explanation-panel" class="hidden mt-8 bg-gray-50 rounded-2xl p-8 border-2 border-gray-200"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.handleMCQSelection = function(selectedIndex) {
+            const q = appState.currentQuestions[appState.currentIndex];
+            const optionsContainer = document.getElementById('options-container');
+            const buttons = optionsContainer.querySelectorAll('button');
+            const explanationPanel = document.getElementById('explanation-panel');
+            
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('hover:border-green-400', 'hover:bg-green-50', 'active:scale-95');
+                btn.classList.add('opacity-70', 'cursor-default');
+            });
+
+            const selectedOption = q.options[selectedIndex];
+            const isCorrect = selectedOption.isCorrect;
+
+            buttons.forEach((btn, idx) => {
+                if (q.options[idx].isCorrect) {
+                    btn.classList.remove('border-gray-200');
+                    btn.classList.add('border-green-500', 'bg-green-50', 'opacity-100');
+                    btn.innerHTML += ' <i class="fa-solid fa-circle-check text-green-500 float-right mt-1 text-xl"></i>';
+                } else if (idx === selectedIndex && !isCorrect) {
+                    btn.classList.remove('border-gray-200');
+                    btn.classList.add('border-red-400', 'bg-red-50', 'opacity-100');
+                    btn.innerHTML += ' <i class="fa-solid fa-circle-xmark text-red-500 float-right mt-1 text-xl"></i>';
+                }
+            });
+
+            // 記錄完整軌跡 (包含對/錯以及選項)
+            appState.sessionHistory.push({
+                id: q.id,
+                type: q.type,
+                category: q.category,
+                difficulty: q.difficulty,
+                question: q.question,
+                options: q.options, // 將完整的選項存起來
+                correctAnswer: q.options.find(o => o.isCorrect).text,
+                userAnswer: selectedOption.text,
+                explanation: q.options.find(o => o.isCorrect).explanation,
+                isCorrect: isCorrect
+            });
+
+            if (isCorrect) {
+                appState.score += 10;
+                recordSuccess(q.id);
+            } else recordMistake(q);
+
+            let explHtml = `
+                <div class="flex items-start gap-5">
+                    <div class="mt-2">
+                        ${isCorrect 
+                            ? '<i class="fa-solid fa-face-smile-beam text-6xl text-green-500"></i>' 
+                            : '<i class="fa-solid fa-face-frown-open text-6xl text-red-400"></i>'}
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-black text-3xl md:text-4xl ${isCorrect ? 'text-green-700' : 'text-red-700'} mb-4">
+                            ${isCorrect ? '答對了！' : '答錯囉，沒關係！'}
+                        </h4>
+                        <div class="text-gray-700 leading-relaxed mb-6">
+                            <p class="font-black text-2xl mb-3">【解析】</p>
+                            ${q.options.map((opt, idx) => `
+                                <p class="mb-3 text-xl ${idx === selectedIndex ? 'bg-yellow-100 rounded-lg p-3 font-bold' : 'p-3'}">
+                                    <span class="font-black">${String.fromCharCode(65 + idx)}.</span>${opt.explanation}
+                                </p>
+                            `).join('')}
+                        </div>
+                        <button onclick="nextQuestion()" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-5 rounded-2xl shadow-xl transition text-2xl">
+                            進入下一題 <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            explanationPanel.innerHTML = explHtml;
+            explanationPanel.classList.remove('hidden');
+            explanationPanel.classList.add('slide-up');
+        }
+
+        window.showHandwritingAnswer = function() {
+            const q = appState.currentQuestions[appState.currentIndex];
+            const blanks = document.querySelectorAll('.hw-blank');
+            blanks.forEach(b => {
+                b.classList.remove('text-transparent', 'border-gray-400');
+                b.classList.add('text-red-600', 'border-red-600', 'text-4xl', 'md:text-5xl');
+                b.innerHTML = b.getAttribute('data-answer');
+            });
+
+            const actionArea = document.getElementById('hw-action-area');
+            actionArea.innerHTML = `
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mt-8 slide-up">
+                    <button onclick="handleHandwritingResult(true)" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl transition text-2xl">
+                        <i class="fa-solid fa-check mr-2"></i> 我全寫對了
+                    </button>
+                    <button onclick="handleHandwritingResult(false)" class="flex-1 bg-red-400 hover:bg-red-500 text-white font-bold py-5 px-8 rounded-2xl shadow-xl transition text-2xl">
+                        <i class="fa-solid fa-xmark mr-2"></i> 我有寫錯字
+                    </button>
+                </div>
+                <p class="text-xl text-gray-500 font-bold mt-5">請誠實面對自己喔！錯了才能記進錯題本複習。</p>
+            `;
+
+            const explanationPanel = document.getElementById('explanation-panel');
+            explanationPanel.innerHTML = `
+                <div class="text-gray-700 leading-relaxed">
+                    <p class="font-black text-3xl md:text-4xl mb-4 text-indigo-700">正解：${q.correctAnswer}</p>
+                    <p class="text-2xl font-medium">${q.explanation}</p>
+                </div>
+                <div id="hw-next-container" class="hidden mt-8">
+                    <button onclick="nextQuestion()" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-5 rounded-2xl shadow-xl transition text-2xl">
+                        進入下一題 <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            `;
+            explanationPanel.classList.remove('hidden');
+            explanationPanel.classList.add('slide-up');
+        }
+
+        window.handleHandwritingResult = function(isCorrect) {
+            const q = appState.currentQuestions[appState.currentIndex];
+            const actionArea = document.getElementById('hw-action-area');
+            const nextContainer = document.getElementById('hw-next-container');
+            
+            actionArea.style.opacity = '0.5';
+            actionArea.style.pointerEvents = 'none';
+
+            // 記錄紙筆測驗軌跡
+            appState.sessionHistory.push({
+                id: q.id,
+                type: q.type,
+                category: q.category,
+                difficulty: q.difficulty,
+                question: q.question,
+                options: null, // 紙筆測驗不需要選項
+                correctAnswer: q.correctAnswer,
+                userAnswer: isCorrect ? '✅ 答對' : '❌ 答錯/有錯字',
+                explanation: q.explanation,
+                isCorrect: isCorrect
+            });
+
+            if (isCorrect) {
+                appState.score += 10;
+                recordSuccess(q.id);
+            } else recordMistake(q);
+
+            nextContainer.classList.remove('hidden');
+            nextContainer.classList.add('fade-in');
+        }
+
+        window.nextQuestion = function() {
+            appState.currentIndex++;
+            renderCurrentQuestion();
+        }
+
+        // 核心功能：組合 Markdown 格式字串
+        function generateMarkdown() {
+            const date = new Date();
+            const dateString = date.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
+            const lesson = LESSONS.find(l => l.id === appState.currentLessonId);
+            const lessonTitle = lesson ? lesson.title : '錯題本特訓';
+            const totalQ = appState.sessionHistory.length;
+            const correctQ = appState.sessionHistory.filter(h => h.isCorrect).length;
+            const score = Math.round((correctQ / totalQ) * 100) || 0;
+            
+            let modeName = '';
+            if(appState.quizMode === 'hw_char') modeName = '紙筆特訓 (寫國字)';
+            else if(appState.quizMode === 'hw_pinyin') modeName = '紙筆特訓 (寫注音)';
+            else if(appState.quizMode === 'mcq') modeName = '選擇題特訓';
+            else modeName = '錯題本消滅戰';
+
+            let md = `# 📖 國語特訓測驗紀錄\n\n`;
+            md += `- **測驗時間：** ${dateString}\n`;
+            md += `- **測驗單元：** ${lessonTitle}\n`;
+            md += `- **測驗模式：** ${modeName}\n`;
+            md += `- **測驗得分：** ${score} / 100 (${correctQ} / ${totalQ} 題)\n\n`;
+
+            const mistakes = appState.sessionHistory.filter(h => !h.isCorrect);
+            const corrects = appState.sessionHistory.filter(h => h.isCorrect);
+
+            md += `## ❌ 錯題分析 (需要加強)\n\n`;
+            if (mistakes.length === 0) {
+                md += `太棒了！本次測驗全對，沒有錯題。\n\n`;
+            } else {
+                mistakes.forEach((m, idx) => {
+                    let qText = m.question.replace(/\[\[(.*?):(.*?):(.*?)\]\]/g, '$2($1)');
+                    md += `### ${idx + 1}. [分類: ${m.category}] (難度: ${m.difficulty}星)\n`;
+                    md += `- **題目：** ${qText}\n`;
+                    
+                    // 如果是選擇題，將所有選項列出來給 AI 看
+                    if (m.type === 'mcq' && m.options) {
+                        m.options.forEach((opt, oIdx) => {
+                            let label = String.fromCharCode(65 + oIdx); // 轉換為 A, B, C, D
+                            md += `  - (${label}) ${opt.text}\n`;
+                        });
+                    }
+                    
+                    md += `- **小朋友的作答：** ${m.userAnswer}\n`;
+                    md += `- **正確答案：** ${m.correctAnswer}\n`;
+                    md += `- **解析重點：** ${m.explanation}\n\n`;
+                });
+            }
+
+            md += `## ✅ 答對題目 (已掌握)\n\n`;
+            if (corrects.length === 0) {
+                md += `本次測驗沒有答對的題目，請再接再厲！\n\n`;
+            } else {
+                corrects.forEach(c => {
+                    let qText = c.question.replace(/\[\[(.*?):(.*?):(.*?)\]\]/g, '$2($1)');
+                    md += `- **[${c.category}]** ${qText}\n`;
+                    
+                    // 答對的題目也附上選項(合併成一行)
+                    if (c.type === 'mcq' && c.options) {
+                        md += `  - 選項：${c.options.map((opt, oIdx) => `(${String.fromCharCode(65 + oIdx)})${opt.text}`).join(' / ')}\n`;
+                    }
+                    
+                    md += `  - **✅ 正解：** ${c.correctAnswer}\n\n`;
+                });
+            }
+
+            return md;
+        }
+
+        // 下載 Markdown 檔案功能
+        window.downloadMarkdown = function() {
+            const mdContent = generateMarkdown();
+            const blob = new Blob([mdContent], { type: 'text/markdown;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            
+            // 產生檔名
+            const dateObj = new Date();
+            const dateStr = dateObj.getFullYear() + String(dateObj.getMonth() + 1).padStart(2, '0') + String(dateObj.getDate()).padStart(2, '0');
+            const lessonId = appState.currentLessonId || 'ErrorBook';
+            
+            link.href = url;
+            link.setAttribute('download', `國語特訓_${lessonId}_${dateStr}.md`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        window.downloadFullHistory = function() {
+            if (appState.fullHistory.length === 0) {
+                alert('目前還沒有任何作答紀錄喔！請先進行測驗。');
+                return;
+            }
+
+            let md = `# [System Prompt] 給 AI 助手的指令：
+你是一個專業的國小國語家教。這份文件是學生最近的國語特訓作答紀錄。
+請幫我分析這些紀錄，並根據學生的「錯題」重新出題來加強弱點。
+
+【出題要求】：
+1. 分析錯題：找出學生容易混淆的字音、字形、或是理解錯誤的觀念。
+2. 針對每題錯題，請出 2 題「相似題」或「變化題」來加強練習。
+3. 針對答對的題目，若為選擇題，可以挑選 3~5 題出「進階延伸題」，測試是否真的懂了。
+4. 題目類別與原本格式保持一致（例如 'mcq' 選擇題、'handwriting' 紙筆測驗）。
+5. 輸出的格式必須是能直接執行的 JavaScript 程式碼（包含 \`const LESSONS = [...]\` 與 \`const QUESTION_BANK = [...]\`）。
+6. 新出題目的 batch 屬性請設定為 'AI加強題庫_日期'。
+7. 不要輸出任何其他的解釋或說明廢話，請只輸出 JavaScript 程式碼本身。
+
+以下為學生的歷史作答紀錄：
+==================================================
+
+# 📖 國語特訓 - 歷史累積作答紀錄總表\n\n`;
+            md += `*匯出時間：${new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })}*\n\n`;
+            
+            appState.fullHistory.forEach((session, sIdx) => {
+                md += `---\n\n`;
+                md += `## 測驗場次 ${sIdx + 1}\n`;
+                md += `- **時間：** ${session.date}\n`;
+                md += `- **單元：** ${session.lessonTitle}\n`;
+                md += `- **模式：** ${session.modeName}\n`;
+                md += `- **得分：** ${session.score} / 100 (${session.correctQ} / ${session.totalQ} 題)\n\n`;
+
+                const mistakes = session.records.filter(r => !r.isCorrect);
+                const corrects = session.records.filter(r => r.isCorrect);
+
+                md += `### ❌ 錯題分析 (需要加強)\n\n`;
+                if (mistakes.length === 0) {
+                    md += `全對，沒有錯題。\n\n`;
+                } else {
+                    mistakes.forEach((m, idx) => {
+                        let qText = m.question.replace(/\[\[(.*?):(.*?):(.*?)\]\]/g, '$2($1)');
+                        md += `#### ${idx + 1}. [分類: ${m.category}] (難度: ${m.difficulty}星)\n`;
+                        md += `- **題目：** ${qText}\n`;
+                        if (m.type === 'mcq' && m.options) {
+                            m.options.forEach((opt, oIdx) => {
+                                let label = String.fromCharCode(65 + oIdx);
+                                md += `  - (${label}) ${opt.text}\n`;
+                            });
+                        }
+                        md += `- **小朋友的作答：** ${m.userAnswer}\n`;
+                        md += `- **正確答案：** ${m.correctAnswer}\n`;
+                        md += `- **解析重點：** ${m.explanation}\n\n`;
+                    });
+                }
+
+                md += `### ✅ 答對題目 (已掌握)\n\n`;
+                if (corrects.length === 0) {
+                    md += `本次測驗沒有答對的題目。\n\n`;
+                } else {
+                    corrects.forEach(c => {
+                        let qText = c.question.replace(/\[\[(.*?):(.*?):(.*?)\]\]/g, '$2($1)');
+                        md += `- **[${c.category}]** ${qText}\n`;
+                        if (c.type === 'mcq' && c.options) {
+                            md += `  - 選項：${c.options.map((opt, oIdx) => `(${String.fromCharCode(65 + oIdx)})${opt.text}`).join(' / ')}\n`;
+                        }
+                        md += `  - **✅ 正解：** ${c.correctAnswer}\n\n`;
+                    });
+                }
+            });
+
+            const blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            
+            const dateObj = new Date();
+            const dateStr = dateObj.getFullYear() + String(dateObj.getMonth() + 1).padStart(2, '0') + String(dateObj.getDate()).padStart(2, '0');
+            
+            link.href = url;
+            link.setAttribute('download', `國語特訓累積紀錄_${dateStr}.md`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            setTimeout(() => {
+                if(confirm('紀錄已經下載成功！是否要清空網頁中累積的歷史紀錄，以便下次重新收集？\n(按「確定」清空，按「取消」保留)')) {
+                    appState.fullHistory = [];
+                    saveErrorData();
+                    alert('歷史紀錄已清空！');
+                }
+            }, 500);
+        }
+
+        function renderResult() {
+            appState.mode = 'result';
+            btnHome.innerHTML = '<i class="fa-solid fa-house"></i> 回選單';
+
+            saveSessionToFullHistory(); // 將此次完整測驗紀錄存入歷史
+
+            const total = appState.currentQuestions.length * 10;
+            const percentage = Math.round((appState.score / total) * 100) || 0;
+            
+            let message = '';
+            let icon = '';
+            if (percentage >= 90) {
+                message = '太厲害了！你對這部分的掌握度極高！';
+                icon = '<i class="fa-solid fa-crown text-yellow-500 text-7xl md:text-8xl mb-6 drop-shadow-lg"></i>';
+            } else if (percentage >= 60) {
+                message = '表現不錯！去錯題本消滅那些小錯誤就完美了！';
+                icon = '<i class="fa-solid fa-thumbs-up text-blue-500 text-7xl md:text-8xl mb-6 drop-shadow-lg"></i>';
+            } else {
+                message = '再接再厲！多利用錯題本複習幾次一定會進步的！';
+                icon = '<i class="fa-solid fa-seedling text-green-500 text-7xl md:text-8xl mb-6 drop-shadow-lg"></i>';
+            }
+
+            let errorTableHtml = '';
+            if (appState.sessionMistakes.length > 0) {
+                errorTableHtml = `
+                    <div class="mt-12 text-left w-full fade-in">
+                        <div class="flex items-center gap-3 mb-6">
+                            <h3 class="text-3xl font-bold text-red-600"><i class="fa-solid fa-triangle-exclamation"></i> 本次錯題總表</h3>
+                            <span class="bg-red-100 text-red-800 text-xl font-bold px-4 py-1 rounded-full">共 ${appState.sessionMistakes.length} 題</span>
+                        </div>
+                        <div class="overflow-x-auto rounded-2xl border-4 border-gray-200 shadow-sm">
+                            <table class="min-w-full divide-y-2 divide-gray-200 bg-white">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-5 font-bold text-gray-700 text-left w-32 text-xl">題型</th>
+                                        <th class="px-6 py-5 font-bold text-gray-700 text-left text-xl">題目預覽</th>
+                                        <th class="px-6 py-5 font-bold text-gray-700 text-left w-32 text-xl">正解</th>
+                                        <th class="px-6 py-5 font-bold text-gray-700 text-left min-w-[300px] text-xl">重點解析</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y-2 divide-gray-200">
+                                    ${appState.sessionMistakes.map(q => {
+                                        let qTextPreview = q.type === 'handwriting' 
+                                            ? q.question.replace(/\[\[(.*?):(.*?):(.*?)\]\]/g, '$2($1)')
+                                            : q.question;
+                                        
+                                        let correctAnswerText = q.type === 'mcq' 
+                                            ? (q.options.find(o => o.isCorrect)?.text || '') 
+                                            : q.correctAnswer;
+                                            
+                                        let explText = q.type === 'mcq'
+                                            ? (q.options.find(o => o.isCorrect)?.explanation || '')
+                                            : q.explanation;
+                                            
+                                        return `
+                                            <tr class="hover:bg-red-50 transition-colors">
+                                                <td class="px-6 py-5 text-gray-500 whitespace-nowrap">
+                                                    <span class="bg-gray-100 border-2 px-3 py-1 rounded-lg text-lg font-bold">${q.category}</span>
+                                                </td>
+                                                <td class="px-6 py-5 text-gray-800 font-bold text-xl leading-relaxed">${qTextPreview}</td>
+                                                <td class="px-6 py-5 font-black text-green-600 text-2xl">${correctAnswerText}</td>
+                                                <td class="px-6 py-5 text-gray-700 text-lg leading-relaxed font-medium">${explText}</td>
+                                            </tr>
+                                        `;
+                                    }).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+
+            appContainer.innerHTML = `
+                <div class="w-full max-w-6xl bg-white rounded-3xl shadow-2xl p-10 md:p-14 text-center fade-in">
+                    ${icon}
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-800 mb-4">測驗完成</h2>
+                    <p class="text-2xl text-gray-600 mb-10 font-bold">${message}</p>
+                    
+                    <div class="bg-gray-50 rounded-3xl p-8 mb-8 border-4 border-gray-100 flex justify-around items-center max-w-3xl mx-auto">
+                        <div>
+                            <p class="text-2xl text-gray-500 font-bold mb-2">本次得分</p>
+                            <p class="text-7xl font-black text-green-600">${appState.score}</p>
+                        </div>
+                        <div class="h-24 w-1 bg-gray-300"></div>
+                        <div>
+                            <p class="text-2xl text-gray-500 font-bold mb-2">新增 / 未消滅錯題</p>
+                            <p class="text-7xl font-black text-red-500">${appState.sessionMistakes.length}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- AI 分析報告下載與咒語區 -->
+                    <div class="mt-8 bg-indigo-50 p-8 rounded-3xl border-4 border-indigo-100 text-left mb-8 max-w-4xl mx-auto shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="fa-solid fa-robot text-4xl text-indigo-600"></i>
+                            <h3 class="text-3xl font-bold text-indigo-800">交給 AI 幫你深度分析</h3>
+                        </div>
+                        <p class="text-xl text-gray-700 mb-6 font-medium">你可以下載包含作答軌跡的紀錄檔，並連同下方的「魔法指令」交給 ChatGPT 或 Gemini，讓 AI 成為專屬家教對症下藥！</p>
+                        
+                        <button onclick="downloadMarkdown()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-5 rounded-2xl shadow-xl transition-transform hover:-translate-y-1 text-2xl mb-6">
+                            <i class="fa-solid fa-download mr-2"></i> 下載 AI 專用測驗紀錄 (.md)
+                        </button>
+                        
+                        <div class="bg-white p-5 rounded-xl border-2 border-indigo-200">
+                            <p class="font-bold text-indigo-600 mb-3 text-lg"><i class="fa-regular fa-copy"></i> 家長專用指令（請複製以下文字貼給 AI）：</p>
+                            <textarea readonly class="w-full h-40 bg-gray-50 border-2 border-gray-200 rounded-lg p-4 text-gray-700 text-lg resize-none focus:outline-none font-medium leading-relaxed">這是我孩子今天的國語測驗紀錄。請你扮演專業且親切的國小國語老師，幫我進行以下分析：
+1. 弱點診斷：根據錯題與他選擇的錯誤答案，分析他哪邊觀念最薄弱？
+2. 針對性補強：針對他答錯的知識點，重新出 3 題類似的題目讓他練習。
+3. 延伸挑戰：根據他已經答對的部分，出 2 題稍微進階的題目來擴充他的能力。</textarea>
+                        </div>
+                    </div>
+
+                    ${errorTableHtml}
+
+                    <div class="mt-14">
+                        <button onclick="renderDashboard('${appState.currentLessonId}')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-6 px-16 rounded-full shadow-2xl transition-transform hover:scale-105 w-full max-w-lg text-3xl">
+                            返回課次選單
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.onload = () => {
+            renderLessonSelect();
+        };
+    </script>
+</body>
+</html>

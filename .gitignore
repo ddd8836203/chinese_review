@@ -1,0 +1,5 @@
+*.backup.*
+非主要檔案/
+*.txt
+*.md
+!README.md

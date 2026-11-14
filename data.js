@@ -1,6 +1,6 @@
 // ============================================================================
 // 六年級國語科段考複習系統 2.0 - 核心題庫 (data.js)
-// 包含：第一課～第六課完整題庫 (174題) + 114學年六校期中考真題 (131題)
+// 包含：第一課～第六課完整題庫 (174題) + 114學年六校期中考真題 (202題) + 八大弱點專項 (TOPICS)
 // ============================================================================
 
 const LESSONS = [
@@ -73,6 +73,111 @@ const LESSONS = [
 // 相容數學網頁 2.0 欄位別名
 const UNITS = LESSONS;
 
+const TOPICS = [
+    {
+        "id": "IDM",
+        "no": 1,
+        "hue": 24,
+        "icon": "🐉",
+        "title": "🐉 成語大挑戰",
+        "shortTitle": "成語與四字詞語",
+        "pages": "跨課次＋六校真題",
+        "badge": "🔥 弱點首選・段考必考",
+        "isHighlight": true,
+        "subFilters": [
+            {
+                "id": "ALL",
+                "name": "全部成語特訓"
+            },
+            {
+                "id": "CTX",
+                "name": "段考多選一情境填空"
+            },
+            {
+                "id": "MEAN_CLS",
+                "name": "成語釋義・分類・典故"
+            }
+        ]
+    },
+    {
+        "id": "ERR",
+        "no": 2,
+        "hue": 345,
+        "icon": "🔍",
+        "title": "🔍 改錯與形近字",
+        "shortTitle": "改錯與形近字",
+        "pages": "同音異字・偏旁部首",
+        "badge": "⚡ 段考高頻陷阱",
+        "isHighlight": false
+    },
+    {
+        "id": "PHO",
+        "no": 3,
+        "hue": 195,
+        "icon": "🔊",
+        "title": "🔊 多音字與字音",
+        "shortTitle": "多音字與字音",
+        "pages": "一字多音・易誤讀音",
+        "badge": "🎯 聲調精準辨析",
+        "isHighlight": false
+    },
+    {
+        "id": "SEM",
+        "no": 4,
+        "hue": 265,
+        "icon": "📘",
+        "title": "📘 字詞義與多義字",
+        "shortTitle": "字詞義與多義字",
+        "pages": "一字多義・古今詞義",
+        "badge": "💡 語境詞義推論",
+        "isHighlight": false
+    },
+    {
+        "id": "RHE",
+        "no": 5,
+        "hue": 295,
+        "icon": "✨",
+        "title": "✨ 修辭・句型與標點",
+        "shortTitle": "修辭句型與標點",
+        "pages": "擬人借喻・破折號・複句",
+        "badge": "🎨 語法與寫作技巧",
+        "isHighlight": false
+    },
+    {
+        "id": "RDG",
+        "no": 6,
+        "hue": 165,
+        "icon": "📖",
+        "title": "📖 課外閱讀與古詩",
+        "shortTitle": "課外閱讀與古詩",
+        "pages": "唐詩律詩・長文素養・國學",
+        "badge": "📜 跨文本閱讀理解",
+        "isHighlight": false
+    },
+    {
+        "id": "CHR",
+        "no": 7,
+        "hue": 42,
+        "icon": "✍️",
+        "title": "✍️ 國字注音手寫",
+        "shortTitle": "國字注音手寫",
+        "pages": "紙筆默寫・筆順結構",
+        "badge": "📝 實體手寫基本功",
+        "isHighlight": false
+    },
+    {
+        "id": "TXT",
+        "no": 8,
+        "hue": 225,
+        "icon": "🧠",
+        "title": "🧠 課文熟練與推論",
+        "shortTitle": "課文熟練與推論",
+        "pages": "第一課～第六課精熟",
+        "badge": "📚 課文主旨與細節",
+        "isHighlight": false
+    }
+];
+
 const QUESTION_BANK = [
     {
         "id": "q_l1_hw_char_1",
@@ -85,7 +190,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「塵垢」指灰塵和汙垢。注意「垢」是土部，不要寫成水部喔！",
         "unitId": "L1",
         "batch": "寫國字",
-        "trap": "「塵垢」指灰塵和汙垢。注意「垢」是土部，不要寫成水部喔！"
+        "trap": "「塵垢」指灰塵和汙垢。注意「垢」是土部，不要寫成水部喔！",
+        "code": "L01-CHR.HAN-S2-01",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "塵垢"
+        ]
     },
     {
         "id": "q_l1_hw_char_2",
@@ -98,7 +213,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「曝」指在陽光下晒，注意左邊是日部。",
         "unitId": "L1",
         "batch": "寫國字",
-        "trap": "「曝」指在陽光下晒，注意左邊是日部。"
+        "trap": "「曝」指在陽光下晒，注意左邊是日部。",
+        "code": "L01-CHR.HAN-S3-02",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "鳳",
+            "頁",
+            "曝"
+        ]
     },
     {
         "id": "q_l1_hw_char_3",
@@ -111,7 +238,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「陰霾」的霾是雨部。「涉水」指從水裡走過去。「腳跡」就是足跡。",
         "unitId": "L1",
         "batch": "寫國字",
-        "trap": "「陰霾」的霾是雨部。「涉水」指從水裡走過去。「腳跡」就是足跡。"
+        "trap": "「陰霾」的霾是雨部。「涉水」指從水裡走過去。「腳跡」就是足跡。",
+        "code": "L01-CHR.HAN-S4-03",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "霾",
+            "涉",
+            "跡"
+        ]
     },
     {
         "id": "q_l1_hw_char_4",
@@ -124,7 +263,18 @@ const QUESTION_BANK = [
         "explanation": "【解說】「爽」要注意筆順。「暈」皺是指水面產生了波紋，是日部。",
         "unitId": "L1",
         "batch": "寫國字",
-        "trap": "「爽」要注意筆順。「暈」皺是指水面產生了波紋，是日部。"
+        "trap": "「爽」要注意筆順。「暈」皺是指水面產生了波紋，是日部。",
+        "code": "L01-CHR.HAN-S2-04",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "爽",
+            "暈"
+        ]
     },
     {
         "id": "q_l1_hw_py_1",
@@ -137,7 +287,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「暈皺」是指水面產生波紋，讀四聲「ㄩㄣˋ」。不要念成頭暈的「ㄩㄣ」！",
         "unitId": "L1",
         "batch": "寫注音",
-        "trap": "「暈皺」是指水面產生波紋，讀四聲「ㄩㄣˋ」。不要念成頭暈的「ㄩㄣ」！"
+        "trap": "「暈皺」是指水面產生波紋，讀四聲「ㄩㄣˋ」。不要念成頭暈的「ㄩㄣ」！",
+        "code": "L01-CHR.ZHU-S3-05",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄩㄣˋ"
+        ]
     },
     {
         "id": "q_l1_hw_py_2",
@@ -150,7 +310,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「曝」指在陽光下晒，讀作「ㄆㄨˋ」。很容易念錯成暴，要特別注意！",
         "unitId": "L1",
         "batch": "寫注音",
-        "trap": "「曝」指在陽光下晒，讀作「ㄆㄨˋ」。很容易念錯成暴，要特別注意！"
+        "trap": "「曝」指在陽光下晒，讀作「ㄆㄨˋ」。很容易念錯成暴，要特別注意！",
+        "code": "L01-CHR.ZHU-S4-06",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄆㄨˋ"
+        ]
     },
     {
         "id": "q_l1_hw_py_3",
@@ -163,7 +333,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「陰霾」讀作第二聲「ㄇㄞˊ」，形容天氣陰沉。",
         "unitId": "L1",
         "batch": "寫注音",
-        "trap": "「陰霾」讀作第二聲「ㄇㄞˊ」，形容天氣陰沉。"
+        "trap": "「陰霾」讀作第二聲「ㄇㄞˊ」，形容天氣陰沉。",
+        "code": "L01-CHR.ZHU-S3-07",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄇㄞˊ"
+        ]
     },
     {
         "id": "q_l1_hw_py_4",
@@ -176,7 +356,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「塵垢」讀作第四聲「ㄍㄡˋ」，指灰塵和汙垢。",
         "unitId": "L1",
         "batch": "寫注音",
-        "trap": "「塵垢」讀作第四聲「ㄍㄡˋ」，指灰塵和汙垢。"
+        "trap": "「塵垢」讀作第四聲「ㄍㄡˋ」，指灰塵和汙垢。",
+        "code": "L01-CHR.ZHU-S2-08",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄍㄡˋ"
+        ]
     },
     {
         "id": "q_l1_mc_1",
@@ -209,7 +399,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L1",
         "batch": "原本題庫",
-        "trap": "「爽」字筆畫正確。"
+        "trap": "「爽」字筆畫正確。",
+        "code": "L01-ERR.PSG-S1-01",
+        "domain": "ERR",
+        "subType": "PSG",
+        "tags": [
+            "ERR",
+            "PSG"
+        ],
+        "targets": [
+            "涼爽微風"
+        ]
     },
     {
         "id": "q_l1_mc_2",
@@ -242,7 +442,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L1",
         "batch": "原本題庫",
-        "trap": "作者發揮想像力，將鳳蝶有斑紋的翅膀比喻為裝飾著色彩的書頁。"
+        "trap": "作者發揮想像力，將鳳蝶有斑紋的翅膀比喻為裝飾著色彩的書頁。",
+        "code": "L01-TXT.MAIN-S3-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "蝴蝶美麗的翅膀"
+        ]
     },
     {
         "id": "q_l1_mc_3",
@@ -275,7 +485,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L1",
         "batch": "原本題庫",
-        "trap": "「了」表現出狀態的轉變，充滿雨後初晴的驚喜。"
+        "trap": "「了」表現出狀態的轉變，充滿雨後初晴的驚喜。",
+        "code": "L01-TXT.DTL-S4-02",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "帶有「剛下過雨，才剛轉晴」的濕潤與新鮮感"
+        ]
     },
     {
         "id": "q_l1_mc_new_1",
@@ -308,7 +528,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "「火傘高張」形容烈日當空，非常炎熱。"
+        "trap": "「火傘高張」形容烈日當空，非常炎熱。",
+        "code": "L01-IDM.CLS-S2-01",
+        "domain": "IDM",
+        "subType": "CLS",
+        "tags": [
+            "IDM",
+            "CLS"
+        ],
+        "targets": [
+            "火傘高張"
+        ]
     },
     {
         "id": "q_l1_mc_new_2",
@@ -341,7 +571,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "水滴下去馬上結冰，形容非常寒冷。"
+        "trap": "水滴下去馬上結冰，形容非常寒冷。",
+        "code": "L01-IDM.CLS-S2-02",
+        "domain": "IDM",
+        "subType": "CLS",
+        "tags": [
+            "IDM",
+            "CLS"
+        ],
+        "targets": [
+            "氣候極度寒冷"
+        ]
     },
     {
         "id": "q_l1_mc_new_3",
@@ -374,7 +614,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "冒號在這裡用來提示讀者，後面要列舉出「在天晴了的時候」可以做的各種動作。"
+        "trap": "冒號在這裡用來提示讀者，後面要列舉出「在天晴了的時候」可以做的各種動作。",
+        "code": "L01-RHE.PUNC-S3-01",
+        "domain": "RHE",
+        "subType": "PUNC",
+        "tags": [
+            "RHE",
+            "PUNC"
+        ],
+        "targets": [
+            "總起下文，帶出後面一連串的行為列舉"
+        ]
     },
     {
         "id": "q_l1_mc_new_4",
@@ -407,7 +657,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "夾在中間用來告訴讀者，暗綠就是雲的影子。"
+        "trap": "夾在中間用來告訴讀者，暗綠就是雲的影子。",
+        "code": "L01-RHE.PUNC-S4-02",
+        "domain": "RHE",
+        "subType": "PUNC",
+        "tags": [
+            "RHE",
+            "PUNC"
+        ],
+        "targets": [
+            "夾注號，用來補充說明前面的「山間移動的暗"
+        ]
     },
     {
         "id": "q_l1_mc_new_5",
@@ -440,7 +700,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "把小白菊賦予了人類「膽怯」與「抬頭」的動作，讓它看起來更有生命力。"
+        "trap": "把小白菊賦予了人類「膽怯」與「抬頭」的動作，讓它看起來更有生命力。",
+        "code": "L01-RHE.FIG-S2-03",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "擬人 (轉化)"
+        ]
     },
     {
         "id": "q_l1_mc_new_6",
@@ -473,7 +743,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "雲遮住陽光在山上形成的陰影，被詩人浪漫地想像成雲的腳印。"
+        "trap": "雲遮住陽光在山上形成的陰影，被詩人浪漫地想像成雲的腳印。",
+        "code": "L01-TXT.MAIN-S3-03",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "山間移動的暗綠，也就是雲的影子在山林間移"
+        ]
     },
     {
         "id": "q_l1_mc_new_7",
@@ -506,7 +786,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "畫面中只有爺爺和小女孩，沒有畫小狗。"
+        "trap": "畫面中只有爺爺和小女孩，沒有畫小狗。",
+        "code": "L01-TXT.DTL-S2-04",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "在水窪中玩耍的小狗"
+        ]
     },
     {
         "id": "q_l1_mc_new_8",
@@ -539,7 +829,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "指雨水把草葉上的灰塵都洗乾淨了。"
+        "trap": "指雨水把草葉上的灰塵都洗乾淨了。",
+        "code": "L01-SEM.DEF-S2-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "灰塵與汙垢"
+        ]
     },
     {
         "id": "q_l1_mc_new_9",
@@ -572,7 +872,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "透過各種感官描寫，帶領讀者享受大自然雨過天晴的清新。"
+        "trap": "透過各種感官描寫，帶領讀者享受大自然雨過天晴的清新。",
+        "code": "L01-TXT.MAIN-S3-05",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "體會人與自然的關係，感受雨後大自然帶來的"
+        ]
     },
     {
         "id": "q_l1_mc_new_10",
@@ -605,7 +915,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "形容風吹過水面引起的細小波浪。"
+        "trap": "形容風吹過水面引起的細小波浪。",
+        "code": "L01-SEM.DEF-S2-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "水面因為微風吹拂而產生波紋"
+        ]
     },
     {
         "id": "q_l1_mc_new_11",
@@ -638,7 +958,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "陽光出來，驅散了原本陰暗的天氣。"
+        "trap": "陽光出來，驅散了原本陰暗的天氣。",
+        "code": "L01-SEM.DEF-S3-03",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "指陰沉、昏暗的天氣或雲霧"
+        ]
     },
     {
         "id": "q_l1_mc_new_12",
@@ -671,7 +1001,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "這些動作充滿了親近大自然的快樂。"
+        "trap": "這些動作充滿了親近大自然的快樂。",
+        "code": "L01-TXT.DTL-S2-06",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "赤著腳，攜著手，涉過溪流"
+        ]
     },
     {
         "id": "q_l1_mc_new_13",
@@ -704,7 +1044,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "形容雨下個不停的樣子。"
+        "trap": "形容雨下個不停的樣子。",
+        "code": "L01-IDM.CLS-S2-03",
+        "domain": "IDM",
+        "subType": "CLS",
+        "tags": [
+            "IDM",
+            "CLS"
+        ],
+        "targets": [
+            "連續不斷地下雨，天氣潮濕"
+        ]
     },
     {
         "id": "q_l1_mc_new_14",
@@ -737,7 +1087,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "這是一首沒有嚴格格律限制的現代詩。"
+        "trap": "這是一首沒有嚴格格律限制的現代詩。",
+        "code": "L01-RDG.LIT-S3-01",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "現代詩 (新詩)"
+        ]
     },
     {
         "id": "q_l1_mc_new_15",
@@ -770,7 +1130,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "賦予陽光人類「推開」的動作，讓畫面更有力量。"
+        "trap": "賦予陽光人類「推開」的動作，讓畫面更有力量。",
+        "code": "L01-RHE.FIG-S2-04",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "擬人 (轉化)"
+        ]
     },
     {
         "id": "q_l1_mc_new_16",
@@ -803,7 +1173,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "用「試試」兩個字，將小白菊開花的過程寫得生動又惹人憐愛。"
+        "trap": "用「試試」兩個字，將小白菊開花的過程寫得生動又惹人憐愛。",
+        "code": "L01-RHE.WRT-S4-05",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "生動描寫出花朵在雨後小心翼翼、逐漸開放的"
+        ]
     },
     {
         "id": "q_l1_mc_new_17",
@@ -836,7 +1216,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L1",
-        "trap": "充滿了想與人分享大自然美好的熱情。"
+        "trap": "充滿了想與人分享大自然美好的熱情。",
+        "code": "L01-TXT.DTL-S3-07",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "期待與邀請的語氣"
+        ]
     },
     {
         "id": "q_l2_hw_char_1",
@@ -849,7 +1239,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】這幾個字都跟植物有關。注意「栽」是木部，「藤」與「蔓」都是艸部。",
         "unitId": "L2",
         "batch": "寫國字",
-        "trap": "這幾個字都跟植物有關。注意「栽」是木部，「藤」與「蔓」都是艸部。"
+        "trap": "這幾個字都跟植物有關。注意「栽」是木部，「藤」與「蔓」都是艸部。",
+        "code": "L02-CHR.HAN-S3-01",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "栽",
+            "茂",
+            "藤",
+            "蔓"
+        ]
     },
     {
         "id": "q_l2_hw_char_2",
@@ -862,7 +1265,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「掀」開(手部)、「添」加(水部)、「熟悉」的悉下面是心部。",
         "unitId": "L2",
         "batch": "寫國字",
-        "trap": "「掀」開(手部)、「添」加(水部)、「熟悉」的悉下面是心部。"
+        "trap": "「掀」開(手部)、「添」加(水部)、「熟悉」的悉下面是心部。",
+        "code": "L02-CHR.HAN-S3-02",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "掀",
+            "添",
+            "免",
+            "悉"
+        ]
     },
     {
         "id": "q_l2_hw_char_3",
@@ -875,7 +1291,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「縫隙」的隙(阜部，左耳旁)筆畫多要小心。「櫃」是木部。",
         "unitId": "L2",
         "batch": "寫國字",
-        "trap": "「縫隙」的隙(阜部，左耳旁)筆畫多要小心。「櫃」是木部。"
+        "trap": "「縫隙」的隙(阜部，左耳旁)筆畫多要小心。「櫃」是木部。",
+        "code": "L02-CHR.HAN-S4-03",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "隙",
+            "尚",
+            "櫃"
+        ]
     },
     {
         "id": "q_l2_hw_char_4",
@@ -888,7 +1316,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「稿紙」的稿(禾部)、「顫動」的顫(頁部，筆畫非常多)、「日暮」的暮(日部)。",
         "unitId": "L2",
         "batch": "寫國字",
-        "trap": "「稿紙」的稿(禾部)、「顫動」的顫(頁部，筆畫非常多)、「日暮」的暮(日部)。"
+        "trap": "「稿紙」的稿(禾部)、「顫動」的顫(頁部，筆畫非常多)、「日暮」的暮(日部)。",
+        "code": "L02-CHR.HAN-S3-04",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "稿",
+            "顫",
+            "暮"
+        ]
     },
     {
         "id": "q_l2_hw_char_5",
@@ -901,7 +1341,21 @@ const QUESTION_BANK = [
         "explanation": "【解說】「絨毛」(糸部)、「咂嘴」(口部)、「流瀉」(水部，像水一樣流下)、「信賴」(貝部)。",
         "unitId": "L2",
         "batch": "寫國字",
-        "trap": "「絨毛」(糸部)、「咂嘴」(口部)、「流瀉」(水部，像水一樣流下)、「信賴」(貝部)。"
+        "trap": "「絨毛」(糸部)、「咂嘴」(口部)、「流瀉」(水部，像水一樣流下)、「信賴」(貝部)。",
+        "code": "L02-CHR.HAN-S4-05",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "肩",
+            "絨",
+            "咂",
+            "瀉",
+            "賴"
+        ]
     },
     {
         "id": "q_l2_hw_py_1",
@@ -914,7 +1368,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】藤「蔓」讀作「ㄇㄢˋ」，不要念成「ㄨㄢˋ」或「ㄇㄢˊ」喔！",
         "unitId": "L2",
         "batch": "寫注音",
-        "trap": "藤「蔓」讀作「ㄇㄢˋ」，不要念成「ㄨㄢˋ」或「ㄇㄢˊ」喔！"
+        "trap": "藤「蔓」讀作「ㄇㄢˋ」，不要念成「ㄨㄢˋ」或「ㄇㄢˊ」喔！",
+        "code": "L02-CHR.ZHU-S3-06",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄇㄢˋ"
+        ]
     },
     {
         "id": "q_l2_hw_py_2",
@@ -927,7 +1391,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】縫「隙」讀作四聲「ㄒㄧˋ」，常常有人誤念成一聲，要特別注意。",
         "unitId": "L2",
         "batch": "寫注音",
-        "trap": "縫「隙」讀作四聲「ㄒㄧˋ」，常常有人誤念成一聲，要特別注意。"
+        "trap": "縫「隙」讀作四聲「ㄒㄧˋ」，常常有人誤念成一聲，要特別注意。",
+        "code": "L02-CHR.ZHU-S3-07",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄒㄧˋ"
+        ]
     },
     {
         "id": "q_l2_hw_py_3",
@@ -940,7 +1414,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「顫」動讀作四聲「ㄓㄢˋ」，形容細微的抖動。",
         "unitId": "L2",
         "batch": "寫注音",
-        "trap": "「顫」動讀作四聲「ㄓㄢˋ」，形容細微的抖動。"
+        "trap": "「顫」動讀作四聲「ㄓㄢˋ」，形容細微的抖動。",
+        "code": "L02-CHR.ZHU-S4-08",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄓㄢˋ"
+        ]
     },
     {
         "id": "q_l2_hw_py_4",
@@ -953,7 +1437,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「咂」嘴讀作一聲「ㄗㄚ」，形容嘴巴開合發出聲音的樣子。",
         "unitId": "L2",
         "batch": "寫注音",
-        "trap": "「咂」嘴讀作一聲「ㄗㄚ」，形容嘴巴開合發出聲音的樣子。"
+        "trap": "「咂」嘴讀作一聲「ㄗㄚ」，形容嘴巴開合發出聲音的樣子。",
+        "code": "L02-CHR.ZHU-S3-09",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄗㄚ"
+        ]
     },
     {
         "id": "q_l2_hw_py_5",
@@ -966,7 +1460,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】流「瀉」讀作四聲「ㄒㄧㄝˋ」。",
         "unitId": "L2",
         "batch": "寫注音",
-        "trap": "流「瀉」讀作四聲「ㄒㄧㄝˋ」。"
+        "trap": "流「瀉」讀作四聲「ㄒㄧㄝˋ」。",
+        "code": "L02-CHR.ZHU-S2-10",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄒㄧㄝˋ"
+        ]
     },
     {
         "id": "q_l2_mc_1",
@@ -999,7 +1503,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "錯誤！是因為「胸部下方兩側布有白色小圓點，狀如珍珠」而得名，不是因為眼睛。"
+        "trap": "錯誤！是因為「胸部下方兩側布有白色小圓點，狀如珍珠」而得名，不是因為眼睛。",
+        "code": "L02-TXT.DTL-S2-01",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "因為眼睛長得像珍珠而得名"
+        ]
     },
     {
         "id": "q_l2_mc_2",
@@ -1032,7 +1546,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "沒有錯別字。"
+        "trap": "沒有錯別字。",
+        "code": "L02-ERR.PSG-S2-01",
+        "domain": "ERR",
+        "subType": "PSG",
+        "tags": [
+            "ERR",
+            "PSG"
+        ],
+        "targets": [
+            "這小傢伙竟趴在我的肩頭上睡著了。"
+        ]
     },
     {
         "id": "q_l2_mc_3",
@@ -1065,7 +1589,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "這是課本注釋的解釋，表示作者與小鳥關係非常親暱。"
+        "trap": "這是課本注釋的解釋，表示作者與小鳥關係非常親暱。",
+        "code": "L02-SEM.DEF-S2-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "對人或動物親密、開玩笑的稱呼"
+        ]
     },
     {
         "id": "q_l2_mc_4",
@@ -1098,7 +1632,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "將連續動作切分為好幾個細微的畫面一一描寫(如：挨近→蹦上→俯下喝茶→偏臉看)，就像慢速播放，能讓內容更鮮活。"
+        "trap": "將連續動作切分為好幾個細微的畫面一一描寫(如：挨近→蹦上→俯下喝茶→偏臉看)，就像慢速播放，能讓內容更鮮活。",
+        "code": "L02-RHE.WRT-S4-01",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "慢速播放"
+        ]
     },
     {
         "id": "q_l2_mc_5",
@@ -1131,7 +1675,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "從鳥籠四周→書桌→稿紙→肩膀，空間上的拉近完美呼應了信任感的建立。"
+        "trap": "從鳥籠四周→書桌→稿紙→肩膀，空間上的拉近完美呼應了信任感的建立。",
+        "code": "L02-TXT.DTL-S4-02",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "空間距離越靠近作者，代表彼此的關係越親近"
+        ]
     },
     {
         "id": "q_l2_mc_6",
@@ -1164,7 +1718,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "這正是第七段中對幼鳥外型的生動描寫。"
+        "trap": "這正是第七段中對幼鳥外型的生動描寫。",
+        "code": "L02-TXT.DTL-S1-03",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "尚未生出白點，整個身子像一顆鬆軟的球兒"
+        ]
     },
     {
         "id": "q_l2_mc_7",
@@ -1197,7 +1761,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "這顯示了作者對動物的尊重，也是建立「信賴」的第一步。"
+        "trap": "這顯示了作者對動物的尊重，也是建立「信賴」的第一步。",
+        "code": "L02-TXT.DTL-S3-04",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "給予鳥兒安全感，以免嚇到牠們"
+        ]
     },
     {
         "id": "q_l2_mc_8",
@@ -1230,7 +1804,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "第十一段清楚寫到「天色入暮，牠就在父母的再三呼喚中，飛向籠子」。"
+        "trap": "第十一段清楚寫到「天色入暮，牠就在父母的再三呼喚中，飛向籠子」。",
+        "code": "L02-TXT.DTL-S2-05",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "天色入暮，在父母的再三呼喚中"
+        ]
     },
     {
         "id": "q_l2_mc_9",
@@ -1263,7 +1847,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "這是全課的核心價值，點出人與自然、甚至人與人之間最珍貴的連結。"
+        "trap": "這是全課的核心價值，點出人與自然、甚至人與人之間最珍貴的連結。",
+        "code": "L02-TXT.MAIN-S4-06",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "信賴，往往能創造出美好的境界"
+        ]
     },
     {
         "id": "q_l2_mc_10",
@@ -1296,7 +1890,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "使用了「好像」這個喻詞，將鳥的身子比喻為鬆軟的球。"
+        "trap": "使用了「好像」這個喻詞，將鳥的身子比喻為鬆軟的球。",
+        "code": "L02-RHE.FIG-S2-02",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "譬喻"
+        ]
     },
     {
         "id": "q_l2_mc_11",
@@ -1329,7 +1933,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L2",
         "batch": "原本題庫",
-        "trap": "指不說話，不流露感情，形容態度極為鎮靜。"
+        "trap": "指不說話，不流露感情，形容態度極為鎮靜。",
+        "code": "L02-IDM.MEAN-S3-01",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "不動聲色"
+        ]
     },
     {
         "id": "q_l2_mc_new_1",
@@ -1362,7 +1976,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "為了給小鳥安全感，作者特地用茂盛的綠葉藤蔓將鳥籠遮蓋起來。"
+        "trap": "為了給小鳥安全感，作者特地用茂盛的綠葉藤蔓將鳥籠遮蓋起來。",
+        "code": "L02-TXT.DTL-S2-07",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "掛在窗前，用茂盛的藤蔓植物遮蓋的竹籠裡"
+        ]
     },
     {
         "id": "q_l2_mc_new_2",
@@ -1395,7 +2019,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "將一連串的動作切分成好幾個畫面一一描寫，讓內容更鮮活生動。"
+        "trap": "將一連串的動作切分成好幾個畫面一一描寫，讓內容更鮮活生動。",
+        "code": "L02-RHE.WRT-S4-03",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "細膩的連續動作描寫（慢速播放）"
+        ]
     },
     {
         "id": "q_l2_mc_new_3",
@@ -1428,7 +2062,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "隨著時間推移（橫軸往右），鳥與人的空間越來越近，關係也越來越親近（縱軸往上）。"
+        "trap": "隨著時間推移（橫軸往右），鳥與人的空間越來越近，關係也越來越親近（縱軸往上）。",
+        "code": "L02-TXT.DTL-S4-08",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "橫軸是時間，縱軸是關係由生疏到親近"
+        ]
     },
     {
         "id": "q_l2_mc_new_4",
@@ -1461,7 +2105,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "空間距離的縮短，象徵著心理防備的卸下與信賴的建立。"
+        "trap": "空間距離的縮短，象徵著心理防備的卸下與信賴的建立。",
+        "code": "L02-TXT.DTL-S3-09",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "小鳥對環境越來越放心，也對作者越來越信任"
+        ]
     },
     {
         "id": "q_l2_mc_new_5",
@@ -1494,7 +2148,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "作者極度呵護這份難得的信任。"
+        "trap": "作者極度呵護這份難得的信任。",
+        "code": "L02-TXT.DTL-S2-10",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "手中的筆不覺停了，生怕嚇跑牠，甚至輕輕抬"
+        ]
     },
     {
         "id": "q_l2_mc_new_6",
@@ -1527,7 +2191,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "安全感讓原本「怕人」的珍珠鳥得以放鬆。"
+        "trap": "安全感讓原本「怕人」的珍珠鳥得以放鬆。",
+        "code": "L02-TXT.MAIN-S3-11",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "因為茂密的藤蔓提供了隱蔽，讓牠們覺得像躲"
+        ]
     },
     {
         "id": "q_l2_mc_new_7",
@@ -1560,7 +2234,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "這是一個非常細微且生動的觀察。"
+        "trap": "這是一個非常細微且生動的觀察。",
+        "code": "L02-TXT.DTL-S2-12",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "會咂咂嘴，好像在做夢一樣"
+        ]
     },
     {
         "id": "q_l2_mc_new_8",
@@ -1593,7 +2277,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "形容小鳥的羽毛摸起來很柔軟細緻。"
+        "trap": "形容小鳥的羽毛摸起來很柔軟細緻。",
+        "code": "L02-SEM.DEF-S2-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "柔軟而細密"
+        ]
     },
     {
         "id": "q_l2_mc_new_9",
@@ -1626,7 +2320,17 @@ const QUESTION_BANK = [
             }
         ],
         "unitId": "L2",
-        "trap": "作者說「即使打開窗子，牠最多只在窗框上站一會兒，絕不飛出去」。"
+        "trap": "作者說「即使打開窗子，牠最多只在窗框上站一會兒，絕不飛出去」。",
+        "code": "L02-TXT.DTL-S2-13",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "窗外的樹上"
+        ]
     },
     {
         "id": "q_l3_hw_char_1",
@@ -1639,7 +2343,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「舍」指房屋；「皆」是都的意思；「緣」是糸部；「蓬門」指用蓬草編成的簡陋門戶(艸部)。",
         "unitId": "L3",
         "batch": "寫國字",
-        "trap": "「舍」指房屋；「皆」是都的意思；「緣」是糸部；「蓬門」指用蓬草編成的簡陋門戶(艸部)。"
+        "trap": "「舍」指房屋；「皆」是都的意思；「緣」是糸部；「蓬門」指用蓬草編成的簡陋門戶(艸部)。",
+        "code": "L03-CHR.HAN-S2-01",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "舍",
+            "皆",
+            "緣",
+            "蓬"
+        ]
     },
     {
         "id": "q_l3_hw_char_2",
@@ -1652,7 +2369,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「飧」指盤中食物(食部)，筆畫較難；「樽」是酒器(木部)。",
         "unitId": "L3",
         "batch": "寫國字",
-        "trap": "「飧」指盤中食物(食部)，筆畫較難；「樽」是酒器(木部)。"
+        "trap": "「飧」指盤中食物(食部)，筆畫較難；「樽」是酒器(木部)。",
+        "code": "L03-CHR.HAN-S4-02",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "飧",
+            "兼",
+            "樽",
+            "酒"
+        ]
     },
     {
         "id": "q_l3_hw_char_3",
@@ -1665,7 +2395,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「醅」指沒過濾的酒(酉部)；「籬」和「簡」都是竹部。",
         "unitId": "L3",
         "batch": "寫國字",
-        "trap": "「醅」指沒過濾的酒(酉部)；「籬」和「簡」都是竹部。"
+        "trap": "「醅」指沒過濾的酒(酉部)；「籬」和「簡」都是竹部。",
+        "code": "L03-CHR.HAN-S4-03",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "舊",
+            "醅",
+            "籬",
+            "簡"
+        ]
     },
     {
         "id": "q_l3_hw_char_4",
@@ -1678,7 +2421,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「陋」是阜部(左耳旁)；「濾」和「潺」都是水部，潺潺用來形容水流聲。",
         "unitId": "L3",
         "batch": "寫國字",
-        "trap": "「陋」是阜部(左耳旁)；「濾」和「潺」都是水部，潺潺用來形容水流聲。"
+        "trap": "「陋」是阜部(左耳旁)；「濾」和「潺」都是水部，潺潺用來形容水流聲。",
+        "code": "L03-CHR.HAN-S3-04",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "陋",
+            "鎮",
+            "濾",
+            "潺"
+        ]
     },
     {
         "id": "q_l3_hw_char_5",
@@ -1691,7 +2447,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「笆」是竹部；「寂」是宀部；「陳」是阜部(左耳旁)。",
         "unitId": "L3",
         "batch": "寫國字",
-        "trap": "「笆」是竹部；「寂」是宀部；「陳」是阜部(左耳旁)。"
+        "trap": "「笆」是竹部；「寂」是宀部；「陳」是阜部(左耳旁)。",
+        "code": "L03-CHR.HAN-S3-05",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "笆",
+            "寂",
+            "陳"
+        ]
     },
     {
         "id": "q_l3_hw_py_1",
@@ -1704,7 +2472,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「潺」讀作「ㄔㄢˊ」，形容溪水流動的聲音，不要念成「ㄘㄢˊ」喔！",
         "unitId": "L3",
         "batch": "寫注音",
-        "trap": "「潺」讀作「ㄔㄢˊ」，形容溪水流動的聲音，不要念成「ㄘㄢˊ」喔！"
+        "trap": "「潺」讀作「ㄔㄢˊ」，形容溪水流動的聲音，不要念成「ㄘㄢˊ」喔！",
+        "code": "L03-CHR.ZHU-S4-06",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄔㄢˊ"
+        ]
     },
     {
         "id": "q_l3_hw_py_2",
@@ -1717,7 +2495,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「飧」讀作「ㄙㄨㄣ」，指盤中的食物，是很容易讀錯的字！",
         "unitId": "L3",
         "batch": "寫注音",
-        "trap": "「飧」讀作「ㄙㄨㄣ」，指盤中的食物，是很容易讀錯的字！"
+        "trap": "「飧」讀作「ㄙㄨㄣ」，指盤中的食物，是很容易讀錯的字！",
+        "code": "L03-CHR.ZHU-S4-07",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄙㄨㄣ"
+        ]
     },
     {
         "id": "q_l3_hw_py_3",
@@ -1730,7 +2518,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「醅」讀作「ㄆㄟ」，指沒有過濾的酒，不要有邊讀邊念成「陪」！",
         "unitId": "L3",
         "batch": "寫注音",
-        "trap": "「醅」讀作「ㄆㄟ」，指沒有過濾的酒，不要有邊讀邊念成「陪」！"
+        "trap": "「醅」讀作「ㄆㄟ」，指沒有過濾的酒，不要有邊讀邊念成「陪」！",
+        "code": "L03-CHR.ZHU-S5-08",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄆㄟ"
+        ]
     },
     {
         "id": "q_l3_hw_py_4",
@@ -1743,7 +2541,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「舍」在這裡指房屋(如宿舍)，讀作第四聲「ㄕㄜˋ」，不要念成捨棄的「ㄕㄜˇ」。",
         "unitId": "L3",
         "batch": "寫注音",
-        "trap": "「舍」在這裡指房屋(如宿舍)，讀作第四聲「ㄕㄜˋ」，不要念成捨棄的「ㄕㄜˇ」。"
+        "trap": "「舍」在這裡指房屋(如宿舍)，讀作第四聲「ㄕㄜˋ」，不要念成捨棄的「ㄕㄜˇ」。",
+        "code": "L03-CHR.ZHU-S3-09",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄕㄜˋ"
+        ]
     },
     {
         "id": "q_l3_mc_1",
@@ -1776,7 +2584,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "「但見」意思是「只看見」，表達出平時沒有客人，只有鳥兒來的孤寂感。"
+        "trap": "「但見」意思是「只看見」，表達出平時沒有客人，只有鳥兒來的孤寂感。",
+        "code": "L03-SEM.ARC-S2-01",
+        "domain": "SEM",
+        "subType": "ARC",
+        "tags": [
+            "SEM",
+            "ARC"
+        ],
+        "targets": [
+            "僅、只"
+        ]
     },
     {
         "id": "q_l3_mc_2",
@@ -1809,7 +2627,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "整句意思是「花草小路還不曾『因為』有客人的到來而打掃」。"
+        "trap": "整句意思是「花草小路還不曾『因為』有客人的到來而打掃」。",
+        "code": "L03-SEM.ARC-S3-02",
+        "domain": "SEM",
+        "subType": "ARC",
+        "tags": [
+            "SEM",
+            "ARC"
+        ],
+        "targets": [
+            "因為、由於"
+        ]
     },
     {
         "id": "q_l3_mc_3",
@@ -1842,7 +2670,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "「蓬門」指用蓬草編成的門戶，形容房屋簡陋。"
+        "trap": "「蓬門」指用蓬草編成的門戶，形容房屋簡陋。",
+        "code": "L03-TXT.MAIN-S2-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "簡陋貧窮"
+        ]
     },
     {
         "id": "q_l3_mc_4",
@@ -1875,7 +2713,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "「兼」有多種的意思，「兼味」指多種菜色，無兼味就是菜色簡單。"
+        "trap": "「兼」有多種的意思，「兼味」指多種菜色，無兼味就是菜色簡單。",
+        "code": "L03-SEM.DEF-S4-03",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "菜色簡單，沒有多種菜餚"
+        ]
     },
     {
         "id": "q_l3_mc_5",
@@ -1908,7 +2756,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "因為「家貧」未釀新酒，只好拿出沒有過濾的舊酒。"
+        "trap": "因為「家貧」未釀新酒，只好拿出沒有過濾的舊酒。",
+        "code": "L03-SEM.DEF-S3-04",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "存放一段時間，沒有過濾的酒"
+        ]
     },
     {
         "id": "q_l3_mc_6",
@@ -1941,7 +2799,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "全詩共八句，每句七字，格式嚴謹，屬於七言律詩。"
+        "trap": "全詩共八句，每句七字，格式嚴謹，屬於七言律詩。",
+        "code": "L03-TXT.STR-S2-02",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "七言律詩"
+        ]
     },
     {
         "id": "q_l3_mc_7",
@@ -1974,7 +2842,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "這是律詩非常嚴格的押韻規定。"
+        "trap": "這是律詩非常嚴格的押韻規定。",
+        "code": "L03-RDG.LIT-S3-01",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "偶數句(第2,4,6,8句)必須押韻，第"
+        ]
     },
     {
         "id": "q_l3_mc_8",
@@ -2007,7 +2885,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "律詩的頷聯(3,4句)與頸聯(5,6句)必須嚴格對仗。"
+        "trap": "律詩的頷聯(3,4句)與頸聯(5,6句)必須嚴格對仗。",
+        "code": "L03-RDG.LIT-S4-02",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "第三、四句 和 第五、六句"
+        ]
     },
     {
         "id": "q_l3_mc_9",
@@ -2040,7 +2928,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "盤(名詞)飧(名詞) 對應 樽(名詞)酒(名詞)，對仗非常工整。"
+        "trap": "盤(名詞)飧(名詞) 對應 樽(名詞)酒(名詞)，對仗非常工整。",
+        "code": "L03-RHE.FIG-S4-01",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "名詞 對 名詞"
+        ]
     },
     {
         "id": "q_l3_mc_10",
@@ -2073,7 +2971,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "在唐代這幾個字讀起來是有押韻的，是現代語音改變了。"
+        "trap": "在唐代這幾個字讀起來是有押韻的，是現代語音改變了。",
+        "code": "L03-PHO.PLY-S4-01",
+        "domain": "PHO",
+        "subType": "PLY",
+        "tags": [
+            "PHO",
+            "PLY"
+        ],
+        "targets": [
+            "因為時代久遠，造成語音發生了改變"
+        ]
     },
     {
         "id": "q_l3_mc_11",
@@ -2106,7 +3014,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "從「無客」的冷清，對比出「迎客」時的滿心歡喜。"
+        "trap": "從「無客」的冷清，對比出「迎客」時的滿心歡喜。",
+        "code": "L03-RHE.WRT-S3-02",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "使用「對比」營造出因為客人到來，一掃原本"
+        ]
     },
     {
         "id": "q_l3_mc_12",
@@ -2139,7 +3057,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "「不曾」為別人掃，今天「才(始)」特地為你開門，凸顯客人的尊貴與友誼深厚。"
+        "trap": "「不曾」為別人掃，今天「才(始)」特地為你開門，凸顯客人的尊貴與友誼深厚。",
+        "code": "L03-TXT.MAIN-S3-03",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "凸顯這位客人在詩人心中的地位無與倫比，非"
+        ]
     },
     {
         "id": "q_l3_mc_13",
@@ -2172,7 +3100,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "好朋友相聚不在乎吃多好，而在於主人的誠意。"
+        "trap": "好朋友相聚不在乎吃多好，而在於主人的誠意。",
+        "code": "L03-TXT.MAIN-S4-04",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "雖然物質貧乏，但仍盡其所能、真誠熱情地款"
+        ]
     },
     {
         "id": "q_l3_mc_14",
@@ -2205,7 +3143,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "邀請鄰居共飲，從「待客」延伸到「陪客」，讓氣氛更熱絡。"
+        "trap": "邀請鄰居共飲，從「待客」延伸到「陪客」，讓氣氛更熱絡。",
+        "code": "L03-TXT.MAIN-S3-05",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "想為這場聚會添加熱鬧氣氛，希望客人更盡興"
+        ]
     },
     {
         "id": "q_l3_mc_15",
@@ -2238,7 +3186,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "群鷗日來(無客) -> 掃徑開門(迎客) -> 簡單酒菜(待客) -> 呼喚鄰翁(陪客)。"
+        "trap": "群鷗日來(無客) -> 掃徑開門(迎客) -> 簡單酒菜(待客) -> 呼喚鄰翁(陪客)。",
+        "code": "L03-TXT.STR-S4-06",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "無客 ➡️ 迎客 ➡️ 待客 ➡️ 陪客"
+        ]
     },
     {
         "id": "q_l3_mc_16",
@@ -2271,7 +3229,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "先「圈出難詞」，再去猜測，最後放回原句檢視。"
+        "trap": "先「圈出難詞」，再去猜測，最後放回原句檢視。",
+        "code": "L03-TXT.DTL-S2-07",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "圈出難詞"
+        ]
     },
     {
         "id": "q_l3_mc_17",
@@ -2304,7 +3272,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "套回「這扇草編的小門今天為你打開」，覺得合理，代表猜對了！"
+        "trap": "套回「這扇草編的小門今天為你打開」，覺得合理，代表猜對了！",
+        "code": "L03-TXT.DTL-S4-08",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "放回原句中檢視意思合不合理"
+        ]
     },
     {
         "id": "q_l3_mc_18",
@@ -2337,7 +3315,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "本詩作者為唐朝詩聖杜甫。"
+        "trap": "本詩作者為唐朝詩聖杜甫。",
+        "code": "L03-TXT.STR-S1-09",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "杜甫"
+        ]
     },
     {
         "id": "q_l3_mc_19",
@@ -2370,7 +3358,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "招呼隔壁的老翁過來一起喝酒。"
+        "trap": "招呼隔壁的老翁過來一起喝酒。",
+        "code": "L03-SEM.DEF-S2-05",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "叫，招呼"
+        ]
     },
     {
         "id": "q_l3_mc_20",
@@ -2403,7 +3401,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L3",
         "batch": "原本題庫",
-        "trap": "透過詩人滿心歡喜的迎客、待客，展現了最純粹珍貴的友誼。"
+        "trap": "透過詩人滿心歡喜的迎客、待客，展現了最純粹珍貴的友誼。",
+        "code": "L03-TXT.MAIN-S3-10",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "人與人之間真摯的美好情誼"
+        ]
     },
     {
         "id": "q_l4_hw_char_1",
@@ -2416,7 +3424,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「衫」是衣部；「肌」是肉部(月)；「沸」是水部；「騰」是馬部，筆畫較多要注意。",
         "unitId": "L4",
         "batch": "寫國字",
-        "trap": "「衫」是衣部；「肌」是肉部(月)；「沸」是水部；「騰」是馬部，筆畫較多要注意。"
+        "trap": "「衫」是衣部；「肌」是肉部(月)；「沸」是水部；「騰」是馬部，筆畫較多要注意。",
+        "code": "L04-CHR.HAN-S2-01",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "衫",
+            "肌",
+            "沸",
+            "騰"
+        ]
     },
     {
         "id": "q_l4_hw_char_2",
@@ -2429,7 +3450,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「兀自」指逕自、獨自；「唯」是口部；「勺」是勹部，指後腦勺。",
         "unitId": "L4",
         "batch": "寫國字",
-        "trap": "「兀自」指逕自、獨自；「唯」是口部；「勺」是勹部，指後腦勺。"
+        "trap": "「兀自」指逕自、獨自；「唯」是口部；「勺」是勹部，指後腦勺。",
+        "code": "L04-CHR.HAN-S3-02",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "兀",
+            "唯",
+            "勺"
+        ]
     },
     {
         "id": "q_l4_hw_char_3",
@@ -2442,7 +3475,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「頒獎」的頒是頁部；「位置」的置是网部；「吶喊」的吶是口部，不要寫成內。",
         "unitId": "L4",
         "batch": "寫國字",
-        "trap": "「頒獎」的頒是頁部；「位置」的置是网部；「吶喊」的吶是口部，不要寫成內。"
+        "trap": "「頒獎」的頒是頁部；「位置」的置是网部；「吶喊」的吶是口部，不要寫成內。",
+        "code": "L04-CHR.HAN-S3-03",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "頒",
+            "置",
+            "吶"
+        ]
     },
     {
         "id": "q_l4_hw_char_4",
@@ -2455,7 +3500,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】這三個字都是手部。「抵達」的抵下面有一點；「搞錯」的搞右邊是高。",
         "unitId": "L4",
         "batch": "寫國字",
-        "trap": "這三個字都是手部。「抵達」的抵下面有一點；「搞錯」的搞右邊是高。"
+        "trap": "這三個字都是手部。「抵達」的抵下面有一點；「搞錯」的搞右邊是高。",
+        "code": "L04-CHR.HAN-S2-04",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "握",
+            "抵",
+            "搞"
+        ]
     },
     {
         "id": "q_l4_hw_char_5",
@@ -2468,7 +3525,22 @@ const QUESTION_BANK = [
         "explanation": "【解說】「黝黑」的黝是黑部(讀音ㄧㄡˇ)；「襯」是衣部；「摟」是手部；「惹」是心部；「榮」上面是火疊字；「屬」是尸部。",
         "unitId": "L4",
         "batch": "寫國字",
-        "trap": "「黝黑」的黝是黑部(讀音ㄧㄡˇ)；「襯」是衣部；「摟」是手部；「惹」是心部；「榮」上面是火疊字；「屬」是尸部。"
+        "trap": "「黝黑」的黝是黑部(讀音ㄧㄡˇ)；「襯」是衣部；「摟」是手部；「惹」是心部；「榮」上面是火疊字；「屬」是尸部。",
+        "code": "L04-CHR.HAN-S4-05",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "黝",
+            "襯",
+            "摟",
+            "惹",
+            "榮",
+            "屬"
+        ]
     },
     {
         "id": "q_l4_hw_py_1",
@@ -2481,7 +3553,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「兀」讀作四聲「ㄨˋ」，指仍然、逕自的意思。",
         "unitId": "L4",
         "batch": "寫注音",
-        "trap": "「兀」讀作四聲「ㄨˋ」，指仍然、逕自的意思。"
+        "trap": "「兀」讀作四聲「ㄨˋ」，指仍然、逕自的意思。",
+        "code": "L04-CHR.ZHU-S4-06",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄨˋ"
+        ]
     },
     {
         "id": "q_l4_hw_py_2",
@@ -2494,7 +3576,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「黝」黑讀作三聲「ㄧㄡˇ」，形容顏色深黑，非常容易唸錯。",
         "unitId": "L4",
         "batch": "寫注音",
-        "trap": "「黝」黑讀作三聲「ㄧㄡˇ」，形容顏色深黑，非常容易唸錯。"
+        "trap": "「黝」黑讀作三聲「ㄧㄡˇ」，形容顏色深黑，非常容易唸錯。",
+        "code": "L04-CHR.ZHU-S4-07",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄧㄡˇ"
+        ]
     },
     {
         "id": "q_l4_hw_py_3",
@@ -2507,7 +3599,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「摟」著肩膀在這裡讀作一聲「ㄌㄡ」，指用手臂攬住。",
         "unitId": "L4",
         "batch": "寫注音",
-        "trap": "「摟」著肩膀在這裡讀作一聲「ㄌㄡ」，指用手臂攬住。"
+        "trap": "「摟」著肩膀在這裡讀作一聲「ㄌㄡ」，指用手臂攬住。",
+        "code": "L04-CHR.ZHU-S3-08",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄌㄡ"
+        ]
     },
     {
         "id": "q_l4_hw_py_4",
@@ -2520,7 +3622,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】後腦「勺」讀作二聲「ㄕㄠˊ」，指頭部的後方。",
         "unitId": "L4",
         "batch": "寫注音",
-        "trap": "後腦「勺」讀作二聲「ㄕㄠˊ」，指頭部的後方。"
+        "trap": "後腦「勺」讀作二聲「ㄕㄠˊ」，指頭部的後方。",
+        "code": "L04-CHR.ZHU-S2-09",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄕㄠˊ"
+        ]
     },
     {
         "id": "q_l4_mc_1",
@@ -2553,7 +3665,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "這是整篇文章最核心的情節轉折與內心掙扎。"
+        "trap": "這是整篇文章最核心的情節轉折與內心掙扎。",
+        "code": "L04-TXT.MAIN-S1-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "要趁對方失誤超越他，還是提醒他終點在哪裡"
+        ]
     },
     {
         "id": "q_l4_mc_2",
@@ -2586,7 +3708,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "他以為穿過拱門就是終點，所以停下來舉手慶祝。"
+        "trap": "他以為穿過拱門就是終點，所以停下來舉手慶祝。",
+        "code": "L04-TXT.DTL-S2-02",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "因為他把主辦單位設置的頒獎氣球拱門誤認為"
+        ]
     },
     {
         "id": "q_l4_mc_3",
@@ -2619,7 +3751,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "觀眾雖然希望地主隊安納亞贏，但仍熱心提醒穆太，展現了良好的風度。"
+        "trap": "觀眾雖然希望地主隊安納亞贏，但仍熱心提醒穆太，展現了良好的風度。",
+        "code": "L04-TXT.DTL-S2-03",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "熱烈吶喊，用西班牙語要他繼續往前跑"
+        ]
     },
     {
         "id": "q_l4_mc_4",
@@ -2652,7 +3794,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "作者誠實寫出自己差一點就被勝利誘惑的矛盾心理。"
+        "trap": "作者誠實寫出自己差一點就被勝利誘惑的矛盾心理。",
+        "code": "L04-RHE.WRT-S3-01",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "內心真實的掙扎，在「追求勝利」與「公平競"
+        ]
     },
     {
         "id": "q_l4_mc_5",
@@ -2685,7 +3837,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "透過肢體語言與手勢進行溝通。"
+        "trap": "透過肢體語言與手勢進行溝通。",
+        "code": "L04-TXT.DTL-S1-04",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "伸出手輕拍他的背，並伸長食指指向前方"
+        ]
     },
     {
         "id": "q_l4_mc_6",
@@ -2718,7 +3880,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "「優秀的人」指的是在道德與品格上獲得了真正的勝利。"
+        "trap": "「優秀的人」指的是在道德與品格上獲得了真正的勝利。",
+        "code": "L04-TXT.DTL-S4-05",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "雖然失去了比賽的獎牌，卻展現了比贏得比賽"
+        ]
     },
     {
         "id": "q_l4_mc_7",
@@ -2751,7 +3923,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "用外在的「寒冷」對比內心的「發燙、沸騰」，強烈凸顯出主角對勝利的渴望與激動。"
+        "trap": "用外在的「寒冷」對比內心的「發燙、沸騰」，強烈凸顯出主角對勝利的渴望與激動。",
+        "code": "L04-RHE.FIG-S3-02",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "對比法 (映襯)"
+        ]
     },
     {
         "id": "q_l4_mc_8",
@@ -2784,7 +3966,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "像是搭建舞台一樣，讓讀者瞬間被拉進那個寒冷卻又激烈的賽道上。"
+        "trap": "像是搭建舞台一樣，讓讀者瞬間被拉進那個寒冷卻又激烈的賽道上。",
+        "code": "L04-RHE.WRT-S3-03",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "營造畫面感，讓讀者彷彿身歷其境，立刻融入"
+        ]
     },
     {
         "id": "q_l4_mc_9",
@@ -2817,7 +4009,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "「黝黑」、「白牙」、「亮眼」都是眼睛看到的色彩與畫面。"
+        "trap": "「黝黑」、「白牙」、「亮眼」都是眼睛看到的色彩與畫面。",
+        "code": "L04-RHE.FIG-S2-04",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "視覺摹寫"
+        ]
     },
     {
         "id": "q_l4_mc_10",
@@ -2850,7 +4052,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "讀者可以跟著主角一起經歷猶豫、抉擇到最後釋懷的心路歷程。"
+        "trap": "讀者可以跟著主角一起經歷猶豫、抉擇到最後釋懷的心路歷程。",
+        "code": "L04-TXT.STR-S3-06",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "採用「第一人稱」，以「我」(安納亞) 的"
+        ]
     },
     {
         "id": "q_l4_mc_11",
@@ -2883,7 +4095,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "以旁觀者的角度，客觀陳述「人、事、時、地、物」，讓讀者快速掌握事件全貌。"
+        "trap": "以旁觀者的角度，客觀陳述「人、事、時、地、物」，讓讀者快速掌握事件全貌。",
+        "code": "L04-TXT.STR-S3-07",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "第三人稱 (客觀視角)"
+        ]
     },
     {
         "id": "q_l4_mc_12",
@@ -2916,7 +4138,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "安納亞覺得剩下的距離太短，自己已經不可能追上對手贏得比賽了。"
+        "trap": "安納亞覺得剩下的距離太短，自己已經不可能追上對手贏得比賽了。",
+        "code": "L04-SEM.DEF-S2-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "形容有利的局勢已經喪失，無法挽回"
+        ]
     },
     {
         "id": "q_l4_mc_13",
@@ -2949,7 +4181,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "表示穆太自顧自地往前跑，不管後面的對手如何追趕。"
+        "trap": "表示穆太自顧自地往前跑，不管後面的對手如何追趕。",
+        "code": "L04-SEM.DEF-S4-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "逕自、仍然"
+        ]
     },
     {
         "id": "q_l4_mc_14",
@@ -2982,7 +4224,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "這句話完美點出了整篇文章的精髓。"
+        "trap": "這句話完美點出了整篇文章的精髓。",
+        "code": "L04-TXT.MAIN-S2-08",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "因為他雖然輸了比賽的獎牌，卻因為誠實與高"
+        ]
     },
     {
         "id": "q_l4_mc_15",
@@ -3015,7 +4267,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "他不願意利用對手的失誤來取得「名不副實」的勝利，這展現了極高的道德感。"
+        "trap": "他不願意利用對手的失誤來取得「名不副實」的勝利，這展現了極高的道德感。",
+        "code": "L04-TXT.DTL-S4-09",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "誠實坦蕩，勇於承認對手在實力上優於自己"
+        ]
     },
     {
         "id": "q_l4_mc_16",
@@ -3048,7 +4310,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "「失之交臂」形容錯失了當面的好機會，與擦身而過意思相近。"
+        "trap": "「失之交臂」形容錯失了當面的好機會，與擦身而過意思相近。",
+        "code": "L04-IDM.MEAN-S3-01",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "擦身而過"
+        ]
     },
     {
         "id": "q_l4_mc_17",
@@ -3081,7 +4353,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "指以公正、光明磊落的態度參與競爭，不耍小手段，非常符合安納亞的風範。"
+        "trap": "指以公正、光明磊落的態度參與競爭，不耍小手段，非常符合安納亞的風範。",
+        "code": "L04-IDM.MEAN-S4-02",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "君子之爭"
+        ]
     },
     {
         "id": "q_l4_mc_18",
@@ -3114,7 +4396,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "這個反差也更加深了文章宣揚運動家精神的力道。"
+        "trap": "這個反差也更加深了文章宣揚運動家精神的力道。",
+        "code": "L04-TXT.DTL-S3-10",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "安納亞以為會被罵，沒想到教練卻摟著他，高"
+        ]
     },
     {
         "id": "q_l4_mc_19",
@@ -3147,7 +4439,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "這是第九段也是全文的最高核心精神。"
+        "trap": "這是第九段也是全文的最高核心精神。",
+        "code": "L04-TXT.MAIN-S1-11",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "對自己的要求與可貴的運動家精神"
+        ]
     },
     {
         "id": "q_l4_mc_20",
@@ -3180,7 +4482,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L4",
         "batch": "原本題庫",
-        "trap": "這才是真正的「君子之爭」與運動家風度。"
+        "trap": "這才是真正的「君子之爭」與運動家風度。",
+        "code": "L04-TXT.DTL-S4-12",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "關心他的傷勢，雖然仍在競爭中，但保持尊重"
+        ]
     },
     {
         "id": "q_l5_hw_char_1",
@@ -3193,7 +4505,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「載」在這裡是動詞，指一邊唱歌一邊跳舞(車部)；「副」是量詞(刀部)；「監」是皿部；「益」是皿部。",
         "unitId": "L5",
         "batch": "寫國字",
-        "trap": "「載」在這裡是動詞，指一邊唱歌一邊跳舞(車部)；「副」是量詞(刀部)；「監」是皿部；「益」是皿部。"
+        "trap": "「載」在這裡是動詞，指一邊唱歌一邊跳舞(車部)；「副」是量詞(刀部)；「監」是皿部；「益」是皿部。",
+        "code": "L05-CHR.HAN-S3-01",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "載",
+            "副",
+            "監",
+            "益"
+        ]
     },
     {
         "id": "q_l5_hw_char_2",
@@ -3206,7 +4531,18 @@ const QUESTION_BANK = [
         "explanation": "【解說】「噪音」的噪是口部，指吵雜的聲音；「避免」的避是辵(辶)部。",
         "unitId": "L5",
         "batch": "寫國字",
-        "trap": "「噪音」的噪是口部，指吵雜的聲音；「避免」的避是辵(辶)部。"
+        "trap": "「噪音」的噪是口部，指吵雜的聲音；「避免」的避是辵(辶)部。",
+        "code": "L05-CHR.HAN-S3-02",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "噪",
+            "避"
+        ]
     },
     {
         "id": "q_l5_hw_char_3",
@@ -3219,7 +4555,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「迅速」的迅是辵部；「撲滅」的滅是水部；「救援」的援是手部。",
         "unitId": "L5",
         "batch": "寫國字",
-        "trap": "「迅速」的迅是辵部；「撲滅」的滅是水部；「救援」的援是手部。"
+        "trap": "「迅速」的迅是辵部；「撲滅」的滅是水部；「救援」的援是手部。",
+        "code": "L05-CHR.HAN-S2-03",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "迅",
+            "滅",
+            "援"
+        ]
     },
     {
         "id": "q_l5_hw_char_4",
@@ -3232,7 +4580,21 @@ const QUESTION_BANK = [
         "explanation": "【解說】「燒」是火部；「液」是水部；「蝕」是虫部；「觸」是角部；「承」是手部。這題字都比較難，要特別小心！",
         "unitId": "L5",
         "batch": "寫國字",
-        "trap": "「燒」是火部；「液」是水部；「蝕」是虫部；「觸」是角部；「承」是手部。這題字都比較難，要特別小心！"
+        "trap": "「燒」是火部；「液」是水部；「蝕」是虫部；「觸」是角部；「承」是手部。這題字都比較難，要特別小心！",
+        "code": "L05-CHR.HAN-S4-04",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "燒",
+            "液",
+            "蝕",
+            "觸",
+            "承"
+        ]
     },
     {
         "id": "q_l5_hw_char_5",
@@ -3245,7 +4607,21 @@ const QUESTION_BANK = [
         "explanation": "【解說】「陌生」的陌是阜(左耳旁)部；「攝影」的攝是手部；「檔案」的檔是木部；「註明」的註是言部；「撈針」的撈是手部。",
         "unitId": "L5",
         "batch": "寫國字",
-        "trap": "「陌生」的陌是阜(左耳旁)部；「攝影」的攝是手部；「檔案」的檔是木部；「註明」的註是言部；「撈針」的撈是手部。"
+        "trap": "「陌生」的陌是阜(左耳旁)部；「攝影」的攝是手部；「檔案」的檔是木部；「註明」的註是言部；「撈針」的撈是手部。",
+        "code": "L05-CHR.HAN-S3-05",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "陌",
+            "攝",
+            "檔",
+            "註",
+            "撈"
+        ]
     },
     {
         "id": "q_l5_hw_py_1",
@@ -3258,7 +4634,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「載歌載舞」讀作四聲「ㄗㄞˋ」，指一邊唱歌，一邊跳舞。不要念成三聲「ㄗㄞˇ」喔！",
         "unitId": "L5",
         "batch": "寫注音",
-        "trap": "「載歌載舞」讀作四聲「ㄗㄞˋ」，指一邊唱歌，一邊跳舞。不要念成三聲「ㄗㄞˇ」喔！"
+        "trap": "「載歌載舞」讀作四聲「ㄗㄞˋ」，指一邊唱歌，一邊跳舞。不要念成三聲「ㄗㄞˇ」喔！",
+        "code": "L05-CHR.ZHU-S4-06",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄗㄞˋ"
+        ]
     },
     {
         "id": "q_l5_hw_py_2",
@@ -3271,7 +4657,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】腐「蝕」讀作二聲「ㄕˊ」。",
         "unitId": "L5",
         "batch": "寫注音",
-        "trap": "腐「蝕」讀作二聲「ㄕˊ」。"
+        "trap": "腐「蝕」讀作二聲「ㄕˊ」。",
+        "code": "L05-CHR.ZHU-S3-07",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄕˊ"
+        ]
     },
     {
         "id": "q_l5_hw_py_3",
@@ -3284,7 +4680,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「檔」案讀作三聲「ㄉㄤˇ」，很多人會口語誤讀成四聲「ㄉㄤˋ」，要特別注意！",
         "unitId": "L5",
         "batch": "寫注音",
-        "trap": "「檔」案讀作三聲「ㄉㄤˇ」，很多人會口語誤讀成四聲「ㄉㄤˋ」，要特別注意！"
+        "trap": "「檔」案讀作三聲「ㄉㄤˇ」，很多人會口語誤讀成四聲「ㄉㄤˋ」，要特別注意！",
+        "code": "L05-CHR.ZHU-S3-08",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄉㄤˇ"
+        ]
     },
     {
         "id": "q_l5_hw_py_4",
@@ -3297,7 +4703,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「噪」音讀作四聲「ㄗㄠˋ」。",
         "unitId": "L5",
         "batch": "寫注音",
-        "trap": "「噪」音讀作四聲「ㄗㄠˋ」。"
+        "trap": "「噪」音讀作四聲「ㄗㄠˋ」。",
+        "code": "L05-CHR.ZHU-S2-09",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄗㄠˋ"
+        ]
     },
     {
         "id": "q_l5_mc_1",
@@ -3330,7 +4746,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "這樣可以避免走音或與音樂不同步，並能阻絕現場噪音。"
+        "trap": "這樣可以避免走音或與音樂不同步，並能阻絕現場噪音。",
+        "code": "L05-TXT.MAIN-S2-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "一耳聽伴奏，一耳聽自己的聲音，藉此掌握實"
+        ]
     },
     {
         "id": "q_l5_mc_2",
@@ -3363,7 +4789,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "根據補充知識，1995年是為了解決鼓手飽受舞臺噪音干擾的問題而設計的。"
+        "trap": "根據補充知識，1995年是為了解決鼓手飽受舞臺噪音干擾的問題而設計的。",
+        "code": "L05-TXT.DTL-S3-02",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "爵士鼓手"
+        ]
     },
     {
         "id": "q_l5_mc_3",
@@ -3396,7 +4832,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "最外層是「反射層」，用來反射熱能。"
+        "trap": "最外層是「反射層」，用來反射熱能。",
+        "code": "L05-TXT.DTL-S2-03",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "含有金屬塗料，將大部分的熱輻射反射回去"
+        ]
     },
     {
         "id": "q_l5_mc_4",
@@ -3429,7 +4875,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "錯誤！圖解說明「接觸火焰過久仍會燒毀」，它只是「爭取多一些時間」，不能無限期抵擋高溫。"
+        "trap": "錯誤！圖解說明「接觸火焰過久仍會燒毀」，它只是「爭取多一些時間」，不能無限期抵擋高溫。",
+        "code": "L05-TXT.MAIN-S3-04",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "穿上這件衣服，消防員就可以在火場中待上無"
+        ]
     },
     {
         "id": "q_l5_mc_5",
@@ -3462,7 +4918,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "因為電影的影像和聲音是分開錄的，打板聲能幫助後製人員精準對齊聲軌與影像。"
+        "trap": "因為電影的影像和聲音是分開錄的，打板聲能幫助後製人員精準對齊聲軌與影像。",
+        "code": "L05-TXT.DTL-S2-05",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "利用打板的聲音，提醒錄製的起始點，方便後"
+        ]
     },
     {
         "id": "q_l5_mc_6",
@@ -3495,7 +4961,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "形容在浩瀚的檔案中尋找特定的一個檔案，非常費時費力。"
+        "trap": "形容在浩瀚的檔案中尋找特定的一個檔案，非常費時費力。",
+        "code": "L05-SEM.DEF-S3-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "比喻尋找的範圍很大，要找到目標極為困難"
+        ]
     },
     {
         "id": "q_l5_mc_7",
@@ -3528,7 +5004,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "每一段都是先描述一個常見現象，接著用問號提問，最後給出專業的解答。"
+        "trap": "每一段都是先描述一個常見現象，接著用問號提問，最後給出專業的解答。",
+        "code": "L05-TXT.STR-S2-06",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "提出現象 ➡️ 提出問題 ➡️ 解答問題"
+        ]
     },
     {
         "id": "q_l5_mc_8",
@@ -3561,7 +5047,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "因為每個人的答案都不一樣，所以是一種開放式的懸問。"
+        "trap": "因為每個人的答案都不一樣，所以是一種開放式的懸問。",
+        "code": "L05-RHE.FIG-S3-01",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "懸問：作者內心也沒有確切答案，留給讀者思"
+        ]
     },
     {
         "id": "q_l5_mc_9",
@@ -3594,7 +5090,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "作者自己拋出問題，緊接著自己給出答案，這就是「提問」。"
+        "trap": "作者自己拋出問題，緊接著自己給出答案，這就是「提問」。",
+        "code": "L05-RHE.FIG-S4-02",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "生活中常見的職業，是否有令人好奇的工作內"
+        ]
     },
     {
         "id": "q_l5_mc_10",
@@ -3627,7 +5133,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "拋出一個生活常見但容易被忽略的問題，能成功勾起讀者想往下看的欲望。"
+        "trap": "拋出一個生活常見但容易被忽略的問題，能成功勾起讀者想往下看的欲望。",
+        "code": "L05-RHE.FIG-S3-03",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "增強與讀者的互動，引發讀者的好奇心與閱讀"
+        ]
     },
     {
         "id": "q_l5_mc_11",
@@ -3660,7 +5176,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "這兩個成語都是用來讚揚師長對學生的教導與培育之恩。"
+        "trap": "這兩個成語都是用來讚揚師長對學生的教導與培育之恩。",
+        "code": "L05-IDM.CLS-S2-01",
+        "domain": "IDM",
+        "subType": "CLS",
+        "tags": [
+            "IDM",
+            "CLS"
+        ],
+        "targets": [
+            "教師"
+        ]
     },
     {
         "id": "q_l5_mc_12",
@@ -3693,7 +5219,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "稱讚醫生醫術高明，能把垂危的病人治好。"
+        "trap": "稱讚醫生醫術高明，能把垂危的病人治好。",
+        "code": "L05-IDM.CLS-S2-02",
+        "domain": "IDM",
+        "subType": "CLS",
+        "tags": [
+            "IDM",
+            "CLS"
+        ],
+        "targets": [
+            "妙手回春"
+        ]
     },
     {
         "id": "q_l5_mc_13",
@@ -3726,7 +5262,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "這正是「杏壇」一詞的由來。"
+        "trap": "這正是「杏壇」一詞的由來。",
+        "code": "L05-IDM.MEAN-S4-03",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "孔子在「杏壇」講學，後人便以此代稱教育界"
+        ]
     },
     {
         "id": "q_l5_mc_14",
@@ -3759,7 +5305,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "這兩個成語都是用來形容聲音清脆悅耳、歌聲優美動人。"
+        "trap": "這兩個成語都是用來形容聲音清脆悅耳、歌聲優美動人。",
+        "code": "L05-IDM.CLS-S2-04",
+        "domain": "IDM",
+        "subType": "CLS",
+        "tags": [
+            "IDM",
+            "CLS"
+        ],
+        "targets": [
+            "歌手"
+        ]
     },
     {
         "id": "q_l5_mc_15",
@@ -3792,7 +5348,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "因為太常見了，所以覺得很普通、不奇怪。"
+        "trap": "因為太常見了，所以覺得很普通、不奇怪。",
+        "code": "L05-SEM.DEF-S3-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "事物很平常，沒有什麼覺得奇怪的地方"
+        ]
     },
     {
         "id": "q_l5_mc_16",
@@ -3825,7 +5391,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "SCENE是場次，TAKE是拍攝次數，方便後製對照劇本尋找檔案。"
+        "trap": "SCENE是場次，TAKE是拍攝次數，方便後製對照劇本尋找檔案。",
+        "code": "L05-TXT.DTL-S3-07",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "提醒演員現在是第幾場戲的第幾次拍攝"
+        ]
     },
     {
         "id": "q_l5_mc_17",
@@ -3858,7 +5434,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "比喻奮不顧身，不避危險。「湯」指熱水，「火」指烈火，非常符合消防員的情境。"
+        "trap": "比喻奮不顧身，不避危險。「湯」指熱水，「火」指烈火，非常符合消防員的情境。",
+        "code": "L05-IDM.MEAN-S3-05",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "赴湯蹈火"
+        ]
     },
     {
         "id": "q_l5_mc_18",
@@ -3891,7 +5477,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "一般人往外逃，消防員卻往裡面衝，這就是「反其道而行」。"
+        "trap": "一般人往外逃，消防員卻往裡面衝，這就是「反其道而行」。",
+        "code": "L05-SEM.DEF-S4-03",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "一般人遇到火災時會「向外逃生」的常理路線"
+        ]
     },
     {
         "id": "q_l5_mc_19",
@@ -3924,7 +5520,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "這是貫穿全文的核心概念。"
+        "trap": "這是貫穿全文的核心概念。",
+        "code": "L05-RHE.WRT-S4-04",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "他們的工作內容中，都有使用特定裝備來解決"
+        ]
     },
     {
         "id": "q_l5_mc_20",
@@ -3957,7 +5563,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L5",
         "batch": "原本題庫",
-        "trap": "這正是這課想要教導的：對常見事物保持好奇心，並主動探索原因。"
+        "trap": "這正是這課想要教導的：對常見事物保持好奇心，並主動探索原因。",
+        "code": "L05-TXT.DTL-S3-08",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "觀察他的裝備(例如郵差包、機車)，並找資"
+        ]
     },
     {
         "id": "q_l6_hw_char_1",
@@ -3970,7 +5586,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「小艇」的艇是舟部；「劃破」的劃是刀部；「荒涼」的荒是艸部；「無垠」的垠是土部，指沒有邊際。",
         "unitId": "L6",
         "batch": "寫國字",
-        "trap": "「小艇」的艇是舟部；「劃破」的劃是刀部；「荒涼」的荒是艸部；「無垠」的垠是土部，指沒有邊際。"
+        "trap": "「小艇」的艇是舟部；「劃破」的劃是刀部；「荒涼」的荒是艸部；「無垠」的垠是土部，指沒有邊際。",
+        "code": "L06-CHR.HAN-S3-01",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "艇",
+            "劃",
+            "荒",
+            "垠"
+        ]
     },
     {
         "id": "q_l6_hw_char_2",
@@ -3983,7 +5612,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「宇宙」都是宀部；「不朽」的朽是木部，指不會腐壞、磨滅；「雜誌」的誌是言部，指記錄的文字。",
         "unitId": "L6",
         "batch": "寫國字",
-        "trap": "「宇宙」都是宀部；「不朽」的朽是木部，指不會腐壞、磨滅；「雜誌」的誌是言部，指記錄的文字。"
+        "trap": "「宇宙」都是宀部；「不朽」的朽是木部，指不會腐壞、磨滅；「雜誌」的誌是言部，指記錄的文字。",
+        "code": "L06-CHR.HAN-S3-02",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "宇",
+            "宙",
+            "朽",
+            "誌"
+        ]
     },
     {
         "id": "q_l6_hw_char_3",
@@ -3996,7 +5638,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「系列」的系是糸部；「訓練」的訓是言部；「機械」的械是木部；「指揮艙」的艙是舟部。",
         "unitId": "L6",
         "batch": "寫國字",
-        "trap": "「系列」的系是糸部；「訓練」的訓是言部；「機械」的械是木部；「指揮艙」的艙是舟部。"
+        "trap": "「系列」的系是糸部；「訓練」的訓是言部；「機械」的械是木部；「指揮艙」的艙是舟部。",
+        "code": "L06-CHR.HAN-S3-03",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "系",
+            "訓",
+            "械",
+            "艙"
+        ]
     },
     {
         "id": "q_l6_hw_char_4",
@@ -4009,7 +5664,20 @@ const QUESTION_BANK = [
         "explanation": "【解說】「駕駛」的駕是馬部；「凌晨」的凌是冫(冰)部；「隕石坑」的隕是阜(左耳)部；「遠眺」的眺是目部。",
         "unitId": "L6",
         "batch": "寫國字",
-        "trap": "「駕駛」的駕是馬部；「凌晨」的凌是冫(冰)部；「隕石坑」的隕是阜(左耳)部；「遠眺」的眺是目部。"
+        "trap": "「駕駛」的駕是馬部；「凌晨」的凌是冫(冰)部；「隕石坑」的隕是阜(左耳)部；「遠眺」的眺是目部。",
+        "code": "L06-CHR.HAN-S4-04",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "駕",
+            "凌",
+            "隕",
+            "眺"
+        ]
     },
     {
         "id": "q_l6_hw_char_5",
@@ -4022,7 +5690,19 @@ const QUESTION_BANK = [
         "explanation": "【解說】「奪目」的奪是大部；「遠征」的征是彳部；「六億」的億是人部。",
         "unitId": "L6",
         "batch": "寫國字",
-        "trap": "「奪目」的奪是大部；「遠征」的征是彳部；「六億」的億是人部。"
+        "trap": "「奪目」的奪是大部；「遠征」的征是彳部；「六億」的億是人部。",
+        "code": "L06-CHR.HAN-S3-05",
+        "domain": "CHR",
+        "subType": "HAN",
+        "tags": [
+            "CHR",
+            "HAN"
+        ],
+        "targets": [
+            "奪",
+            "征",
+            "億"
+        ]
     },
     {
         "id": "q_l6_hw_py_1",
@@ -4035,7 +5715,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「劃破」在這裡讀作四聲「ㄏㄨㄚˋ」，指分開、切開。",
         "unitId": "L6",
         "batch": "寫注音",
-        "trap": "「劃破」在這裡讀作四聲「ㄏㄨㄚˋ」，指分開、切開。"
+        "trap": "「劃破」在這裡讀作四聲「ㄏㄨㄚˋ」，指分開、切開。",
+        "code": "L06-CHR.ZHU-S4-06",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄏㄨㄚˋ"
+        ]
     },
     {
         "id": "q_l6_hw_py_2",
@@ -4048,7 +5738,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「無垠」讀作二聲「ㄧㄣˊ」，指沒有邊際。不要有邊讀邊念成「ㄍㄣ」喔！",
         "unitId": "L6",
         "batch": "寫注音",
-        "trap": "「無垠」讀作二聲「ㄧㄣˊ」，指沒有邊際。不要有邊讀邊念成「ㄍㄣ」喔！"
+        "trap": "「無垠」讀作二聲「ㄧㄣˊ」，指沒有邊際。不要有邊讀邊念成「ㄍㄣ」喔！",
+        "code": "L06-CHR.ZHU-S3-07",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄧㄣˊ"
+        ]
     },
     {
         "id": "q_l6_hw_py_3",
@@ -4061,7 +5761,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「艙」讀作一聲「ㄘㄤ」。",
         "unitId": "L6",
         "batch": "寫注音",
-        "trap": "「艙」讀作一聲「ㄘㄤ」。"
+        "trap": "「艙」讀作一聲「ㄘㄤ」。",
+        "code": "L06-CHR.ZHU-S3-08",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄘㄤ"
+        ]
     },
     {
         "id": "q_l6_hw_py_4",
@@ -4074,7 +5784,17 @@ const QUESTION_BANK = [
         "explanation": "【解說】「眺」讀作四聲「ㄊㄧㄠˋ」，指向遠處看。",
         "unitId": "L6",
         "batch": "寫注音",
-        "trap": "「眺」讀作四聲「ㄊㄧㄠˋ」，指向遠處看。"
+        "trap": "「眺」讀作四聲「ㄊㄧㄠˋ」，指向遠處看。",
+        "code": "L06-CHR.ZHU-S4-09",
+        "domain": "CHR",
+        "subType": "ZHU",
+        "tags": [
+            "CHR",
+            "ZHU"
+        ],
+        "targets": [
+            "ㄊㄧㄠˋ"
+        ]
     },
     {
         "id": "q_l6_mc_1",
@@ -4107,7 +5827,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "阿姆斯壯是第一位踏上月球的太空人。"
+        "trap": "阿姆斯壯是第一位踏上月球的太空人。",
+        "code": "L06-TXT.DTL-S1-01",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "尼爾·阿姆斯壯"
+        ]
     },
     {
         "id": "q_l6_mc_2",
@@ -4140,7 +5870,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "根據補充資料，柯林斯擔任指揮艙駕駛員，留守指揮艙繞月飛行。"
+        "trap": "根據補充資料，柯林斯擔任指揮艙駕駛員，留守指揮艙繞月飛行。",
+        "code": "L06-TXT.DTL-S2-02",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "麥可·柯林斯"
+        ]
     },
     {
         "id": "q_l6_mc_3",
@@ -4173,7 +5913,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "在文章開頭直接引用名言，可以吸引讀者注意，並點出文章的核心事件。"
+        "trap": "在文章開頭直接引用名言，可以吸引讀者注意，並點出文章的核心事件。",
+        "code": "L06-RHE.WRT-S2-01",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "引用法"
+        ]
     },
     {
         "id": "q_l6_mc_4",
@@ -4206,7 +5956,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "雖然只是個人跨出的一小步，對人類科學史卻是極具意義的里程碑。"
+        "trap": "雖然只是個人跨出的一小步，對人類科學史卻是極具意義的里程碑。",
+        "code": "L06-TXT.DTL-S3-03",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "這項創舉代表了全人類在太空探索領域的重大"
+        ]
     },
     {
         "id": "q_l6_mc_5",
@@ -4239,7 +5999,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "錯誤！課文中沒有提到這項訓練。"
+        "trap": "錯誤！課文中沒有提到這項訓練。",
+        "code": "L06-TXT.DTL-S2-04",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "學習用多國語言與外星人溝通"
+        ]
     },
     {
         "id": "q_l6_mc_6",
@@ -4272,7 +6042,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "文字生動地寫出了火箭發射時聲音、動作與畫面的劇烈變化。"
+        "trap": "文字生動地寫出了火箭發射時聲音、動作與畫面的劇烈變化。",
+        "code": "L06-RHE.WRT-S3-02",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "動態描寫"
+        ]
     },
     {
         "id": "q_l6_mc_7",
@@ -4305,7 +6085,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "使用「像」字，將沙灰色的月球表面比喻為沉睡中的巨人。"
+        "trap": "使用「像」字，將沙灰色的月球表面比喻為沉睡中的巨人。",
+        "code": "L06-RHE.FIG-S2-03",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "譬喻"
+        ]
     },
     {
         "id": "q_l6_mc_8",
@@ -4338,7 +6128,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "這是一段標準的「靜態描寫」，強調色彩的單調與氛圍的沉靜。"
+        "trap": "這是一段標準的「靜態描寫」，強調色彩的單調與氛圍的沉靜。",
+        "code": "L06-RHE.WRT-S3-04",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "荒涼冷清且靜止的靜態畫面"
+        ]
     },
     {
         "id": "q_l6_mc_9",
@@ -4371,7 +6171,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "這是課文第七段提到的主要工作。"
+        "trap": "這是課文第七段提到的主要工作。",
+        "code": "L06-TXT.DTL-S2-05",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "採集月球表面的樣本、拍照，安置研究設備"
+        ]
     },
     {
         "id": "q_l6_mc_10",
@@ -4404,7 +6214,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "這種距離感與全新視角帶來了強烈的震撼。"
+        "trap": "這種距離感與全新視角帶來了強烈的震撼。",
+        "code": "L06-TXT.DTL-S3-06",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "因為那是他的家鄉(熟悉)，但他從未以這種"
+        ]
     },
     {
         "id": "q_l6_mc_11",
@@ -4437,7 +6257,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "黑絲絨比喻漆黑的太空，夜明珠比喻發出藍綠光芒的地球。"
+        "trap": "黑絲絨比喻漆黑的太空，夜明珠比喻發出藍綠光芒的地球。",
+        "code": "L06-RHE.FIG-S3-05",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "從太空中看到的地球"
+        ]
     },
     {
         "id": "q_l6_mc_12",
@@ -4470,7 +6300,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "這是一項集結了無數人心血，且備受全球矚目的超級任務。"
+        "trap": "這是一項集結了無數人心血，且備受全球矚目的超級任務。",
+        "code": "L06-TXT.DTL-S1-07",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "四十萬人參與，六億人關注"
+        ]
     },
     {
         "id": "q_l6_mc_13",
@@ -4503,7 +6343,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "他用輕鬆的話語，鼓勵後人繼續超越他所留下的紀錄。"
+        "trap": "他用輕鬆的話語，鼓勵後人繼續超越他所留下的紀錄。",
+        "code": "L06-TXT.DTL-S3-08",
+        "domain": "TXT",
+        "subType": "DTL",
+        "tags": [
+            "TXT",
+            "DTL"
+        ],
+        "targets": [
+            "幽默風趣，且對人類未來的太空探索充滿信心"
+        ]
     },
     {
         "id": "q_l6_mc_14",
@@ -4536,7 +6386,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "「極」有竭盡的意思，極目就是窮盡眼力望向遠方。"
+        "trap": "「極」有竭盡的意思，極目就是窮盡眼力望向遠方。",
+        "code": "L06-SEM.DEF-S2-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "盡力用眼睛看"
+        ]
     },
     {
         "id": "q_l6_mc_15",
@@ -4569,7 +6429,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "表示他對這些嚴酷的訓練已經非常習慣了。"
+        "trap": "表示他對這些嚴酷的訓練已經非常習慣了。",
+        "code": "L06-SEM.DEF-S3-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "比喻經常發生、習以為常的事情"
+        ]
     },
     {
         "id": "q_l6_mc_16",
@@ -4602,7 +6472,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "這是世界上調節時鐘和時間的主要時間標準。"
+        "trap": "這是世界上調節時鐘和時間的主要時間標準。",
+        "code": "L06-RDG.LIT-S2-01",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "UTC"
+        ]
     },
     {
         "id": "q_l6_mc_17",
@@ -4635,7 +6515,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "先寫出最具代表性的高潮事件（登月），再倒回過去說明事情的起因與經過。"
+        "trap": "先寫出最具代表性的高潮事件（登月），再倒回過去說明事情的起因與經過。",
+        "code": "L06-TXT.STR-S4-09",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "倒敘法"
+        ]
     },
     {
         "id": "q_l6_mc_18",
@@ -4668,7 +6558,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "形容他長久堅持夢想，不曾放棄。"
+        "trap": "形容他長久堅持夢想，不曾放棄。",
+        "code": "L06-IDM.MEAN-S3-01",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "持之以恆"
+        ]
     },
     {
         "id": "q_l6_mc_19",
@@ -4701,7 +6601,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "代表他不把自己登月的偉大成就掛在嘴邊炫耀，而是用輕鬆的態度看待。"
+        "trap": "代表他不把自己登月的偉大成就掛在嘴邊炫耀，而是用輕鬆的態度看待。",
+        "code": "L06-SEM.DEF-S3-03",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "形容言論或描寫簡單、不費力地帶過，不加渲"
+        ]
     },
     {
         "id": "q_l6_mc_20",
@@ -4734,7 +6644,17 @@ const QUESTION_BANK = [
         ],
         "unitId": "L6",
         "batch": "原本題庫",
-        "trap": "文章透過阿姆斯壯的故事，帶出了人類太空探索史上的偉大里程碑。"
+        "trap": "文章透過阿姆斯壯的故事，帶出了人類太空探索史上的偉大里程碑。",
+        "code": "L06-TXT.MAIN-S4-10",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "記錄阿姆斯壯實現夢想的過程，並讚頌人類探"
+        ]
     },
     {
         "id": "q_exam_dahua_hw_1",
@@ -4749,7 +6669,21 @@ const QUESTION_BANK = [
         "question": "【大華國小・第一大題①】早餐後，大谷翔平[[國字:ㄉㄧˇ:抵]]達球場，陽光映照在他[[注音:黝:ㄧㄡˇ]]黑的頭髮上，[[注音:襯:ㄔㄣˋ]]著那件淨白清[[國字:ㄕㄨㄤˇ:爽]]的運動[[注音:衫:ㄕㄢ]]，更顯亮眼。",
         "correctAnswer": "抵、ㄧㄡˇ、ㄔㄣˋ、爽、ㄕㄢ",
         "explanation": "【解說】「抵達」的抵是手部；「黝黑」讀作「ㄧㄡˇ」（黑部）；「襯著」讀作四聲「ㄔㄣˋ」（衣部）；「清爽」注意爽的筆順；「運動衫」讀作一聲「ㄕㄢ」。",
-        "trap": "易把「黝(ㄧㄡˇ)」誤讀為ㄧㄡ，或把「衫(ㄕㄢ)」加翹舌音失敗。"
+        "trap": "易把「黝(ㄧㄡˇ)」誤讀為ㄧㄡ，或把「衫(ㄕㄢ)」加翹舌音失敗。",
+        "code": "M1.DH-CHR.MIX-S3-01",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "抵",
+            "ㄧㄡˇ",
+            "ㄔㄣˋ",
+            "爽",
+            "ㄕㄢ"
+        ]
     },
     {
         "id": "q_exam_dahua_hw_2",
@@ -4764,7 +6698,21 @@ const QUESTION_BANK = [
         "question": "【大華國小・第一大題②】他靜靜望向手中球棒與手套——那是他[[注音:承:ㄔㄥˊ]]載夢想的工具。他相信自己能[[國字:ㄐㄧㄢ:兼]]任投手與打者兩個角色。他[[注音:悉:ㄒㄧ]]心的[[注音:訓:ㄒㄩㄣˋ]]練，即使手肘受傷、機[[國字:ㄒㄧㄝˋ:械]]式的復健，也在時間縫隙裡一點一滴找回力量。",
         "correctAnswer": "ㄔㄥˊ、兼、ㄒㄧ、ㄒㄩㄣˋ、械",
         "explanation": "【解說】「承載」的承讀作「ㄔㄥˊ」；「兼任」的兼注意中間兩豎；「悉心」讀作一聲「ㄒㄧ」；「訓練」讀作四聲「ㄒㄩㄣˋ」；「機械」為木部。",
-        "trap": "「機械」的「械」右邊是戒，不要少寫一撇一橫；「悉」讀一聲ㄒㄧ而非二聲。"
+        "trap": "「機械」的「械」右邊是戒，不要少寫一撇一橫；「悉」讀一聲ㄒㄧ而非二聲。",
+        "code": "M1.DH-CHR.MIX-S3-02",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄔㄥˊ",
+            "兼",
+            "ㄒㄧ",
+            "ㄒㄩㄣˋ",
+            "械"
+        ]
     },
     {
         "id": "q_exam_dahua_hw_3",
@@ -4779,7 +6727,22 @@ const QUESTION_BANK = [
         "question": "【大華國小・第一大題③】每一次揮棒、每一次投球，都像[[國字:ㄔㄨˋ:觸]]動心底那株[[國字:ㄇㄠˋ:茂]]盛的[[國字:ㄊㄥˊ:藤]]蔓，從痛楚中抽芽。失敗的[[注音:塵:ㄔㄣˊ]][[國字:ㄍㄡˋ:垢]]覆蓋著球鞋，[[國字:ㄐㄧㄢˇ:簡]]陋的宿舍牆上，仍貼著他高中時親手寫下的夢想表。",
         "correctAnswer": "觸、茂、藤、ㄔㄣˊ、垢、簡",
         "explanation": "【解說】「觸動」為角部＋蜀；「茂盛」與「藤蔓」皆為艸部；「塵垢」的塵讀「ㄔㄣˊ」、垢為土部；「簡陋」的簡為竹部。",
-        "trap": "「藤」右下方是「氺」不是水或泰；「茂」下半部是戊，裡面沒有點。"
+        "trap": "「藤」右下方是「氺」不是水或泰；「茂」下半部是戊，裡面沒有點。",
+        "code": "M1.DH-CHR.MIX-S3-03",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "觸",
+            "茂",
+            "藤",
+            "ㄔㄣˊ",
+            "垢",
+            "簡"
+        ]
     },
     {
         "id": "q_exam_dahua_hw_4",
@@ -4794,7 +6757,24 @@ const QUESTION_BANK = [
         "question": "【大華國小・第一大題④】當球在掌中[[國字:ㄓㄢˋ:顫]]動，[[國字:ㄒㄩㄣˋ:迅]]速飛越的瞬間，他明白那是每一次[[國字:ㄌㄧㄥˊ:凌]]越懼怕的信念。遠方的天空，一望無[[國字:ㄧㄣˊ:垠]]。他知道，夢想不會主[[國字:ㄉㄨㄥˋ:動]][[注音:添:ㄊㄧㄢ]]翼，唯有持續鍛鍊，讓意志不[[注音:蓬:ㄆㄥˊ]]亂，陽光終會穿透所有的陰[[國字:ㄇㄞˊ:霾]]。",
         "correctAnswer": "顫、迅、凌、垠、動、ㄊㄧㄢ、ㄆㄥˊ、霾",
         "explanation": "【解說】「顫動」左邊是亶、右邊是頁；「凌越」是冫部（二畫）；「一望無垠」的垠是土部；「陰霾」是雨部＋貍。",
-        "trap": "「顫」與「霾」筆畫較多，注意「凌」左邊是兩點冰（冫）而非水部。"
+        "trap": "「顫」與「霾」筆畫較多，注意「凌」左邊是兩點冰（冫）而非水部。",
+        "code": "M1.DH-CHR.MIX-S4-04",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "顫",
+            "迅",
+            "凌",
+            "垠",
+            "動",
+            "ㄊㄧㄢ",
+            "ㄆㄥˊ",
+            "霾"
+        ]
     },
     {
         "id": "q_exam_dahua_hw_5",
@@ -4809,7 +6789,22 @@ const QUESTION_BANK = [
         "question": "【大華國小・第一大題⑤篇章改錯】請訂正文章中的六個錯別字：(1)「監」定的目光➔[[國字:ㄐㄧㄢ:堅]]定；(2)留下的痕「蹟」➔痕[[國字:ㄐㄧ:跡]]；(3)時間縫「繫」➔縫[[國字:ㄒㄧˋ:隙]]；(4)簡「漏」的宿舍➔簡[[國字:ㄌㄡˋ:陋]]；(5)「裁」種希望➔[[國字:ㄗㄞ:栽]]種；(6)「維」有持續鍛鍊➔[[國字:ㄨㄟˊ:唯]]有。",
         "correctAnswer": "堅、跡、隙、陋、栽、唯",
         "explanation": "【解說】堅定（土部）、痕跡（足部）、縫隙（阜部，右邊是小＋日＋小）、簡陋（阜部）、栽種（木部，與裁剪的衣部不同）、唯有（口部）。",
-        "trap": "「栽種」裡面是「木」，「裁剪」裡面是「衣」，兩者是段考最常考的形近字！"
+        "trap": "「栽種」裡面是「木」，「裁剪」裡面是「衣」，兩者是段考最常考的形近字！",
+        "code": "M1.DH-ERR.PSG-S3-01",
+        "domain": "ERR",
+        "subType": "PSG",
+        "tags": [
+            "ERR",
+            "PSG"
+        ],
+        "targets": [
+            "堅",
+            "跡",
+            "隙",
+            "陋",
+            "栽",
+            "唯"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_1",
@@ -4844,7 +6839,17 @@ const QUESTION_BANK = [
                 "explanation": "多音字辨析中，本題標準答案為②「記載／一年半載」（皆讀ㄗㄞˇ）。"
             }
         ],
-        "trap": "易誤以為「歷史記載」讀四聲ㄗㄞˋ，其實「記載、刊載、千載難逢、一年半載」皆讀三聲ㄗㄞˇ！"
+        "trap": "易誤以為「歷史記載」讀四聲ㄗㄞˋ，其實「記載、刊載、千載難逢、一年半載」皆讀三聲ㄗㄞˇ！",
+        "code": "M1.DH-PHO.PLY-S3-01",
+        "domain": "PHO",
+        "subType": "PLY",
+        "tags": [
+            "PHO",
+            "PLY"
+        ],
+        "targets": [
+            "歷史記「載」 ／ 一年半「載」"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_2",
@@ -4879,7 +6884,17 @@ const QUESTION_BANK = [
                 "explanation": "指的是雲朵移動時在山間留下的投影。"
             }
         ],
-        "trap": "注意破折號在此處的作用是「補充說明（夾注）」，且「閒遊」是擬人法。"
+        "trap": "注意破折號在此處的作用是「補充說明（夾注）」，且「閒遊」是擬人法。",
+        "code": "M1.DH-RHE.FIG-S2-01",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "運用了破折號來補充說明「暗綠」就是雲的腳"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_3",
@@ -4914,7 +6929,17 @@ const QUESTION_BANK = [
                 "explanation": "無排比與頂真。"
             }
         ],
-        "trap": "鳳蝶的翅膀被比喻成「智慧書頁」，加上「飾彩、一開一收」屬於視覺摹寫。"
+        "trap": "鳳蝶的翅膀被比喻成「智慧書頁」，加上「飾彩、一開一收」屬於視覺摹寫。",
+        "code": "M1.DH-RHE.FIG-S3-02",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "譬喻（借喻）、摹寫（視覺）"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_4",
@@ -4949,7 +6974,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「蔓延」像植物藤蔓延伸用艸部；「浪漫」用水部；「傲慢」與心理態度有關用心部。"
             }
         ],
-        "trap": "記住部首口訣：藤「蔓」蔓延是草（艸），浪「漫」漫步是水（氵），傲「慢」緩慢是心（忄）。"
+        "trap": "記住部首口訣：藤「蔓」蔓延是草（艸），浪「漫」漫步是水（氵），傲「慢」緩慢是心（忄）。",
+        "code": "M1.DH-ERR.SHP-S2-02",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "蔓、漫、慢"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_5",
@@ -4984,7 +7019,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「每當……總是……」表示在特定條件下必然發生的結果，屬於條件複句。"
             }
         ],
-        "trap": "區分四大句型：「起先…隨後…」（承接）、「雖然…卻…」（轉折）、「不是…而是…」（並列）、「只要…立即…／每當…總是…」（條件）。"
+        "trap": "區分四大句型：「起先…隨後…」（承接）、「雖然…卻…」（轉折）、「不是…而是…」（並列）、「只要…立即…／每當…總是…」（條件）。",
+        "code": "M1.DH-RHE.SYN-S3-03",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "每當發生火災時，消防人員總是前往救援"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_6",
@@ -5019,7 +7064,17 @@ const QUESTION_BANK = [
                 "explanation": "是為了保護小鳥而非植物。"
             }
         ],
-        "trap": "〈珍珠鳥〉的核心觀念：信賴是建立在「尊重與給予安全感」的基礎上。"
+        "trap": "〈珍珠鳥〉的核心觀念：信賴是建立在「尊重與給予安全感」的基礎上。",
+        "code": "M1.DH-TXT.MAIN-S1-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "為了讓鳥有安全感"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_7",
@@ -5054,7 +7109,17 @@ const QUESTION_BANK = [
                 "explanation": "此敘述正確。"
             }
         ],
-        "trap": "必背國學常識：杜甫＝詩聖、詩史；李白＝詩仙；王維＝詩佛。千萬別把李白和杜甫的稱號搞混！"
+        "trap": "必背國學常識：杜甫＝詩聖、詩史；李白＝詩仙；王維＝詩佛。千萬別把李白和杜甫的稱號搞混！",
+        "code": "M1.DH-RDG.LIT-S2-01",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "杜甫的詩反映社會現實，被稱為「詩仙」，與"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_8",
@@ -5089,7 +7154,17 @@ const QUESTION_BANK = [
                 "explanation": "錯誤！「客」是遠道而來的崔明府，鄰翁是杜甫邀請過來一起陪客飲酒的鄰居。"
             }
         ],
-        "trap": "注意〈客至〉中有三個人物：主人（杜甫）、貴客（崔明府，君）、陪客（鄰翁）。"
+        "trap": "注意〈客至〉中有三個人物：主人（杜甫）、貴客（崔明府，君）、陪客（鄰翁）。",
+        "code": "M1.DH-TXT.MAIN-S2-02",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "從「掃徑、敞開大門（花徑不曾緣客掃，蓬門"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_9",
@@ -5124,7 +7199,17 @@ const QUESTION_BANK = [
                 "explanation": "近體詩（唐詩）盛行於唐朝，宋朝盛行的是「詞」。"
             }
         ],
-        "trap": "律詩與絕句的異同：字數（五言/七言）與押韻規則（偶數句押韻、首句可押可不押）相同；句數（絕句4句、律詩8句）與對仗要求不同。"
+        "trap": "律詩與絕句的異同：字數（五言/七言）與押韻規則（偶數句押韻、首句可押可不押）相同；句數（絕句4句、律詩8句）與對仗要求不同。",
+        "code": "M1.DH-RDG.LIT-S3-02",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "皆是偶數句押韻，第一句可押韻可不押韻"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_10",
@@ -5159,7 +7244,17 @@ const QUESTION_BANK = [
                 "explanation": "「惹」是心部（下面有個心）。"
             }
         ],
-        "trap": "常考部首陷阱：「置」是网部、「勺」是勹部、「惹」是心部、「屬」是尸部、「舒」是舌部、「承」是手部。"
+        "trap": "常考部首陷阱：「置」是网部、「勺」是勹部、「惹」是心部、「屬」是尸部、「舒」是舌部、「承」是手部。",
+        "code": "M1.DH-ERR.RAD-S3-03",
+        "domain": "ERR",
+        "subType": "RAD",
+        "tags": [
+            "ERR",
+            "RAD"
+        ],
+        "targets": [
+            "屬：尸部"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_11",
@@ -5194,7 +7289,17 @@ const QUESTION_BANK = [
                 "explanation": "運動衫很薄，是不覺得冷而非衣服厚。"
             }
         ],
-        "trap": "這是以「外在環境的冷」反襯「內心鬥志的熱」。"
+        "trap": "這是以「外在環境的冷」反襯「內心鬥志的熱」。",
+        "code": "M1.DH-TXT.MAIN-S2-03",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "內心對比賽的熱情與專注超越了外在的寒冷"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_12",
@@ -5229,7 +7334,17 @@ const QUESTION_BANK = [
                 "explanation": "觀眾是因為感動而為他喝采。"
             }
         ],
-        "trap": "「贏得喝采」vs「輸家」屬於映襯修辭（反襯／矛盾語法），能引發讀者好奇並凸顯主旨。"
+        "trap": "「贏得喝采」vs「輸家」屬於映襯修辭（反襯／矛盾語法），能引發讀者好奇並凸顯主旨。",
+        "code": "M1.DH-RHE.FIG-S2-04",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "雖然在名次上輸了比賽，但因展現運動家精神"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_13",
@@ -5264,7 +7379,17 @@ const QUESTION_BANK = [
                 "explanation": "前後非轉折關係。"
             }
         ],
-        "trap": "第五課〈哇！原來如此〉重點句型：「若……無疑是……」（如果缺少某條件，簡直就像……一樣不可能或危險）。"
+        "trap": "第五課〈哇！原來如此〉重點句型：「若……無疑是……」（如果缺少某條件，簡直就像……一樣不可能或危險）。",
+        "code": "M1.DH-RHE.SYN-S2-05",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "若……無疑是"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_14",
@@ -5299,7 +7424,17 @@ const QUESTION_BANK = [
                 "explanation": "並非為了擺氣勢。"
             }
         ],
-        "trap": "第五課三種職業工具對照：消防衣＝保護安全；入耳式監聽耳機＝聽清伴奏與自己聲音；場記板＝方便後製影音同步與剪輯（提升工作效率）。"
+        "trap": "第五課三種職業工具對照：消防衣＝保護安全；入耳式監聽耳機＝聽清伴奏與自己聲音；場記板＝方便後製影音同步與剪輯（提升工作效率）。",
+        "code": "M1.DH-TXT.MAIN-S2-04",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "標記場次鏡次並發出清脆聲響，幫助後製剪輯"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_15",
@@ -5334,7 +7469,17 @@ const QUESTION_BANK = [
                 "explanation": "「仁心仁術」形容醫生心地仁慈、醫術高明，不適用於老師。"
             }
         ],
-        "trap": "職業成語分類：教育類＝春風化雨、百年樹人；醫療類＝妙手回春、華佗再世、仁心仁術；音樂類＝餘音繞梁、天籟之音。"
+        "trap": "職業成語分類：教育類＝春風化雨、百年樹人；醫療類＝妙手回春、華佗再世、仁心仁術；音樂類＝餘音繞梁、天籟之音。",
+        "code": "M1.DH-IDM.MEAN-S2-01",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "春風化雨 ／ 赴湯蹈火 ／ 餘音繞梁"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_16",
@@ -5369,7 +7514,17 @@ const QUESTION_BANK = [
                 "explanation": "無味覺描寫。"
             }
         ],
-        "trap": "判斷動態 vs 靜態：看被描寫的景物本身有沒有「動作或移動」（如「火箭直衝雲霄」是動態，「太空一片象灰與濃黑」是靜態）。"
+        "trap": "判斷動態 vs 靜態：看被描寫的景物本身有沒有「動作或移動」（如「火箭直衝雲霄」是動態，「太空一片象灰與濃黑」是靜態）。",
+        "code": "M1.DH-RHE.WRT-S2-06",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "靜態描寫"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_17",
@@ -5404,7 +7559,17 @@ const QUESTION_BANK = [
                 "explanation": "不正確！將攝影機留在月球是為了減輕登月小艇返航重量以帶回月球岩石樣本，期盼後人取回是象徵「人類持續探索太空的傳承」，而非環保問題！"
             }
         ],
-        "trap": "阿姆斯壯留下攝影機的原因是「減輕返航重量」，希望後人取回則象徵「太空探索精神的傳承」。"
+        "trap": "阿姆斯壯留下攝影機的原因是「減輕返航重量」，希望後人取回則象徵「太空探索精神的傳承」。",
+        "code": "M1.DH-TXT.MAIN-S2-05",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "阿姆斯壯要後來者幫他撿起留在月球上的攝影"
+        ]
     },
     {
         "id": "q_exam_dahua_mc_18",
@@ -5439,7 +7604,17 @@ const QUESTION_BANK = [
                 "explanation": "「炫耀」把小草當作人來寫，是典型的轉化（擬人）。"
             }
         ],
-        "trap": "辨別「轉化」與「譬喻」：有「像、如、彷彿」的是譬喻；把物當人寫（炫耀）或把抽象變具體（流瀉感受、翻開一頁）是轉化。"
+        "trap": "辨別「轉化」與「譬喻」：有「像、如、彷彿」的是譬喻；把物當人寫（炫耀）或把抽象變具體（流瀉感受、翻開一頁）是轉化。",
+        "code": "M1.DH-RHE.FIG-S3-07",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "我筆尖一動，流瀉下一時的感受：信賴，往往"
+        ]
     },
     {
         "id": "q_exam_dahua_idiom_1",
@@ -5502,7 +7677,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「家常便飯」比喻極為常見、習以為常或輕鬆平常的小事。"
             }
         ],
-        "trap": "句中「只是……輕鬆就能解決」，最貼切的口語成語是「家常便飯」。"
+        "trap": "句中「只是……輕鬆就能解決」，最貼切的口語成語是「家常便飯」。",
+        "code": "M1.DH-IDM.CTX-S2-02",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "家常便飯"
+        ]
     },
     {
         "id": "q_exam_dahua_idiom_2",
@@ -5565,7 +7750,17 @@ const QUESTION_BANK = [
                 "explanation": "常見平常的事。"
             }
         ],
-        "trap": "「朝三暮四」出自《莊子・齊物論》，原本是養猴人分橡實的故事，後引申為「心意反覆無常」。"
+        "trap": "「朝三暮四」出自《莊子・齊物論》，原本是養猴人分橡實的故事，後引申為「心意反覆無常」。",
+        "code": "M1.DH-IDM.CTX-S2-03",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "朝三暮四"
+        ]
     },
     {
         "id": "q_exam_dahua_idiom_3",
@@ -5628,7 +7823,17 @@ const QUESTION_BANK = [
                 "explanation": "平常小事。"
             }
         ],
-        "trap": "「野人獻曝」出自《列子》，農夫想把曬太陽的溫暖獻給國王，常用在「提出建議時的自謙詞」。"
+        "trap": "「野人獻曝」出自《列子》，農夫想把曬太陽的溫暖獻給國王，常用在「提出建議時的自謙詞」。",
+        "code": "M1.DH-IDM.CTX-S2-04",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "野人獻曝"
+        ]
     },
     {
         "id": "q_exam_dahua_idiom_4",
@@ -5691,7 +7896,17 @@ const QUESTION_BANK = [
                 "explanation": "平常小事。"
             }
         ],
-        "trap": "「不動聲色」配後文「冷靜地處理」，是描寫沉著冷靜的最佳成語。"
+        "trap": "「不動聲色」配後文「冷靜地處理」，是描寫沉著冷靜的最佳成語。",
+        "code": "M1.DH-IDM.CTX-S2-05",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "不動聲色"
+        ]
     },
     {
         "id": "q_exam_dahua_idiom_5",
@@ -5754,7 +7969,17 @@ const QUESTION_BANK = [
                 "explanation": "平常小事。"
             }
         ],
-        "trap": "「名副其實」的「副」是「相稱、符合」的意思，千萬不要寫成符號的「符」！"
+        "trap": "「名副其實」的「副」是「相稱、符合」的意思，千萬不要寫成符號的「符」！",
+        "code": "M1.DH-IDM.CTX-S2-06",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "名副其實"
+        ]
     },
     {
         "id": "q_exam_dahua_read_1",
@@ -5789,7 +8014,17 @@ const QUESTION_BANK = [
                 "explanation": "非送別詩。"
             }
         ],
-        "trap": "比較杜甫兩首七言律詩：〈客至〉在成都草堂寫迎客之喜；〈登高〉在夔州寫漂泊悲秋之哀。"
+        "trap": "比較杜甫兩首七言律詩：〈客至〉在成都草堂寫迎客之喜；〈登高〉在夔州寫漂泊悲秋之哀。",
+        "code": "M1.DH-RDG.POE-S2-03",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "難過悲傷、孤獨感嘆"
+        ]
     },
     {
         "id": "q_exam_dahua_read_2",
@@ -5824,7 +8059,17 @@ const QUESTION_BANK = [
                 "explanation": "〈登高〉全詩四聯皆對仗，尾聯「艱難」對「潦倒」、「苦恨」對「新停」、「繁霜鬢」對「濁酒杯」亦對仗。"
             }
         ],
-        "trap": "對仗只會發生在「同一聯的上下兩句」（第1-2句、第3-4句、第5-6句、第7-8句），第4句和第5句跨聯絕不會對仗！"
+        "trap": "對仗只會發生在「同一聯的上下兩句」（第1-2句、第3-4句、第5-6句、第7-8句），第4句和第5句跨聯絕不會對仗！",
+        "code": "M1.DH-RDG.POE-S3-04",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "不盡長江滾滾來。萬里悲秋常作客"
+        ]
     },
     {
         "id": "q_exam_dahua_read_3",
@@ -5859,7 +8104,17 @@ const QUESTION_BANK = [
                 "explanation": "無此意涵。"
             }
         ],
-        "trap": "古詩中「長江／流水滾滾不盡」常象徵「時間歲月的流逝不止」。"
+        "trap": "古詩中「長江／流水滾滾不盡」常象徵「時間歲月的流逝不止」。",
+        "code": "M1.DH-RDG.POE-S2-05",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "江水滾滾奔流不止，象徵時間（歲月）流逝與"
+        ]
     },
     {
         "id": "q_exam_tzj_hw_1",
@@ -5874,7 +8129,21 @@ const QUESTION_BANK = [
         "question": "【桃子腳國中小・字詞測驗①~⑤】運動會那天，在烈日的①[[國字:ㄆㄨˋ:曝]]曬下，操場上的熱氣令人②[[注音:暈:ㄩㄣ]]頭轉向，但我們沒有退縮！比賽前，我們經過多次的③[[國字:ㄒㄩㄣˋ:訓]]練。從一開始的摸不著頭緒，到後來熟④[[國字:ㄒㄧ:悉]]接棒的節奏，我們知道這不只是一場⑤[[國字:ㄐㄧㄢˇ:簡]]單的比賽。",
         "correctAnswer": "曝、ㄩㄣ、訓、悉、簡",
         "explanation": "【解說】①「曝」曬（日部）；②「暈」頭轉向讀一聲「ㄩㄣ」（頭昏腦脹之意，與「暈開、日暈」讀四聲ㄩㄣˋ不同！）；③「訓」練（言部）；④熟「悉」（采＋心）；⑤「簡」單（竹部）。",
-        "trap": "超級陷阱：「暈頭轉向、頭暈目眩」讀一聲「ㄩㄣ」；「溪水暈皺、月暈、暈開」才讀四聲「ㄩㄣˋ」！"
+        "trap": "超級陷阱：「暈頭轉向、頭暈目眩」讀一聲「ㄩㄣ」；「溪水暈皺、月暈、暈開」才讀四聲「ㄩㄣˋ」！",
+        "code": "M1.TZ-CHR.MIX-S3-01",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "曝",
+            "ㄩㄣ",
+            "訓",
+            "悉",
+            "簡"
+        ]
     },
     {
         "id": "q_exam_tzj_hw_2",
@@ -5889,7 +8158,21 @@ const QUESTION_BANK = [
         "question": "【桃子腳國中小・字詞測驗⑥~⑩】大隊接力更⑥[[國字:ㄔㄥˊ:承]]⑦[[國字:ㄗㄞˋ:載]]著全班的希望。比賽快開始時，我的手不停⑧[[國字:ㄓㄢˋ:顫]]抖，心撲通撲通地狂跳。但老師說：「⑨[[注音:鎮:ㄓㄣˋ]]靜一點，你們可以的！」我深呼吸，⑩[[國字:ㄕㄨ:舒]]展身體，讓自己冷靜下來。",
         "correctAnswer": "承、載、顫、ㄓㄣˋ、舒",
         "explanation": "【解說】⑥「承」載（手部，中間三橫）；⑦承「載」（車部）；⑧「顫」抖（頁部）；⑨「鎮」靜讀四聲「ㄓㄣˋ」；⑩「舒」展（舌部＋予）。",
-        "trap": "「舒」左邊是「舍」（舌部），右邊是「予」，千萬不要多一撇寫成矛！"
+        "trap": "「舒」左邊是「舍」（舌部），右邊是「予」，千萬不要多一撇寫成矛！",
+        "code": "M1.TZ-CHR.MIX-S3-02",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "承",
+            "載",
+            "顫",
+            "ㄓㄣˋ",
+            "舒"
+        ]
     },
     {
         "id": "q_exam_tzj_hw_3",
@@ -5904,7 +8187,21 @@ const QUESTION_BANK = [
         "question": "【桃子腳國中小・字詞測驗⑪~⑮】四周傳來同學們的加油聲，那是我們最強大的後⑪[[國字:ㄩㄢˊ:援]]，讓我熱血⑫[[國字:ㄈㄟˋ:沸]]⑬[[國字:ㄊㄥˊ:騰]]，心裡充滿力量。班上的每一棒都用盡全力奔跑，每一次交棒⑭[[國字:ㄐㄧㄝ:皆]]是一種⑮[[國字:ㄔㄨˋ:觸]]動。",
         "correctAnswer": "援、沸、騰、皆、觸",
         "explanation": "【解說】⑪後「援」是手部（扌＋爰）；⑫「沸」騰是水部；⑬沸「騰」是馬部；⑭「皆」是白部（比＋白）；⑮「觸」動是角部。",
-        "trap": "「後援」的「援」是手部（幫忙拉一把），不要寫成水部的潺湲或糸部的緩！"
+        "trap": "「後援」的「援」是手部（幫忙拉一把），不要寫成水部的潺湲或糸部的緩！",
+        "code": "M1.TZ-CHR.MIX-S3-03",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "援",
+            "沸",
+            "騰",
+            "皆",
+            "觸"
+        ]
     },
     {
         "id": "q_exam_tzj_hw_4",
@@ -5919,7 +8216,21 @@ const QUESTION_BANK = [
         "question": "【桃子腳國中小・字詞測驗⑯~⑳】場上的對手攻勢⑯[[注音:凌:ㄌㄧㄥˊ]]厲，沒有想放棄的⑰[[國字:ㄐㄧ:跡]]象，一路緊追。最後一棒衝刺穿過終點，我們真的⑱[[國字:ㄉㄨㄛˊ:奪]]下了第一名！那份⑲[[國字:ㄕㄨˇ:屬]]於我們的⑳[[注音:榮:ㄖㄨㄥˊ]]耀，早已深深留在每個人的心中。",
         "correctAnswer": "ㄌㄧㄥˊ、跡、奪、屬、ㄖㄨㄥˊ",
         "explanation": "【解說】⑯「凌」厲讀二聲「ㄌㄧㄥˊ」；⑰「跡」象（足部）；⑱「奪」下（大＋隹＋寸）；⑲「屬」於（尸部）；⑳「榮」耀讀二聲「ㄖㄨㄥˊ」（翹舌音）。",
-        "trap": "「奪」中間是「隹」（四橫），下面是「寸」，不要寫成衣！"
+        "trap": "「奪」中間是「隹」（四橫），下面是「寸」，不要寫成衣！",
+        "code": "M1.TZ-CHR.MIX-S3-04",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄌㄧㄥˊ",
+            "跡",
+            "奪",
+            "屬",
+            "ㄖㄨㄥˊ"
+        ]
     },
     {
         "id": "q_exam_tzj_idiom_1",
@@ -5982,7 +8293,17 @@ const QUESTION_BANK = [
                 "explanation": "名聲與實際相符。"
             }
         ],
-        "trap": "「老當益壯」的「益」是「更加」的意思（年紀雖老，志氣更加豪壯）。"
+        "trap": "「老當益壯」的「益」是「更加」的意思（年紀雖老，志氣更加豪壯）。",
+        "code": "M1.TZ-IDM.CTX-S2-01",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "老當益壯"
+        ]
     },
     {
         "id": "q_exam_tzj_idiom_2",
@@ -6045,7 +8366,17 @@ const QUESTION_BANK = [
                 "explanation": "名聲與實際相符合。"
             }
         ],
-        "trap": "「文情並茂」指文章的內容辭采與真摯情感都非常豐富出色。"
+        "trap": "「文情並茂」指文章的內容辭采與真摯情感都非常豐富出色。",
+        "code": "M1.TZ-IDM.CTX-S2-02",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "文情並茂"
+        ]
     },
     {
         "id": "q_exam_tzj_idiom_3",
@@ -6108,7 +8439,17 @@ const QUESTION_BANK = [
                 "explanation": "語意不合。"
             }
         ],
-        "trap": "「面紅耳赤」形容因激動、發怒、羞愧或用力過度而臉色耳朵脹紅。"
+        "trap": "「面紅耳赤」形容因激動、發怒、羞愧或用力過度而臉色耳朵脹紅。",
+        "code": "M1.TZ-IDM.CTX-S2-03",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "面紅耳赤"
+        ]
     },
     {
         "id": "q_exam_tzj_idiom_4",
@@ -6171,7 +8512,17 @@ const QUESTION_BANK = [
                 "explanation": "語意不合。"
             }
         ],
-        "trap": "成語出自《孟子》，「曝」指曬太陽（讀ㄆㄨˋ）。"
+        "trap": "成語出自《孟子》，「曝」指曬太陽（讀ㄆㄨˋ）。",
+        "code": "M1.TZ-IDM.CTX-S2-04",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "一曝十寒"
+        ]
     },
     {
         "id": "q_exam_tzj_idiom_5",
@@ -6234,7 +8585,17 @@ const QUESTION_BANK = [
                 "explanation": "語意不合。"
             }
         ],
-        "trap": "「陳腔濫調」指陳腐老舊、毫無新意的言論或文調。"
+        "trap": "「陳腔濫調」指陳腐老舊、毫無新意的言論或文調。",
+        "code": "M1.TZ-IDM.CTX-S2-05",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "陳腔濫調"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_1",
@@ -6269,7 +8630,17 @@ const QUESTION_BANK = [
                 "explanation": "應為貨車「載」送（車部）。"
             }
         ],
-        "trap": "區分「載（車部：載運、承載）」與「戴（戈部：穿戴、愛戴）」。"
+        "trap": "區分「載（車部：載運、承載）」與「戴（戈部：穿戴、愛戴）」。",
+        "code": "M1.TZ-ERR.PSG-S2-01",
+        "domain": "ERR",
+        "subType": "PSG",
+        "tags": [
+            "ERR",
+            "PSG"
+        ],
+        "targets": [
+            "海「蝕」山洞"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_2",
@@ -6304,7 +8675,17 @@ const QUESTION_BANK = [
                 "explanation": "「捨」棄讀ㄕㄜˇ（三聲）；農「舍」讀ㄕㄜˋ（四聲）。"
             }
         ],
-        "trap": "「掀（ㄒㄧㄢ）」韻母是ㄢ，「欣（ㄒㄧㄣ）」韻母是ㄣ，注意區分！"
+        "trap": "「掀（ㄒㄧㄢ）」韻母是ㄢ，「欣（ㄒㄧㄣ）」韻母是ㄣ，注意區分！",
+        "code": "M1.TZ-PHO.PLY-S2-01",
+        "domain": "PHO",
+        "subType": "PLY",
+        "tags": [
+            "PHO",
+            "PLY"
+        ],
+        "targets": [
+            "「駕」駛 ／ 上「架」"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_3",
@@ -6339,7 +8720,17 @@ const QUESTION_BANK = [
                 "explanation": "「榮」讀ㄖㄨㄥˊ（二聲）。"
             }
         ],
-        "trap": "「跋山涉水」的「涉」讀四聲「ㄕㄜˋ」。"
+        "trap": "「跋山涉水」的「涉」讀四聲「ㄕㄜˋ」。",
+        "code": "M1.TZ-PHO.PLY-S1-02",
+        "domain": "PHO",
+        "subType": "PLY",
+        "tags": [
+            "PHO",
+            "PLY"
+        ],
+        "targets": [
+            "「涉」水"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_4",
@@ -6374,7 +8765,17 @@ const QUESTION_BANK = [
                 "explanation": "與後文「不費吹灰之力」矛盾。"
             }
         ],
-        "trap": "區分「家常便飯（比喻很普通、常有的事）」與「粗茶淡飯（形容生活飲食簡樸）」。"
+        "trap": "區分「家常便飯（比喻很普通、常有的事）」與「粗茶淡飯（形容生活飲食簡樸）」。",
+        "code": "M1.TZ-IDM.MEAN-S1-06",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "家常便飯"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_5",
@@ -6409,7 +8810,17 @@ const QUESTION_BANK = [
                 "explanation": "這是首聯（1、2句），「舍南舍北」與「但見群鷗」詞性結構不同，並未對仗（3、4句與5、6句才有對仗）。"
             }
         ],
-        "trap": "〈客至〉對仗的是頷聯（第3、4句：花徑不曾緣客掃，蓬門今始為君開）與頸聯（第5、6句：盤飧市遠無兼味，樽酒家貧只舊醅）。"
+        "trap": "〈客至〉對仗的是頷聯（第3、4句：花徑不曾緣客掃，蓬門今始為君開）與頸聯（第5、6句：盤飧市遠無兼味，樽酒家貧只舊醅）。",
+        "code": "M1.TZ-RDG.LIT-S2-01",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "可分為五言與七言"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_6",
@@ -6444,7 +8855,17 @@ const QUESTION_BANK = [
                 "explanation": "形容男子容貌俊美。"
             }
         ],
-        "trap": "「樹人」的「樹」是動詞「培育、種植」的意思。"
+        "trap": "「樹人」的「樹」是動詞「培育、種植」的意思。",
+        "code": "M1.TZ-IDM.MEAN-S2-07",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "百年樹人"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_7",
@@ -6479,7 +8900,17 @@ const QUESTION_BANK = [
                 "explanation": "順序錯誤。"
             }
         ],
-        "trap": "「莫」家族四大形近字：日暮（下為日）、布幕（下為巾）、墓地（下為土）、羨慕（下為小水，心部）、募款（下為力）。"
+        "trap": "「莫」家族四大形近字：日暮（下為日）、布幕（下為巾）、墓地（下為土）、羨慕（下為小水，心部）、募款（下為力）。",
+        "code": "M1.TZ-ERR.SHP-S2-02",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "暮 ／ 幕 ／ 墓 ／ 慕"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_8",
@@ -6514,7 +8945,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「芭」蕉扇（艸部）、泥「巴」、籬「笆」（竹部）、一「把」搶下（手部）。"
             }
         ],
-        "trap": "「芭蕉」是植物用艸部，「籬笆」用竹子編織所以用竹部！"
+        "trap": "「芭蕉」是植物用艸部，「籬笆」用竹子編織所以用竹部！",
+        "code": "M1.TZ-ERR.SHP-S2-03",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "芭 ／ 巴 ／ 笆 ／ 把"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_9",
@@ -6549,7 +8990,17 @@ const QUESTION_BANK = [
                 "explanation": "與鳳蝶無關。"
             }
         ],
-        "trap": "「移動的暗綠」＝雲朵投射在山林上的影子。"
+        "trap": "「移動的暗綠」＝雲朵投射在山林上的影子。",
+        "code": "M1.TZ-TXT.MAIN-S1-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "天空雲朵在山林間透光移動所留下的陰影（投"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_10",
@@ -6584,7 +9035,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！由一開始躲在吊蘭裡（陌生），到探出小腦袋、在屋裡飛（好奇），再到跳上書桌啄筆尖（親近），最後趴在作者肩上熟睡（完全信賴）。"
             }
         ],
-        "trap": "熟記〈珍珠鳥〉情感推進四部曲：陌生 ➔ 好奇 ➔ 親近 ➔ 信賴。"
+        "trap": "熟記〈珍珠鳥〉情感推進四部曲：陌生 ➔ 好奇 ➔ 親近 ➔ 信賴。",
+        "code": "M1.TZ-TXT.STR-S2-02",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "陌生（怕人） ➔ 好奇（探頭） ➔ 親近"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_11",
@@ -6619,7 +9080,17 @@ const QUESTION_BANK = [
                 "explanation": "此句描寫開門迎客的喜悅。"
             }
         ],
-        "trap": "首聯「舍南舍北皆春水，但見群鷗日日來」點出居住環境（草堂四周春水環繞、幽靜偏僻）。"
+        "trap": "首聯「舍南舍北皆春水，但見群鷗日日來」點出居住環境（草堂四周春水環繞、幽靜偏僻）。",
+        "code": "M1.TZ-TXT.MAIN-S2-03",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "舍南舍北皆春水"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_12",
@@ -6654,7 +9125,17 @@ const QUESTION_BANK = [
                 "explanation": "並非為了交朋友。"
             }
         ],
-        "trap": "〈贏得喝采的輸家〉核心主旨：真正的榮耀來自於堂堂正正的運動家精神，而非靠對手失誤得來的獎牌。"
+        "trap": "〈贏得喝采的輸家〉核心主旨：真正的榮耀來自於堂堂正正的運動家精神，而非靠對手失誤得來的獎牌。",
+        "code": "M1.TZ-TXT.MAIN-S1-04",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "超越勝敗的價值（誠實與運動家精神）"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_13",
@@ -6689,7 +9170,17 @@ const QUESTION_BANK = [
                 "explanation": "出現「我」，為第一人稱。"
             }
         ],
-        "trap": "人稱判斷速記：第一人稱（我、我們，主觀身歷其境）；第二人稱（你、你們，親切對話感）；第三人稱（他、她、人名，客觀全知）。"
+        "trap": "人稱判斷速記：第一人稱（我、我們，主觀身歷其境）；第二人稱（你、你們，親切對話感）；第三人稱（他、她、人名，客觀全知）。",
+        "code": "M1.TZ-TXT.STR-S2-05",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "操場上，阿綸飛快奔跑著，像隻出閘獵豹。"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_14",
@@ -6724,7 +9215,17 @@ const QUESTION_BANK = [
                 "explanation": "此敘述正確。"
             }
         ],
-        "trap": "必考細節！消防衣三層構造（由外而內）：①最外層（耐火耐磨）➔ ②中間層（防水透氣）➔ ③最裡層（隔熱層，保持舒適）。"
+        "trap": "必考細節！消防衣三層構造（由外而內）：①最外層（耐火耐磨）➔ ②中間層（防水透氣）➔ ③最裡層（隔熱層，保持舒適）。",
+        "code": "M1.TZ-TXT.MAIN-S3-06",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "消防衣能保護消防員入火場救災，最外層功能"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_15",
@@ -6759,7 +9260,17 @@ const QUESTION_BANK = [
                 "explanation": "攝影機並非不小心遺落，而是為了減輕小艇重量刻意留下的，且他的心願是人類未來能重返月球、延續探索精神。"
             }
         ],
-        "trap": "第六課兩大常考陷阱：(1) 全文採「倒敘法」；(2)「四十萬人」是幕後團隊人數，不是太空船載客量！"
+        "trap": "第六課兩大常考陷阱：(1) 全文採「倒敘法」；(2)「四十萬人」是幕後團隊人數，不是太空船載客量！",
+        "code": "M1.TZ-TXT.MAIN-S2-07",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "本課採用倒敘法（從登月成功那一刻寫起，再"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_16",
@@ -6794,7 +9305,17 @@ const QUESTION_BANK = [
                 "explanation": "這是珍珠鳥真實的跳躍動作，不是擬人。"
             }
         ],
-        "trap": "注意：「小鳥跳上稿紙」是鳥原本就會做的動作（非擬人）；「新陽推開陰霾、小草炫耀新綠、小路溫柔」才是擬人！"
+        "trap": "注意：「小鳥跳上稿紙」是鳥原本就會做的動作（非擬人）；「新陽推開陰霾、小草炫耀新綠、小路溫柔」才是擬人！",
+        "code": "M1.TZ-RHE.FIG-S2-01",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "新陽推開了陰霾（烏雲）。"
+        ]
     },
     {
         "id": "q_exam_tzj_mc_17",
@@ -6829,7 +9350,17 @@ const QUESTION_BANK = [
                 "explanation": "「展開雙臂、迎接」為擬人法。"
             }
         ],
-        "trap": "選項②③④都是把無生物當作人來寫（擬人），只有①是把地球比喻成夜明珠（譬喻）。"
+        "trap": "選項②③④都是把無生物當作人來寫（擬人），只有①是把地球比喻成夜明珠（譬喻）。",
+        "code": "M1.TZ-RHE.FIG-S2-02",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "藍綠圓滿豐潤的星球，像顆夜明珠。"
+        ]
     },
     {
         "id": "q_exam_tzj_read1_1",
@@ -6864,7 +9395,17 @@ const QUESTION_BANK = [
                 "explanation": "文中未提及。"
             }
         ],
-        "trap": "直接從文章第一句即可找到答案。"
+        "trap": "直接從文章第一句即可找到答案。",
+        "code": "M1.TZ-RDG.PRO-S1-02",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "他是一位盲人"
+        ]
     },
     {
         "id": "q_exam_tzj_read1_2",
@@ -6899,7 +9440,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！他年輕時辦野餐會拒絕黑人、付錢不碰黑人店員的手，認為白人與黑人結婚會使父母蒙辱。"
             }
         ],
-        "trap": "注意題目問的是「年輕時（失明前）」的看法。"
+        "trap": "注意題目問的是「年輕時（失明前）」的看法。",
+        "code": "M1.TZ-RDG.PRO-S1-03",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "覺得黑人低人一等，不可與白人交往、參加活"
+        ]
     },
     {
         "id": "q_exam_tzj_read1_3",
@@ -6934,7 +9485,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！盲人重建院裡的心理輔導員耐心開導他，成為他的良師益友，後來才透露自己是黑人。"
             }
         ],
-        "trap": "因為看不見膚色，老先生才能用「心」體會對方的善良與真誠。"
+        "trap": "因為看不見膚色，老先生才能用「心」體會對方的善良與真誠。",
+        "code": "M1.TZ-RDG.PRO-S1-04",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "一位黑人心理輔導員"
+        ]
     },
     {
         "id": "q_exam_tzj_read1_4",
@@ -6969,7 +9530,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！他明白人的品格好壞與外在膚色毫無關係。"
             }
         ],
-        "trap": "呼應前文：「對我來講，我只知道他是好人，還是壞人；至於膚色，對我已絕對地無意義了。」"
+        "trap": "呼應前文：「對我來講，我只知道他是好人，還是壞人；至於膚色，對我已絕對地無意義了。」",
+        "code": "M1.TZ-RDG.PRO-S2-05",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "他已不把膚色作為判斷人的標準，只看對方是"
+        ]
     },
     {
         "id": "q_exam_tzj_read1_5",
@@ -7004,7 +9575,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！結尾作者驚訝於老先生的黑人太太，反思自己「視力良好，因此偏見猶在」，點出外在視覺常蒙蔽心靈。"
             }
         ],
-        "trap": "文章結尾的對比：「失去了視力，也失去了偏見（幸福）」vs「視力良好，偏見猶在（不幸）」。"
+        "trap": "文章結尾的對比：「失去了視力，也失去了偏見（幸福）」vs「視力良好，偏見猶在（不幸）」。",
+        "code": "M1.TZ-RDG.PRO-S2-06",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "偏見往往是因為「只看外在表面」造成的，唯"
+        ]
     },
     {
         "id": "q_exam_tzj_read2_1",
@@ -7039,7 +9620,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！從「我希望逢著／一個丁香一樣／結著愁怨的姑娘」可知詩人內心有所追尋與期盼。"
             }
         ],
-        "trap": "「我希望逢著……」點出詩人在雨巷中徘徊是為了追尋心中的美好理想與知音。"
+        "trap": "「我希望逢著……」點出詩人在雨巷中徘徊是為了追尋心中的美好理想與知音。",
+        "code": "M1.TZ-RDG.PRO-S2-07",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "他在尋找與期盼心中想見的人（或理想）"
+        ]
     },
     {
         "id": "q_exam_tzj_read2_2",
@@ -7074,7 +9665,17 @@ const QUESTION_BANK = [
                 "explanation": "非下雪。"
             }
         ],
-        "trap": "從「撐著油紙傘、雨巷、在雨中哀怨」即可判斷場景。"
+        "trap": "從「撐著油紙傘、雨巷、在雨中哀怨」即可判斷場景。",
+        "code": "M1.TZ-RDG.PRO-S1-08",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "下雨的小巷子裡"
+        ]
     },
     {
         "id": "q_exam_tzj_read2_3",
@@ -7109,7 +9710,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！首尾皆寫「我希望逢著／我希望飄過」，中間寫「像夢一般地淒婉迷茫」，可見姑娘是詩人想像出來的理想象徵。"
             }
         ],
-        "trap": "首段「我希望逢著」與末段「我希望飄過」首尾呼應，說明這是一場如夢似幻的想像與期盼。"
+        "trap": "首段「我希望逢著」與末段「我希望飄過」首尾呼應，說明這是一場如夢似幻的想像與期盼。",
+        "code": "M1.TZ-RDG.PRO-S2-09",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "如夢境般飄渺，是詩人心中想像與寄託的象徵"
+        ]
     },
     {
         "id": "q_exam_tzj_read2_4",
@@ -7144,7 +9755,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！透過反覆吟詠「彷徨、寂寥、哀怨、惆悵」，營造出綿延不絕的憂愁與迷茫氛圍。"
             }
         ],
-        "trap": "現代詩中的「類疊與反覆」能創造音樂節奏感，並強化特定情感氛圍。"
+        "trap": "現代詩中的「類疊與反覆」能創造音樂節奏感，並強化特定情感氛圍。",
+        "code": "M1.TZ-RDG.PRO-S2-10",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "加強詩的悲傷、孤寂與迷茫氣氛"
+        ]
     },
     {
         "id": "q_exam_tzj_read2_5",
@@ -7179,7 +9800,17 @@ const QUESTION_BANK = [
                 "explanation": "與全詩氛圍相反。"
             }
         ],
-        "trap": "古典詩詞中「丁香結」常象徵「愁思與憂怨」。"
+        "trap": "古典詩詞中「丁香結」常象徵「愁思與憂怨」。",
+        "code": "M1.TZ-RDG.PRO-S1-11",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "悲傷與思念（憂愁與期盼）"
+        ]
     },
     {
         "id": "q_exam_neihu_hw_1",
@@ -7194,7 +9825,21 @@ const QUESTION_BANK = [
         "question": "【內湖國小・國字注音①~⑤】在一個小小村莊裡有一條小溪，溪水①[[注音:潺:ㄔㄢˊ]]潺從山壁的縫②[[國字:ㄒㄧˋ:隙]]流③[[注音:瀉:ㄒㄧㄝˋ]]而下，把一切④[[注音:塵:ㄔㄣˊ]]⑤[[國字:ㄍㄡˋ:垢]]都沖乾淨了。",
         "correctAnswer": "ㄔㄢˊ、隙、ㄒㄧㄝˋ、ㄔㄣˊ、垢",
         "explanation": "【解說】①「潺」潺讀二聲「ㄔㄢˊ」（翹舌音）；②縫「隙」（阜部，右邊是小＋日＋小）；③流「瀉」讀四聲「ㄒㄧㄝˋ」；④「塵」讀二聲「ㄔㄣˊ」；⑤塵「垢」（土部）。",
-        "trap": "「潺（ㄔㄢˊ）」是翹舌音，不要念成ㄘㄢˊ；「隙」右邊上下都是「小」，不是水！"
+        "trap": "「潺（ㄔㄢˊ）」是翹舌音，不要念成ㄘㄢˊ；「隙」右邊上下都是「小」，不是水！",
+        "code": "M1.NH-CHR.MIX-S3-01",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄔㄢˊ",
+            "隙",
+            "ㄒㄧㄝˋ",
+            "ㄔㄣˊ",
+            "垢"
+        ]
     },
     {
         "id": "q_exam_neihu_hw_2",
@@ -7209,7 +9854,21 @@ const QUESTION_BANK = [
         "question": "【內湖國小・國字注音⑥~⑩】孩子們常常⑥[[注音:涉:ㄕㄜˋ]]水玩耍，用小⑦[[國字:ㄕㄠˊ:勺]]子⑧[[注音:撈:ㄌㄠ]]魚撈蝦，為村莊增⑨[[國字:ㄊㄧㄢ:添]]許多快樂。雖然村裡的屋⑩[[國字:ㄕㄜˋ:舍]]都有點簡陋，但大家覺得很幸福。",
         "correctAnswer": "ㄕㄜˋ、勺、ㄌㄠ、添、舍",
         "explanation": "【解說】⑥「涉」水讀四聲「ㄕㄜˋ」；⑦「勺」子（勹部，裡面一點）；⑧「撈」魚讀一聲「ㄌㄠ」（口語常讀ㄌㄠˊ，但審定音可注意一聲ㄌㄠ）；⑨增「添」（水部＋忝，右下是小水）；⑩屋「舍」（人＋舌）。",
-        "trap": "「添」的右下方是「㣺」（心部變體，兩點），千萬不要少寫一點變成水！"
+        "trap": "「添」的右下方是「㣺」（心部變體，兩點），千萬不要少寫一點變成水！",
+        "code": "M1.NH-CHR.MIX-S3-02",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄕㄜˋ",
+            "勺",
+            "ㄌㄠ",
+            "添",
+            "舍"
+        ]
     },
     {
         "id": "q_exam_neihu_hw_3",
@@ -7224,7 +9883,21 @@ const QUESTION_BANK = [
         "question": "【內湖國小・國字注音⑪~⑮】雖然屋舍都有點簡⑪[[國字:ㄌㄡˋ:陋]]，村子口有一棵老樹⑫[[注音:兀:ㄨˋ]]自站著，像守護神一樣。一個暴風雨後的⑬[[國字:ㄌㄧㄥˊ:凌]]晨，老樹沙沙低語：「雖然我的枝葉會慢慢⑭[[注音:朽:ㄒㄧㄡˇ]]壞，但我的根卻⑮[[國字:ㄕㄨˇ:屬]]於大地。」",
         "correctAnswer": "陋、ㄨˋ、凌、ㄒㄧㄡˇ、屬",
         "explanation": "【解說】⑪簡「陋」（阜部）；⑫「兀」自讀四聲「ㄨˋ」；⑬「凌」晨（冫部）；⑭「朽」壞讀三聲「ㄒㄧㄡˇ」；⑮「屬」於（尸部）。",
-        "trap": "「兀自」的「兀」讀作四聲「ㄨˋ」，不要跟光禿禿的「禿（ㄊㄨ）」搞混！"
+        "trap": "「兀自」的「兀」讀作四聲「ㄨˋ」，不要跟光禿禿的「禿（ㄊㄨ）」搞混！",
+        "code": "M1.NH-CHR.MIX-S3-03",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "陋",
+            "ㄨˋ",
+            "凌",
+            "ㄒㄧㄡˇ",
+            "屬"
+        ]
     },
     {
         "id": "q_exam_neihu_hw_4",
@@ -7239,7 +9912,21 @@ const QUESTION_BANK = [
         "question": "【內湖國小・國字注音⑯~⑳】老樹說：「這是我的根存在過的痕⑯[[國字:ㄐㄧ:跡]]。而我身旁的⑰[[注音:荒:ㄏㄨㄤ]]地也會長出新的嫩芽，這就是生命的傳⑱[[國字:ㄔㄥˊ:承]]。」孩子們明白了，生命裡有新的東西來到，也會有⑲[[國字:ㄐㄧㄡˋ:舊]]的東西離開，⑳[[注音:唯:ㄨㄟˊ]]有合在一起才成為完整。",
         "correctAnswer": "跡、ㄏㄨㄤ、承、舊、ㄨㄟˊ",
         "explanation": "【解說】⑯痕「跡」（足部）；⑰「荒」地讀一聲「ㄏㄨㄤ」；⑱傳「承」（手部）；⑲「舊」（艸＋隹＋臼）；⑳「唯」有讀二聲「ㄨㄟˊ」。",
-        "trap": "「舊」上面是艸，中間是「隹」（四橫），下面是「臼」，筆畫要寫清楚！"
+        "trap": "「舊」上面是艸，中間是「隹」（四橫），下面是「臼」，筆畫要寫清楚！",
+        "code": "M1.NH-CHR.MIX-S3-04",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "跡",
+            "ㄏㄨㄤ",
+            "承",
+            "舊",
+            "ㄨㄟˊ"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_1",
@@ -7274,7 +9961,17 @@ const QUESTION_BANK = [
                 "explanation": "這是主角個人的主觀感覺。"
             }
         ],
-        "trap": "區分「客觀事實（說明）」與「主觀感受（抒情）」：能用科學或實際數據驗證構造的是客觀事實。"
+        "trap": "區分「客觀事實（說明）」與「主觀感受（抒情）」：能用科學或實際數據驗證構造的是客觀事實。",
+        "code": "M1.NH-TXT.STR-S2-01",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "消防衣從外到裡共有三層"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_2",
@@ -7309,7 +10006,17 @@ const QUESTION_BANK = [
                 "explanation": "這是提醒對手之前的內心動念。"
             }
         ],
-        "trap": "選項①②④都是安納亞在做出決定前的「內心天人交戰」，唯有③是他最終做出的「高尚行動」。"
+        "trap": "選項①②④都是安納亞在做出決定前的「內心天人交戰」，唯有③是他最終做出的「高尚行動」。",
+        "code": "M1.NH-TXT.MAIN-S1-02",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "看著他高興的樣子，我伸出手，輕輕拍了他的"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_3",
@@ -7344,7 +10051,17 @@ const QUESTION_BANK = [
                 "explanation": "表現主客率真隨和、邀鄰同飲的熱絡。"
             }
         ],
-        "trap": "「不曾緣客掃」與「今始為君開」透過對比（平時不開 vs 今日為你而開），極力烘托對貴客的重視。"
+        "trap": "「不曾緣客掃」與「今始為君開」透過對比（平時不開 vs 今日為你而開），極力烘托對貴客的重視。",
+        "code": "M1.NH-TXT.MAIN-S1-03",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "蓬門今始為君開"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_4",
@@ -7379,7 +10096,17 @@ const QUESTION_BANK = [
                 "explanation": "這是活動範圍擴大，尚未到完全信賴的最高峰。"
             }
         ],
-        "trap": "在肩膀上熟睡不醒，是〈珍珠鳥〉全篇「信賴」情感的最高潮。"
+        "trap": "在肩膀上熟睡不醒，是〈珍珠鳥〉全篇「信賴」情感的最高潮。",
+        "code": "M1.NH-TXT.MAIN-S1-04",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "我輕輕抬一抬肩，牠沒醒，睡得好熟！還咂咂"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_5",
@@ -7414,7 +10141,17 @@ const QUESTION_BANK = [
                 "explanation": "為局部景物描寫。"
             }
         ],
-        "trap": "〈在天晴了的時候〉全詩以「到小徑中去走走」貫穿前後，邀請讀者一同走入雨後初晴的大自然。"
+        "trap": "〈在天晴了的時候〉全詩以「到小徑中去走走」貫穿前後，邀請讀者一同走入雨後初晴的大自然。",
+        "code": "M1.NH-TXT.STR-S2-05",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "到小徑中去走走吧"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_6",
@@ -7449,7 +10186,17 @@ const QUESTION_BANK = [
                 "explanation": "這是立志當飛行員，尚未轉向太空人。"
             }
         ],
-        "trap": "區分「對飛行的熱愛（①②④）」與「對太空月球的嚮往（③眼前的天空已經無法滿足他）」。"
+        "trap": "區分「對飛行的熱愛（①②④）」與「對太空月球的嚮往（③眼前的天空已經無法滿足他）」。",
+        "code": "M1.NH-TXT.MAIN-S2-06",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "參與各種飛行測試，很快的，眼前的天空已經"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_7",
@@ -7484,7 +10231,17 @@ const QUESTION_BANK = [
                 "explanation": "說明文以知識傳遞為主，非悲傷共鳴。"
             }
         ],
-        "trap": "說明文開頭提問的三大作用：引發好奇心、激發閱讀動機、引出說明主題。"
+        "trap": "說明文開頭提問的三大作用：引發好奇心、激發閱讀動機、引出說明主題。",
+        "code": "M1.NH-RHE.WRT-S1-01",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "引發出讀者想探究的好奇心與閱讀動機"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_8",
@@ -7519,7 +10276,17 @@ const QUESTION_BANK = [
                 "explanation": "這是客觀的視覺與聽覺記敘描寫。"
             }
         ],
-        "trap": "「一定是……溫柔」含有作者主觀的情感投射，屬於抒情感受。"
+        "trap": "「一定是……溫柔」含有作者主觀的情感投射，屬於抒情感受。",
+        "code": "M1.NH-TXT.STR-S2-07",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "給雨潤過的泥路，一定是涼爽又溫柔"
+        ]
     },
     {
         "id": "q_exam_neihu_mc_9",
@@ -7554,7 +10321,17 @@ const QUESTION_BANK = [
                 "explanation": "這是「嗅覺摹寫」。"
             }
         ],
-        "trap": "區分感官摹寫：①震耳巨響（聽覺）、②柔軟溼潤（觸覺）、③大小露珠錯落荷葉（視覺）、④嗆鼻氣味（嗅覺）。"
+        "trap": "區分感官摹寫：①震耳巨響（聽覺）、②柔軟溼潤（觸覺）、③大小露珠錯落荷葉（視覺）、④嗆鼻氣味（嗅覺）。",
+        "code": "M1.NH-RHE.WRT-S2-02",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "幾顆大大小小的露珠，錯落在高高低低的荷葉"
+        ]
     },
     {
         "id": "q_exam_neihu_hw_5",
@@ -7569,7 +10346,21 @@ const QUESTION_BANK = [
         "question": "【內湖國小・第三大題語詞填空】請補上四字語詞中所缺少的國字：①[[國字:ㄐㄧㄣˋ:盡]]其所能、④歡聲[[國字:ㄌㄟˊ:雷]]動、⑦大勢[[國字:ㄧˇ:已]]去、⑩天色入[[國字:ㄇㄨˋ:暮]]、⑬百年[[國字:ㄕㄨˋ:樹]]人。",
         "correctAnswer": "盡、雷、已、暮、樹",
         "explanation": "【解說】「盡其所能」指竭盡全力；「歡聲雷動」指歡呼聲如雷鳴；「大勢已去」（注意是已經的「已」，開口較小，不是己或巳）；「天色入暮」（日部）；「百年樹人」（木部）。",
-        "trap": "「大勢已去」的「已」左上方要露出一點頭，千萬別寫成完全封口的「巳」或全開的「己」！"
+        "trap": "「大勢已去」的「已」左上方要露出一點頭，千萬別寫成完全封口的「巳」或全開的「己」！",
+        "code": "M1.NH-IDM.CTX-S3-01",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "盡",
+            "雷",
+            "已",
+            "暮",
+            "樹"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_1",
@@ -7674,7 +10465,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "「午後」氣候涼爽宜人，配合秋天景色，最貼切的詞語是「秋高氣爽」。"
+        "trap": "「午後」氣候涼爽宜人，配合秋天景色，最貼切的詞語是「秋高氣爽」。",
+        "code": "M1.NH-IDM.CTX-S2-02",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "秋高氣爽"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_2",
@@ -7779,7 +10580,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "描寫天空蔚藍晴朗、潔淨無雲，專用語詞是「碧空如洗」。"
+        "trap": "描寫天空蔚藍晴朗、潔淨無雲，專用語詞是「碧空如洗」。",
+        "code": "M1.NH-IDM.CTX-S2-03",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "碧空如洗"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_3",
@@ -7884,7 +10695,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "大家期盼已久的願望終於達成，用「如願以償」。"
+        "trap": "大家期盼已久的願望終於達成，用「如願以償」。",
+        "code": "M1.NH-IDM.CTX-S2-04",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "如願以償"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_4",
@@ -7989,7 +10810,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "不照常理出牌、採取與常人相反的奇策，用「反其道而行」。"
+        "trap": "不照常理出牌、採取與常人相反的奇策，用「反其道而行」。",
+        "code": "M1.NH-IDM.CTX-S2-05",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "反其道而行"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_5",
@@ -8094,7 +10925,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "形容速度極快、沒有任何人能比得上，用「無與倫比」。"
+        "trap": "形容速度極快、沒有任何人能比得上，用「無與倫比」。",
+        "code": "M1.NH-IDM.CTX-S2-06",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "無與倫比"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_6",
@@ -8199,7 +11040,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "全場觀眾被精采表現震撼而爆發震耳欲聾的歡呼，用「歡聲雷動」。"
+        "trap": "全場觀眾被精采表現震撼而爆發震耳欲聾的歡呼，用「歡聲雷動」。",
+        "code": "M1.NH-IDM.CTX-S2-07",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "歡聲雷動"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_7",
@@ -8304,7 +11155,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "對手眼看大局已定、無法挽回敗局，用「大勢已去」。"
+        "trap": "對手眼看大局已定、無法挽回敗局，用「大勢已去」。",
+        "code": "M1.NH-IDM.CTX-S2-08",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "大勢已去"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_8",
@@ -8409,7 +11270,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "把關鍵慘敗裝作不在意、輕輕帶過以掩飾慌張，用「輕描淡寫」。"
+        "trap": "把關鍵慘敗裝作不在意、輕輕帶過以掩飾慌張，用「輕描淡寫」。",
+        "code": "M1.NH-IDM.CTX-S2-09",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "輕描淡寫"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_9",
@@ -8514,7 +11385,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "「十年樹木，百年樹人」形容培育人才需要長遠深耕，是教育工作的經典名句。"
+        "trap": "「十年樹木，百年樹人」形容培育人才需要長遠深耕，是教育工作的經典名句。",
+        "code": "M1.NH-IDM.CTX-S2-10",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "百年樹人"
+        ]
     },
     {
         "id": "q_exam_neihu_cloze_10",
@@ -8619,7 +11500,17 @@ const QUESTION_BANK = [
                 "explanation": "沒有能相比得上的，形容極為出色突出。"
             }
         ],
-        "trap": "配合後文「晚風輕拂、逐漸散去」，指傍晚天色漸暗，用「天色入暮」。"
+        "trap": "配合後文「晚風輕拂、逐漸散去」，指傍晚天色漸暗，用「天色入暮」。",
+        "code": "M1.NH-IDM.CTX-S2-11",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "天色入暮"
+        ]
     },
     {
         "id": "q_exam_neihu_read_1",
@@ -8654,7 +11545,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！全詩共8句，每句5個字，共40字，屬於標準的「五言律詩」。"
             }
         ],
-        "trap": "先數「總句數」（4句＝絕句，8句＝律詩），再數「每句字數」（5字＝五言，7字＝七言）。"
+        "trap": "先數「總句數」（4句＝絕句，8句＝律詩），再數「每句字數」（5字＝五言，7字＝七言）。",
+        "code": "M1.NH-RDG.POE-S1-01",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "五言律詩"
+        ]
     },
     {
         "id": "q_exam_neihu_read_2",
@@ -8689,7 +11590,17 @@ const QUESTION_BANK = [
                 "explanation": "偶數句（第8句）押韻（深、心、金、簪在平水韻中同押侵韻）。"
             }
         ],
-        "trap": "秒殺技巧：不用懂平水韻，只要抓出哪一個字在「第3、5、7句（奇數句）句尾」，它就一定不押韻！"
+        "trap": "秒殺技巧：不用懂平水韻，只要抓出哪一個字在「第3、5、7句（奇數句）句尾」，它就一定不押韻！",
+        "code": "M1.NH-RDG.POE-S2-02",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "短（第7句末字）"
+        ]
     },
     {
         "id": "q_exam_neihu_read_3",
@@ -8724,7 +11635,17 @@ const QUESTION_BANK = [
                 "explanation": "戴望舒是現代詩人。"
             }
         ],
-        "trap": "看到「國破、感時、烽火、憂國憂民」就是詩聖杜甫的招牌風格！"
+        "trap": "看到「國破、感時、烽火、憂國憂民」就是詩聖杜甫的招牌風格！",
+        "code": "M1.NH-RDG.POE-S1-03",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "杜甫"
+        ]
     },
     {
         "id": "q_exam_neihu_read_4",
@@ -8759,7 +11680,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！繁華的國都長安因為戰亂而百姓逃亡、無人整理，導致春天裡雜草樹木瘋長，凸顯滿目瘡痍的荒涼。"
             }
         ],
-        "trap": "「城春草木深」表面寫春草茂密，實則反襯戰亂後城池荒蕪、人去樓空的淒涼！"
+        "trap": "「城春草木深」表面寫春草茂密，實則反襯戰亂後城池荒蕪、人去樓空的淒涼！",
+        "code": "M1.NH-RDG.POE-S2-04",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "戰亂之後長安城人煙稀少、雜草叢生，一片荒"
+        ]
     },
     {
         "id": "q_exam_neihu_read_5",
@@ -8794,7 +11725,17 @@ const QUESTION_BANK = [
                 "explanation": "此為第6句。"
             }
         ],
-        "trap": "第4句「恨別鳥驚心」必然與同一聯的第3句「感時花濺淚」構成對仗！"
+        "trap": "第4句「恨別鳥驚心」必然與同一聯的第3句「感時花濺淚」構成對仗！",
+        "code": "M1.NH-RDG.POE-S2-05",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "感時花濺淚"
+        ]
     },
     {
         "id": "q_exam_neihu_read_6",
@@ -8829,7 +11770,17 @@ const QUESTION_BANK = [
                 "explanation": "語譯完全錯誤。"
             }
         ],
-        "trap": "注意兩個關鍵字：「烽火」＝戰亂（借代修辭）；「抵萬金」＝比得上萬兩黃金般珍貴（誇飾修辭）。"
+        "trap": "注意兩個關鍵字：「烽火」＝戰亂（借代修辭）；「抵萬金」＝比得上萬兩黃金般珍貴（誇飾修辭）。",
+        "code": "M1.NH-RDG.POE-S2-06",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "戰亂持續了好幾個月都沒有停息，家裡寄來的"
+        ]
     },
     {
         "id": "q_exam_heshun_hw_1",
@@ -8844,7 +11795,21 @@ const QUESTION_BANK = [
         "question": "【和順國小・第一大題第1題】房舍外竹[[國字:ㄌㄧˊ:籬]][[國字:ㄐㄧㄢˇ:簡]][[注音:陋:ㄌㄡˋ]]，桌上卻擺了一壺酒，他和朋友並[[國字:ㄐㄧㄢ:肩]]坐著，[[國字:ㄐㄧˊ:寂]]靜裡泛著溫柔的香氣。",
         "correctAnswer": "籬、簡、ㄌㄡˋ、肩、寂",
         "explanation": "【解說】竹「籬」為竹部＋離；「簡」陋為竹部；簡「陋」讀四聲「ㄌㄡˋ」；並「肩」上方是戶部、下方是肉（月）；「寂」靜為宀部＋叔。",
-        "trap": "「籬」筆畫多，注意竹字頭下面左邊是「离」，右邊是「隹」（四橫）！"
+        "trap": "「籬」筆畫多，注意竹字頭下面左邊是「离」，右邊是「隹」（四橫）！",
+        "code": "M1.HS-CHR.MIX-S3-01",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "籬",
+            "簡",
+            "ㄌㄡˋ",
+            "肩",
+            "寂"
+        ]
     },
     {
         "id": "q_exam_heshun_hw_2",
@@ -8859,7 +11824,21 @@ const QUESTION_BANK = [
         "question": "【和順國小・第一大題第2題】她的運動[[注音:衫:ㄕㄢ]]貼著微汗的[[國字:ㄐㄧ:肌]]膚，手指緊[[國字:ㄨㄛˋ:握]]那枚比賽的[[國字:ㄖㄨㄥˊ:榮]]譽獎章，不敢輕易[[國字:ㄙㄨㄥ:鬆]]開。",
         "correctAnswer": "ㄕㄢ、肌、握、榮、鬆",
         "explanation": "【解說】運動「衫」讀一聲「ㄕㄢ」（翹舌音）；「肌」膚為肉（月）部＋几；緊「握」為手部＋屋；「榮」譽為木部；「鬆」開為髟部＋松。",
-        "trap": "「鬆」上半部是「髟」（長＋彡），不要少寫右邊的三撇！"
+        "trap": "「鬆」上半部是「髟」（長＋彡），不要少寫右邊的三撇！",
+        "code": "M1.HS-CHR.MIX-S3-02",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄕㄢ",
+            "肌",
+            "握",
+            "榮",
+            "鬆"
+        ]
     },
     {
         "id": "q_exam_heshun_hw_3",
@@ -8874,7 +11853,21 @@ const QUESTION_BANK = [
         "question": "【和順國小・第二大題改錯字 1~2】請找出句中的錯別字並寫出正確國字：\n(1) 風吹起「辰」沙，「風」凰在陽光下羽毛閃閃發亮。➔ [[國字:ㄔㄣˊ:塵]]沙、[[國字:ㄈㄥˋ:鳳]]凰\n(2) 他站在小「挺」上，抬頭望向「守」宙，立志要「症」服未來。➔ 小[[國字:ㄊㄧㄥˇ:艇]]、[[國字:ㄩˇ:宇]]宙、[[國字:ㄓㄥ:征]]服",
         "correctAnswer": "塵、鳳、艇、宇、征",
         "explanation": "【解說】(1) 塵沙（鹿＋土）、鳳凰（几部，裡面是一橫＋鳥）；(2) 小艇（舟部，船隻）、宇宙（宀＋于）、征服（彳部）。",
-        "trap": "「鳳」裡面是「一橫＋鳥」，千萬別漏掉鳥上面那一小橫！"
+        "trap": "「鳳」裡面是「一橫＋鳥」，千萬別漏掉鳥上面那一小橫！",
+        "code": "M1.HS-ERR.PSG-S3-01",
+        "domain": "ERR",
+        "subType": "PSG",
+        "tags": [
+            "ERR",
+            "PSG"
+        ],
+        "targets": [
+            "塵",
+            "鳳",
+            "艇",
+            "宇",
+            "征"
+        ]
     },
     {
         "id": "q_exam_heshun_hw_4",
@@ -8889,7 +11882,21 @@ const QUESTION_BANK = [
         "question": "【和順國小・第二大題改錯字 3~5】請找出句中的錯別字並寫出正確國字：\n(3) 對於助人，他總是抱著多多「愈」善的態度。➔ 多多[[國字:ㄧˋ:益]]善\n(4) 電影裡那些令人「獨」目驚心的鏡頭，讓「關」眾都嚇得幾乎無法呼吸。➔ [[國字:ㄔㄨˋ:觸]]目驚心、[[國字:ㄍㄨㄢ:觀]]眾\n(5) 如果能在文章中適當運用成語，會有錦上「填」花的效果。➔ 錦上[[國字:ㄊㄧㄢ:添]]花",
         "correctAnswer": "益、觸、觀、添",
         "explanation": "【解說】(3)「多多益善」（益是皿部，更加之意）；(4)「觸目驚心」（角部）、「觀眾」（見部）；(5)「錦上添花」（水部添，指增加美采，不是土部填補）。",
-        "trap": "成語固定字形：「多多益善」不能寫成愈；「錦上添花」不能寫成填！"
+        "trap": "成語固定字形：「多多益善」不能寫成愈；「錦上添花」不能寫成填！",
+        "code": "M1.HS-ERR.PSG-S3-02",
+        "domain": "ERR",
+        "subType": "PSG",
+        "tags": [
+            "ERR",
+            "PSG",
+            "IDM"
+        ],
+        "targets": [
+            "益",
+            "觸",
+            "觀",
+            "添"
+        ]
     },
     {
         "id": "q_exam_heshun_rad_1",
@@ -8924,7 +11931,17 @@ const QUESTION_BANK = [
                 "explanation": "「舒」是舌部，「凌」是冫部。"
             }
         ],
-        "trap": "段考超愛考這三個字的部首：舒＝舌部、承＝手部、凌＝冫部！"
+        "trap": "段考超愛考這三個字的部首：舒＝舌部、承＝手部、凌＝冫部！",
+        "code": "M1.HS-ERR.RAD-S2-03",
+        "domain": "ERR",
+        "subType": "RAD",
+        "tags": [
+            "ERR",
+            "RAD"
+        ],
+        "targets": [
+            "舒：舌部 ／ 承：手部 ／ 凌：冫（二）"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_1",
@@ -8959,7 +11976,17 @@ const QUESTION_BANK = [
                 "explanation": "指中間空閒的時間。"
             }
         ],
-        "trap": "注意「搭檔」的「檔」是木部，不要寫成手部擋。"
+        "trap": "注意「搭檔」的「檔」是木部，不要寫成手部擋。",
+        "code": "M1.HS-IDM.MEAN-S1-01",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "搭檔"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_2",
@@ -8994,7 +12021,17 @@ const QUESTION_BANK = [
                 "explanation": "光「暈」讀四聲ㄩㄣˋ。"
             }
         ],
-        "trap": "「暈」多音字口訣：頭昏眼花、暈車暈船讀一聲「ㄩㄣ」；光圈扩散、月暈、暈開、暈皺讀四聲「ㄩㄣˋ」。"
+        "trap": "「暈」多音字口訣：頭昏眼花、暈車暈船讀一聲「ㄩㄣ」；光圈扩散、月暈、暈開、暈皺讀四聲「ㄩㄣˋ」。",
+        "code": "M1.HS-PHO.PLY-S2-01",
+        "domain": "PHO",
+        "subType": "PLY",
+        "tags": [
+            "PHO",
+            "PLY"
+        ],
+        "targets": [
+            "頭「暈」"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_3",
@@ -9029,7 +12066,17 @@ const QUESTION_BANK = [
                 "explanation": "「吹進」為動態描寫。"
             }
         ],
-        "trap": "選項①飄落、③伸出來、④吹進都有明顯動作（動態），只有②「皆春水」是靜態畫面。"
+        "trap": "選項①飄落、③伸出來、④吹進都有明顯動作（動態），只有②「皆春水」是靜態畫面。",
+        "code": "M1.HS-RHE.WRT-S2-01",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "舍南舍北皆春水"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_4",
@@ -9064,7 +12111,17 @@ const QUESTION_BANK = [
                 "explanation": "相反詞。"
             }
         ],
-        "trap": "「茂盛」的近義詞是「茂密、繁茂」，反義詞是「凋零、枯萎、稀疏」。"
+        "trap": "「茂盛」的近義詞是「茂密、繁茂」，反義詞是「凋零、枯萎、稀疏」。",
+        "code": "M1.HS-SEM.DEF-S1-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "茂密"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_5",
@@ -9099,7 +12156,17 @@ const QUESTION_BANK = [
                 "explanation": "鳥鳴常用啾啾、吱吱喳喳。"
             }
         ],
-        "trap": "看到「潺」左邊是三點水（氵），就知道一定跟「流水」有關！"
+        "trap": "看到「潺」左邊是三點水（氵），就知道一定跟「流水」有關！",
+        "code": "M1.HS-PHO.ONO-S1-02",
+        "domain": "PHO",
+        "subType": "ONO",
+        "tags": [
+            "PHO",
+            "ONO"
+        ],
+        "targets": [
+            "流水聲"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_6",
@@ -9134,7 +12201,17 @@ const QUESTION_BANK = [
                 "explanation": "「香噴噴」是ABB結構，不是AABB結構。"
             }
         ],
-        "trap": "這種短語結構題有兩個檢查點：(1) 前面必須是「AABB」四字疊詞（排除④香噴噴ABB）；(2) 後面必須是「名詞」（排除①去打球、②爬樓梯）。"
+        "trap": "這種短語結構題有兩個檢查點：(1) 前面必須是「AABB」四字疊詞（排除④香噴噴ABB）；(2) 後面必須是「名詞」（排除①去打球、②爬樓梯）。",
+        "code": "M1.HS-RHE.SYN-S2-02",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "寬寬鬆鬆的燕尾服"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_7",
@@ -9169,7 +12246,17 @@ const QUESTION_BANK = [
                 "explanation": "非假設。"
             }
         ],
-        "trap": "看到「然而、雖然……但是、卻、不過」就是標準的「轉折句」。"
+        "trap": "看到「然而、雖然……但是、卻、不過」就是標準的「轉折句」。",
+        "code": "M1.HS-RHE.SYN-S1-03",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "轉折句"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_8",
@@ -9204,7 +12291,17 @@ const QUESTION_BANK = [
                 "explanation": "怨聲「載」道（充滿道路）讀四聲ㄗㄞˋ。"
             }
         ],
-        "trap": "「載」的多音字必考法則：只有當「年（千載難逢、一年半載）」或「記錄刊登（記載、刊載、轉載）」時讀三聲「ㄗㄞˇ」，其餘全部讀四聲「ㄗㄞˋ」！"
+        "trap": "「載」的多音字必考法則：只有當「年（千載難逢、一年半載）」或「記錄刊登（記載、刊載、轉載）」時讀三聲「ㄗㄞˇ」，其餘全部讀四聲「ㄗㄞˋ」！",
+        "code": "M1.HS-PHO.PLY-S2-03",
+        "domain": "PHO",
+        "subType": "PLY",
+        "tags": [
+            "PHO",
+            "PLY"
+        ],
+        "targets": [
+            "千「載」難逢"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_9",
@@ -9239,7 +12336,17 @@ const QUESTION_BANK = [
                 "explanation": "兩者為相反詞。"
             }
         ],
-        "trap": "「華佗再世」與「妙手回春」都是語文天地中介紹「醫療行業」的同義褒義成語。"
+        "trap": "「華佗再世」與「妙手回春」都是語文天地中介紹「醫療行業」的同義褒義成語。",
+        "code": "M1.HS-SEM.DEF-S1-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "華佗再世 ／ 妙手回春"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_10",
@@ -9274,7 +12381,17 @@ const QUESTION_BANK = [
                 "explanation": "解釋正確。"
             }
         ],
-        "trap": "鳥類沒有牙齒，小珍珠鳥睡覺「咂咂嘴」是像嬰兒吸吮嘴唇一樣的動作。"
+        "trap": "鳥類沒有牙齒，小珍珠鳥睡覺「咂咂嘴」是像嬰兒吸吮嘴唇一樣的動作。",
+        "code": "M1.HS-SEM.DEF-S2-03",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "「咂」嘴：用牙齒用力咬住不放"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_11",
@@ -9309,7 +12426,18 @@ const QUESTION_BANK = [
                 "explanation": "正確！「盤飧（ㄙㄨㄣ）」指盤中的菜餚，「飧」本義為晚飯、熟食。"
             }
         ],
-        "trap": "〈客至〉字義必背：盤「飧（ㄙㄨㄣ）」＝熟食菜餚；舊「醅（ㄆㄟ）」＝未過濾的酒；「樽」＝酒器。"
+        "trap": "〈客至〉字義必背：盤「飧（ㄙㄨㄣ）」＝熟食菜餚；舊「醅（ㄆㄟ）」＝未過濾的酒；「樽」＝酒器。",
+        "code": "M1.HS-SEM.ARC-S1-04",
+        "domain": "SEM",
+        "subType": "ARC",
+        "tags": [
+            "SEM",
+            "ARC",
+            "RDG"
+        ],
+        "targets": [
+            "盤「飧」"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_12",
@@ -9344,7 +12472,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！此處指「液體加熱到攝氏100度冒泡翻滾」的物理本義；其餘三項皆為比喻「情緒或氣氛熱烈高漲」。"
             }
         ],
-        "trap": "區分詞語的「本義（水燒開滾沸）」與「引申比喻義（情緒或場面熱烈激動）」。"
+        "trap": "區分詞語的「本義（水燒開滾沸）」與「引申比喻義（情緒或場面熱烈激動）」。",
+        "code": "M1.HS-SEM.MUL-S1-05",
+        "domain": "SEM",
+        "subType": "MUL",
+        "tags": [
+            "SEM",
+            "MUL"
+        ],
+        "targets": [
+            "媽媽正在將「沸騰」的水倒進鍋子裡"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_13",
@@ -9379,7 +12517,17 @@ const QUESTION_BANK = [
                 "explanation": "那是「天倫之樂／其樂融融」。"
             }
         ],
-        "trap": "第五課課文例句：「進入火場救災對消防員來說是家常便飯。」"
+        "trap": "第五課課文例句：「進入火場救災對消防員來說是家常便飯。」",
+        "code": "M1.HS-IDM.MEAN-S1-02",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "比喻很常見或很普通、習以為常的事情"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_14",
@@ -9414,7 +12562,17 @@ const QUESTION_BANK = [
                 "explanation": "「火紅的尾巴直衝雲霄」屬於視覺摹寫。"
             }
         ],
-        "trap": "句子裡有「描繪、樣貌」的字眼不等於「摹寫修辭」！必須真的寫出顏色、聲音、味道或觸感才是摹寫。"
+        "trap": "句子裡有「描繪、樣貌」的字眼不等於「摹寫修辭」！必須真的寫出顏色、聲音、味道或觸感才是摹寫。",
+        "code": "M1.HS-RHE.FIG-S2-04",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "有些職業我們能大致描繪出它們的樣貌"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_15",
@@ -9449,7 +12607,17 @@ const QUESTION_BANK = [
                 "explanation": "「大大小小」為疊字（類疊）。"
             }
         ],
-        "trap": "尋找哪一個詞語裡面沒有「重複出現的字」。"
+        "trap": "尋找哪一個詞語裡面沒有「重複出現的字」。",
+        "code": "M1.HS-RHE.FIG-S1-05",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "緩慢冷靜"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_16",
@@ -9484,7 +12652,17 @@ const QUESTION_BANK = [
                 "explanation": "一般直述句。"
             }
         ],
-        "trap": "看到「難道……？」「為什麼……？」「你會想到什麼呢？」都是設問修辭。"
+        "trap": "看到「難道……？」「為什麼……？」「你會想到什麼呢？」都是設問修辭。",
+        "code": "M1.HS-RHE.FIG-S1-06",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "小珍珠鳥睡得好熟！還咂咂嘴，難道在做夢？"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_17",
@@ -9519,7 +12697,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「山（名詞）高（形容詞）」對「水（名詞）長（形容詞）」，字數相等、詞性相對，合為成語「山高水長」。"
             }
         ],
-        "trap": "判斷對偶（對仗）必看「詞性」：山（名）對水（名），高（形）對長（形）。"
+        "trap": "判斷對偶（對仗）必看「詞性」：山（名）對水（名），高（形）對長（形）。",
+        "code": "M1.HS-RHE.FIG-S2-07",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "水長"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_18",
@@ -9554,7 +12742,17 @@ const QUESTION_BANK = [
                 "explanation": "非頂真。"
             }
         ],
-        "trap": "頂真修辭就像文字接龍：前一句最後一個詞＝後一句第一個詞。"
+        "trap": "頂真修辭就像文字接龍：前一句最後一個詞＝後一句第一個詞。",
+        "code": "M1.HS-RHE.FIG-S1-08",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "小說"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_19",
@@ -9589,7 +12787,17 @@ const QUESTION_BANK = [
                 "explanation": "「你」為第二人稱。"
             }
         ],
-        "trap": "找沒有「我（第一人稱）」也沒有「你（第二人稱）」，而是直接寫人名或「他」的句子。"
+        "trap": "找沒有「我（第一人稱）」也沒有「你（第二人稱）」，而是直接寫人名或「他」的句子。",
+        "code": "M1.HS-TXT.STR-S1-01",
+        "domain": "TXT",
+        "subType": "STR",
+        "tags": [
+            "TXT",
+            "STR"
+        ],
+        "targets": [
+            "穆太做了個滿意的手勢，並望向群眾享受歡呼"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_20",
@@ -9624,7 +12832,17 @@ const QUESTION_BANK = [
                 "explanation": "他非常有運動家精神。"
             }
         ],
-        "trap": "區分誰搞錯終點：「穆太」把氣球拱門誤認為終點；「安納亞」主動提醒穆太而屈居第二。"
+        "trap": "區分誰搞錯終點：「穆太」把氣球拱門誤認為終點；「安納亞」主動提醒穆太而屈居第二。",
+        "code": "M1.HS-TXT.MAIN-S1-02",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "因為他選擇提醒穆太而只得到第二名（放棄奪"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_21",
@@ -9659,7 +12877,17 @@ const QUESTION_BANK = [
                 "explanation": "這是結尾段提到的期許。"
             }
         ],
-        "trap": "「這是我的一小步，卻是人類的一大步」同時運用了「引用」與「映襯（一小步 vs 一大步）」修辭。"
+        "trap": "「這是我的一小步，卻是人類的一大步」同時運用了「引用」與「映襯（一小步 vs 一大步）」修辭。",
+        "code": "M1.HS-TXT.MAIN-S1-03",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "這是我的一小步，卻是人類的一大步"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_22",
@@ -9694,7 +12922,17 @@ const QUESTION_BANK = [
                 "explanation": "雲的腳跡是在山林間。"
             }
         ],
-        "trap": "「暈皺」形容微風吹拂水面時，波紋一圈圈擴散蕩漾的視覺美感。"
+        "trap": "「暈皺」形容微風吹拂水面時，波紋一圈圈擴散蕩漾的視覺美感。",
+        "code": "M1.HS-TXT.MAIN-S1-04",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "微風（溫風）吹過溪水，使水面泛起圈圈波紋"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_23",
@@ -9729,7 +12967,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！透過消防員、歌手、電影場記三個例子，引導讀者保持好奇心，發現各行各業背後的專業學問。"
             }
         ],
-        "trap": "呼應課文結尾：只要留心觀察、主動探究，就能發出「哇！原來如此」的讚嘆，體會各行各業的不平凡。"
+        "trap": "呼應課文結尾：只要留心觀察、主動探究，就能發出「哇！原來如此」的讚嘆，體會各行各業的不平凡。",
+        "code": "M1.HS-TXT.MAIN-S1-05",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "透過探究各行各業工作內容與裝備背後的祕密"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_24",
@@ -9764,7 +13012,17 @@ const QUESTION_BANK = [
                 "explanation": "非第六感。"
             }
         ],
-        "trap": "信賴的基石＝尊重對方的習性＋給予充足的安全感。"
+        "trap": "信賴的基石＝尊重對方的習性＋給予充足的安全感。",
+        "code": "M1.HS-TXT.MAIN-S1-06",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "安全感（尊重與不驚擾）"
+        ]
     },
     {
         "id": "q_exam_heshun_mc_25",
@@ -9799,7 +13057,17 @@ const QUESTION_BANK = [
                 "explanation": "家貧在頸聯才提及，首聯是寫環境幽僻少客。"
             }
         ],
-        "trap": "「但見」的「但」意思是「只、僅」，每天只見鷗鳥飛來＝平時沒有客人來！"
+        "trap": "「但見」的「但」意思是「只、僅」，每天只見鷗鳥飛來＝平時沒有客人來！",
+        "code": "M1.HS-TXT.MAIN-S1-07",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "草堂地處偏僻，平時很少有客人來拜訪詩人"
+        ]
     },
     {
         "id": "q_exam_heshun_punc_1",
@@ -9834,7 +13102,17 @@ const QUESTION_BANK = [
                 "explanation": "標點用法錯誤。"
             }
         ],
-        "trap": "第四課與第一課的兩大標點考點：(1) 夾注說明前後都用「破折號（——）」；(2) 外國人名之間用「間隔號（・）」，不能用頓號！"
+        "trap": "第四課與第一課的兩大標點考點：(1) 夾注說明前後都用「破折號（——）」；(2) 外國人名之間用「間隔號（・）」，不能用頓號！",
+        "code": "M1.HS-RHE.PUNC-S2-09",
+        "domain": "RHE",
+        "subType": "PUNC",
+        "tags": [
+            "RHE",
+            "PUNC"
+        ],
+        "targets": [
+            "1. 破折號（——）、破折號（——）、句"
+        ]
     },
     {
         "id": "q_exam_heshun_idiom_1",
@@ -9885,7 +13163,17 @@ const QUESTION_BANK = [
                 "explanation": "自作自受。"
             }
         ],
-        "trap": "「退避三舍」的「舍」指古代行軍三十里（退避九十里），後比喻遇到強敵退讓避開。"
+        "trap": "「退避三舍」的「舍」指古代行軍三十里（退避九十里），後比喻遇到強敵退讓避開。",
+        "code": "M1.HS-IDM.CTX-S2-03",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "退避三舍"
+        ]
     },
     {
         "id": "q_exam_heshun_idiom_2",
@@ -9936,7 +13224,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「咎由自取」指所有的災難後果都是自己造成的（咎：災禍、罪過）。"
             }
         ],
-        "trap": "因沉迷遊戲導致成績落後，惡果由自己承擔，故填「咎由自取」。"
+        "trap": "因沉迷遊戲導致成績落後，惡果由自己承擔，故填「咎由自取」。",
+        "code": "M1.HS-IDM.CTX-S2-04",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "咎由自取"
+        ]
     },
     {
         "id": "q_exam_heshun_idiom_3",
@@ -9987,7 +13285,17 @@ const QUESTION_BANK = [
                 "explanation": "自作自受。"
             }
         ],
-        "trap": "成語典故：春秋美女西施心痛捧心皺眉很美，醜婦東施也跟著皺眉反而嚇壞鄉親，比喻「胡亂盲目模仿」。"
+        "trap": "成語典故：春秋美女西施心痛捧心皺眉很美，醜婦東施也跟著皺眉反而嚇壞鄉親，比喻「胡亂盲目模仿」。",
+        "code": "M1.HS-IDM.CTX-S2-05",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "東施效顰"
+        ]
     },
     {
         "id": "q_exam_heshun_idiom_4",
@@ -10038,7 +13346,17 @@ const QUESTION_BANK = [
                 "explanation": "轉危為安。"
             }
         ],
-        "trap": "向選民「保證承諾」，搭配形容誓言的成語必然是「信誓旦旦」。"
+        "trap": "向選民「保證承諾」，搭配形容誓言的成語必然是「信誓旦旦」。",
+        "code": "M1.HS-IDM.CTX-S2-06",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "信誓旦旦"
+        ]
     },
     {
         "id": "q_exam_heshun_idiom_5",
@@ -10089,7 +13407,17 @@ const QUESTION_BANK = [
                 "explanation": "重見光明。"
             }
         ],
-        "trap": "女孩墜樓在生死存亡的極危急瞬間，標準成語是「千鈞一髮之際」。"
+        "trap": "女孩墜樓在生死存亡的極危急瞬間，標準成語是「千鈞一髮之際」。",
+        "code": "M1.HS-IDM.CTX-S2-07",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "千鈞一髮"
+        ]
     },
     {
         "id": "q_exam_heshun_read_1",
@@ -10124,7 +13452,17 @@ const QUESTION_BANK = [
                 "explanation": "每句5字而非7字。"
             }
         ],
-        "trap": "8句×5字＝五言律詩！"
+        "trap": "8句×5字＝五言律詩！",
+        "code": "M1.HS-RDG.POE-S1-01",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "五言律詩"
+        ]
     },
     {
         "id": "q_exam_heshun_read_2",
@@ -10159,7 +13497,17 @@ const QUESTION_BANK = [
                 "explanation": "ㄕ是聲母不是韻母。"
             }
         ],
-        "trap": "找押韻永遠看「第2、4、6、8句（偶數句）的最後一個字」：生、聲、明、城 ➔ 韻母都是「ㄥ」！"
+        "trap": "找押韻永遠看「第2、4、6、8句（偶數句）的最後一個字」：生、聲、明、城 ➔ 韻母都是「ㄥ」！",
+        "code": "M1.HS-RDG.POE-S1-02",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "ㄥ"
+        ]
     },
     {
         "id": "q_exam_heshun_read_3",
@@ -10194,7 +13542,17 @@ const QUESTION_BANK = [
                 "explanation": "尾聯（7、8句）不要求對仗，且此二句結構不同。"
             }
         ],
-        "trap": "律詩強制對仗的是「三、四句（頷聯）」與「五、六句（頸聯）」！選項裡只有③「五、六」是同一聯。"
+        "trap": "律詩強制對仗的是「三、四句（頷聯）」與「五、六句（頸聯）」！選項裡只有③「五、六」是同一聯。",
+        "code": "M1.HS-RDG.POE-S2-03",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "五、六句（野徑雲俱黑，江船火獨明）"
+        ]
     },
     {
         "id": "q_exam_heshun_read_4",
@@ -10229,7 +13587,17 @@ const QUESTION_BANK = [
                 "explanation": "深夜是前兩句的「夜」。"
             }
         ],
-        "trap": "時間推進：隨風潛入「夜」（夜晚下雨）➔ 「曉」看紅溼處（隔天清晨賞花）。"
+        "trap": "時間推進：隨風潛入「夜」（夜晚下雨）➔ 「曉」看紅溼處（隔天清晨賞花）。",
+        "code": "M1.HS-RDG.POE-S1-04",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "清晨（天剛亮的時候）"
+        ]
     },
     {
         "id": "q_exam_heshun_read_5",
@@ -10264,7 +13632,17 @@ const QUESTION_BANK = [
                 "explanation": "時間地點皆錯。"
             }
         ],
-        "trap": "〈春夜喜雨〉與課本第三課〈客至〉都是杜甫住在「四川成都浣花溪草堂」時寫的快樂詩篇！"
+        "trap": "〈春夜喜雨〉與課本第三課〈客至〉都是杜甫住在「四川成都浣花溪草堂」時寫的快樂詩篇！",
+        "code": "M1.HS-RDG.POE-S1-05",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "春天、四川成都"
+        ]
     },
     {
         "id": "q_exam_chongde_hw_1",
@@ -10279,7 +13657,22 @@ const QUESTION_BANK = [
         "question": "【崇德國小・第一大題第1題】整理衣[[國字:ㄍㄨㄟˋ:櫃]]時，我發現一件滿是[[注音:皺:ㄓㄡˋ]]褶的舊襯衫。奶奶拿來了溫熱的舊[[國字:ㄆㄟ:醅]]，讓我嘗了一點，暖流瞬間在胃裡[[注音:暈:ㄩㄣˋ]]開。面對著桌上的盤[[注音:飧:ㄙㄨㄣ]]，聞到熟悉的菜香，那份感動讓我微微[[國字:ㄓㄢˋ:顫]]抖。",
         "correctAnswer": "櫃、ㄓㄡˋ、醅、ㄩㄣˋ、ㄙㄨㄣ、顫",
         "explanation": "【解說】衣「櫃」為木部＋匱；「皺」褶讀四聲「ㄓㄡˋ」（皮部）；舊「醅」為酉部＋咅；「暈」開讀四聲「ㄩㄣˋ」；盤「飧」讀一聲「ㄙㄨㄣ」（夕＋食）；「顫」抖為頁部。",
-        "trap": "〈客至〉兩大難字：「醅（ㄆㄟ，酉部）」與「飧（ㄙㄨㄣ，食部）」千萬別把讀音搞混！"
+        "trap": "〈客至〉兩大難字：「醅（ㄆㄟ，酉部）」與「飧（ㄙㄨㄣ，食部）」千萬別把讀音搞混！",
+        "code": "M1.CD-CHR.MIX-S3-01",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "櫃",
+            "ㄓㄡˋ",
+            "醅",
+            "ㄩㄣˋ",
+            "ㄙㄨㄣ",
+            "顫"
+        ]
     },
     {
         "id": "q_exam_chongde_hw_2",
@@ -10294,7 +13687,22 @@ const QUESTION_BANK = [
         "question": "【崇德國小・第一大題第2題】爸爸工作很辛苦，常常忙到[[注音:凌:ㄌㄧㄥˊ]]晨。他的[[國字:ㄐㄧ:肌]]膚因長時間日曬而變得[[國字:ㄧㄡˇ:黝]]黑。有次夜裡，具有腐[[國字:ㄕˊ:蝕]]性的強酸[[注音:液:ㄧㄝˋ]]體不小心洩漏，尖叫聲立刻[[注音:劃:ㄏㄨㄚˋ]]破了夜晚的寧靜。",
         "correctAnswer": "ㄌㄧㄥˊ、肌、黝、蝕、ㄧㄝˋ、ㄏㄨㄚˋ",
         "explanation": "【解說】「凌」晨讀二聲「ㄌㄧㄥˊ」；「肌」膚為肉（月）部；「黝」黑為黑部＋幼；腐「蝕」為虫部（飠＋虫）；「液」體讀四聲「ㄧㄝˋ」；「劃」破讀四聲「ㄏㄨㄚˋ」（或二聲ㄏㄨㄚˊ，崇德卷課本音標示ㄏㄨㄚˋ破）。",
-        "trap": "「黝黑」左邊是「黑」，右邊是「幼」；「腐蝕」左邊是「飠」，右邊是「虫」！"
+        "trap": "「黝黑」左邊是「黑」，右邊是「幼」；「腐蝕」左邊是「飠」，右邊是「虫」！",
+        "code": "M1.CD-CHR.MIX-S3-02",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄌㄧㄥˊ",
+            "肌",
+            "黝",
+            "蝕",
+            "ㄧㄝˋ",
+            "ㄏㄨㄚˋ"
+        ]
     },
     {
         "id": "q_exam_chongde_hw_3",
@@ -10309,7 +13717,22 @@ const QUESTION_BANK = [
         "question": "【崇德國小・第二大題改錯字】請找出短文中的六個錯別字並寫出正確國字：\n「海邊的小屋十分簡『漏』，天空也被陰『埋』籠罩著。遠處一艘豪華遊『挺』駛過，發出巨大的『躁』音。爐上的水壺也正發出沸『謄』的聲響。我從牆壁的縫『細』望出去，雖然環境不盡理想，但能看見大海已足夠美好。」\n➔ 簡[[國字:ㄌㄡˋ:陋]]、陰[[國字:ㄇㄞˊ:霾]]、遊[[國字:ㄊㄧㄥˇ:艇]]、[[國字:ㄗㄠˋ:噪]]音、沸[[國字:ㄊㄥˊ:騰]]、縫[[國字:ㄒㄧˋ:隙]]",
         "correctAnswer": "陋、霾、艇、噪、騰、隙",
         "explanation": "【解說】簡「陋」（阜部）、陰「霾」（雨部）、遊「艇」（舟部）、「噪」音（口部，與聲音有關；足部躁是急躁）、沸「騰」（馬部，言部謄是謄寫）、縫「隙」（阜部）。",
-        "trap": "必考形近字：「噪音」跟聲音有關用「口部」；「急躁、暴躁」跟跺腳有關用「足部」；「乾燥」跟火烤有關用「火部」！"
+        "trap": "必考形近字：「噪音」跟聲音有關用「口部」；「急躁、暴躁」跟跺腳有關用「足部」；「乾燥」跟火烤有關用「火部」！",
+        "code": "M1.CD-ERR.PSG-S3-01",
+        "domain": "ERR",
+        "subType": "PSG",
+        "tags": [
+            "ERR",
+            "PSG"
+        ],
+        "targets": [
+            "陋",
+            "霾",
+            "艇",
+            "噪",
+            "騰",
+            "隙"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_1_1",
@@ -10348,7 +13771,17 @@ const QUESTION_BANK = [
                 "explanation": "巾部，布幕。"
             }
         ],
-        "trap": "時間傍晚跟太陽有關，下方是「日」字部的「暮」！"
+        "trap": "時間傍晚跟太陽有關，下方是「日」字部的「暮」！",
+        "code": "M1.CD-ERR.SHP-S2-02",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "暮"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_1_2",
@@ -10387,7 +13820,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「開幕」（巾部）原指拉開布幕開始演出，引申為商店或展覽開始營業。"
             }
         ],
-        "trap": "拉開布幕跟布料有關，下方是「巾」字部的「幕」！"
+        "trap": "拉開布幕跟布料有關，下方是「巾」字部的「幕」！",
+        "code": "M1.CD-ERR.SHP-S2-03",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "幕"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_1_3",
@@ -10426,7 +13869,17 @@ const QUESTION_BANK = [
                 "explanation": "布幕。"
             }
         ],
-        "trap": "心中的情感投射，下方是「心（㣺）」字部的「慕」！"
+        "trap": "心中的情感投射，下方是「心（㣺）」字部的「慕」！",
+        "code": "M1.CD-ERR.SHP-S2-04",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "慕"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_1_4",
@@ -10465,7 +13918,17 @@ const QUESTION_BANK = [
                 "explanation": "布幕。"
             }
         ],
-        "trap": "埋葬入土跟泥土有關，下方是「土」字部的「墓」！"
+        "trap": "埋葬入土跟泥土有關，下方是「土」字部的「墓」！",
+        "code": "M1.CD-ERR.SHP-S2-05",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "墓"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_2_1",
@@ -10498,7 +13961,17 @@ const QUESTION_BANK = [
                 "explanation": "局勢無法挽回。"
             }
         ],
-        "trap": "「建築風格宏偉華麗」是客觀外觀讚美，適合用「無與倫比」。"
+        "trap": "「建築風格宏偉華麗」是客觀外觀讚美，適合用「無與倫比」。",
+        "code": "M1.CD-IDM.CTX-S2-01",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "無與倫比"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_2_2",
@@ -10531,7 +14004,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「大勢已去」指整體局勢已經失敗無法挽回，故選擇撤退逃走。"
             }
         ],
-        "trap": "「眼見……只好走為上策」，代表敗局已無力回天，故填「大勢已去」。"
+        "trap": "「眼見……只好走為上策」，代表敗局已無力回天，故填「大勢已去」。",
+        "code": "M1.CD-IDM.CTX-S2-02",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "大勢已去"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_2_3",
@@ -10564,7 +14047,17 @@ const QUESTION_BANK = [
                 "explanation": "局勢已敗。"
             }
         ],
-        "trap": "醫護人員「……的救治傷患」，是修飾動作態度，填「盡其所能」。"
+        "trap": "醫護人員「……的救治傷患」，是修飾動作態度，填「盡其所能」。",
+        "code": "M1.CD-IDM.CTX-S2-03",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "盡其所能"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_3_1",
@@ -10603,7 +14096,17 @@ const QUESTION_BANK = [
                 "explanation": "平凡不奇怪。"
             }
         ],
-        "trap": "「接觸攝影後就……不斷練習」，是形容對興趣的狂熱投入，填「著迷不已」。"
+        "trap": "「接觸攝影後就……不斷練習」，是形容對興趣的狂熱投入，填「著迷不已」。",
+        "code": "M1.CD-IDM.CTX-S2-04",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "著迷不已"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_3_2",
@@ -10642,7 +14145,17 @@ const QUESTION_BANK = [
                 "explanation": "平凡常見。"
             }
         ],
-        "trap": "形容「美麗的煙火將夜空點綴得……」，最貼切的視覺成語是「燦爛奪目」。"
+        "trap": "形容「美麗的煙火將夜空點綴得……」，最貼切的視覺成語是「燦爛奪目」。",
+        "code": "M1.CD-IDM.CTX-S2-05",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "燦爛奪目"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_3_3",
@@ -10681,7 +14194,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「不足為奇」指事情很普遍常見，不值得大驚小怪。"
             }
         ],
-        "trap": "「一點也不足為奇」是雙重否定表肯定，意思是「非常普遍自然、毫不足怪」。"
+        "trap": "「一點也不足為奇」是雙重否定表肯定，意思是「非常普遍自然、毫不足怪」。",
+        "code": "M1.CD-IDM.CTX-S2-06",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "不足為奇"
+        ]
     },
     {
         "id": "q_exam_chongde_cloze_3_4",
@@ -10720,7 +14243,17 @@ const QUESTION_BANK = [
                 "explanation": "平常不奇。"
             }
         ],
-        "trap": "考上夢寐以求的理想大學，心願得遂，填「如願以償」。"
+        "trap": "考上夢寐以求的理想大學，心願得遂，填「如願以償」。",
+        "code": "M1.CD-IDM.CTX-S2-07",
+        "domain": "IDM",
+        "subType": "CTX",
+        "tags": [
+            "IDM",
+            "CTX"
+        ],
+        "targets": [
+            "如願以償"
+        ]
     },
     {
         "id": "q_exam_chongde_explain_1",
@@ -10759,7 +14292,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！運用「數據、圖表、舉例、比較」讓讀者更容易理解，屬於「說明的方法」。"
             }
         ],
-        "trap": "關鍵字「數據和圖像」＝「④ 說明的方法」。"
+        "trap": "關鍵字「數據和圖像」＝「④ 說明的方法」。",
+        "code": "M1.CD-RHE.WRT-S2-01",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "說明的方法"
+        ]
     },
     {
         "id": "q_exam_chongde_explain_2",
@@ -10798,7 +14341,17 @@ const QUESTION_BANK = [
                 "explanation": "數據圖表舉例。"
             }
         ],
-        "trap": "看到疑問句「為什麼……呢？」＝「① 提出問題」。"
+        "trap": "看到疑問句「為什麼……呢？」＝「① 提出問題」。",
+        "code": "M1.CD-RHE.WRT-S2-02",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "提出問題"
+        ]
     },
     {
         "id": "q_exam_chongde_explain_3",
@@ -10837,7 +14390,17 @@ const QUESTION_BANK = [
                 "explanation": "具體表達技巧。"
             }
         ],
-        "trap": "「原因 ➔ 經歷 ➔ 結果依次說明」代表篇章的結構流程＝「③ 說明的順序」。"
+        "trap": "「原因 ➔ 經歷 ➔ 結果依次說明」代表篇章的結構流程＝「③ 說明的順序」。",
+        "code": "M1.CD-RHE.WRT-S2-03",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "說明的順序"
+        ]
     },
     {
         "id": "q_exam_chongde_explain_4",
@@ -10876,7 +14439,17 @@ const QUESTION_BANK = [
                 "explanation": "圖表數據工具。"
             }
         ],
-        "trap": "訪談、上網搜尋、調查都是在獲取素材＝「② 整理資料」。"
+        "trap": "訪談、上網搜尋、調查都是在獲取素材＝「② 整理資料」。",
+        "code": "M1.CD-RHE.WRT-S2-04",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "整理資料"
+        ]
     },
     {
         "id": "q_exam_chongde_word_1",
@@ -10911,7 +14484,17 @@ const QUESTION_BANK = [
                 "explanation": "解釋正確（「屢試不爽」指多次試驗都沒有差錯；「爽約」指違背約定）。"
             }
         ],
-        "trap": "必考一字多義：「屢試不爽、毫釐不爽」的「爽」意思是「差錯」！千萬別解釋成心情很爽快！"
+        "trap": "必考一字多義：「屢試不爽、毫釐不爽」的「爽」意思是「差錯」！千萬別解釋成心情很爽快！",
+        "code": "M1.CD-SEM.DEF-S2-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "秋高氣「爽」：陰沉、晦暗"
+        ]
     },
     {
         "id": "q_exam_chongde_word_2",
@@ -10946,7 +14529,17 @@ const QUESTION_BANK = [
                 "explanation": "有誤！杜甫〈客至〉「花徑不曾緣客掃」中的「緣」，意思是「因為、為了」（花間小路平時不曾「因為／為了」客人而打掃），不是順著沿著！"
             }
         ],
-        "trap": "第三課核心字義：「花徑不曾『緣』客掃」的「緣」＝「因為、為了」！"
+        "trap": "第三課核心字義：「花徑不曾『緣』客掃」的「緣」＝「因為、為了」！",
+        "code": "M1.CD-SEM.DEF-S2-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "花徑不曾「緣」客掃：順著、沿著"
+        ]
     },
     {
         "id": "q_exam_chongde_word_3",
@@ -10981,7 +14574,17 @@ const QUESTION_BANK = [
                 "explanation": "解釋正確。"
             }
         ],
-        "trap": "「益」的兩大常考字義：(1) 更加（精益求精、多多益善、老當益壯）；(2) 好處（利益、獲益良多、有益健康）。"
+        "trap": "「益」的兩大常考字義：(1) 更加（精益求精、多多益善、老當益壯）；(2) 好處（利益、獲益良多、有益健康）。",
+        "code": "M1.CD-SEM.DEF-S2-03",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "利「益」：增加、助長"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_1",
@@ -11016,7 +14619,17 @@ const QUESTION_BANK = [
                 "explanation": "順序錯誤。"
             }
         ],
-        "trap": "「暴」家族三兄弟：爆炸爆裂用「火（爆）」、曝晒曝光用「日（曝）」、瀑布飛瀑用「水（瀑）」。"
+        "trap": "「暴」家族三兄弟：爆炸爆裂用「火（爆）」、曝晒曝光用「日（曝）」、瀑布飛瀑用「水（瀑）」。",
+        "code": "M1.CD-ERR.SHP-S1-06",
+        "domain": "ERR",
+        "subType": "SHP",
+        "tags": [
+            "ERR",
+            "SHP"
+        ],
+        "targets": [
+            "爆 ／ 曝 ／ 瀑"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_2",
@@ -11051,7 +14664,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！作者了解珍珠鳥怕生的習性，用吊蘭遮掩且不隨意掀開驚動，才讓小鳥放下戒心主動親近。"
             }
         ],
-        "trap": "愛護動物的最佳方式是「了解牠的習性並給予尊重」，而非過度打擾。"
+        "trap": "愛護動物的最佳方式是「了解牠的習性並給予尊重」，而非過度打擾。",
+        "code": "M1.CD-TXT.MAIN-S1-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "了解並尊重牠的習性（給予安全空間、不刻意"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_3",
@@ -11086,7 +14709,17 @@ const QUESTION_BANK = [
                 "explanation": "與認錯無關。"
             }
         ],
-        "trap": "尾聯「隔籬呼取盡餘杯」把迎客的氣氛推向最熱絡歡快的高潮，表現杜甫率真好客、與鄰里和睦的性格。"
+        "trap": "尾聯「隔籬呼取盡餘杯」把迎客的氣氛推向最熱絡歡快的高潮，表現杜甫率真好客、與鄰里和睦的性格。",
+        "code": "M1.CD-TXT.MAIN-S1-02",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "熱情好客、率真隨和、樂於與人分享同樂"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_4",
@@ -11121,7 +14754,17 @@ const QUESTION_BANK = [
                 "explanation": "此為問句開頭的效果。"
             }
         ],
-        "trap": "區分寫作效果：「問句開頭」＝引發好奇、互動、閱讀動機；「第一人稱／摹寫」＝身臨其境！"
+        "trap": "區分寫作效果：「問句開頭」＝引發好奇、互動、閱讀動機；「第一人稱／摹寫」＝身臨其境！",
+        "code": "M1.CD-RHE.WRT-S2-05",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "讓讀者有身臨其境（置身火災或演唱會現場）"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_5",
@@ -11156,7 +14799,17 @@ const QUESTION_BANK = [
                 "explanation": "語法正確。"
             }
         ],
-        "trap": "抓語序病句：「漸漸距離拉近」➔「距離漸漸拉近」；「我就要眼看」➔「眼看我就要」；「比賽屬於勝利」➔「勝利屬於我」。"
+        "trap": "抓語序病句：「漸漸距離拉近」➔「距離漸漸拉近」；「我就要眼看」➔「眼看我就要」；「比賽屬於勝利」➔「勝利屬於我」。",
+        "code": "M1.CD-RHE.SYN-S2-06",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "我們漸漸距離拉近了，我就要眼看追過他，這"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_6",
@@ -11191,7 +14844,17 @@ const QUESTION_BANK = [
                 "explanation": "比喻苦尋不得的事物卻在無意間輕鬆得到，與艱苦訓練不符。"
             }
         ],
-        "trap": "「不經一番寒徹骨，焉得梅花撲鼻香」（黃檗禪師詩）最常用來形容「經歷嚴格訓練或挫折後獲得成功」。"
+        "trap": "「不經一番寒徹骨，焉得梅花撲鼻香」（黃檗禪師詩）最常用來形容「經歷嚴格訓練或挫折後獲得成功」。",
+        "code": "M1.CD-IDM.MEAN-S1-08",
+        "domain": "IDM",
+        "subType": "MEAN",
+        "tags": [
+            "IDM",
+            "MEAN"
+        ],
+        "targets": [
+            "不經一番寒徹骨，焉得梅花撲鼻香"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_7",
@@ -11226,7 +14889,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「千載難逢」（指年）讀作三聲「ㄗㄞˇ」；其餘三個皆讀四聲「ㄗㄞˋ」。"
             }
         ],
-        "trap": "六校段考出現率100%的考題！「載」字三聲（ㄗㄞˇ）只有「千載難逢、一年半載、記載、刊載、轉載」！"
+        "trap": "六校段考出現率100%的考題！「載」字三聲（ㄗㄞˇ）只有「千載難逢、一年半載、記載、刊載、轉載」！",
+        "code": "M1.CD-PHO.PLY-S2-01",
+        "domain": "PHO",
+        "subType": "PLY",
+        "tags": [
+            "PHO",
+            "PLY"
+        ],
+        "targets": [
+            "千「載」難逢"
+        ]
     },
     {
         "id": "q_exam_chongde_mc_8",
@@ -11261,7 +14934,17 @@ const QUESTION_BANK = [
                 "explanation": "偶數句（2、4、6、8句）規定一定要押韻！"
             }
         ],
-        "trap": "律詩四大鐵則：(1) 共8句（五律40字、七律56字）；(2) 偶數句必押韻；(3) 3-4句、5-6句必對仗；(4) 盛行於唐代。"
+        "trap": "律詩四大鐵則：(1) 共8句（五律40字、七律56字）；(2) 偶數句必押韻；(3) 3-4句、5-6句必對仗；(4) 盛行於唐代。",
+        "code": "M1.CD-RDG.LIT-S1-01",
+        "domain": "RDG",
+        "subType": "LIT",
+        "tags": [
+            "RDG",
+            "LIT"
+        ],
+        "targets": [
+            "律詩的第三、四句（頷聯）及第五、六句（頸"
+        ]
     },
     {
         "id": "q_exam_chongde_read1_1",
@@ -11296,7 +14979,17 @@ const QUESTION_BANK = [
                 "explanation": "詩人尊重彼此獨立的方向。"
             }
         ],
-        "trap": "〈偶然〉的核心哲理：生命中的相逢雖美，但每個人都有各自的人生方向，不必強求執著。"
+        "trap": "〈偶然〉的核心哲理：生命中的相逢雖美，但每個人都有各自的人生方向，不必強求執著。",
+        "code": "M1.CD-RDG.PRO-S2-02",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "雙方雖然在生命中偶然相遇，但仍是獨立的個"
+        ]
     },
     {
         "id": "q_exam_chongde_read1_2",
@@ -11331,7 +15024,17 @@ const QUESTION_BANK = [
                 "explanation": "詩中強調「轉瞬間消滅了蹤影、各有方向」，並非永恆承諾。"
             }
         ],
-        "trap": "「互放的光亮」象徵人際相遇時真摯美好的心靈火花。"
+        "trap": "「互放的光亮」象徵人際相遇時真摯美好的心靈火花。",
+        "code": "M1.CD-RDG.PRO-S2-03",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "心靈相遇時互相啟發、照亮彼此、豐富生命的"
+        ]
     },
     {
         "id": "q_exam_chongde_read1_3",
@@ -11366,7 +15069,17 @@ const QUESTION_BANK = [
                 "explanation": "與此句無關。"
             }
         ],
-        "trap": "從「不必訝異、無須歡喜」到「最好你忘掉」，處處體現揮一揮衣袖不帶走一片雲彩的「灑脫」。"
+        "trap": "從「不必訝異、無須歡喜」到「最好你忘掉」，處處體現揮一揮衣袖不帶走一片雲彩的「灑脫」。",
+        "code": "M1.CD-RDG.PRO-S2-04",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "最好你忘掉（隨緣放下，不執著、不給對方負"
+        ]
     },
     {
         "id": "q_exam_chongde_read1_4",
@@ -11401,7 +15114,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！天上的雲隨風飄動，水面的波紋隨風生滅，雲影投映波心「在轉瞬間消滅了蹤影」，凸顯緣分的短暫易逝與偶然。"
             }
         ],
-        "trap": "「雲」與「水波」都是自然界最流動不居、瞬息萬變的意象，用來烘托「偶然與短暫」。"
+        "trap": "「雲」與「水波」都是自然界最流動不居、瞬息萬變的意象，用來烘托「偶然與短暫」。",
+        "code": "M1.CD-RDG.PRO-S2-05",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "相遇的偶然、短暫、易逝與不可強求"
+        ]
     },
     {
         "id": "q_exam_chongde_read2_1",
@@ -11436,7 +15159,17 @@ const QUESTION_BANK = [
                 "explanation": "非忘記裝畫。"
             }
         ],
-        "trap": "直接對照短文倒數第二句即可作答。"
+        "trap": "直接對照短文倒數第二句即可作答。",
+        "code": "M1.CD-IDM.STO-S1-09",
+        "domain": "IDM",
+        "subType": "STO",
+        "tags": [
+            "IDM",
+            "STO"
+        ],
+        "targets": [
+            "說精妙的畫像仙人通靈一樣，幻化而去（羽化"
+        ]
     },
     {
         "id": "q_exam_chongde_read2_2",
@@ -11471,7 +15204,17 @@ const QUESTION_BANK = [
                 "explanation": "他是拿自己臨摹的複製品去混淆。"
             }
         ],
-        "trap": "這就是「巧取豪奪」中「巧取（用巧妙計謀騙取）」的由來。"
+        "trap": "這就是「巧取豪奪」中「巧取（用巧妙計謀騙取）」的由來。",
+        "code": "M1.CD-IDM.STO-S1-10",
+        "domain": "IDM",
+        "subType": "STO",
+        "tags": [
+            "IDM",
+            "STO"
+        ],
+        "targets": [
+            "他很擅長畫山水人物，臨摹（仿畫）技藝極為"
+        ]
     },
     {
         "id": "q_exam_chongde_read2_3",
@@ -11506,7 +15249,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！無論是以假亂真騙取（巧取）還是暗中開箱竊取（豪奪），本質上都是用不正當手段奪取他人財物。"
             }
         ],
-        "trap": "「巧取豪奪」為貶義成語，形容用各種不正當手段詐取或強奪他人財物與權利。"
+        "trap": "「巧取豪奪」為貶義成語，形容用各種不正當手段詐取或強奪他人財物與權利。",
+        "code": "M1.CD-IDM.STO-S1-11",
+        "domain": "IDM",
+        "subType": "STO",
+        "tags": [
+            "IDM",
+            "STO"
+        ],
+        "targets": [
+            "都使用了欺騙或不正當的手段將別人的東西據"
+        ]
     },
     {
         "id": "q_exam_zx_hw_1",
@@ -11521,7 +15274,27 @@ const QUESTION_BANK = [
         "question": "【忠孝國小・第一大題第1~2段】週末早晨，市政府舉辦了一場[[國字:ㄅㄢ:頒]]獎典禮，這份[[注音:榮:ㄖㄨㄥˊ]]耀是[[國字:ㄕㄨˇ:屬]]於自己的。典禮結束後，他們路過一處老舊社區，曾住著一位知名藝人，近日傳出他突然[[注音:隕:ㄩㄣˇ]]落的消息。聽說他被發現時，住處[[國字:ㄌㄧㄥˊ:凌]]亂，室內堆滿老舊的機[[注音:械:ㄒㄧㄝˋ]]與[[注音:朽:ㄒㄧㄡˇ]]壞的家電。午後太陽原本還[[國字:ㄆㄨˋ:曝]]曬著地面，不久便烏雲密布，空氣中瀰漫著陰[[注音:霾:ㄇㄞˊ]]。這些[[國字:ㄐㄧ:跡]]象都讓人擔心即將下起暴雨，他們決定不要[[注音:涉:ㄕㄜˋ]]水而行。",
         "correctAnswer": "頒、ㄖㄨㄥˊ、屬、ㄩㄣˇ、凌、ㄒㄧㄝˋ、ㄒㄧㄡˇ、曝、ㄇㄞˊ、跡、ㄕㄜˋ",
         "explanation": "【解說】「頒」獎（頁部，分＋頁）；「榮」耀讀「ㄖㄨㄥˊ」；「屬」於（尸部）；「隕」落讀三聲「ㄩㄣˇ」；「凌」亂（冫部）；機「械」讀「ㄒㄧㄝˋ」；「朽」壞讀「ㄒㄧㄡˇ」；「曝」曬（日部）；陰「霾」讀「ㄇㄞˊ」；「跡」象（足部）；「涉」水讀「ㄕㄜˋ」。",
-        "trap": "「頒」左邊是「分」，右邊是「頁」；「隕」落讀三聲「ㄩㄣˇ」，不要念成員（ㄩㄢˊ）！"
+        "trap": "「頒」左邊是「分」，右邊是「頁」；「隕」落讀三聲「ㄩㄣˇ」，不要念成員（ㄩㄢˊ）！",
+        "code": "M1.ZX-CHR.MIX-S3-01",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "頒",
+            "ㄖㄨㄥˊ",
+            "屬",
+            "ㄩㄣˇ",
+            "凌",
+            "ㄒㄧㄝˋ",
+            "ㄒㄧㄡˇ",
+            "曝",
+            "ㄇㄞˊ",
+            "跡",
+            "ㄕㄜˋ"
+        ]
     },
     {
         "id": "q_exam_zx_hw_2",
@@ -11536,7 +15309,24 @@ const QUESTION_BANK = [
         "question": "【忠孝國小・第一大題第3段】回家後，小芳開始進行化學作業。她知道實驗中若使用具有腐[[注音:蝕:ㄕˊ]]性的[[注音:液:ㄧㄝˋ]]體，必須小心謹慎。除了不能[[國字:ㄔㄨˋ:觸]]碰藥劑，她還特別戴上護目鏡與口罩，以[[國字:ㄅㄧˋ:避]]免發生危險。幸好弟弟住院時有值得信[[國字:ㄌㄞˋ:賴]]的醫師、媽媽的[[注音:悉:ㄒㄧ]]心照護，還有朋友送來的[[注音:絨:ㄖㄨㄥˊ]]毛娃娃陪伴，才能回到溫暖[[國字:ㄕㄨ:舒]]適的家。",
         "correctAnswer": "ㄕˊ、ㄧㄝˋ、觸、避、賴、ㄒㄧ、ㄖㄨㄥˊ、舒",
         "explanation": "【解說】腐「蝕」讀二聲「ㄕˊ」；「液」體讀四聲「ㄧㄝˋ」；「觸」碰（角部）；「避」免（辵部＋辟）；信「賴」（貝部，束＋刀＋貝）；「悉」心讀一聲「ㄒㄧ」；「絨」毛讀二聲「ㄖㄨㄥˊ」；「舒」適（舌部）。",
-        "trap": "「信賴」的「賴」左邊是「束」，右邊上方是「刀（負的刀頭）」、下方是「貝」！"
+        "trap": "「信賴」的「賴」左邊是「束」，右邊上方是「刀（負的刀頭）」、下方是「貝」！",
+        "code": "M1.ZX-CHR.MIX-S3-02",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄕˊ",
+            "ㄧㄝˋ",
+            "觸",
+            "避",
+            "賴",
+            "ㄒㄧ",
+            "ㄖㄨㄥˊ",
+            "舒"
+        ]
     },
     {
         "id": "q_exam_zx_hw_3",
@@ -11551,7 +15341,25 @@ const QUESTION_BANK = [
         "question": "【忠孝國小・第一大題第4段（上）】隔壁鄰居小美在咖啡廳兼差時，認識了一位男士，以為對方是自己的姻[[注音:緣:ㄩㄢˊ]]。沒想到對方只是客氣寒暄，這段時間，她整日魂不守[[注音:舍:ㄕㄜˋ]]，甚至[[國字:ㄆㄥˊ:蓬]]頭[[國字:ㄍㄡˋ:垢]]面，讓父母十分擔憂。午後，小芳專注於文章[[注音:編:ㄅㄧㄢ]]輯。她將草[[國字:ㄍㄠˇ:稿]]書寫於[[國字:ㄍㄠˇ:稿]]紙上，不斷增[[國字:ㄊㄧㄢ:添]]內容，卻因久坐使[[注音:肩:ㄐㄧㄢ]]膀痠痛。",
         "correctAnswer": "ㄩㄢˊ、ㄕㄜˋ、蓬、垢、ㄅㄧㄢ、稿、稿、添、ㄐㄧㄢ",
         "explanation": "【解說】姻「緣」讀「ㄩㄢˊ」；魂不守「舍」（指心神離開軀殼屋舍）讀四聲「ㄕㄜˋ」；「蓬」頭（艸部）「垢」面（土部）；「編」輯讀「ㄅㄧㄢ」；草「稿」（禾部＋高）；增「添」（水部）；「肩」膀讀「ㄐㄧㄢ」。",
-        "trap": "「魂不守舍」的「舍」指人的身體像靈魂居住的屋舍，所以讀四聲「ㄕㄜˋ」（名詞），不讀三聲ㄕㄜˇ！"
+        "trap": "「魂不守舍」的「舍」指人的身體像靈魂居住的屋舍，所以讀四聲「ㄕㄜˋ」（名詞），不讀三聲ㄕㄜˇ！",
+        "code": "M1.ZX-CHR.MIX-S3-03",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "ㄩㄢˊ",
+            "ㄕㄜˋ",
+            "蓬",
+            "垢",
+            "ㄅㄧㄢ",
+            "稿",
+            "稿",
+            "添",
+            "ㄐㄧㄢ"
+        ]
     },
     {
         "id": "q_exam_zx_hw_4",
@@ -11566,7 +15374,21 @@ const QUESTION_BANK = [
         "question": "【忠孝國小・第一大題第4段（下）】傍晚時分，社區活動場地出現小插曲。原本應放[[國字:ㄓˋ:置]]在門口的拱門，因工作人員[[國字:ㄍㄠˇ:搞]]錯位[[注音:置:ㄓˋ]]被放在出口，雖經一番折[[注音:騰:ㄊㄥˊ]]才順利改正，但仍[[國字:ㄖㄜˇ:惹]]得主辦單位啼笑皆非。",
         "correctAnswer": "置、搞、ㄓˋ、ㄊㄥˊ、惹",
         "explanation": "【解說】放「置」（网部＋直，直裡面三橫）；「搞」錯（手部＋高，與禾部的草「稿」區分！）；位「置」讀四聲「ㄓˋ」；折「騰」讀二聲「ㄊㄥˊ」（口語有時讀輕聲，課本標準音為二聲ㄊㄥˊ）；「惹」得（艸＋右＋心，心部）。",
-        "trap": "忠孝國小這題超精彩：把「草稿（禾部）」跟「搞錯（手部）」、「放置（寫國字）」跟「位置（寫注音）」放在同一段對比考！"
+        "trap": "忠孝國小這題超精彩：把「草稿（禾部）」跟「搞錯（手部）」、「放置（寫國字）」跟「位置（寫注音）」放在同一段對比考！",
+        "code": "M1.ZX-CHR.MIX-S3-04",
+        "domain": "CHR",
+        "subType": "MIX",
+        "tags": [
+            "CHR",
+            "MIX"
+        ],
+        "targets": [
+            "置",
+            "搞",
+            "ㄓˋ",
+            "ㄊㄥˊ",
+            "惹"
+        ]
     },
     {
         "id": "q_exam_zx_word_1",
@@ -11601,7 +15423,17 @@ const QUESTION_BANK = [
                 "explanation": "此處「爽」指率直痛快。"
             }
         ],
-        "trap": "「秋高氣爽、神清氣爽、涼爽」的「爽」皆指清涼舒適暢快。"
+        "trap": "「秋高氣爽、神清氣爽、涼爽」的「爽」皆指清涼舒適暢快。",
+        "code": "M1.ZX-SEM.DEF-S1-01",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "秋高氣「爽」"
+        ]
     },
     {
         "id": "q_exam_zx_word_2",
@@ -11636,7 +15468,17 @@ const QUESTION_BANK = [
                 "explanation": "後文「蓬門今始為君開」表現出他非常渴望與歡迎朋友來訪。"
             }
         ],
-        "trap": "「但見群鷗日日來」以每日唯有鷗鳥相伴的寂靜，反襯「蓬門今始為君開」的熱烈歡喜。"
+        "trap": "「但見群鷗日日來」以每日唯有鷗鳥相伴的寂靜，反襯「蓬門今始為君開」的熱烈歡喜。",
+        "code": "M1.ZX-RDG.POE-S2-01",
+        "domain": "RDG",
+        "subType": "POE",
+        "tags": [
+            "RDG",
+            "POE"
+        ],
+        "targets": [
+            "詩人平日少有人探訪的孤獨僻靜感（藉此反襯"
+        ]
     },
     {
         "id": "q_exam_zx_word_3",
@@ -11671,7 +15513,17 @@ const QUESTION_BANK = [
                 "explanation": "讚美醫生將重病治好。"
             }
         ],
-        "trap": "《語文天地二》職業成語必考題：春風化雨／百年樹人／作育英才＝老師；華佗再世／仁心仁術／妙手回春＝醫生。"
+        "trap": "《語文天地二》職業成語必考題：春風化雨／百年樹人／作育英才＝老師；華佗再世／仁心仁術／妙手回春＝醫生。",
+        "code": "M1.ZX-IDM.CLS-S1-01",
+        "domain": "IDM",
+        "subType": "CLS",
+        "tags": [
+            "IDM",
+            "CLS"
+        ],
+        "targets": [
+            "春風化雨"
+        ]
     },
     {
         "id": "q_exam_zx_word_4",
@@ -11706,7 +15558,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「流瀉」指像水或光線一樣順暢地流散、傾瀉而出（第二課：「我筆尖一動，流瀉下一時的感受」）。"
             }
         ],
-        "trap": "「瀉」本義即為水往下快速流動、傾瀉。"
+        "trap": "「瀉」本義即為水往下快速流動、傾瀉。",
+        "code": "M1.ZX-SEM.DEF-S1-02",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "流散、傾瀉（流暢地湧出或傾瀉而下）"
+        ]
     },
     {
         "id": "q_exam_zx_word_5",
@@ -11741,7 +15603,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！「陰霾」指空氣中懸浮大量煙塵水氣導致天氣陰暗混濁，也用來比喻內心沉重鬱悶的不快氣氛。"
             }
         ],
-        "trap": "第一課「新陽推開了陰霾了」，陰霾指雨後尚未散盡的陰暗雲霧。"
+        "trap": "第一課「新陽推開了陰霾了」，陰霾指雨後尚未散盡的陰暗雲霧。",
+        "code": "M1.ZX-SEM.DEF-S1-03",
+        "domain": "SEM",
+        "subType": "DEF",
+        "tags": [
+            "SEM",
+            "DEF"
+        ],
+        "targets": [
+            "形容天氣陰沉、晦暗（亦比喻心境鬱悶沉重）"
+        ]
     },
     {
         "id": "q_exam_zx_word_6",
@@ -11776,7 +15648,18 @@ const QUESTION_BANK = [
                 "explanation": "露水不會有群鷗飛來。"
             }
         ],
-        "trap": "因為有「春水（春天的溪流河水）」環繞，下一句才會有「群鷗（水鳥）日日來」！"
+        "trap": "因為有「春水（春天的溪流河水）」環繞，下一句才會有「群鷗（水鳥）日日來」！",
+        "code": "M1.ZX-SEM.ARC-S1-04",
+        "domain": "SEM",
+        "subType": "ARC",
+        "tags": [
+            "SEM",
+            "ARC",
+            "RDG"
+        ],
+        "targets": [
+            "春天暴漲充盈的溪流河水（指浣花溪流水）"
+        ]
     },
     {
         "id": "q_exam_zx_text_1",
@@ -11811,7 +15694,17 @@ const QUESTION_BANK = [
                 "explanation": "文中強調名次不是唯一。"
             }
         ],
-        "trap": "「你沒有成為這場比賽的贏家，但你成了一個更優秀的人。」點出運動家精神高於勝負名次。"
+        "trap": "「你沒有成為這場比賽的贏家，但你成了一個更優秀的人。」點出運動家精神高於勝負名次。",
+        "code": "M1.ZX-TXT.MAIN-S1-01",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "只要展現誠實與公平競爭的運動家精神，不管"
+        ]
     },
     {
         "id": "q_exam_zx_text_2",
@@ -11846,7 +15739,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！課文只介紹了消防員、歌手、電影拍攝團隊三種職業，並未介紹廚師。"
             }
         ],
-        "trap": "第五課三大職業：消防員（消防衣）、歌手（耳機）、電影幕後人員（場記板）。"
+        "trap": "第五課三大職業：消防員（消防衣）、歌手（耳機）、電影幕後人員（場記板）。",
+        "code": "M1.ZX-TXT.MAIN-S1-02",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "廚師的料理刀工技巧"
+        ]
     },
     {
         "id": "q_exam_zx_text_3",
@@ -11881,7 +15784,17 @@ const QUESTION_BANK = [
                 "explanation": "說法正確。"
             }
         ],
-        "trap": "課文中運用許多表示時間與漸進的詞語（三個月後、起先、隨後、漸漸、再三），說明信賴需要「時間與耐心」慢慢培養。"
+        "trap": "課文中運用許多表示時間與漸進的詞語（三個月後、起先、隨後、漸漸、再三），說明信賴需要「時間與耐心」慢慢培養。",
+        "code": "M1.ZX-TXT.MAIN-S1-03",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "與動物建立信賴關係完全不需花時間，第一天"
+        ]
     },
     {
         "id": "q_exam_zx_text_4",
@@ -11916,7 +15829,17 @@ const QUESTION_BANK = [
                 "explanation": "無引用。"
             }
         ],
-        "trap": "比較各課開頭法：第五課用「設問（疑問）法」開頭；第六課用「引用名言＋倒敘法」開頭！"
+        "trap": "比較各課開頭法：第五課用「設問（疑問）法」開頭；第六課用「引用名言＋倒敘法」開頭！",
+        "code": "M1.ZX-RHE.WRT-S2-01",
+        "domain": "RHE",
+        "subType": "WRT",
+        "tags": [
+            "RHE",
+            "WRT"
+        ],
+        "targets": [
+            "「天下沒有不散的筵席。」這句話說明了我們"
+        ]
     },
     {
         "id": "q_exam_zx_text_5",
@@ -11951,7 +15874,17 @@ const QUESTION_BANK = [
                 "explanation": "並無擔心害怕。"
             }
         ],
-        "trap": "〈客至〉全詩情感脈絡：幽靜孤寂（首聯）➔ 驚喜迎客（頷聯）➔ 謙稱款待（頸聯）➔ 盡興歡飲（尾聯）。"
+        "trap": "〈客至〉全詩情感脈絡：幽靜孤寂（首聯）➔ 驚喜迎客（頷聯）➔ 謙稱款待（頸聯）➔ 盡興歡飲（尾聯）。",
+        "code": "M1.ZX-TXT.MAIN-S2-04",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "由孤寂期待變得熱烈喜悅"
+        ]
     },
     {
         "id": "q_exam_zx_text_6",
@@ -11986,7 +15919,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！溫和的微風吹拂溪水，使水面產生細微的波紋，看起來就像暈開皺起一樣。"
             }
         ],
-        "trap": "「溫風」即溫和的微風，「暈皺」形容水波盪漾。"
+        "trap": "「溫風」即溫和的微風，「暈皺」形容水波盪漾。",
+        "code": "M1.ZX-TXT.MAIN-S1-05",
+        "domain": "TXT",
+        "subType": "MAIN",
+        "tags": [
+            "TXT",
+            "MAIN"
+        ],
+        "targets": [
+            "溫暖的輕風吹動水面，泛起陣陣漣漪波紋"
+        ]
     },
     {
         "id": "q_exam_zx_rhet_1",
@@ -12021,7 +15964,17 @@ const QUESTION_BANK = [
                 "explanation": "感嘆修辭。"
             }
         ],
-        "trap": "注意句末標點與語氣：有問號「？」且提出問題的是設問；有驚嘆號「！」表達讚嘆的是感嘆。"
+        "trap": "注意句末標點與語氣：有問號「？」且提出問題的是設問；有驚嘆號「！」表達讚嘆的是感嘆。",
+        "code": "M1.ZX-RHE.FIG-S1-02",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "你還想到哪些令你好奇的內容呢？"
+        ]
     },
     {
         "id": "q_exam_zx_rhet_2",
@@ -12056,7 +16009,17 @@ const QUESTION_BANK = [
                 "explanation": "「香噴噴」是ABB結構。"
             }
         ],
-        "trap": "跨校必考題（和順國小與忠孝國小同時命題）：「大大小小的隕石坑」對「寬寬鬆鬆的燕尾服」！"
+        "trap": "跨校必考題（和順國小與忠孝國小同時命題）：「大大小小的隕石坑」對「寬寬鬆鬆的燕尾服」！",
+        "code": "M1.ZX-RHE.SYN-S2-03",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "寬寬鬆鬆的燕尾服"
+        ]
     },
     {
         "id": "q_exam_zx_rhet_3",
@@ -12091,7 +16054,17 @@ const QUESTION_BANK = [
                 "explanation": "無誇飾。"
             }
         ],
-        "trap": "用刪去法即可秒殺：句中完全沒有「誇飾」也沒有「觸覺」，因此唯一正確的是①「擬人、視覺摹寫」！"
+        "trap": "用刪去法即可秒殺：句中完全沒有「誇飾」也沒有「觸覺」，因此唯一正確的是①「擬人、視覺摹寫」！",
+        "code": "M1.ZX-RHE.FIG-S2-04",
+        "domain": "RHE",
+        "subType": "FIG",
+        "tags": [
+            "RHE",
+            "FIG"
+        ],
+        "targets": [
+            "擬人（父母的再三呼喚）、視覺摹寫（飛向籠"
+        ]
     },
     {
         "id": "q_exam_zx_contrast_1",
@@ -12118,7 +16091,17 @@ const QUESTION_BANK = [
                 "explanation": "「定格不動」與「平靜無波」同為平靜狀態，無法呼應「卻」所要求的對比轉折。"
             }
         ],
-        "trap": "抓住轉折關鍵字「卻」：前半句「定格不動」，後半句就必須選對比的「激動吶喊」。"
+        "trap": "抓住轉折關鍵字「卻」：前半句「定格不動」，後半句就必須選對比的「激動吶喊」。",
+        "code": "M1.ZX-RHE.SYN-S1-05",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "激動吶喊"
+        ]
     },
     {
         "id": "q_exam_zx_contrast_2",
@@ -12145,7 +16128,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！前半句「大家揮汗如雨忙碌工作」，由「而你卻」引出強烈對比，此處指「悠閒自在（偷懶閒適）」。"
             }
         ],
-        "trap": "「大家揮汗如雨工作（勤勞忙碌）」vs「你悠閒自在（悠閒偷懶）」，構成鮮明對比。"
+        "trap": "「大家揮汗如雨工作（勤勞忙碌）」vs「你悠閒自在（悠閒偷懶）」，構成鮮明對比。",
+        "code": "M1.ZX-RHE.SYN-S1-06",
+        "domain": "RHE",
+        "subType": "SYN",
+        "tags": [
+            "RHE",
+            "SYN"
+        ],
+        "targets": [
+            "悠閒自在"
+        ]
     },
     {
         "id": "q_exam_zx_read1_1",
@@ -12184,7 +16177,17 @@ const QUESTION_BANK = [
                 "explanation": "與原文相反。"
             }
         ],
-        "trap": "直接看短文第一句：「生活變得熱鬧多了」。"
+        "trap": "直接看短文第一句：「生活變得熱鬧多了」。",
+        "code": "M1.ZX-RDG.PRO-S1-02",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "變得更熱鬧"
+        ]
     },
     {
         "id": "q_exam_zx_read1_2",
@@ -12223,7 +16226,17 @@ const QUESTION_BANK = [
                 "explanation": "文中未提及。"
             }
         ],
-        "trap": "短文第三句：「雖然牠不會說話，但我總覺得牠能聽懂我的心情。」"
+        "trap": "短文第三句：「雖然牠不會說話，但我總覺得牠能聽懂我的心情。」",
+        "code": "M1.ZX-RDG.PRO-S1-03",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "作者的心情"
+        ]
     },
     {
         "id": "q_exam_zx_read1_3",
@@ -12262,7 +16275,17 @@ const QUESTION_BANK = [
                 "explanation": "非主旨。"
             }
         ],
-        "trap": "媽媽的叮嚀：「更重要的是要有責任心」。"
+        "trap": "媽媽的叮嚀：「更重要的是要有責任心」。",
+        "code": "M1.ZX-RDG.PRO-S1-04",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "要有責任心"
+        ]
     },
     {
         "id": "q_exam_zx_read1_4",
@@ -12301,7 +16324,17 @@ const QUESTION_BANK = [
                 "explanation": "偏離句意。"
             }
         ],
-        "trap": "表達動物是有靈性與情感的生命，同樣需要人類的愛與尊重照顧。"
+        "trap": "表達動物是有靈性與情感的生命，同樣需要人類的愛與尊重照顧。",
+        "code": "M1.ZX-RDG.PRO-S1-05",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "動物和人一樣需要關心"
+        ]
     },
     {
         "id": "q_exam_zx_read1_5",
@@ -12340,7 +16373,17 @@ const QUESTION_BANK = [
                 "explanation": "正確！飼養寵物要有持久的責任心，全心全意照顧並陪伴生命。"
             }
         ],
-        "trap": "核心主旨：寵物是忠實的伴侶，飼養寵物是一輩子的責任與愛。"
+        "trap": "核心主旨：寵物是忠實的伴侶，飼養寵物是一輩子的責任與愛。",
+        "code": "M1.ZX-RDG.PRO-S1-06",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "寵物是人類最好的朋友，要用心照顧牠們"
+        ]
     },
     {
         "id": "q_exam_zx_read2_1",
@@ -12375,7 +16418,17 @@ const QUESTION_BANK = [
                 "explanation": "留言者姓「李（李大帥）」，且白居易是中唐詩人，杜甫去世時白居易尚未出生。"
             }
         ],
-        "trap": "超有創意的素養題！把第三課〈客至〉翻譯成現代 IG/FB 貼文，加上姓「李」的好友留言，秒推「杜甫與李白」！"
+        "trap": "超有創意的素養題！把第三課〈客至〉翻譯成現代 IG/FB 貼文，加上姓「李」的好友留言，秒推「杜甫與李白」！",
+        "code": "M1.ZX-RDG.PRO-S2-07",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "杜甫 與 李白"
+        ]
     },
     {
         "id": "q_exam_zx_read2_2",
@@ -12410,6 +16463,16 @@ const QUESTION_BANK = [
                 "explanation": "這是宮怨閨情詩。"
             }
         ],
-        "trap": "貼文「清掃庭院迎接朋友」＝「花徑不曾緣客掃，蓬門今始為君開」。"
+        "trap": "貼文「清掃庭院迎接朋友」＝「花徑不曾緣客掃，蓬門今始為君開」。",
+        "code": "M1.ZX-RDG.PRO-S1-08",
+        "domain": "RDG",
+        "subType": "PRO",
+        "tags": [
+            "RDG",
+            "PRO"
+        ],
+        "targets": [
+            "花徑不曾緣客掃，蓬門今始為君開（杜甫〈客"
+        ]
     }
 ];

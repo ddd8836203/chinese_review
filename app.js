@@ -22,11 +22,13 @@ const state = {
   view: 'dashboard', // 'dashboard' | 'quiz' | 'result' | 'error_book' | 'print' | 'export'
   selectedBatches: [...ALL_BATCH_TYPES],
   examSchool: 'ALL',
+  idiomSubFilter: 'ALL', // 'ALL' | 'CTX' | 'MEAN_CLS'
 
   // Quiz session
   quizTitle: '',
-  quizMode: 'unit', // 'unit' | 'error_book' | 'qr_sheet'
+  quizMode: 'unit', // 'unit' | 'topic' | 'topic_errors' | 'unit_errors' | 'error_book' | 'qr_sheet'
   currentUnitId: null,
+  currentTopicId: null,
   quizQuestions: [],
   quizIndex: 0,
   resumeTargetIdx: null,
@@ -38,10 +40,12 @@ const state = {
 
   // Error book filter
   errorFilterUnit: null,
+  errorFilterTopic: null,
 
   // Print setup config
   printConfig: {
     unitIds: ['L1'],
+    topicId: null,
     batches: [...ALL_BATCH_TYPES],
     count: 10
   },
@@ -256,6 +260,10 @@ function buildSlimLogEntry(q, resultState, chosenOpt, userText, durationSec) {
   return {
     t: nowStr,
     id: q.id,
+    code: q.code || '',
+    dom: q.domain || '',
+    tags: Array.isArray(q.tags) ? q.tags : [],
+    tgts: Array.isArray(q.targets) ? q.targets : [],
     sch: q.school || '單元特訓',
     cat: q.category || q.batch || '',
     q: q.question,
@@ -565,6 +573,46 @@ function getUnitStats(unitId) {
   return { total: pool.length, errCount, mastered, pct, hwCount, rawTotal: all.length };
 }
 
+function getCleanTopics() {
+  return typeof TOPICS !== 'undefined' && Array.isArray(TOPICS) ? TOPICS : [];
+}
+
+function getTopicPool(topicId, subFilter = 'ALL') {
+  const bank = getCleanBank();
+  let list = bank.filter(q => q.domain === topicId || (Array.isArray(q.tags) && q.tags.includes(topicId)));
+  if (topicId === 'IDM' && subFilter && subFilter !== 'ALL') {
+    if (subFilter === 'CTX') {
+      list = list.filter(q => q.subType === 'CTX');
+    } else if (subFilter === 'MEAN_CLS') {
+      list = list.filter(q => q.subType !== 'CTX');
+    }
+  }
+  return list;
+}
+
+function getTopicStats(topicId) {
+  const subF = topicId === 'IDM' ? (state.idiomSubFilter || 'ALL') : 'ALL';
+  const all = getTopicPool(topicId, subF);
+  const active = filterQuestionsByBatches(all);
+  const pool = active.length > 0 ? active : all;
+  const eb = getErrorBook();
+  const ms = getMasteredIds();
+  const errCount = pool.filter(q => eb.includes(q.id)).length;
+  const mastered = pool.filter(q => ms.includes(q.id) && !eb.includes(q.id)).length;
+  const pct = pool.length > 0 ? Math.round((mastered / pool.length) * 100) : 0;
+  const hwCount = pool.filter(q => q.type === 'handwriting').length;
+  return {
+    total: pool.length,
+    errCount,
+    mastered,
+    pct,
+    hwCount,
+    rawTotal: getTopicPool(topicId, 'ALL').length,
+    ctxCount: topicId === 'IDM' ? getTopicPool('IDM', 'CTX').length : 0,
+    meanClsCount: topicId === 'IDM' ? getTopicPool('IDM', 'MEAN_CLS').length : 0
+  };
+}
+
 function getGlobalStats() {
   const bank = getCleanBank();
   const active = filterQuestionsByBatches(bank);
@@ -676,6 +724,62 @@ function renderDashboardView() {
     </section>
   `;
 
+  const topicsList = getCleanTopics();
+  const topicCardsHtml = topicsList.map(t => {
+    const st = getTopicStats(t.id);
+    const isLocked = st.total === 0;
+    const isHighlight = !!t.isHighlight;
+
+    return `
+      <article class="unit-card topic-card ${isHighlight ? 'idiom-highlight-card' : ''} ${isLocked ? 'locked' : ''}" style="--hue: ${t.hue || 250}">
+        <span class="u-no">🏷️ 代碼 ${t.id} · ${t.pages || ''}</span>
+        <h3>${t.title}</h3>
+        <div class="progress" title="掌握度 ${st.pct}%"><i style="width: ${st.pct}%"></i></div>
+        <div class="u-meta">
+          <span class="tag ${st.pct === 100 ? 'ok' : ''}">掌握 ${st.pct}%</span>
+          ${st.errCount > 0 ? `<span class="tag bad">🔥 ${st.errCount} 題待消滅</span>` : ''}
+          <span class="tag ${isHighlight ? 'exam-badge' : 'lv'}">${t.badge || ''}</span>
+          <span class="tag">${st.total} 題</span>
+        </div>
+
+        ${t.id === 'IDM' ? `
+          <div class="exam-card-quick-select" style="margin-top: 6px;">
+            <select class="exam-school-select idiom-sub-select" data-idiom-sub-select style="width: 100%; padding: 8px 10px; border-radius: 10px; border: 1.5px solid #fcd34d; font-size: 13px; font-weight: 700; color: #78350f; background: #fffdf5; outline: none; cursor: pointer;">
+              <option value="ALL" ${state.idiomSubFilter === 'ALL' ? 'selected' : ''}>全部成語特訓 (${st.rawTotal}題)</option>
+              <option value="CTX" ${state.idiomSubFilter === 'CTX' ? 'selected' : ''}>段考多選一情境填空 (${st.ctxCount}題)</option>
+              <option value="MEAN_CLS" ${state.idiomSubFilter === 'MEAN_CLS' ? 'selected' : ''}>成語釋義・分類・典故 (${st.meanClsCount}題)</option>
+            </select>
+          </div>
+        ` : ''}
+
+        ${st.errCount > 0 ? `
+          <div class="u-actions has-errors" style="margin-top: ${t.id === 'IDM' ? '10px' : 'auto'};">
+            <div class="u-actions-top-row">
+              <button class="btn btn-primary" data-start-topic="${t.id}" ${isLocked ? 'disabled' : ''}>
+                ${t.id === 'IDM' ? '🐉 開始挑戰' : '🎯 開始特訓'}
+              </button>
+              <button class="btn btn-kill-err" data-kill-topic-errors="${t.id}">
+                🔥 消滅錯題 (${st.errCount})
+              </button>
+            </div>
+            <button class="btn btn-ghost btn-block" data-print-topic="${t.id}" ${isLocked ? 'disabled' : ''}>
+              🖨️ A4 出卷
+            </button>
+          </div>
+        ` : `
+          <div class="u-actions" style="margin-top: ${t.id === 'IDM' ? '10px' : 'auto'};">
+            <button class="btn btn-primary" data-start-topic="${t.id}" ${isLocked ? 'disabled' : ''}>
+              ${t.id === 'IDM' ? '🐉 開始挑戰' : '🎯 開始特訓'}
+            </button>
+            <button class="btn btn-ghost" data-print-topic="${t.id}" ${isLocked ? 'disabled' : ''}>
+              🖨️ A4 出卷
+            </button>
+          </div>
+        `}
+      </article>
+    `;
+  }).join('');
+
   const app = document.getElementById('app');
   app.innerHTML = `
     <div class="view dashboard">
@@ -703,6 +807,16 @@ function renderDashboardView() {
           </div>
           <button class="btn btn-lg" id="btn-kill-errors">立即消滅錯題</button>
         </aside>
+      ` : ''}
+
+      ${topicsList.length > 0 ? `
+        <div class="section-title">
+          <h2>🎯 國語八大弱點專項挑戰</h2>
+          <span class="muted">依考點代碼分類 · 跨課次與六校段考重點突擊（先攻克成語！）</span>
+        </div>
+        <section class="unit-grid topic-grid">
+          ${topicCardsHtml}
+        </section>
       ` : ''}
 
       <div class="section-title">
@@ -748,11 +862,38 @@ function renderDashboardView() {
   const openModalBtn = document.getElementById('btn-open-user-modal');
   if (openModalBtn) openModalBtn.addEventListener('click', openUserModal);
 
-  // 綁定段考學校下拉選單
+  // 綁定段考學校下拉選單與成語子題型下拉選單
   app.querySelectorAll('[data-exam-select]').forEach(sel => {
     sel.addEventListener('change', () => {
       state.examSchool = sel.value;
       renderDashboardView();
+    });
+  });
+  app.querySelectorAll('[data-idiom-sub-select]').forEach(sel => {
+    sel.addEventListener('change', () => {
+      state.idiomSubFilter = sel.value;
+      renderDashboardView();
+    });
+  });
+
+  // 綁定八大弱點專項卡片按鈕
+  app.querySelectorAll('[data-start-topic]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tId = btn.getAttribute('data-start-topic');
+      startQuiz('topic', tId, tId === 'IDM' ? state.idiomSubFilter : 'ALL');
+    });
+  });
+  app.querySelectorAll('[data-kill-topic-errors]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tId = btn.getAttribute('data-kill-topic-errors');
+      startQuiz('topic_errors', tId);
+    });
+  });
+  app.querySelectorAll('[data-print-topic]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tId = btn.getAttribute('data-print-topic');
+      state.printConfig.topicId = tId;
+      renderPrintSetupView();
     });
   });
 
@@ -772,6 +913,7 @@ function renderDashboardView() {
   app.querySelectorAll('[data-print-unit]').forEach(btn => {
     btn.addEventListener('click', () => {
       const uId = btn.getAttribute('data-print-unit');
+      state.printConfig.topicId = null;
       state.printConfig.unitIds = [uId];
       renderPrintSetupView();
     });
@@ -790,15 +932,50 @@ function startQuiz(mode, unitId = null, schoolFilter = state.examSchool) {
   const bank = getCleanBank();
   const eb = getErrorBook();
   let pool = [];
+  let nextUnitId = null;
+  let nextTopicId = null;
 
   if (mode === 'error_book') {
     pool = bank.filter(q => eb.includes(q.id));
     state.quizTitle = '🔥 跨課錯題消滅戰';
+  } else if (mode === 'filtered_errors' && unitId && typeof unitId === 'object') {
+    pool = bank.filter(q => {
+      if (!eb.includes(q.id)) return false;
+      if (unitId.unit && q.lessonId !== unitId.unit) return false;
+      if (unitId.topic && !(q.domain === unitId.topic || (Array.isArray(q.tags) && q.tags.includes(unitId.topic)))) return false;
+      return true;
+    });
+    const uObj = unitId.unit ? LESSONS.find(x => x.id === unitId.unit) : null;
+    const tObj = unitId.topic ? getCleanTopics().find(x => x.id === unitId.topic) : null;
+    const parts = [uObj ? uObj.shortTitle || uObj.title : null, tObj ? tObj.shortTitle || tObj.title : null].filter(Boolean);
+    state.quizTitle = `🔥 篩選錯題消滅${parts.length ? ' · ' + parts.join(' / ') : ''}`;
+    nextUnitId = unitId.unit || null;
+    nextTopicId = unitId.topic || null;
   } else if (mode === 'unit_errors') {
     pool = bank.filter(q => q.lessonId === unitId && eb.includes(q.id));
     const u = LESSONS.find(x => x.id === unitId);
     state.quizTitle = `🔥 ${u ? u.title : unitId} · 錯題消滅`;
+    nextUnitId = unitId;
+  } else if (mode === 'topic_errors') {
+    const allTopic = getTopicPool(unitId, 'ALL');
+    pool = allTopic.filter(q => eb.includes(q.id));
+    const tObj = getCleanTopics().find(x => x.id === unitId);
+    state.quizTitle = `🔥 ${tObj ? tObj.title : unitId} · 錯題消滅`;
+    nextTopicId = unitId;
+  } else if (mode === 'topic') {
+    nextTopicId = unitId;
+    const subF = unitId === 'IDM' ? (schoolFilter || state.idiomSubFilter || 'ALL') : 'ALL';
+    if (unitId === 'IDM') state.idiomSubFilter = subF;
+    const allTopic = getTopicPool(unitId, subF);
+    pool = filterQuestionsByBatches(allTopic);
+    if (pool.length === 0) pool = allTopic;
+    const tObj = getCleanTopics().find(x => x.id === unitId);
+    const subLabel = (unitId === 'IDM' && subF !== 'ALL')
+      ? (subF === 'CTX' ? ' · 段考多選一填空' : ' · 成語釋義分類典故')
+      : '';
+    state.quizTitle = (tObj ? tObj.title : unitId) + subLabel;
   } else {
+    nextUnitId = unitId;
     state.examSchool = schoolFilter || 'ALL';
     let allUnit = bank.filter(q => q.lessonId === unitId);
     if (unitId === 'EXAM_MID1' && state.examSchool !== 'ALL') {
@@ -816,7 +993,8 @@ function startQuiz(mode, unitId = null, schoolFilter = state.examSchool) {
   }
 
   state.quizMode = mode;
-  state.currentUnitId = unitId;
+  state.currentUnitId = nextUnitId;
+  state.currentTopicId = nextTopicId;
   state.quizQuestions = pool;
   state.quizIndex = 0;
   state.answers = {};
@@ -826,12 +1004,17 @@ function startQuiz(mode, unitId = null, schoolFilter = state.examSchool) {
 
   // 檢查斷點續考紀錄
   const progMap = getUnitProgressMap();
-  const saved = (mode === 'unit' && unitId) ? progMap[unitId] : null;
+  const progKey = (mode === 'unit' && unitId)
+    ? unitId
+    : (mode === 'topic' && unitId)
+      ? `TOPIC_${unitId}_${unitId === 'IDM' ? state.idiomSubFilter : 'ALL'}`
+      : null;
+  const saved = progKey ? progMap[progKey] : null;
   state.resumeTargetIdx = (saved && saved.index > 0 && saved.index < pool.length) ? saved.index : null;
 
   pool.forEach(q => {
     if (q.type === 'mcq' && Array.isArray(q.options)) {
-      state.optionOrders[q.id] = q.lessonId === 'EXAM_MID1'
+      state.optionOrders[q.id] = (q.lessonId === 'EXAM_MID1' || q.options.length > 4)
         ? [...q.options]
         : [...q.options].sort(() => Math.random() - 0.5);
     }
@@ -902,6 +1085,8 @@ function renderQuizQuestion() {
 
   if (state.quizMode === 'unit' && state.currentUnitId) {
     saveUnitProgress(state.currentUnitId, idx);
+  } else if (state.quizMode === 'topic' && state.currentTopicId) {
+    saveUnitProgress(`TOPIC_${state.currentTopicId}_${state.currentTopicId === 'IDM' ? state.idiomSubFilter : 'ALL'}`, idx);
   }
 
   // 記錄本題開始思考時間戳
@@ -918,7 +1103,7 @@ function renderQuizQuestion() {
 
   // Scheme C 學校切換 Tabs (當在 EXAM_MID1 時)
   let schoolTabsHtml = '';
-  if (state.currentUnitId === 'EXAM_MID1') {
+  if (state.quizMode === 'unit' && state.currentUnitId === 'EXAM_MID1') {
     const schools = getExamSchoolsList();
     schoolTabsHtml = `
       <div class="exam-school-tabs-wrap">
@@ -929,6 +1114,31 @@ function renderQuizQuestion() {
           ${schools.map(s => `
             <button type="button" class="school-tab-btn ${state.examSchool === s.id ? 'active' : ''}" data-school-tab="${s.id}">
               <span>${s.shortName}</span>
+              <span class="badge-cnt">${s.count}</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // 成語大挑戰子題型切換 Tabs (當在 IDM 主題挑戰時)
+  let idiomTabsHtml = '';
+  if (state.quizMode === 'topic' && state.currentTopicId === 'IDM') {
+    const subTabs = [
+      { id: 'ALL', name: '🐉 全部成語', count: getTopicPool('IDM', 'ALL').length },
+      { id: 'CTX', name: '📝 段考多選一情境填空', count: getTopicPool('IDM', 'CTX').length },
+      { id: 'MEAN_CLS', name: '💡 成語釋義・分類・典故', count: getTopicPool('IDM', 'MEAN_CLS').length }
+    ];
+    idiomTabsHtml = `
+      <div class="exam-school-tabs-wrap">
+        <div class="exam-tabs-header">
+          <span class="exam-tabs-title">🐉 切換成語挑戰類型：</span>
+        </div>
+        <div class="exam-school-tabs">
+          ${subTabs.map(s => `
+            <button type="button" class="school-tab-btn ${state.idiomSubFilter === s.id ? 'active' : ''}" data-idiom-tab="${s.id}">
+              <span>${s.name}</span>
               <span class="badge-cnt">${s.count}</span>
             </button>
           `).join('')}
@@ -1142,6 +1352,7 @@ function renderQuizQuestion() {
   app.innerHTML = `
     <div class="view quiz">
       ${schoolTabsHtml}
+      ${idiomTabsHtml}
       ${resumeBarHtml}
 
       <div class="quiz-head">
@@ -1179,6 +1390,7 @@ function renderQuizQuestion() {
             <span class="tag">${LESSONS.find(x => x.id === q.lessonId)?.title || q.lessonId}</span>
             ${q.school ? `<span class="tag exam-badge">🏫 ${q.school}</span>` : ''}
             <span class="tag lv">${q.category || q.batch}</span>
+            ${q.code ? `<span class="tag code-badge" title="知識點分類代碼">🏷️ ${q.code}</span>` : ''}
             <span class="stars">${'★'.repeat(q.difficulty || 2)}</span>
           </div>
           ${q.examPageImage ? `
@@ -1270,6 +1482,15 @@ function renderQuizQuestion() {
       const targetSch = btn.getAttribute('data-school-tab');
       if (state.examSchool === targetSch) return;
       startQuiz('unit', 'EXAM_MID1', targetSch);
+    };
+  });
+
+  // 綁定成語子題型分頁切換
+  app.querySelectorAll('[data-idiom-tab]').forEach(btn => {
+    btn.onclick = () => {
+      const targetSub = btn.getAttribute('data-idiom-tab');
+      if (state.idiomSubFilter === targetSub) return;
+      startQuiz('topic', 'IDM', targetSub);
     };
   });
 
@@ -1461,6 +1682,7 @@ function finishQuiz() {
             <span class="review-q-num">第 ${idx + 1} 題</span>
             <span class="tag">${u.title}</span>
             <span class="tag lv">${q.category || q.batch}</span>
+            ${q.code ? `<span class="tag code-badge">🏷️ ${q.code}</span>` : ''}
             ${statusTag}
           </div>
           <button type="button" class="btn btn-ghost btn-sm btn-toggle-detail" data-target="detail-${idx}">
@@ -1538,9 +1760,17 @@ function finishQuiz() {
     </div>
   `;
 
-  document.getElementById('btn-restart-unit').onclick = () => startQuiz(state.quizMode, state.currentUnitId, state.examSchool);
+  document.getElementById('btn-restart-unit').onclick = () => {
+    if (state.quizMode === 'topic' || state.quizMode === 'topic_errors') {
+      startQuiz(state.quizMode, state.currentTopicId, state.idiomSubFilter);
+    } else if (state.quizMode === 'filtered_errors') {
+      startQuiz('filtered_errors', { unit: state.currentUnitId, topic: state.currentTopicId });
+    } else {
+      startQuiz(state.quizMode, state.currentUnitId, state.examSchool);
+    }
+  };
   const errBtn = document.getElementById('btn-goto-errors');
-  if (errBtn) errBtn.onclick = () => renderErrorBookView();
+  if (errBtn) errBtn.onclick = () => renderErrorBookView(null, null);
   document.getElementById('btn-dl-session-md').onclick = () => downloadMarkdownReport(true);
   document.getElementById('btn-res-home').onclick = () => renderDashboardView();
 
@@ -1559,17 +1789,25 @@ function finishQuiz() {
 // ============================================================================
 // 6. 錯題本 (Error Book View)
 // ============================================================================
-function renderErrorBookView(filterUnit = null) {
+function renderErrorBookView(filterUnit = null, filterTopic = null) {
   state.view = 'error_book';
   state.errorFilterUnit = filterUnit;
+  state.errorFilterTopic = filterTopic;
   const eb = getErrorBook();
   const ecMap = getErrorCounts();
   const bank = getCleanBank();
   const errorQuestions = bank.filter(q => eb.includes(q.id));
-  const displayed = filterUnit ? errorQuestions.filter(q => q.lessonId === filterUnit) : errorQuestions;
+
+  let displayed = errorQuestions;
+  if (filterUnit) {
+    displayed = displayed.filter(q => q.lessonId === filterUnit);
+  }
+  if (filterTopic) {
+    displayed = displayed.filter(q => q.domain === filterTopic || (Array.isArray(q.tags) && q.tags.includes(filterTopic)));
+  }
 
   const unitTabsHtml = [
-    `<button class="chip ${!filterUnit ? 'on' : ''}" data-filter-unit="all">全部 (${errorQuestions.length})</button>`,
+    `<button class="chip ${!filterUnit ? 'on' : ''}" data-filter-unit="all">全部課次 (${errorQuestions.length})</button>`,
     ...LESSONS.map(u => {
       const cnt = errorQuestions.filter(q => q.lessonId === u.id).length;
       if (cnt === 0) return '';
@@ -1577,6 +1815,16 @@ function renderErrorBookView(filterUnit = null) {
       return `<button class="chip ${filterUnit === u.id ? 'on' : ''}" data-filter-unit="${u.id}">${titleText}</button>`;
     })
   ].join('');
+
+  const topicsList = getCleanTopics();
+  const topicTabsHtml = topicsList.length > 0 ? [
+    `<button class="chip ${!filterTopic ? 'on' : ''}" data-filter-topic="all">全部弱點 (${errorQuestions.length})</button>`,
+    ...topicsList.map(t => {
+      const cnt = errorQuestions.filter(q => q.domain === t.id || (Array.isArray(q.tags) && q.tags.includes(t.id))).length;
+      if (cnt === 0) return '';
+      return `<button class="chip ${filterTopic === t.id ? 'on' : ''}" data-filter-topic="${t.id}">${t.icon} ${t.shortTitle} (${cnt})</button>`;
+    })
+  ].join('') : '';
 
   const listHtml = displayed.length > 0 ? displayed.map(q => {
     const u = LESSONS.find(x => x.id === q.lessonId) || {};
@@ -1593,6 +1841,7 @@ function renderErrorBookView(filterUnit = null) {
             <span class="tag">${u.title || q.lessonId}</span>
             ${q.school ? `<span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">🏫 ${q.school}</span>` : ''}
             <span class="tag">${q.category || q.batch}</span>
+            ${q.code ? `<span class="tag code-badge">🏷️ ${q.code}</span>` : ''}
             <span class="tag bad">🔥 累計錯 ${ec} 次</span>
             ${q.trap ? `<span class="tag" style="background: #fef2f2; color: #991b1b">盲點：${q.trap}</span>` : ''}
           </div>
@@ -1606,24 +1855,27 @@ function renderErrorBookView(filterUnit = null) {
   }).join('') : `
     <div class="empty">
       <div class="emo">🌟</div>
-      <h3>太棒了！目前沒有待消滅的錯題</h3>
-      <p class="muted">繼續保持，可以在首頁直接挑選課次或段考真題挑戰！</p>
+      <h3>${errorQuestions.length === 0 ? '太棒了！目前沒有待消滅的錯題' : '這個篩選分類目前沒有錯題喔！'}</h3>
+      <p class="muted">繼續保持，可以在首頁直接挑選課次或弱點專項挑戰！</p>
     </div>
   `;
 
+  const isFiltered = !!(filterUnit || filterTopic);
   const curUser = getCurrentUserObj();
   const app = document.getElementById('app');
   app.innerHTML = `
     <div class="view error-book">
       <div class="section-title">
         <h2>🔥 ${curUser.icon} ${curUser.name} 的終身錯題本</h2>
-        <div style="display: flex; gap: 8px;">
-          ${errorQuestions.length > 0 ? `<button class="btn btn-primary" id="btn-drill-all-errors">一鍵消滅全部錯題</button>` : ''}
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${displayed.length > 0 && isFiltered ? `<button class="btn btn-primary" id="btn-drill-filtered-errors">🔥 消滅目前篩選錯題 (${displayed.length})</button>` : ''}
+          ${errorQuestions.length > 0 && !isFiltered ? `<button class="btn btn-primary" id="btn-drill-all-errors">一鍵消滅全部錯題 (${errorQuestions.length})</button>` : ''}
           <button class="btn btn-ghost" id="btn-err-back">← 回首頁</button>
         </div>
       </div>
 
       <div class="err-tabs">${unitTabsHtml}</div>
+      ${topicTabsHtml ? `<div class="err-tabs" style="margin-top:-6px;">${topicTabsHtml}</div>` : ''}
       <div class="err-list">${listHtml}</div>
     </div>
   `;
@@ -1631,11 +1883,26 @@ function renderErrorBookView(filterUnit = null) {
   document.getElementById('btn-err-back').onclick = () => renderDashboardView();
   const drillBtn = document.getElementById('btn-drill-all-errors');
   if (drillBtn) drillBtn.onclick = () => startQuiz('error_book');
+  const drillFilteredBtn = document.getElementById('btn-drill-filtered-errors');
+  if (drillFilteredBtn) {
+    drillFilteredBtn.onclick = () => {
+      if (filterTopic && !filterUnit) startQuiz('topic_errors', filterTopic);
+      else if (filterUnit && !filterTopic) startQuiz('unit_errors', filterUnit);
+      else startQuiz('filtered_errors', { unit: filterUnit, topic: filterTopic });
+    };
+  }
 
   app.querySelectorAll('[data-filter-unit]').forEach(btn => {
     btn.onclick = () => {
       const u = btn.getAttribute('data-filter-unit');
-      renderErrorBookView(u === 'all' ? null : u);
+      renderErrorBookView(u === 'all' ? null : u, filterTopic);
+    };
+  });
+
+  app.querySelectorAll('[data-filter-topic]').forEach(btn => {
+    btn.onclick = () => {
+      const t = btn.getAttribute('data-filter-topic');
+      renderErrorBookView(filterUnit, t === 'all' ? null : t);
     };
   });
 
@@ -1648,6 +1915,7 @@ function renderErrorBookView(filterUnit = null) {
         state.quizIndex = 0;
         state.quizMode = 'error_book';
         state.currentUnitId = q.lessonId;
+        state.currentTopicId = null;
         state.quizTitle = `🎯 單題重練 · ${q.category || ''}`;
         state.answers = {};
         state.sessionHistory = [];
@@ -1665,7 +1933,7 @@ function renderErrorBookView(filterUnit = null) {
       const ms = getMasteredIds();
       if (!ms.includes(qId)) saveMasteredIds([...ms, qId]);
       scheduleCloudPush();
-      renderErrorBookView(filterUnit);
+      renderErrorBookView(filterUnit, filterTopic);
       showToast('✔ 已從錯題本移出並標記為精熟！');
     };
   });
@@ -1692,11 +1960,22 @@ function renderPrintSetupView() {
   const isMcqOnly = pBatches.includes('原本題庫') && !pBatches.includes('寫國字');
   const isAll = pBatches.length === ALL_BATCH_TYPES.length;
 
+  const topicsList = getCleanTopics();
   const app = document.getElementById('app');
   app.innerHTML = `
     <div class="view print-setup">
       <aside class="glass setup-panel no-print">
         <h3>🖨️ A4 國語考卷設定</h3>
+
+        ${topicsList.length > 0 ? `
+          <div class="field">
+            <label>依八大弱點主題出卷（選填）：</label>
+            <select id="print-topic-select" class="exam-school-select" style="width:100%;padding:8px 10px;border-radius:10px;border:1.5px solid var(--line);font-size:13.5px;font-weight:700;background:#fff;cursor:pointer;">
+              <option value="">不限主題（依下方勾選課次）</option>
+              ${topicsList.map(t => `<option value="${t.id}" ${state.printConfig.topicId === t.id ? 'selected' : ''}>${t.title}</option>`).join('')}
+            </select>
+          </div>
+        ` : ''}
 
         <div class="field">
           <label>選擇出題課次：</label>
@@ -1739,6 +2018,14 @@ function renderPrintSetupView() {
 
   renderPaperSheet();
 
+  const printTopicSel = document.getElementById('print-topic-select');
+  if (printTopicSel) {
+    printTopicSel.onchange = () => {
+      state.printConfig.topicId = printTopicSel.value || null;
+      renderPaperSheet();
+    };
+  }
+
   app.querySelectorAll('[data-print-unit-toggle]').forEach(chk => {
     chk.onchange = () => {
       const uId = chk.value;
@@ -1753,6 +2040,8 @@ function renderPrintSetupView() {
         showToast('至少勾選一個課次！');
         return;
       }
+      state.printConfig.topicId = null;
+      if (printTopicSel) printTopicSel.value = '';
       renderPaperSheet();
     };
   });
@@ -1790,7 +2079,12 @@ function renderPaperSheet() {
   if (!container) return;
 
   const bank = getCleanBank();
-  let pool = bank.filter(q => state.printConfig.unitIds.includes(q.lessonId));
+  const activeTopicId = state.printConfig.topicId;
+  const basePool = activeTopicId
+    ? getTopicPool(activeTopicId, 'ALL')
+    : bank.filter(q => state.printConfig.unitIds.includes(q.lessonId));
+
+  let pool = [...basePool];
   const pBatches = state.printConfig.batches || [...ALL_BATCH_TYPES];
   if (pBatches.length === 2 && pBatches.includes('寫國字')) {
     pool = pool.filter(q => q.type === 'handwriting');
@@ -1798,7 +2092,7 @@ function renderPaperSheet() {
     pool = pool.filter(q => q.type === 'mcq');
   }
   if (pool.length === 0) {
-    pool = bank.filter(q => state.printConfig.unitIds.includes(q.lessonId));
+    pool = [...basePool];
   }
 
   const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, state.printConfig.count);
@@ -1811,10 +2105,13 @@ function renderPaperSheet() {
   const checkUrl = `${window.location.origin}${window.location.pathname}?user=${encodeURIComponent(state.currentUser)}&quiz_ids=${encodeURIComponent(qIds)}`;
   const qrSvg = makeQRCode(checkUrl);
 
-  const titleUnits = state.printConfig.unitIds.map(uId => {
-    const u = LESSONS.find(x => x.id === uId);
-    return u ? u.title : uId;
-  }).join('、');
+  const topicObj = activeTopicId ? getCleanTopics().find(t => t.id === activeTopicId) : null;
+  const titleUnits = topicObj
+    ? `${topicObj.title}（弱點專項）`
+    : state.printConfig.unitIds.map(uId => {
+        const u = LESSONS.find(x => x.id === uId);
+        return u ? u.title : uId;
+      }).join('、');
 
   const questionsHtml = selected.map((q, idx) => {
     if (q.type === 'handwriting') {
@@ -1826,7 +2123,7 @@ function renderPaperSheet() {
           <div class="pq-title">
             <span class="pq-no">${idx + 1}.</span>
             <div class="font-kai" style="font-size:15.5pt;line-height:2.1;">
-              <small style="font-family:var(--font);font-size:10pt;color:#555;">[${q.category || '國字注音'}]</small>
+              <small style="font-family:var(--font);font-size:10pt;color:#555;">[${q.code || q.category || '國字注音'}]</small>
               ${stemWithBoxes}
             </div>
           </div>
@@ -1839,7 +2136,7 @@ function renderPaperSheet() {
           <div class="pq-title">
             <span class="pq-no">${idx + 1}.</span>
             <div style="flex:1;">
-              <div><b>(　　)</b> ${String(q.question || '').replace(/\n/g, '<br>')}</div>
+              <div><b>(　　)</b> <small style="font-size:9.5pt;color:#555;">[${q.code || q.category || ''}]</small> ${String(q.question || '').replace(/\n/g, '<br>')}</div>
               <div class="print-mcq-grid" style="margin-top:6px;font-size:12.5pt;">${optsHtml}</div>
             </div>
           </div>
@@ -1912,7 +2209,7 @@ function buildMarkdownReport(singleSession = false) {
     lines.push(`## 一、目前錯題本弱點清單（共 ${errQs.length} 題）`);
     errQs.forEach((q, i) => {
       const correctAns = q.type === 'handwriting' ? q.correctAnswer : (q.options.find(o => o.isCorrect)?.text || '');
-      lines.push(`${i + 1}. **[${q.lessonId} ${q.category || ''}]** (累計錯 ${ec[q.id] || 1} 次)`);
+      lines.push(`${i + 1}. **[${q.code || q.lessonId} ${q.category || ''}]** (累計錯 ${ec[q.id] || 1} 次)`);
       lines.push(`   - 題目：${formatPlainStem(q.question)}`);
       lines.push(`   - 正解：\`${correctAns}\``);
       if (q.trap) lines.push(`   - 盲點診斷：${q.trap}`);
@@ -2026,7 +2323,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('nav-home').onclick = () => renderDashboardView();
   document.getElementById('nav-user').onclick = () => openUserModal();
-  document.getElementById('nav-errors').onclick = () => renderErrorBookView();
+  document.getElementById('nav-errors').onclick = () => renderErrorBookView(null, null);
   document.getElementById('nav-print').onclick = () => renderPrintSetupView();
   document.getElementById('nav-export').onclick = () => renderExportView();
 

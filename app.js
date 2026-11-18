@@ -21,7 +21,7 @@ const state = {
   currentUser: localStorage.getItem(ACTIVE_USER_KEY) || 'rex',
   view: 'dashboard', // 'dashboard' | 'quiz' | 'result' | 'error_book' | 'print' | 'export'
   selectedBatches: [...ALL_BATCH_TYPES],
-  examSchool: 'ALL',
+  examSchools: { EXAM_MID1: 'ALL', EXAM_FINAL: 'ALL' },
   idiomSubFilter: 'ALL', // 'ALL' | 'CTX' | 'MEAN_CLS'
 
   // Quiz session
@@ -371,13 +371,31 @@ function getCleanBank() {
   return (typeof QUESTION_BANK !== 'undefined' ? QUESTION_BANK : []).filter(Boolean);
 }
 
-function getExamSchoolsList() {
-  const bank = getCleanBank().filter(q => q.lessonId === 'EXAM_MID1');
+function isExamUnitId(unitId) {
+  if (!unitId) return false;
+  const u = typeof LESSONS !== 'undefined' ? LESSONS.find(x => x.id === unitId) : null;
+  return !!(u && u.isExam) || String(unitId).startsWith('EXAM_');
+}
+
+function getSelectedSchool(unitId) {
+  if (!unitId) return 'ALL';
+  return (state.examSchools && state.examSchools[unitId]) || 'ALL';
+}
+
+function setSelectedSchool(unitId, schoolVal) {
+  if (!unitId) return;
+  if (!state.examSchools) state.examSchools = {};
+  state.examSchools[unitId] = schoolVal || 'ALL';
+}
+
+function getExamSchoolsList(unitId = 'EXAM_MID1') {
+  const bank = getCleanBank().filter(q => q.lessonId === unitId);
   const map = {};
   bank.forEach(q => {
     if (q.school) map[q.school] = (map[q.school] || 0) + 1;
   });
-  const list = [{ id: 'ALL', shortName: '🏫 全部六校合輯', count: bank.length }];
+  const schoolCount = Object.keys(map).length;
+  const list = [{ id: 'ALL', shortName: `🏫 全部 ${schoolCount} 校合輯`, count: bank.length }];
   Object.keys(map).forEach(s => {
     list.push({ id: s, shortName: `🏫 ${s}`, count: map[s] });
   });
@@ -559,8 +577,11 @@ function filterQuestionsByBatches(list) {
 function getUnitStats(unitId) {
   const bank = getCleanBank();
   let all = bank.filter(q => q.lessonId === unitId);
-  if (unitId === 'EXAM_MID1' && state.examSchool !== 'ALL') {
-    all = all.filter(q => q.school === state.examSchool);
+  if (isExamUnitId(unitId)) {
+    const selSch = getSelectedSchool(unitId);
+    if (selSch !== 'ALL') {
+      all = all.filter(q => q.school === selSch);
+    }
   }
   const active = filterQuestionsByBatches(all);
   const pool = active.length > 0 ? active : all;
@@ -627,7 +648,7 @@ function renderDashboardView() {
   state.view = 'dashboard';
   const g = getGlobalStats();
   const curUser = getCurrentUserObj();
-  const examSchools = getExamSchoolsList();
+  const lessonCount = LESSONS.filter(u => !u.isExam).length;
 
   const iconMap = {
     '寫國字': '✍️ ',
@@ -646,6 +667,9 @@ function renderDashboardView() {
     const st = getUnitStats(u.id);
     const isLocked = st.total === 0;
     const isExamUnit = !!u.isExam;
+    const unitExamSchools = isExamUnit ? getExamSchoolsList(u.id) : [];
+    const schCount = Math.max(0, unitExamSchools.length - 1);
+    const curSch = isExamUnit ? getSelectedSchool(u.id) : 'ALL';
 
     return `
       <article class="unit-card ${isExamUnit ? 'exam-card' : ''} ${isLocked ? 'locked' : ''}" style="--hue: ${u.hue || 250}">
@@ -655,14 +679,14 @@ function renderDashboardView() {
         <div class="u-meta">
           <span class="tag ${st.pct === 100 ? 'ok' : ''}">掌握 ${st.pct}%</span>
           ${st.errCount > 0 ? `<span class="tag bad">🔥 ${st.errCount} 題待消滅</span>` : ''}
-          ${isExamUnit ? `<span class="tag exam-badge">🏆 6校全真考卷</span>` : `<span class="tag lv">✍️ 手寫 ${st.hwCount} 題</span>`}
+          ${isExamUnit ? `<span class="tag exam-badge">🏆 ${schCount}校全真考卷</span>` : `<span class="tag lv">✍️ 手寫 ${st.hwCount} 題</span>`}
           <span class="tag">${st.total} 題</span>
         </div>
 
         ${isExamUnit ? `
           <div class="exam-card-quick-select" style="margin-top: 6px;">
             <select class="exam-school-select" data-exam-select="${u.id}" style="width: 100%; padding: 8px 10px; border-radius: 10px; border: 1.5px solid #fcd34d; font-size: 13px; font-weight: 700; color: #78350f; background: #fffdf5; outline: none; cursor: pointer;">
-              ${examSchools.map(sch => `<option value="${sch.id}" ${state.examSchool === sch.id ? 'selected' : ''}>${sch.shortName} (${sch.count}題)</option>`).join('')}
+              ${unitExamSchools.map(sch => `<option value="${sch.id}" ${curSch === sch.id ? 'selected' : ''}>${sch.shortName} (${sch.count}題)</option>`).join('')}
             </select>
           </div>
         ` : ''}
@@ -812,7 +836,7 @@ function renderDashboardView() {
       ${topicsList.length > 0 ? `
         <div class="section-title">
           <h2>🎯 國語八大弱點專項挑戰</h2>
-          <span class="muted">依考點代碼分類 · 跨課次與六校段考重點突擊（先攻克成語！）</span>
+          <span class="muted">依考點代碼分類 · 跨課次與段考真題重點突擊（先攻克成語！）</span>
         </div>
         <section class="unit-grid topic-grid">
           ${topicCardsHtml}
@@ -821,7 +845,7 @@ function renderDashboardView() {
 
       <div class="section-title">
         <h2>📚 課次進度地圖</h2>
-        <span class="muted">康軒版六上 · 全 6 課 + 六校段考全真題庫</span>
+        <span class="muted">康軒版六上 · 第 1～${lessonCount} 課 + 段考全真題庫</span>
       </div>
       <section class="unit-grid">
         ${unitCardsHtml}
@@ -865,7 +889,8 @@ function renderDashboardView() {
   // 綁定段考學校下拉選單與成語子題型下拉選單
   app.querySelectorAll('[data-exam-select]').forEach(sel => {
     sel.addEventListener('change', () => {
-      state.examSchool = sel.value;
+      const uId = sel.getAttribute('data-exam-select');
+      setSelectedSchool(uId, sel.value);
       renderDashboardView();
     });
   });
@@ -901,7 +926,7 @@ function renderDashboardView() {
   app.querySelectorAll('[data-start-unit]').forEach(btn => {
     btn.addEventListener('click', () => {
       const uId = btn.getAttribute('data-start-unit');
-      startQuiz('unit', uId, state.examSchool);
+      startQuiz('unit', uId, getSelectedSchool(uId));
     });
   });
   app.querySelectorAll('[data-kill-unit-errors]').forEach(btn => {
@@ -928,7 +953,7 @@ function renderDashboardView() {
 // ============================================================================
 // 4. 作答頁 (Quiz View) — 支援三態回饋、逐字點擊批改、快速跳題、考卷原圖切換
 // ============================================================================
-function startQuiz(mode, unitId = null, schoolFilter = state.examSchool) {
+function startQuiz(mode, unitId = null, schoolFilter = null) {
   const bank = getCleanBank();
   const eb = getErrorBook();
   let pool = [];
@@ -976,15 +1001,19 @@ function startQuiz(mode, unitId = null, schoolFilter = state.examSchool) {
     state.quizTitle = (tObj ? tObj.title : unitId) + subLabel;
   } else {
     nextUnitId = unitId;
-    state.examSchool = schoolFilter || 'ALL';
+    const isExam = isExamUnitId(unitId);
+    const targetSchool = isExam ? (schoolFilter || getSelectedSchool(unitId)) : 'ALL';
+    if (isExam) setSelectedSchool(unitId, targetSchool);
     let allUnit = bank.filter(q => q.lessonId === unitId);
-    if (unitId === 'EXAM_MID1' && state.examSchool !== 'ALL') {
-      allUnit = allUnit.filter(q => q.school === state.examSchool);
+    if (isExam && targetSchool !== 'ALL') {
+      allUnit = allUnit.filter(q => q.school === targetSchool);
     }
     pool = filterQuestionsByBatches(allUnit);
     if (pool.length === 0) pool = allUnit;
     const u = LESSONS.find(x => x.id === unitId);
-    state.quizTitle = u ? u.title : '國語特訓';
+    state.quizTitle = (isExam && targetSchool !== 'ALL')
+      ? `${u ? u.title : unitId} · ${targetSchool}`
+      : (u ? u.title : '國語特訓');
   }
 
   if (pool.length === 0) {
@@ -1004,8 +1033,9 @@ function startQuiz(mode, unitId = null, schoolFilter = state.examSchool) {
 
   // 檢查斷點續考紀錄
   const progMap = getUnitProgressMap();
+  const activeSch = (mode === 'unit' && isExamUnitId(unitId)) ? getSelectedSchool(unitId) : 'ALL';
   const progKey = (mode === 'unit' && unitId)
-    ? unitId
+    ? (activeSch !== 'ALL' ? `${unitId}_${activeSch}` : unitId)
     : (mode === 'topic' && unitId)
       ? `TOPIC_${unitId}_${unitId === 'IDM' ? state.idiomSubFilter : 'ALL'}`
       : null;
@@ -1014,7 +1044,7 @@ function startQuiz(mode, unitId = null, schoolFilter = state.examSchool) {
 
   pool.forEach(q => {
     if (q.type === 'mcq' && Array.isArray(q.options)) {
-      state.optionOrders[q.id] = (q.lessonId === 'EXAM_MID1' || q.options.length > 4)
+      state.optionOrders[q.id] = (isExamUnitId(q.lessonId) || q.options.length > 4)
         ? [...q.options]
         : [...q.options].sort(() => Math.random() - 0.5);
     }
@@ -1084,7 +1114,9 @@ function renderQuizQuestion() {
   if (!q) return;
 
   if (state.quizMode === 'unit' && state.currentUnitId) {
-    saveUnitProgress(state.currentUnitId, idx);
+    const curSch = isExamUnitId(state.currentUnitId) ? getSelectedSchool(state.currentUnitId) : 'ALL';
+    const saveKey = curSch !== 'ALL' ? `${state.currentUnitId}_${curSch}` : state.currentUnitId;
+    saveUnitProgress(saveKey, idx);
   } else if (state.quizMode === 'topic' && state.currentTopicId) {
     saveUnitProgress(`TOPIC_${state.currentTopicId}_${state.currentTopicId === 'IDM' ? state.idiomSubFilter : 'ALL'}`, idx);
   }
@@ -1101,10 +1133,11 @@ function renderQuizQuestion() {
   const isAnswered = !!ans.result;
   const inImgMode = !!state.imgModeQuestions[q.id];
 
-  // Scheme C 學校切換 Tabs (當在 EXAM_MID1 時)
+  // Scheme C 學校切換 Tabs (通用於任何段考單元)
   let schoolTabsHtml = '';
-  if (state.quizMode === 'unit' && state.currentUnitId === 'EXAM_MID1') {
-    const schools = getExamSchoolsList();
+  if (state.quizMode === 'unit' && isExamUnitId(state.currentUnitId)) {
+    const schools = getExamSchoolsList(state.currentUnitId);
+    const activeSch = getSelectedSchool(state.currentUnitId);
     schoolTabsHtml = `
       <div class="exam-school-tabs-wrap">
         <div class="exam-tabs-header">
@@ -1112,7 +1145,7 @@ function renderQuizQuestion() {
         </div>
         <div class="exam-school-tabs">
           ${schools.map(s => `
-            <button type="button" class="school-tab-btn ${state.examSchool === s.id ? 'active' : ''}" data-school-tab="${s.id}">
+            <button type="button" class="school-tab-btn ${activeSch === s.id ? 'active' : ''}" data-school-tab="${s.id}">
               <span>${s.shortName}</span>
               <span class="badge-cnt">${s.count}</span>
             </button>
@@ -1189,6 +1222,14 @@ function renderQuizQuestion() {
     `;
   }).join('');
 
+  // 題目局部附圖 (方案 A：僅針對純看圖題顯示局部裁圖)
+  const qImgHtml = q.questionImage ? `
+    <div class="q-question-img-wrap" id="q-question-img-wrap" title="點擊放大檢視題目附圖">
+      <img src="${q.questionImage}" alt="題目附圖" class="q-question-img">
+      <span class="crop-zoom-hint">🔍 點擊放大</span>
+    </div>
+  ` : '';
+
   // 題目主體 (區分 Handwriting 與 MCQ)
   let questionContentHtml = '';
   if (q.type === 'handwriting') {
@@ -1223,6 +1264,8 @@ function renderQuizQuestion() {
       <div class="hw-stem-box font-kai">
         ${stemHtml}
       </div>
+
+      ${qImgHtml}
 
       ${!isRevealed ? `
         <div class="reveal">
@@ -1305,6 +1348,8 @@ function renderQuizQuestion() {
 
     questionContentHtml = `
       <div class="q-text">${String(q.question || '').replace(/\n/g, '<br>')}</div>
+
+      ${qImgHtml}
 
       <div class="options-grid ${options.length > 4 ? 'multi-opts' : ''}">
         ${optsGridHtml}
@@ -1480,8 +1525,8 @@ function renderQuizQuestion() {
   app.querySelectorAll('[data-school-tab]').forEach(btn => {
     btn.onclick = () => {
       const targetSch = btn.getAttribute('data-school-tab');
-      if (state.examSchool === targetSch) return;
-      startQuiz('unit', 'EXAM_MID1', targetSch);
+      if (getSelectedSchool(state.currentUnitId) === targetSch) return;
+      startQuiz('unit', state.currentUnitId, targetSch);
     };
   });
 
@@ -1505,6 +1550,10 @@ function renderQuizQuestion() {
   const cropWrap = document.getElementById('crop-img-wrap');
   if (cropWrap) {
     cropWrap.onclick = () => openLightbox(q.examPageImage, `${q.school || '段考'} - 原始考卷檢視`);
+  }
+  const qImgWrap = document.getElementById('q-question-img-wrap');
+  if (qImgWrap) {
+    qImgWrap.onclick = () => openLightbox(q.questionImage, `${q.school || '題目'} - 題目附圖檢視`);
   }
 
   // 綁定手寫題互動
@@ -1691,6 +1740,7 @@ function finishQuiz() {
         </div>
 
         <div class="review-q-text">${formatPlainStem(q.question).replace(/\n/g, '<br>')}</div>
+        ${q.questionImage ? `<div style="margin:8px 0;"><img src="${q.questionImage}" alt="題目附圖" style="max-width:340px;max-height:180px;border-radius:8px;border:1px solid #e2e8f0;"></div>` : ''}
 
         <div class="review-choice-grid">
           <div class="review-choice-pill ${!isAnswered ? 'skipped' : isOk ? 'correct' : isSlow ? 'slow' : 'wrong'}">
@@ -1766,7 +1816,7 @@ function finishQuiz() {
     } else if (state.quizMode === 'filtered_errors') {
       startQuiz('filtered_errors', { unit: state.currentUnitId, topic: state.currentTopicId });
     } else {
-      startQuiz(state.quizMode, state.currentUnitId, state.examSchool);
+      startQuiz(state.quizMode, state.currentUnitId, getSelectedSchool(state.currentUnitId));
     }
   };
   const errBtn = document.getElementById('btn-goto-errors');
@@ -1811,7 +1861,7 @@ function renderErrorBookView(filterUnit = null, filterTopic = null) {
     ...LESSONS.map(u => {
       const cnt = errorQuestions.filter(q => q.lessonId === u.id).length;
       if (cnt === 0) return '';
-      const titleText = u.isExam ? `🏆 段考真題 (${cnt})` : `${u.title} (${cnt})`;
+      const titleText = u.isExam ? `🏆 ${u.shortTitle || u.title} (${cnt})` : `${u.title} (${cnt})`;
       return `<button class="chip ${filterUnit === u.id ? 'on' : ''}" data-filter-unit="${u.id}">${titleText}</button>`;
     })
   ].join('');
@@ -2122,9 +2172,10 @@ function renderPaperSheet() {
         <div class="pq">
           <div class="pq-title">
             <span class="pq-no">${idx + 1}.</span>
-            <div class="font-kai" style="font-size:15.5pt;line-height:2.1;">
+              <div class="font-kai" style="font-size:15.5pt;line-height:2.1;">
               <small style="font-family:var(--font);font-size:10pt;color:#555;">[${q.code || q.category || '國字注音'}]</small>
               ${stemWithBoxes}
+              ${q.questionImage ? `<div><img src="${q.questionImage}" alt="附圖" class="print-q-img"></div>` : ''}
             </div>
           </div>
         </div>
@@ -2137,6 +2188,7 @@ function renderPaperSheet() {
             <span class="pq-no">${idx + 1}.</span>
             <div style="flex:1;">
               <div><b>(　　)</b> <small style="font-size:9.5pt;color:#555;">[${q.code || q.category || ''}]</small> ${String(q.question || '').replace(/\n/g, '<br>')}</div>
+              ${q.questionImage ? `<div><img src="${q.questionImage}" alt="附圖" class="print-q-img"></div>` : ''}
               <div class="print-mcq-grid" style="margin-top:6px;font-size:12.5pt;">${optsHtml}</div>
             </div>
           </div>

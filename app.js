@@ -47,8 +47,10 @@ const state = {
     unitIds: ['L1'],
     topicId: null,
     batches: [...ALL_BATCH_TYPES],
-    count: 10
+    count: 10,
+    printMode: 'student' // 'student' | 'parent'
   },
+  printSelectionIds: null,
 
   // Cloud sync
   cloudDbUrl: localStorage.getItem(CLOUD_SYNC_URL_KEY) || DEFAULT_FIREBASE_DB_URL
@@ -404,6 +406,173 @@ function getExamSchoolsList(unitId = 'EXAM_MID1') {
 
 function formatPlainStem(questionText) {
   return String(questionText || '').replace(/\[\[(國字|注音):(.*?):(.*?)\]\]/g, '【$2 ➔ ？】');
+}
+
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+const TRAP_CODE_LABELS = {
+  CHN_RADICAL_CONFUSE: '部首形旁混淆',
+  CHN_HOMOPHONE_TRAP: '同音錯別字',
+  CHN_POLYPHONE_MIX: '多音審訂混讀',
+  CHN_IDIOM_LITERAL: '成語望文生義',
+  CHN_TONE_MISUSE: '褒貶語境誤用',
+  CHN_SEMANTIC_DRIFT: '詞義語境滑動',
+  CHN_RHETORIC_SWAP: '修辭手法錯配',
+  CHN_PUNC_MISREAD: '標點作用誤判',
+  CHN_STRUCTURE_BLIND: '結構段旨誤讀',
+  CHN_CONTEXT_OVERINFER: '過度推論腦補'
+};
+
+function renderLevelBadge(q) {
+  if (!q || !q.level) return '';
+  const lv = Number(q.level);
+  if (lv <= 3) return `<span class="tag level-badge basic">🟢 基礎 L${lv}</span>`;
+  if (lv <= 6) return `<span class="tag level-badge turn">🟡 轉彎 L${lv}</span>`;
+  return `<span class="tag level-badge deep">🔴 素養 L${lv}</span>`;
+}
+
+function renderVisualBlockHtml(visual) {
+  if (!visual || !visual.kind) return '';
+  const titleHtml = visual.title ? `<div class="vis-title">${escapeHtml(visual.title)}</div>` : '';
+
+  if (visual.kind === 'radical_matrix' && Array.isArray(visual.items)) {
+    const cards = visual.items.map(it => `
+      <div class="radical-card ${it.highlight ? 'is-target' : ''}">
+        <div class="rad-char font-kai">${escapeHtml(it.char)}</div>
+        <div class="rad-part">${escapeHtml(it.radical || '')}</div>
+        <div class="rad-mean">${escapeHtml(it.meaning || '')}</div>
+      </div>
+    `).join('');
+    return `<div class="vis-block">${titleHtml}<div class="radical-grid">${cards}</div></div>`;
+  }
+
+  if (visual.kind === 'idiom_traffic' && Array.isArray(visual.items)) {
+    const rows = visual.items.map(it => {
+      const st = it.status === 'ok' ? 'ok' : it.status === 'bad' ? 'bad' : 'warn';
+      const dot = st === 'ok' ? '🟢' : st === 'bad' ? '🔴' : '🟡';
+      return `
+        <div class="traffic-row ${st}">
+          <span class="traffic-lbl">${dot} ${escapeHtml(it.label || '')}</span>
+          <span class="traffic-ex">${escapeHtml(it.example || '')}</span>
+        </div>
+      `;
+    }).join('');
+    return `<div class="vis-block">${titleHtml}<div class="traffic-list">${rows}</div></div>`;
+  }
+
+  if (visual.kind === 'structure_flow' && Array.isArray(visual.nodes)) {
+    const nodesHtml = visual.nodes.map((nd, idx) => `
+      ${idx > 0 ? '<span class="flow-arrow" aria-hidden="true">➔</span>' : ''}
+      <div class="flow-node">
+        <span class="flow-lbl">${escapeHtml(nd.label || '')}</span>
+        <span class="flow-txt">${escapeHtml(nd.text || '')}</span>
+      </div>
+    `).join('');
+    return `<div class="vis-block">${titleHtml}<div class="flow-strip">${nodesHtml}</div></div>`;
+  }
+
+  return '';
+}
+
+function render4DExplanationHtml(q, orderedOptions = []) {
+  const d4 = q && q.detail4D;
+  if (!d4) return '';
+  const ext = q.extensionStudy || null;
+  const letters = ['A', 'B', 'C', 'D'];
+
+  const stepsHtml = Array.isArray(d4.steps)
+    ? d4.steps.map(s => `<li>${escapeHtml(s)}</li>`).join('')
+    : '';
+  const visualHtml = renderVisualBlockHtml(d4.visual);
+
+  let d3Html = '';
+  if (q.type === 'mcq' && Array.isArray(orderedOptions) && orderedOptions.length > 0) {
+    const dMap = d4.distractorAnalysis || {};
+    const items = orderedOptions.map((opt, idx) => {
+      const badge = opt.label || letters[idx] || (idx + 1);
+      if (opt.isCorrect) {
+        return `<li class="d3-ok"><b>(${escapeHtml(badge)}) ${escapeHtml(opt.text)}</b>：✅ ${escapeHtml(opt.explanation || '正解！')}</li>`;
+      }
+      const codeLabel = opt.trapCode ? (TRAP_CODE_LABELS[opt.trapCode] || opt.trapCode) : '';
+      const reason = dMap[opt.text] || opt.explanation || '';
+      return `
+        <li class="d3-bad">
+          <b>(${escapeHtml(badge)}) ${escapeHtml(opt.text)}</b>
+          ${codeLabel ? `<span class="trap-code-chip">${escapeHtml(codeLabel)}</span>` : ''}
+          ：❌ ${escapeHtml(reason)}
+        </li>
+      `;
+    }).join('');
+    d3Html = `<ol class="d3-list">${items}</ol>`;
+  } else if (Array.isArray(d4.commonTraps) && d4.commonTraps.length > 0) {
+    d3Html = `<ul class="d3-list">${d4.commonTraps.map(t => `<li class="d3-bad">⚠️ ${escapeHtml(t)}</li>`).join('')}</ul>`;
+  }
+
+  const extHtml = ext ? `
+    <details class="ext-3e-box">
+      <summary>🚀 延伸自修重點（考前記憶法則・易混對照・變形預測） ▾</summary>
+      <div class="ext-3e-body">
+        ${Array.isArray(ext.coreRules) && ext.coreRules.length > 0 ? `
+          <div class="ext-sec">
+            <h5>🔑 核心法則</h5>
+            <ul>${ext.coreRules.map(r => `<li>${escapeHtml(r)}</li>`).join('')}</ul>
+          </div>
+        ` : ''}
+        ${ext.conceptCompare ? `
+          <div class="ext-sec">
+            <h5>⚖️ 易混雙胞胎對照</h5>
+            <p>${escapeHtml(ext.conceptCompare)}</p>
+          </div>
+        ` : ''}
+        ${ext.examVariations ? `
+          <div class="ext-sec">
+            <h5>🔮 段考變形預測</h5>
+            <p>${escapeHtml(ext.examVariations)}</p>
+          </div>
+        ` : ''}
+      </div>
+    </details>
+  ` : '';
+
+  return `
+    <div class="exp-4d-grid">
+      <div class="exp-row exp-purpose">
+        <h4>🎯 D1 命題核心雷達</h4>
+        <div>${escapeHtml(d4.examPurpose || '')}</div>
+      </div>
+
+      ${(stepsHtml || d4.insight) ? `
+        <div class="exp-row exp-steps">
+          <h4>📐 D2 破題思考步驟</h4>
+          ${stepsHtml ? `<ol class="d2-steps">${stepsHtml}</ol>` : ''}
+          ${d4.insight ? `<div class="d2-insight">💡 <b>秒殺口訣：</b>${escapeHtml(d4.insight)}</div>` : ''}
+        </div>
+      ` : ''}
+
+      ${visualHtml ? `
+        <div class="exp-row exp-visual">
+          <h4>🧩 D4 視覺化拆解積木</h4>
+          ${visualHtml}
+        </div>
+      ` : ''}
+
+      ${d3Html ? `
+        <div class="exp-row exp-distractors">
+          <h4>🕵️ D3 迷思抓包與逐項排除</h4>
+          ${d3Html}
+        </div>
+      ` : ''}
+
+      ${extHtml}
+    </div>
+  `;
 }
 
 function parseHandwritingBlanks(questionText) {
@@ -1281,19 +1450,21 @@ function renderQuizQuestion() {
           <div class="ans font-kai">${q.correctAnswer}</div>
         </div>
 
-        ${q.explanation ? `
-          <div class="box insight">
-            <h4>💡 字詞解析與記憶重點</h4>
-            <div>${q.explanation}</div>
-          </div>
-        ` : ''}
+        ${q.detail4D ? render4DExplanationHtml(q) : `
+          ${q.explanation ? `
+            <div class="box insight">
+              <h4>💡 字詞解析與記憶重點</h4>
+              <div>${q.explanation}</div>
+            </div>
+          ` : ''}
 
-        ${q.trap ? `
-          <div class="box trap">
-            <h4>⚠️ 常犯錯誤防坑診斷</h4>
-            <div>${q.trap}</div>
-          </div>
-        ` : ''}
+          ${q.trap ? `
+            <div class="box trap">
+              <h4>⚠️ 常犯錯誤防坑診斷</h4>
+              <div>${q.trap}</div>
+            </div>
+          ` : ''}
+        `}
 
         <div class="feedback">
           <p>這題你的作答狀況如何？（點擊後自動記錄）</p>
@@ -1376,19 +1547,21 @@ function renderQuizQuestion() {
           ` : ''}
         </div>
 
-        ${expSteps ? `
-          <div class="box steps">
-            <h4>📖 選項逐一解析</h4>
-            <ol>${expSteps}</ol>
-          </div>
-        ` : ''}
+        ${q.detail4D ? render4DExplanationHtml(q, options) : `
+          ${expSteps ? `
+            <div class="box steps">
+              <h4>📖 選項逐一解析</h4>
+              <ol>${expSteps}</ol>
+            </div>
+          ` : ''}
 
-        ${q.trap ? `
-          <div class="box trap">
-            <h4>⚠️ 典型錯誤防坑診斷</h4>
-            <div>${q.trap}</div>
-          </div>
-        ` : ''}
+          ${q.trap ? `
+            <div class="box trap">
+              <h4>⚠️ 典型錯誤防坑診斷</h4>
+              <div>${q.trap}</div>
+            </div>
+          ` : ''}
+        `}
       </div>
     `;
   }
@@ -1436,6 +1609,7 @@ function renderQuizQuestion() {
             ${q.school ? `<span class="tag exam-badge">🏫 ${q.school}</span>` : ''}
             <span class="tag lv">${q.category || q.batch}</span>
             ${q.code ? `<span class="tag code-badge" title="知識點分類代碼">🏷️ ${q.code}</span>` : ''}
+            ${renderLevelBadge(q)}
             <span class="stars">${'★'.repeat(q.difficulty || 2)}</span>
           </div>
           ${q.examPageImage ? `
@@ -2011,11 +2185,20 @@ function renderPrintSetupView() {
   const isAll = pBatches.length === ALL_BATCH_TYPES.length;
 
   const topicsList = getCleanTopics();
+  const curPrintMode = state.printConfig.printMode || 'student';
   const app = document.getElementById('app');
   app.innerHTML = `
     <div class="view print-setup">
       <aside class="glass setup-panel no-print">
         <h3>🖨️ A4 國語考卷設定</h3>
+
+        <div class="field">
+          <label>輸出模式（同批題目即時切換）：</label>
+          <div class="seg print-mode-seg" style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button type="button" class="chip ${curPrintMode === 'student' ? 'on' : ''}" data-print-mode="student">📄 學生空白測驗卷</button>
+            <button type="button" class="chip ${curPrintMode === 'parent' ? 'on' : ''}" data-print-mode="parent">🔑 家長詳解攻略卷</button>
+          </div>
+        </div>
 
         ${topicsList.length > 0 ? `
           <div class="field">
@@ -2068,10 +2251,20 @@ function renderPrintSetupView() {
 
   renderPaperSheet();
 
+  app.querySelectorAll('[data-print-mode]').forEach(btn => {
+    btn.onclick = () => {
+      state.printConfig.printMode = btn.getAttribute('data-print-mode') || 'student';
+      app.querySelectorAll('[data-print-mode]').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      renderPaperSheet();
+    };
+  });
+
   const printTopicSel = document.getElementById('print-topic-select');
   if (printTopicSel) {
     printTopicSel.onchange = () => {
       state.printConfig.topicId = printTopicSel.value || null;
+      state.printSelectionIds = null;
       renderPaperSheet();
     };
   }
@@ -2091,6 +2284,7 @@ function renderPrintSetupView() {
         return;
       }
       state.printConfig.topicId = null;
+      state.printSelectionIds = null;
       if (printTopicSel) printTopicSel.value = '';
       renderPaperSheet();
     };
@@ -2104,6 +2298,7 @@ function renderPrintSetupView() {
       else state.printConfig.batches = [...ALL_BATCH_TYPES];
       app.querySelectorAll('[data-print-batch-mode]').forEach(b => b.classList.remove('on'));
       btn.classList.add('on');
+      state.printSelectionIds = null;
       renderPaperSheet();
     };
   });
@@ -2113,10 +2308,12 @@ function renderPrintSetupView() {
   rangeInput.oninput = () => {
     state.printConfig.count = parseInt(rangeInput.value, 10);
     rangeVal.textContent = state.printConfig.count;
+    state.printSelectionIds = null;
     renderPaperSheet();
   };
 
   document.getElementById('btn-shuffle-print').onclick = () => {
+    state.printSelectionIds = null;
     renderPaperSheet();
     showToast('🎲 已隨機換一批考卷題目！');
   };
@@ -2145,11 +2342,19 @@ function renderPaperSheet() {
     pool = [...basePool];
   }
 
-  const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, state.printConfig.count);
-  const hwList = shuffled.filter(q => q.type === 'handwriting');
-  const mcqList = shuffled.filter(q => q.type === 'mcq');
-  const selected = [...hwList, ...mcqList];
+  let selected = [];
+  if (Array.isArray(state.printSelectionIds) && state.printSelectionIds.length > 0) {
+    selected = state.printSelectionIds.map(id => pool.find(q => q.id === id)).filter(Boolean);
+  }
+  if (selected.length === 0) {
+    const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, state.printConfig.count);
+    const hwList = shuffled.filter(q => q.type === 'handwriting');
+    const mcqList = shuffled.filter(q => q.type === 'mcq');
+    selected = [...hwList, ...mcqList];
+    state.printSelectionIds = selected.map(q => q.id);
+  }
 
+  const isParentMode = (state.printConfig.printMode || 'student') === 'parent';
   const curUser = getCurrentUserObj();
   const qIds = selected.map(q => q.id).join(',');
   const checkUrl = `${window.location.origin}${window.location.pathname}?user=${encodeURIComponent(state.currentUser)}&quiz_ids=${encodeURIComponent(qIds)}`;
@@ -2163,10 +2368,29 @@ function renderPaperSheet() {
         return u ? u.title : uId;
       }).join('、');
 
+  const renderParentNote = q => {
+    if (!isParentMode) return '';
+    const letters = ['A', 'B', 'C', 'D'];
+    const cIdx = q.type === 'mcq' ? (q.options || []).findIndex(o => o.isCorrect) : -1;
+    const cOpt = cIdx >= 0 ? q.options[cIdx] : null;
+    const cLbl = cOpt ? (cOpt.label || letters[cIdx] || (cIdx + 1)) : '';
+    const ansText = q.type === 'handwriting' ? q.correctAnswer : (cOpt ? `(${cLbl}) ${cOpt.text}` : '');
+    const insight = (q.detail4D && q.detail4D.insight) ? q.detail4D.insight : (q.explanation || '');
+    const compare = (q.extensionStudy && q.extensionStudy.conceptCompare) ? q.extensionStudy.conceptCompare : '';
+    return `
+      <div class="print-parent-sol">
+        <div><b>✅ 正解：</b><span class="font-kai">${escapeHtml(ansText)}</span></div>
+        ${insight ? `<div><b>💡 要點：</b>${escapeHtml(insight)}</div>` : ''}
+        ${q.trap ? `<div><b>⚠️ 避坑：</b>${escapeHtml(q.trap)}</div>` : ''}
+        ${compare ? `<div><b>⚖️ 對照：</b>${escapeHtml(compare)}</div>` : ''}
+      </div>
+    `;
+  };
+
   const questionsHtml = selected.map((q, idx) => {
     if (q.type === 'handwriting') {
-      const stemWithBoxes = q.question.replace(/\[\[(國字|注音):(.*?):(.*?)\]\]/g, (_, mode, prompt) => {
-        return `<span class="print-hw-blank"><span>${prompt}</span><span class="print-hw-box"></span></span>`;
+      const stemWithBoxes = q.question.replace(/\[\[(國字|注音):(.*?):(.*?)\]\]/g, (_, mode, prompt, ans) => {
+        return `<span class="print-hw-blank"><span>${prompt}</span><span class="print-hw-box font-kai">${isParentMode ? escapeHtml(ans) : ''}</span></span>`;
       });
       return `
         <div class="pq">
@@ -2176,6 +2400,7 @@ function renderPaperSheet() {
               <small style="font-family:var(--font);font-size:10pt;color:#555;">[${q.code || q.category || '國字注音'}]</small>
               ${stemWithBoxes}
               ${q.questionImage ? `<div><img src="${q.questionImage}" alt="附圖" class="print-q-img"></div>` : ''}
+              ${renderParentNote(q)}
             </div>
           </div>
         </div>
@@ -2190,6 +2415,7 @@ function renderPaperSheet() {
               <div><b>(　　)</b> <small style="font-size:9.5pt;color:#555;">[${q.code || q.category || ''}]</small> ${String(q.question || '').replace(/\n/g, '<br>')}</div>
               ${q.questionImage ? `<div><img src="${q.questionImage}" alt="附圖" class="print-q-img"></div>` : ''}
               <div class="print-mcq-grid" style="margin-top:6px;font-size:12.5pt;">${optsHtml}</div>
+              ${renderParentNote(q)}
             </div>
           </div>
         </div>
@@ -2201,7 +2427,7 @@ function renderPaperSheet() {
     <div class="paper">
       <div class="paper-head">
         <div>
-          <h2>六上國語特訓・隨堂實戰測驗卷</h2>
+          <h2>六上國語特訓・${isParentMode ? '🔑 家長詳解攻略卷' : '隨堂實戰測驗卷'}</h2>
           <div class="sub">範圍：${titleUnits}（共 ${selected.length} 題）</div>
           <div class="paper-fields">
             <span>姓名：<b>${curUser.name}</b></span>

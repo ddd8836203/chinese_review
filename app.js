@@ -379,6 +379,12 @@ function isExamUnitId(unitId) {
   return !!(u && u.isExam) || String(unitId).startsWith('EXAM_');
 }
 
+function belongsToUnit(q, unitId) {
+  if (!q || !unitId) return false;
+  if (q.lessonId === unitId) return true;
+  return Array.isArray(q.lessonRefs) && q.lessonRefs.includes(unitId);
+}
+
 function getSelectedSchool(unitId) {
   if (!unitId) return 'ALL';
   return (state.examSchools && state.examSchools[unitId]) || 'ALL';
@@ -745,7 +751,7 @@ function filterQuestionsByBatches(list) {
 
 function getUnitStats(unitId) {
   const bank = getCleanBank();
-  let all = bank.filter(q => q.lessonId === unitId);
+  let all = bank.filter(q => belongsToUnit(q, unitId));
   if (isExamUnitId(unitId)) {
     const selSch = getSelectedSchool(unitId);
     if (selSch !== 'ALL') {
@@ -759,8 +765,10 @@ function getUnitStats(unitId) {
   const errCount = pool.filter(q => eb.includes(q.id)).length;
   const mastered = pool.filter(q => ms.includes(q.id) && !eb.includes(q.id)).length;
   const pct = pool.length > 0 ? Math.round((mastered / pool.length) * 100) : 0;
-  const hwCount = all.filter(q => q.type === 'handwriting').length;
-  return { total: pool.length, errCount, mastered, pct, hwCount, rawTotal: all.length };
+  const hwCount = pool.filter(q => q.type === 'handwriting').length;
+  const examCount = !isExamUnitId(unitId) ? pool.filter(q => q.lessonId === 'EXAM_FINAL').length : 0;
+  const baseCount = pool.length - examCount;
+  return { total: pool.length, errCount, mastered, pct, hwCount, examCount, baseCount, rawTotal: all.length };
 }
 
 function getCleanTopics() {
@@ -849,6 +857,7 @@ function renderDashboardView() {
           <span class="tag ${st.pct === 100 ? 'ok' : ''}">掌握 ${st.pct}%</span>
           ${st.errCount > 0 ? `<span class="tag bad">🔥 ${st.errCount} 題待消滅</span>` : ''}
           ${isExamUnit ? `<span class="tag exam-badge">🏆 ${schCount}校全真考卷</span>` : `<span class="tag lv">✍️ 手寫 ${st.hwCount} 題</span>`}
+          ${!isExamUnit && st.examCount > 0 ? `<span class="tag exam-badge" title="已併入期末考真題 ${st.examCount} 題（可由頂部『🏆 段考真題』篩選開關）">🏆 段考 ${st.examCount} 題</span>` : ''}
           <span class="tag">${st.total} 題</span>
         </div>
 
@@ -1135,7 +1144,7 @@ function startQuiz(mode, unitId = null, schoolFilter = null) {
   } else if (mode === 'filtered_errors' && unitId && typeof unitId === 'object') {
     pool = bank.filter(q => {
       if (!eb.includes(q.id)) return false;
-      if (unitId.unit && q.lessonId !== unitId.unit) return false;
+      if (unitId.unit && !belongsToUnit(q, unitId.unit)) return false;
       if (unitId.topic && !(q.domain === unitId.topic || (Array.isArray(q.tags) && q.tags.includes(unitId.topic)))) return false;
       return true;
     });
@@ -1146,7 +1155,7 @@ function startQuiz(mode, unitId = null, schoolFilter = null) {
     nextUnitId = unitId.unit || null;
     nextTopicId = unitId.topic || null;
   } else if (mode === 'unit_errors') {
-    pool = bank.filter(q => q.lessonId === unitId && eb.includes(q.id));
+    pool = bank.filter(q => belongsToUnit(q, unitId) && eb.includes(q.id));
     const u = LESSONS.find(x => x.id === unitId);
     state.quizTitle = `🔥 ${u ? u.title : unitId} · 錯題消滅`;
     nextUnitId = unitId;
@@ -1173,9 +1182,13 @@ function startQuiz(mode, unitId = null, schoolFilter = null) {
     const isExam = isExamUnitId(unitId);
     const targetSchool = isExam ? (schoolFilter || getSelectedSchool(unitId)) : 'ALL';
     if (isExam) setSelectedSchool(unitId, targetSchool);
-    let allUnit = bank.filter(q => q.lessonId === unitId);
+    let allUnit = bank.filter(q => belongsToUnit(q, unitId));
     if (isExam && targetSchool !== 'ALL') {
       allUnit = allUnit.filter(q => q.school === targetSchool);
+    }
+    if (!isExam) {
+      // 強制課本原題排在 1..29，期末段考真題排在 30..N，保障既有斷點續考與題號穩定
+      allUnit.sort((a, b) => (a.lessonId === unitId ? 0 : 1) - (b.lessonId === unitId ? 0 : 1));
     }
     pool = filterQuestionsByBatches(allUnit);
     if (pool.length === 0) pool = allUnit;
@@ -1606,6 +1619,7 @@ function renderQuizQuestion() {
         <div class="q-top-action-bar">
           <div class="q-tags" style="margin-bottom:0;">
             <span class="tag">${LESSONS.find(x => x.id === q.lessonId)?.title || q.lessonId}</span>
+            ${(q.lessonId === 'EXAM_FINAL' && Array.isArray(q.lessonRefs) && q.lessonRefs.length > 0) ? `<span class="tag">📖 ${LESSONS.find(x => x.id === q.lessonRefs[0])?.shortTitle || q.lessonRefs[0]}</span>` : ''}
             ${q.school ? `<span class="tag exam-badge">🏫 ${q.school}</span>` : ''}
             <span class="tag lv">${q.category || q.batch}</span>
             ${q.code ? `<span class="tag code-badge" title="知識點分類代碼">🏷️ ${q.code}</span>` : ''}
@@ -2024,7 +2038,7 @@ function renderErrorBookView(filterUnit = null, filterTopic = null) {
 
   let displayed = errorQuestions;
   if (filterUnit) {
-    displayed = displayed.filter(q => q.lessonId === filterUnit);
+    displayed = displayed.filter(q => belongsToUnit(q, filterUnit));
   }
   if (filterTopic) {
     displayed = displayed.filter(q => q.domain === filterTopic || (Array.isArray(q.tags) && q.tags.includes(filterTopic)));
@@ -2033,7 +2047,7 @@ function renderErrorBookView(filterUnit = null, filterTopic = null) {
   const unitTabsHtml = [
     `<button class="chip ${!filterUnit ? 'on' : ''}" data-filter-unit="all">全部課次 (${errorQuestions.length})</button>`,
     ...LESSONS.map(u => {
-      const cnt = errorQuestions.filter(q => q.lessonId === u.id).length;
+      const cnt = errorQuestions.filter(q => belongsToUnit(q, u.id)).length;
       if (cnt === 0) return '';
       const titleText = u.isExam ? `🏆 ${u.shortTitle || u.title} (${cnt})` : `${u.title} (${cnt})`;
       return `<button class="chip ${filterUnit === u.id ? 'on' : ''}" data-filter-unit="${u.id}">${titleText}</button>`;
@@ -2329,7 +2343,7 @@ function renderPaperSheet() {
   const activeTopicId = state.printConfig.topicId;
   const basePool = activeTopicId
     ? getTopicPool(activeTopicId, 'ALL')
-    : bank.filter(q => state.printConfig.unitIds.includes(q.lessonId));
+    : bank.filter(q => state.printConfig.unitIds.some(uId => belongsToUnit(q, uId)));
 
   let pool = [...basePool];
   const pBatches = state.printConfig.batches || [...ALL_BATCH_TYPES];

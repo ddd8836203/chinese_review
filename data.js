@@ -264,7 +264,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "塵垢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_hw_char_2",
@@ -289,7 +290,8 @@ const QUESTION_BANK = [
             "鳳",
             "頁",
             "曝"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_hw_char_3",
@@ -314,7 +316,8 @@ const QUESTION_BANK = [
             "霾",
             "涉",
             "跡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_hw_char_4",
@@ -338,7 +341,8 @@ const QUESTION_BANK = [
         "targets": [
             "爽",
             "暈"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_hw_py_1",
@@ -361,7 +365,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄩㄣˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_hw_py_2",
@@ -384,7 +389,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄆㄨˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_hw_py_3",
@@ -407,7 +413,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄇㄞˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_hw_py_4",
@@ -430,7 +437,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄍㄡˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_1",
@@ -473,7 +481,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "涼爽微風"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_2",
@@ -516,7 +525,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "蝴蝶美麗的翅膀"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_3",
@@ -559,7 +569,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "帶有「剛下過雨，才剛轉晴」的濕潤與新鮮感"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_1",
@@ -602,7 +613,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "火傘高張"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_2",
@@ -645,7 +657,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "氣候極度寒冷"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_3",
@@ -688,7 +701,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "總起下文，帶出後面一連串的行為列舉"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_4",
@@ -731,7 +745,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "夾注號，用來補充說明前面的「山間移動的暗"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_5",
@@ -774,7 +789,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "擬人 (轉化)"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_6",
@@ -817,7 +833,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "山間移動的暗綠，也就是雲的影子在山林間移"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_7",
@@ -860,7 +877,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "在水窪中玩耍的小狗"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_8",
@@ -903,7 +921,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "灰塵與汙垢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_9",
@@ -946,7 +965,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "體會人與自然的關係，感受雨後大自然帶來的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_10",
@@ -989,7 +1009,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "水面因為微風吹拂而產生波紋"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_11",
@@ -1032,7 +1053,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "指陰沉、昏暗的天氣或雲霧"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_12",
@@ -1075,7 +1097,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "赤著腳，攜著手，涉過溪流"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_13",
@@ -1118,7 +1141,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "連續不斷地下雨，天氣潮濕"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_14",
@@ -1161,7 +1185,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "現代詩 (新詩)"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_15",
@@ -1204,7 +1229,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "擬人 (轉化)"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_16",
@@ -1247,7 +1273,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "生動描寫出花朵在雨後小心翼翼、逐漸開放的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l1_mc_new_17",
@@ -1290,7 +1317,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "期待與邀請的語氣"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_char_1",
@@ -1316,7 +1344,8 @@ const QUESTION_BANK = [
             "茂",
             "藤",
             "蔓"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_char_2",
@@ -1342,7 +1371,8 @@ const QUESTION_BANK = [
             "添",
             "免",
             "悉"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_char_3",
@@ -1367,7 +1397,8 @@ const QUESTION_BANK = [
             "隙",
             "尚",
             "櫃"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_char_4",
@@ -1392,7 +1423,8 @@ const QUESTION_BANK = [
             "稿",
             "顫",
             "暮"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_char_5",
@@ -1419,7 +1451,8 @@ const QUESTION_BANK = [
             "咂",
             "瀉",
             "賴"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_py_1",
@@ -1442,7 +1475,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄇㄢˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_py_2",
@@ -1465,7 +1499,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄒㄧˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_py_3",
@@ -1488,7 +1523,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄓㄢˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_py_4",
@@ -1511,7 +1547,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄗㄚ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_hw_py_5",
@@ -1534,7 +1571,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄒㄧㄝˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_1",
@@ -1577,7 +1615,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為眼睛長得像珍珠而得名"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_2",
@@ -1620,7 +1659,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這小傢伙竟趴在我的肩頭上睡著了。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_3",
@@ -1663,7 +1703,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "對人或動物親密、開玩笑的稱呼"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_4",
@@ -1706,7 +1747,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "慢速播放"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_5",
@@ -1749,7 +1791,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "空間距離越靠近作者，代表彼此的關係越親近"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_6",
@@ -1792,7 +1835,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "尚未生出白點，整個身子像一顆鬆軟的球兒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_7",
@@ -1835,7 +1879,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "給予鳥兒安全感，以免嚇到牠們"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_8",
@@ -1878,7 +1923,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "天色入暮，在父母的再三呼喚中"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_9",
@@ -1921,7 +1967,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "信賴，往往能創造出美好的境界"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_10",
@@ -1964,7 +2011,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "譬喻"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_11",
@@ -2007,7 +2055,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "不動聲色"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_1",
@@ -2050,7 +2099,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "掛在窗前，用茂盛的藤蔓植物遮蓋的竹籠裡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_2",
@@ -2093,7 +2143,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "細膩的連續動作描寫（慢速播放）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_3",
@@ -2136,7 +2187,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "橫軸是時間，縱軸是關係由生疏到親近"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_4",
@@ -2179,7 +2231,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "小鳥對環境越來越放心，也對作者越來越信任"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_5",
@@ -2222,7 +2275,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "手中的筆不覺停了，生怕嚇跑牠，甚至輕輕抬"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_6",
@@ -2265,7 +2319,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為茂密的藤蔓提供了隱蔽，讓牠們覺得像躲"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_7",
@@ -2308,7 +2363,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "會咂咂嘴，好像在做夢一樣"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_8",
@@ -2351,7 +2407,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "柔軟而細密"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l2_mc_new_9",
@@ -2394,7 +2451,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "窗外的樹上"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_char_1",
@@ -2420,7 +2478,8 @@ const QUESTION_BANK = [
             "皆",
             "緣",
             "蓬"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_char_2",
@@ -2446,7 +2505,8 @@ const QUESTION_BANK = [
             "兼",
             "樽",
             "酒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_char_3",
@@ -2472,7 +2532,8 @@ const QUESTION_BANK = [
             "醅",
             "籬",
             "簡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_char_4",
@@ -2498,7 +2559,8 @@ const QUESTION_BANK = [
             "鎮",
             "濾",
             "潺"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_char_5",
@@ -2523,7 +2585,8 @@ const QUESTION_BANK = [
             "笆",
             "寂",
             "陳"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_py_1",
@@ -2546,7 +2609,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄔㄢˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_py_2",
@@ -2569,7 +2633,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄙㄨㄣ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_py_3",
@@ -2592,7 +2657,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄆㄟ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_hw_py_4",
@@ -2615,7 +2681,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄕㄜˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_1",
@@ -2658,7 +2725,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "僅、只"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_2",
@@ -2701,7 +2769,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為、由於"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_3",
@@ -2744,7 +2813,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "簡陋貧窮"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_4",
@@ -2787,7 +2857,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "菜色簡單，沒有多種菜餚"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_5",
@@ -2830,7 +2901,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "存放一段時間，沒有過濾的酒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_6",
@@ -2873,7 +2945,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "七言律詩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_7",
@@ -2916,7 +2989,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "偶數句(第2,4,6,8句)必須押韻，第"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_8",
@@ -2959,7 +3033,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "第三、四句 和 第五、六句"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_9",
@@ -3002,7 +3077,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "名詞 對 名詞"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_10",
@@ -3045,7 +3121,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為時代久遠，造成語音發生了改變"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_11",
@@ -3088,7 +3165,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "使用「對比」營造出因為客人到來，一掃原本"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_12",
@@ -3131,7 +3209,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "凸顯這位客人在詩人心中的地位無與倫比，非"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_13",
@@ -3174,7 +3253,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "雖然物質貧乏，但仍盡其所能、真誠熱情地款"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_14",
@@ -3217,7 +3297,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "想為這場聚會添加熱鬧氣氛，希望客人更盡興"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_15",
@@ -3260,7 +3341,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "無客 ➡️ 迎客 ➡️ 待客 ➡️ 陪客"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_16",
@@ -3303,7 +3385,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "圈出難詞"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_17",
@@ -3346,7 +3429,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "放回原句中檢視意思合不合理"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_18",
@@ -3389,7 +3473,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "杜甫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_19",
@@ -3432,7 +3517,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "叫，招呼"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l3_mc_20",
@@ -3475,7 +3561,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人與人之間真摯的美好情誼"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_char_1",
@@ -3501,7 +3588,8 @@ const QUESTION_BANK = [
             "肌",
             "沸",
             "騰"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_char_2",
@@ -3526,7 +3614,8 @@ const QUESTION_BANK = [
             "兀",
             "唯",
             "勺"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_char_3",
@@ -3551,7 +3640,8 @@ const QUESTION_BANK = [
             "頒",
             "置",
             "吶"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_char_4",
@@ -3576,7 +3666,8 @@ const QUESTION_BANK = [
             "握",
             "抵",
             "搞"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_char_5",
@@ -3604,7 +3695,8 @@ const QUESTION_BANK = [
             "惹",
             "榮",
             "屬"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_py_1",
@@ -3627,7 +3719,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄨˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_py_2",
@@ -3650,7 +3743,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄧㄡˇ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_py_3",
@@ -3673,7 +3767,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄌㄡ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_hw_py_4",
@@ -3696,7 +3791,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄕㄠˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_1",
@@ -3739,7 +3835,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "要趁對方失誤超越他，還是提醒他終點在哪裡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_2",
@@ -3782,7 +3879,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為他把主辦單位設置的頒獎氣球拱門誤認為"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_3",
@@ -3825,7 +3923,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "熱烈吶喊，用西班牙語要他繼續往前跑"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_4",
@@ -3868,7 +3967,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "內心真實的掙扎，在「追求勝利」與「公平競"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_5",
@@ -3911,7 +4011,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "伸出手輕拍他的背，並伸長食指指向前方"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_6",
@@ -3954,7 +4055,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "雖然失去了比賽的獎牌，卻展現了比贏得比賽"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_7",
@@ -3997,7 +4099,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "對比法 (映襯)"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_8",
@@ -4040,7 +4143,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "營造畫面感，讓讀者彷彿身歷其境，立刻融入"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_9",
@@ -4083,7 +4187,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "視覺摹寫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_10",
@@ -4126,7 +4231,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "採用「第一人稱」，以「我」(安納亞) 的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_11",
@@ -4169,7 +4275,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "第三人稱 (客觀視角)"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_12",
@@ -4212,7 +4319,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "形容有利的局勢已經喪失，無法挽回"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_13",
@@ -4255,7 +4363,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "逕自、仍然"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_14",
@@ -4298,7 +4407,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為他雖然輸了比賽的獎牌，卻因為誠實與高"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_15",
@@ -4341,7 +4451,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "誠實坦蕩，勇於承認對手在實力上優於自己"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_16",
@@ -4384,7 +4495,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "擦身而過"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_17",
@@ -4427,7 +4539,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "君子之爭"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_18",
@@ -4470,7 +4583,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "安納亞以為會被罵，沒想到教練卻摟著他，高"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_19",
@@ -4513,7 +4627,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "對自己的要求與可貴的運動家精神"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l4_mc_20",
@@ -4556,7 +4671,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "關心他的傷勢，雖然仍在競爭中，但保持尊重"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_char_1",
@@ -4582,7 +4698,8 @@ const QUESTION_BANK = [
             "副",
             "監",
             "益"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_char_2",
@@ -4606,7 +4723,8 @@ const QUESTION_BANK = [
         "targets": [
             "噪",
             "避"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_char_3",
@@ -4631,7 +4749,8 @@ const QUESTION_BANK = [
             "迅",
             "滅",
             "援"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_char_4",
@@ -4658,7 +4777,8 @@ const QUESTION_BANK = [
             "蝕",
             "觸",
             "承"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_char_5",
@@ -4685,7 +4805,8 @@ const QUESTION_BANK = [
             "檔",
             "註",
             "撈"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_py_1",
@@ -4708,7 +4829,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄗㄞˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_py_2",
@@ -4731,7 +4853,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄕˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_py_3",
@@ -4754,7 +4877,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄉㄤˇ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_hw_py_4",
@@ -4777,7 +4901,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄗㄠˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_1",
@@ -4820,7 +4945,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一耳聽伴奏，一耳聽自己的聲音，藉此掌握實"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_2",
@@ -4863,7 +4989,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "爵士鼓手"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_3",
@@ -4906,7 +5033,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "含有金屬塗料，將大部分的熱輻射反射回去"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_4",
@@ -4949,7 +5077,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "穿上這件衣服，消防員就可以在火場中待上無"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_5",
@@ -4992,7 +5121,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "利用打板的聲音，提醒錄製的起始點，方便後"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_6",
@@ -5035,7 +5165,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "比喻尋找的範圍很大，要找到目標極為困難"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_7",
@@ -5078,7 +5209,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "提出現象 ➡️ 提出問題 ➡️ 解答問題"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_8",
@@ -5121,7 +5253,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "懸問：作者內心也沒有確切答案，留給讀者思"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_9",
@@ -5164,7 +5297,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "生活中常見的職業，是否有令人好奇的工作內"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_10",
@@ -5207,7 +5341,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "增強與讀者的互動，引發讀者的好奇心與閱讀"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_11",
@@ -5250,7 +5385,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "教師"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_12",
@@ -5293,7 +5429,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "妙手回春"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_13",
@@ -5336,7 +5473,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "孔子在「杏壇」講學，後人便以此代稱教育界"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_14",
@@ -5379,7 +5517,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "歌手"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_15",
@@ -5422,7 +5561,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "事物很平常，沒有什麼覺得奇怪的地方"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_16",
@@ -5465,7 +5605,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "提醒演員現在是第幾場戲的第幾次拍攝"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_17",
@@ -5508,7 +5649,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "赴湯蹈火"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_18",
@@ -5551,7 +5693,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一般人遇到火災時會「向外逃生」的常理路線"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_19",
@@ -5594,7 +5737,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他們的工作內容中，都有使用特定裝備來解決"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l5_mc_20",
@@ -5637,7 +5781,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "觀察他的裝備(例如郵差包、機車)，並找資"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_char_1",
@@ -5663,7 +5808,8 @@ const QUESTION_BANK = [
             "劃",
             "荒",
             "垠"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_char_2",
@@ -5689,7 +5835,8 @@ const QUESTION_BANK = [
             "宙",
             "朽",
             "誌"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_char_3",
@@ -5715,7 +5862,8 @@ const QUESTION_BANK = [
             "訓",
             "械",
             "艙"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_char_4",
@@ -5741,7 +5889,8 @@ const QUESTION_BANK = [
             "凌",
             "隕",
             "眺"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_char_5",
@@ -5766,7 +5915,8 @@ const QUESTION_BANK = [
             "奪",
             "征",
             "億"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_py_1",
@@ -5789,7 +5939,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄏㄨㄚˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_py_2",
@@ -5812,7 +5963,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄧㄣˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_py_3",
@@ -5835,7 +5987,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄘㄤ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_hw_py_4",
@@ -5858,7 +6011,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄊㄧㄠˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_1",
@@ -5901,7 +6055,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "尼爾·阿姆斯壯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_2",
@@ -5944,7 +6099,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "麥可·柯林斯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_3",
@@ -5987,7 +6143,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "引用法"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_4",
@@ -6030,7 +6187,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這項創舉代表了全人類在太空探索領域的重大"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_5",
@@ -6073,7 +6231,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "學習用多國語言與外星人溝通"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_6",
@@ -6116,7 +6275,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "動態描寫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_7",
@@ -6159,7 +6319,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "譬喻"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_8",
@@ -6202,7 +6363,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "荒涼冷清且靜止的靜態畫面"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_9",
@@ -6245,7 +6407,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "採集月球表面的樣本、拍照，安置研究設備"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_10",
@@ -6288,7 +6451,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為那是他的家鄉(熟悉)，但他從未以這種"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_11",
@@ -6331,7 +6495,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "從太空中看到的地球"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_12",
@@ -6374,7 +6539,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "四十萬人參與，六億人關注"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_13",
@@ -6417,7 +6583,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "幽默風趣，且對人類未來的太空探索充滿信心"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_14",
@@ -6460,7 +6627,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "盡力用眼睛看"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_15",
@@ -6503,7 +6671,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "比喻經常發生、習以為常的事情"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_16",
@@ -6546,7 +6715,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "UTC"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_17",
@@ -6589,7 +6759,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "倒敘法"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_18",
@@ -6632,7 +6803,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "持之以恆"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_19",
@@ -6675,7 +6847,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "形容言論或描寫簡單、不費力地帶過，不加渲"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l6_mc_20",
@@ -6718,7 +6891,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "記錄阿姆斯壯實現夢想的過程，並讚頌人類探"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_char_1",
@@ -6794,7 +6968,8 @@ const QUESTION_BANK = [
             "勞",
             "抉",
             "擇"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_char_2",
@@ -6865,7 +7040,8 @@ const QUESTION_BANK = [
             "跆",
             "抽",
             "叢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_char_3",
@@ -6943,7 +7119,8 @@ const QUESTION_BANK = [
             "蹣",
             "跚",
             "灶"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_char_4",
@@ -7019,7 +7196,8 @@ const QUESTION_BANK = [
             "壤",
             "苞",
             "芽"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_char_5",
@@ -7098,7 +7276,8 @@ const QUESTION_BANK = [
             "維",
             "犧",
             "牲"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_py_1",
@@ -7167,7 +7346,8 @@ const QUESTION_BANK = [
             "ㄇㄢˊ",
             "ㄕㄢ",
             "ㄗㄠˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_py_2",
@@ -7234,7 +7414,8 @@ const QUESTION_BANK = [
             "ㄔㄡ",
             "ㄎㄨㄥˋ",
             "ㄘㄨㄥˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_py_3",
@@ -7301,7 +7482,8 @@ const QUESTION_BANK = [
             "ㄙㄠ",
             "ㄏㄥˊ",
             "ㄖㄤˇ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_hw_py_4",
@@ -7369,7 +7551,8 @@ const QUESTION_BANK = [
             "ㄅㄠ",
             "ㄒㄧ",
             "ㄕㄥ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_1",
@@ -7469,7 +7652,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "明智抉擇 ／ 抽空閱讀"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_2",
@@ -7567,7 +7751,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "學習的秘「訣」之一，就是懂得取捨「抉」擇"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_3",
@@ -7658,7 +7843,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "屋後的「空」地"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_4",
@@ -7750,7 +7936,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「一簇繁花」簇讀 ㄘㄨˋ，「得先想清楚」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_5",
@@ -7836,7 +8023,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "形容話語或神情含義深刻，發人深省"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_6",
@@ -7924,7 +8112,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "先寫完今晚要交的作業，週末再練下週比賽與"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_7",
@@ -8015,7 +8204,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "同時報名五種才藝又買一堆講義，結果每樣都"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_8",
@@ -8101,7 +8291,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "短跑決賽槍響後，冠軍選手「步履蹣跚」的向"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_9",
@@ -8187,7 +8378,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "心無旁騖"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_10",
@@ -8275,7 +8467,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「言例」：俗話「貪多嚼不爛」；「事例」："
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_11",
@@ -8363,7 +8556,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "譬喻法；「水」喻目標，「柴火」喻時間與才"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_12",
@@ -8454,7 +8648,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "設問中的「提問」——先提出問題，再於下文"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_13",
@@ -8545,7 +8740,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "甲省「少年未說的目標」；乙省「其他生長條"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_14",
@@ -8637,7 +8833,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "總論 ➔ 做法一(燒水) ➔ 做法二(盆"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_15",
@@ -8725,7 +8922,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "面對眾多想追求的才藝興趣，不知該如何取捨"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_16",
@@ -8813,7 +9011,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "先肯定少年熱情，再用實作引導他自己看清盲"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_17",
@@ -8901,7 +9100,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為等撿到夠用的枯枝回來，燒到一半的水就"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_18",
@@ -8989,7 +9189,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "花大美 ➔ 摘不理想花苞；繁花一簇 ➔ "
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_19",
@@ -9077,7 +9278,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "做法一重「少資源減量」；做法二重「按目標"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l7_mc_20",
@@ -9165,7 +9367,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "資源有限時勇於犧牲多餘的量以保質，並按緩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_char_1",
@@ -9245,7 +9448,8 @@ const QUESTION_BANK = [
             "艾",
             "枕",
             "臂"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_char_2",
@@ -9318,7 +9522,8 @@ const QUESTION_BANK = [
             "膝",
             "焰",
             "熄"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_char_3",
@@ -9391,7 +9596,8 @@ const QUESTION_BANK = [
             "惱",
             "跌",
             "鬚"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_char_4",
@@ -9471,7 +9677,8 @@ const QUESTION_BANK = [
             "竄",
             "瞬",
             "頹"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_char_5",
@@ -9549,7 +9756,8 @@ const QUESTION_BANK = [
             "熾",
             "炭",
             "飢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_py_1",
@@ -9618,7 +9826,8 @@ const QUESTION_BANK = [
             "ㄧˋ",
             "ㄓㄣˇ",
             "ㄅㄧˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_py_2",
@@ -9688,7 +9897,8 @@ const QUESTION_BANK = [
             "ㄅㄛ",
             "ㄘㄨㄢˋ",
             "ㄕㄨㄣˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_py_3",
@@ -9757,7 +9967,8 @@ const QUESTION_BANK = [
             "ㄊㄨㄟˊ",
             "ㄔˋ",
             "ㄊㄢˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_hw_py_4",
@@ -9826,7 +10037,8 @@ const QUESTION_BANK = [
             "ㄐㄧ",
             "ㄋㄧㄠˇ",
             "ㄒㄩˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_1",
@@ -9926,7 +10138,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "自怨自艾 ／ 熾熱紅炭"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_2",
@@ -10019,7 +10232,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「頹然跌坐」的「頹」讀作 ㄊㄨㄟˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_3",
@@ -10117,7 +10331,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "樹皮乾裂的地方長滿細「鬚」，他「須」要更"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_4",
@@ -10209,7 +10424,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "偏遠荒涼到看不見任何居住人家與人類蹤跡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_5",
@@ -10298,7 +10514,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "沙地上的手斧閃光讓他想起昨夜手斧丟中岩壁"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_6",
@@ -10387,7 +10604,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為湖邊樺樹皮細軟像碎紙張，外皮白內褐且"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_7",
@@ -10479,7 +10697,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「剝」奪 ／ 抽絲「剝」繭"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_8",
@@ -10568,7 +10787,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "火焰燃燒速度極快，需要人不斷「餵」它木柴"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_9",
@@ -10655,7 +10875,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "哥哥睡飽醒來後「頹然」跳下床，充滿朝氣的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_10",
@@ -10744,7 +10965,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "用「擬物／擬人轉化」搭配層遞，寫活火苗由"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_11",
@@ -10829,7 +11051,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "擬人與暗喻——賦予火同伴人格，點出驅除孤"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_12",
@@ -10921,7 +11144,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "甲補充說明手斧來歷；乙為句中夾注補充樹皮"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_13",
@@ -11010,7 +11234,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "運用前後對比映襯，凸顯「生火」讓他從絕望"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_14",
@@ -11099,7 +11324,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "太猛的氣流會吹散微小火星與熱量；輕吹能穩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_15",
@@ -11188,7 +11414,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "呈現他經歷墜機與豪豬威脅後，靠生火走過恐"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_16",
@@ -11281,7 +11508,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "第二次嘗試 ➔ 頹喪；第三次嘗試 ➔ 冷"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_17",
@@ -11366,7 +11594,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "前兩次在解決「尋找合適引燃燃料」；後兩次"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_18",
@@ -11455,7 +11684,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "擺脫恐懼安心微笑，在無人分享的孤寂中湧起"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_19",
@@ -11540,7 +11770,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "先冷靜觀察絆倒原因，回想老師要領並調整甩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l8_mc_20",
@@ -11629,7 +11860,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "取「夥伴」諧音雙關，既指急需添柴的烈焰，"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_char_1",
@@ -11709,7 +11941,8 @@ const QUESTION_BANK = [
             "寡",
             "勃",
             "棍"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_char_2",
@@ -11789,7 +12022,8 @@ const QUESTION_BANK = [
             "顛",
             "簸",
             "獻"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_char_3",
@@ -11869,7 +12103,8 @@ const QUESTION_BANK = [
             "鎖",
             "策",
             "否"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_char_4",
@@ -11946,7 +12181,8 @@ const QUESTION_BANK = [
             "欠",
             "江",
             "瀰"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_char_5",
@@ -12023,7 +12259,8 @@ const QUESTION_BANK = [
             "倉",
             "鞏",
             "固"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_py_1",
@@ -12091,7 +12328,8 @@ const QUESTION_BANK = [
             "ㄉㄧㄢ",
             "ㄅㄛˋ",
             "ㄇㄧˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_py_2",
@@ -12160,7 +12398,8 @@ const QUESTION_BANK = [
             "ㄓˋ",
             "ㄙㄠ",
             "ㄈㄡˇ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_py_3",
@@ -12228,7 +12467,8 @@ const QUESTION_BANK = [
             "ㄓㄢˋ",
             "ㄐㄧㄥ",
             "ㄉㄧㄥˇ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_hw_py_4",
@@ -12298,7 +12538,8 @@ const QUESTION_BANK = [
             "ㄔㄨˊ",
             "ㄨㄟˊ",
             "ㄨㄛˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_1",
@@ -12397,7 +12638,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "煙霧瀰漫 ／ 鞏固江南"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_2",
@@ -12489,7 +12731,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "以「寡」擊眾：ㄍㄨㄚˇ ／ 罰打軍「棍」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_3",
@@ -12588,7 +12831,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "船隻「顛」簸 ／ 登上山「巔」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_4",
@@ -12680,7 +12924,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「周瑜打黃蓋，一個願打，一個願挨」形容兩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_5",
@@ -12772,7 +13017,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「以寡擊眾」是指用少數人去攻打多數人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_6",
@@ -12865,7 +13111,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "諸葛亮字孔明，是蜀漢軍師，有「臥龍」的稱"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_7",
@@ -12958,7 +13205,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "船上「顛」簸不已 ／ 是非「顛」倒難辨"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_8",
@@ -13050,7 +13298,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他突然「周瑜打黃蓋，一個願打，一個願挨」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_9",
@@ -13139,7 +13388,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "譬喻修辭：分別以卵擊石喻弱攻強、以白日喻"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_10",
@@ -13231,7 +13481,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「與其」以寡擊眾，「不如」乾脆選擇向對方"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_11",
@@ -13320,7 +13571,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "用來省略兩人密談的計策內容，並製造懸疑的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_12",
@@ -13413,7 +13665,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "曹軍雖有兵多船多的優勢，卻受暈船所苦且誤"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_13",
@@ -13506,7 +13759,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "《三國演義》屬於歷史小說，以歷史事件和人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_14",
@@ -13599,7 +13853,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "畫雙欄對比表格，依軍力、水戰、戰略與天時"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_15",
@@ -13688,7 +13943,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "火船難以無防備靠近曹軍，且敵船未鎖能四散"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_16",
@@ -13777,7 +14033,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "三人對天候變化的知識與預判深淺不同，決定"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_17",
@@ -13866,7 +14123,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "孫劉在東南赤壁藉東南風攻西北烏林，戰後占"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_18",
@@ -13955,7 +14213,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "曹操自恃兵多且輕信降計，又忽視策士對火攻"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_19",
@@ -14044,7 +14303,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "透過雙線各自埋下伏筆，最終交會引爆高潮，"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l9_mc_20",
@@ -14133,7 +14393,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "避開正面接球硬拚，發揮靈活閃避與外野包夾"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_char_1",
@@ -14206,7 +14467,8 @@ const QUESTION_BANK = [
             "亦",
             "傾",
             "頃"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_char_2",
@@ -14286,7 +14548,8 @@ const QUESTION_BANK = [
             "複",
             "猶",
             "蕩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_char_3",
@@ -14364,7 +14627,8 @@ const QUESTION_BANK = [
             "勾",
             "篇",
             "述"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_char_4",
@@ -14442,7 +14706,8 @@ const QUESTION_BANK = [
             "鉅",
             "靡",
             "嘖"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_char_5",
@@ -14515,7 +14780,8 @@ const QUESTION_BANK = [
             "鑼",
             "俐",
             "莫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_py_1",
@@ -14584,7 +14850,8 @@ const QUESTION_BANK = [
             "ㄑㄧㄥ",
             "ㄑㄧㄥˇ",
             "ㄧㄡˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_py_2",
@@ -14653,7 +14920,8 @@ const QUESTION_BANK = [
             "ㄌㄧㄤˊ",
             "ㄧㄠˇ",
             "ㄉㄤˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_py_3",
@@ -14723,7 +14991,8 @@ const QUESTION_BANK = [
             "ㄇㄧˇ",
             "ㄗㄜˊ",
             "ㄔㄚˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_hw_py_4",
@@ -14792,7 +15061,8 @@ const QUESTION_BANK = [
             "ㄌㄧˋ",
             "ㄍㄡ",
             "ㄅㄧㄥˇ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_1",
@@ -14892,7 +15162,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "變幻莫測 ／ 鉅細靡遺"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_2",
@@ -14991,7 +15262,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "藝人「傾」注白米，手法極「俐」落"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_3",
@@ -15084,7 +15356,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「猶」空桶(ㄧㄡˊ) ／ 鉅細「靡」遺("
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_4",
@@ -15176,7 +15449,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "把裝米的方形木升很快拿出來"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_5",
@@ -15268,7 +15542,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「畢而舉之」的「畢」是結束，「之」指木桶"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_6",
@@ -15361,7 +15636,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "蒲松齡生於清朝山東，將情感寄託於《聊齋志"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_7",
@@ -15453,7 +15729,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他拿起尺仔細「量」過桌面寬度才買桌巾"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_8",
@@ -15545,7 +15822,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這棟老屋經歷百年風雨，至今「猶」存昔日風"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_9",
@@ -15638,7 +15916,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「以」表示拿取或把，「置」表示擺放鋪設"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_10",
@@ -15730,7 +16009,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "我們讀書只要隨便翻翻，「鉅細靡遺」就好"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_11",
@@ -15822,7 +16102,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "進入最緊張的關鍵時刻，全場觀眾「　」看著"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_12",
@@ -15911,7 +16192,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "把「滿」與「空」相反現象並列的映襯修辭"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_13",
@@ -16000,7 +16282,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "以作者抒發讚嘆的感受作結，點出整場戲法精"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_14",
@@ -16089,7 +16372,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "文字精鍊簡潔，卻能營造快速緊湊的畫面節奏"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_15",
@@ -16178,7 +16462,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「頃刻兩席皆滿」，描寫無底小桶竟能變出海"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_16",
@@ -16271,7 +16556,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "驗桶示空 ➔ 鋪席取米 ➔ 傾米滿席 ➔"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_17",
@@ -16360,7 +16646,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "平常同類道具只能變出少許米，這場卻能傾滿"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_18",
@@ -16449,7 +16736,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "不論古今文體，結尾都可透過抒發感受為全文"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_19",
@@ -16538,7 +16826,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "既營造街頭戲法神祕奇幻感，又捕捉現場觀眾"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l10_mc_20",
@@ -16627,7 +16916,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "小平：仔細觀察校慶變臉表演，用精鍊文字寫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_char_1",
@@ -16705,7 +16995,8 @@ const QUESTION_BANK = [
             "肅",
             "斥",
             "玄"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_char_2",
@@ -16777,7 +17068,8 @@ const QUESTION_BANK = [
             "痘",
             "腫",
             "敷"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_char_3",
@@ -16854,7 +17146,8 @@ const QUESTION_BANK = [
             "瞞",
             "庭",
             "徽"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_char_4",
@@ -16932,7 +17225,8 @@ const QUESTION_BANK = [
             "袖",
             "擤",
             "涕"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_char_5",
@@ -17009,7 +17303,8 @@ const QUESTION_BANK = [
             "泛",
             "枇",
             "杷"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_py_1",
@@ -17078,7 +17373,8 @@ const QUESTION_BANK = [
             "ㄙㄨˋ",
             "ㄅㄧㄢˋ",
             "ㄒㄩㄢˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_py_2",
@@ -17147,7 +17443,8 @@ const QUESTION_BANK = [
             "ㄈㄨ",
             "ㄧㄤ",
             "ㄇㄢˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_py_3",
@@ -17217,7 +17514,8 @@ const QUESTION_BANK = [
             "ㄏㄨㄟ",
             "ㄒㄧㄥˇ",
             "ㄊㄧˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_hw_py_4",
@@ -17287,7 +17585,8 @@ const QUESTION_BANK = [
             "ㄈㄢˋ",
             "ㄆㄧˊ",
             "ㄆㄚˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_1",
@@ -17388,7 +17687,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "神情嚴肅 ／ 泛黃相片"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_2",
@@ -17488,7 +17788,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這件印有家「徽」的衣「袖」，設計非常典雅"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_3",
@@ -17580,7 +17881,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「央」求：ㄧㄤ ／ 「枇杷」：ㄆㄧˊ ㄆ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_4",
@@ -17672,7 +17974,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "低聲下氣地懇切請求，希望對方能答應"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_5",
@@ -17764,7 +18067,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "聚精會神地仔細觀看、打量每處細節"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_6",
@@ -17853,7 +18157,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為鹿兒島即使冬天也很暖和，適合戶外拍"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_7",
@@ -17945,7 +18250,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「著」急萬分 ／ 睡不「著」覺"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_8",
@@ -18037,7 +18343,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "大家在課堂上講話太吵，惹得老師當場「怒火"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_9",
@@ -18126,7 +18433,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "用來解釋說明前文「這麼做」的具體內容"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_10",
@@ -18215,7 +18523,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "以童年好奇視角做比喻，生動寫出滑稽氛圍"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_11",
@@ -18308,7 +18617,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "嚴肅威嚴卻容易發脾氣，顯露出暴躁性格"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_12",
@@ -18397,7 +18707,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "慈愛溫柔且體貼細心，懂得照顧全家人的心情"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_13",
@@ -18486,7 +18797,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "展現早年節儉習慣與真實日常，反襯拍照的笑"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_14",
@@ -18579,7 +18891,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "對拍全家紀念照感到十分重視與興奮雀躍"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_15",
@@ -18668,7 +18981,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "呼應末段「如今再看舊照」與「橘子和枇杷香"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_16",
@@ -18757,7 +19071,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "開頭寫七人嚴肅的舊照，結尾重看同張相片見"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_17",
@@ -18846,7 +19161,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "首：門前那棵老榕樹很安靜。／尾：再望老榕"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_18",
@@ -18939,7 +19255,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為舊照喚醒了童年五感記憶，延伸出思鄉與"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_19",
@@ -19028,7 +19345,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "呈現莊嚴照片背後鮮活的真實日常與人情溫度"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l11_mc_20",
@@ -19117,7 +19435,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "先點出照片表面印象，追憶幕後趣事與人物對"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_char_1",
@@ -19197,7 +19516,8 @@ const QUESTION_BANK = [
             "据",
             "抄",
             "昨"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_char_2",
@@ -19277,7 +19597,8 @@ const QUESTION_BANK = [
             "仿",
             "憊",
             "辨"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_char_3",
@@ -19357,7 +19678,8 @@ const QUESTION_BANK = [
             "瘦",
             "咳",
             "徒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_char_4",
@@ -19437,7 +19759,8 @@ const QUESTION_BANK = [
             "悔",
             "啜",
             "泣"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_char_5",
@@ -19511,7 +19834,8 @@ const QUESTION_BANK = [
             "吁",
             "撫",
             "酣"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_py_1",
@@ -19579,7 +19903,8 @@ const QUESTION_BANK = [
             "ㄐㄧㄝˊ",
             "ㄐㄩ",
             "ㄗㄨㄛˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_py_2",
@@ -19648,7 +19973,8 @@ const QUESTION_BANK = [
             "ㄈㄤˇ",
             "ㄅㄟˋ",
             "ㄅㄧㄢˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_py_3",
@@ -19723,7 +20049,8 @@ const QUESTION_BANK = [
             "ㄔㄨㄛˋ",
             "ㄑㄧˋ",
             "ㄒㄩ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_hw_py_4",
@@ -19793,7 +20120,8 @@ const QUESTION_BANK = [
             "ㄕㄡˋ",
             "ㄐㄧㄣ",
             "ㄏㄢ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_1",
@@ -19893,7 +20221,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "生活拮据 ／ 氣喘吁吁"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_2",
@@ -19992,7 +20321,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「昨」晚燈下抄寫 ／ 暗中模「仿」爸爸筆"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_3",
@@ -20084,7 +20414,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「躡」手躡腳（ㄋㄧㄝˋ）／「啜」泣（ㄔㄨ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_4",
@@ -20176,7 +20507,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "形容經濟情況非常窘迫，手頭資金十分困頓"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_5",
@@ -20273,7 +20605,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "判若兩人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_6",
@@ -20362,7 +20695,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "改寫自義大利作家亞米契斯的《愛的教育》"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_7",
@@ -20454,7 +20788,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這座木橋「禁」得起大水沖刷"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_8",
@@ -20546,7 +20881,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "運動會操場上全班齊聲歡呼，大家「躡手躡腳"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_9",
@@ -20635,7 +20971,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為不幫忙就無法幫爸爸多賺一個銅幣，使他"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_10",
@@ -20724,7 +21061,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "用「以前」和「如今」強烈的態度反差，運用"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_11",
@@ -20813,7 +21151,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "冒號總起引出後面的話語，連用兩個驚嘆號強"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_12",
@@ -20902,7 +21241,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "透過摹寫具體的視覺畫面，在讀者腦海中印上"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_13",
@@ -20991,7 +21331,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "古人書寫詩文受限篇幅規定，用詞精簡且文義"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_14",
@@ -21080,7 +21421,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "顯示敘里奧夜間都有幫忙抄寫，並為後面爸爸"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_15",
@@ -21169,7 +21511,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "視覺化呼應家境拮据的清苦背景，並襯托父子"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_16",
@@ -21258,7 +21601,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "爸爸從長遠未來看重學業；敘里奧從眼前辛勞"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_17",
@@ -21347,7 +21691,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "爸爸只見白天結果而誤判；敘里奧為了繼續幫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_18",
@@ -21436,7 +21781,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "從油燈抄寫、老相機演變為檯燈電腦、單眼自"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_19",
@@ -21525,7 +21871,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因長期習慣與對父辛勞的不捨，讓他難忍不幫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_l12_mc_20",
@@ -21614,7 +21961,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "找適當時機溫和說出初衷並聽聽家人顧慮，找"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_hw_1",
@@ -21643,7 +21991,8 @@ const QUESTION_BANK = [
             "ㄔㄣˋ",
             "爽",
             "ㄕㄢ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_hw_2",
@@ -21672,7 +22021,8 @@ const QUESTION_BANK = [
             "ㄒㄧ",
             "ㄒㄩㄣˋ",
             "械"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_hw_3",
@@ -21702,7 +22052,8 @@ const QUESTION_BANK = [
             "ㄔㄣˊ",
             "垢",
             "簡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_hw_4",
@@ -21734,7 +22085,8 @@ const QUESTION_BANK = [
             "ㄊㄧㄢ",
             "ㄆㄥˊ",
             "霾"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_hw_5",
@@ -21764,7 +22116,8 @@ const QUESTION_BANK = [
             "陋",
             "栽",
             "唯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_1",
@@ -21809,7 +22162,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "歷史記「載」 ／ 一年半「載」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_2",
@@ -21854,7 +22208,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "運用了破折號來補充說明「暗綠」就是雲的腳"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_3",
@@ -21899,7 +22254,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "譬喻（借喻）、摹寫（視覺）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_4",
@@ -21944,7 +22300,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "蔓、漫、慢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_5",
@@ -21989,7 +22346,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "每當發生火災時，消防人員總是前往救援"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_6",
@@ -22034,7 +22392,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "為了讓鳥有安全感"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_7",
@@ -22079,7 +22438,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "杜甫的詩反映社會現實，被稱為「詩仙」，與"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_8",
@@ -22124,7 +22484,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "從「掃徑、敞開大門（花徑不曾緣客掃，蓬門"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_9",
@@ -22169,7 +22530,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "皆是偶數句押韻，第一句可押韻可不押韻"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_10",
@@ -22214,7 +22576,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "屬：尸部"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_11",
@@ -22259,7 +22622,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "內心對比賽的熱情與專注超越了外在的寒冷"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_12",
@@ -22304,7 +22668,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "雖然在名次上輸了比賽，但因展現運動家精神"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_13",
@@ -22349,7 +22714,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "若……無疑是"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_14",
@@ -22394,7 +22760,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "標記場次鏡次並發出清脆聲響，幫助後製剪輯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_15",
@@ -22439,7 +22806,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "春風化雨 ／ 赴湯蹈火 ／ 餘音繞梁"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_16",
@@ -22484,7 +22852,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "靜態描寫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_17",
@@ -22529,7 +22898,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "阿姆斯壯要後來者幫他撿起留在月球上的攝影"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_mc_18",
@@ -22574,7 +22944,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "我筆尖一動，流瀉下一時的感受：信賴，往往"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_idiom_1",
@@ -22647,7 +23018,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "家常便飯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_idiom_2",
@@ -22720,7 +23092,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "朝三暮四"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_idiom_3",
@@ -22793,7 +23166,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "野人獻曝"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_idiom_4",
@@ -22866,7 +23240,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "不動聲色"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_idiom_5",
@@ -22939,7 +23314,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "名副其實"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_read_1",
@@ -22984,7 +23360,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "難過悲傷、孤獨感嘆"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_read_2",
@@ -23029,7 +23406,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "不盡長江滾滾來。萬里悲秋常作客"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_dahua_read_3",
@@ -23074,7 +23452,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "江水滾滾奔流不止，象徵時間（歲月）流逝與"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_hw_1",
@@ -23103,7 +23482,8 @@ const QUESTION_BANK = [
             "訓",
             "悉",
             "簡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_hw_2",
@@ -23132,7 +23512,8 @@ const QUESTION_BANK = [
             "顫",
             "ㄓㄣˋ",
             "舒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_hw_3",
@@ -23161,7 +23542,8 @@ const QUESTION_BANK = [
             "騰",
             "皆",
             "觸"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_hw_4",
@@ -23190,7 +23572,8 @@ const QUESTION_BANK = [
             "奪",
             "屬",
             "ㄖㄨㄥˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_idiom_1",
@@ -23263,7 +23646,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "老當益壯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_idiom_2",
@@ -23336,7 +23720,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "文情並茂"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_idiom_3",
@@ -23409,7 +23794,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "面紅耳赤"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_idiom_4",
@@ -23482,7 +23868,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一曝十寒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_idiom_5",
@@ -23555,7 +23942,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "陳腔濫調"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_1",
@@ -23600,7 +23988,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "海「蝕」山洞"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_2",
@@ -23645,7 +24034,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「駕」駛 ／ 上「架」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_3",
@@ -23690,7 +24080,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「涉」水"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_4",
@@ -23735,7 +24126,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "家常便飯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_5",
@@ -23780,7 +24172,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "可分為五言與七言"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_6",
@@ -23825,7 +24218,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "百年樹人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_7",
@@ -23870,7 +24264,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "暮 ／ 幕 ／ 墓 ／ 慕"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_8",
@@ -23915,7 +24310,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "芭 ／ 巴 ／ 笆 ／ 把"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_9",
@@ -23960,7 +24356,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "天空雲朵在山林間透光移動所留下的陰影（投"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_10",
@@ -24005,7 +24402,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "陌生（怕人） ➔ 好奇（探頭） ➔ 親近"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_11",
@@ -24050,7 +24448,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "舍南舍北皆春水"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_12",
@@ -24095,7 +24494,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "超越勝敗的價值（誠實與運動家精神）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_13",
@@ -24140,7 +24540,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "操場上，阿綸飛快奔跑著，像隻出閘獵豹。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_14",
@@ -24185,7 +24586,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "消防衣能保護消防員入火場救災，最外層功能"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_15",
@@ -24230,7 +24632,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "本課採用倒敘法（從登月成功那一刻寫起，再"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_16",
@@ -24275,7 +24678,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "新陽推開了陰霾（烏雲）。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_mc_17",
@@ -24320,7 +24724,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "藍綠圓滿豐潤的星球，像顆夜明珠。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read1_1",
@@ -24365,7 +24770,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他是一位盲人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read1_2",
@@ -24410,7 +24816,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "覺得黑人低人一等，不可與白人交往、參加活"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read1_3",
@@ -24455,7 +24862,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一位黑人心理輔導員"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read1_4",
@@ -24500,7 +24908,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他已不把膚色作為判斷人的標準，只看對方是"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read1_5",
@@ -24545,7 +24954,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "偏見往往是因為「只看外在表面」造成的，唯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read2_1",
@@ -24590,7 +25000,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他在尋找與期盼心中想見的人（或理想）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read2_2",
@@ -24635,7 +25046,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "下雨的小巷子裡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read2_3",
@@ -24680,7 +25092,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "如夢境般飄渺，是詩人心中想像與寄託的象徵"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read2_4",
@@ -24725,7 +25138,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "加強詩的悲傷、孤寂與迷茫氣氛"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_tzj_read2_5",
@@ -24770,7 +25184,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "悲傷與思念（憂愁與期盼）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_hw_1",
@@ -24799,7 +25214,8 @@ const QUESTION_BANK = [
             "ㄒㄧㄝˋ",
             "ㄔㄣˊ",
             "垢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_hw_2",
@@ -24828,7 +25244,8 @@ const QUESTION_BANK = [
             "ㄌㄠ",
             "添",
             "舍"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_hw_3",
@@ -24857,7 +25274,8 @@ const QUESTION_BANK = [
             "凌",
             "ㄒㄧㄡˇ",
             "屬"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_hw_4",
@@ -24886,7 +25304,8 @@ const QUESTION_BANK = [
             "承",
             "舊",
             "ㄨㄟˊ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_1",
@@ -24931,7 +25350,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "消防衣從外到裡共有三層"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_2",
@@ -24976,7 +25396,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "看著他高興的樣子，我伸出手，輕輕拍了他的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_3",
@@ -25021,7 +25442,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "蓬門今始為君開"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_4",
@@ -25066,7 +25488,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "我輕輕抬一抬肩，牠沒醒，睡得好熟！還咂咂"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_5",
@@ -25111,7 +25534,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "到小徑中去走走吧"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_6",
@@ -25156,7 +25580,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "參與各種飛行測試，很快的，眼前的天空已經"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_7",
@@ -25201,7 +25626,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "引發出讀者想探究的好奇心與閱讀動機"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_8",
@@ -25246,7 +25672,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "給雨潤過的泥路，一定是涼爽又溫柔"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_mc_9",
@@ -25291,7 +25718,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "幾顆大大小小的露珠，錯落在高高低低的荷葉"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_hw_5",
@@ -25320,7 +25748,8 @@ const QUESTION_BANK = [
             "已",
             "暮",
             "樹"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_1",
@@ -25435,7 +25864,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "秋高氣爽"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_2",
@@ -25550,7 +25980,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "碧空如洗"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_3",
@@ -25665,7 +26096,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "如願以償"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_4",
@@ -25780,7 +26212,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "反其道而行"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_5",
@@ -25895,7 +26328,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "無與倫比"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_6",
@@ -26010,7 +26444,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "歡聲雷動"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_7",
@@ -26125,7 +26560,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "大勢已去"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_8",
@@ -26240,7 +26676,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "輕描淡寫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_9",
@@ -26355,7 +26792,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "百年樹人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_cloze_10",
@@ -26470,7 +26908,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "天色入暮"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_read_1",
@@ -26515,7 +26954,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "五言律詩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_read_2",
@@ -26560,7 +27000,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "短（第7句末字）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_read_3",
@@ -26605,7 +27046,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "杜甫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_read_4",
@@ -26650,7 +27092,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "戰亂之後長安城人煙稀少、雜草叢生，一片荒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_read_5",
@@ -26695,7 +27138,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "感時花濺淚"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_neihu_read_6",
@@ -26740,7 +27184,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "戰亂持續了好幾個月都沒有停息，家裡寄來的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_hw_1",
@@ -26769,7 +27214,8 @@ const QUESTION_BANK = [
             "ㄌㄡˋ",
             "肩",
             "寂"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_hw_2",
@@ -26798,7 +27244,8 @@ const QUESTION_BANK = [
             "握",
             "榮",
             "鬆"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_hw_3",
@@ -26827,7 +27274,8 @@ const QUESTION_BANK = [
             "艇",
             "宇",
             "征"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_hw_4",
@@ -26856,7 +27304,8 @@ const QUESTION_BANK = [
             "觸",
             "觀",
             "添"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_rad_1",
@@ -26901,7 +27350,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "舒：舌部 ／ 承：手部 ／ 凌：冫（二）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_1",
@@ -26946,7 +27396,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "搭檔"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_2",
@@ -26991,7 +27442,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "頭「暈」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_3",
@@ -27036,7 +27488,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "舍南舍北皆春水"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_4",
@@ -27081,7 +27534,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "茂密"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_5",
@@ -27126,7 +27580,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "流水聲"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_6",
@@ -27171,7 +27626,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "寬寬鬆鬆的燕尾服"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_7",
@@ -27216,7 +27672,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "轉折句"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_8",
@@ -27261,7 +27718,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "千「載」難逢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_9",
@@ -27306,7 +27764,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "華佗再世 ／ 妙手回春"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_10",
@@ -27351,7 +27810,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「咂」嘴：用牙齒用力咬住不放"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_11",
@@ -27397,7 +27857,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "盤「飧」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_12",
@@ -27442,7 +27903,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "媽媽正在將「沸騰」的水倒進鍋子裡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_13",
@@ -27487,7 +27949,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "比喻很常見或很普通、習以為常的事情"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_14",
@@ -27532,7 +27995,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "有些職業我們能大致描繪出它們的樣貌"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_15",
@@ -27577,7 +28041,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "緩慢冷靜"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_16",
@@ -27622,7 +28087,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "小珍珠鳥睡得好熟！還咂咂嘴，難道在做夢？"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_17",
@@ -27667,7 +28133,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "水長"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_18",
@@ -27712,7 +28179,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "小說"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_19",
@@ -27757,7 +28225,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "穆太做了個滿意的手勢，並望向群眾享受歡呼"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_20",
@@ -27802,7 +28271,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "因為他選擇提醒穆太而只得到第二名（放棄奪"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_21",
@@ -27847,7 +28317,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這是我的一小步，卻是人類的一大步"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_22",
@@ -27892,7 +28363,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "微風（溫風）吹過溪水，使水面泛起圈圈波紋"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_23",
@@ -27937,7 +28409,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "透過探究各行各業工作內容與裝備背後的祕密"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_24",
@@ -27982,7 +28455,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "安全感（尊重與不驚擾）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_mc_25",
@@ -28027,7 +28501,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "草堂地處偏僻，平時很少有客人來拜訪詩人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_punc_1",
@@ -28072,7 +28547,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "1. 破折號（——）、破折號（——）、句"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_idiom_1",
@@ -28133,7 +28609,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "退避三舍"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_idiom_2",
@@ -28194,7 +28671,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "咎由自取"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_idiom_3",
@@ -28255,7 +28733,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "東施效顰"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_idiom_4",
@@ -28316,7 +28795,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "信誓旦旦"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_idiom_5",
@@ -28377,7 +28857,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "千鈞一髮"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_read_1",
@@ -28422,7 +28903,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "五言律詩"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_read_2",
@@ -28467,7 +28949,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "ㄥ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_read_3",
@@ -28512,7 +28995,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "五、六句（野徑雲俱黑，江船火獨明）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_read_4",
@@ -28557,7 +29041,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "清晨（天剛亮的時候）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_heshun_read_5",
@@ -28602,7 +29087,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "春天、四川成都"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_hw_1",
@@ -28632,7 +29118,8 @@ const QUESTION_BANK = [
             "ㄩㄣˋ",
             "ㄙㄨㄣ",
             "顫"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_hw_2",
@@ -28662,7 +29149,8 @@ const QUESTION_BANK = [
             "蝕",
             "ㄧㄝˋ",
             "ㄏㄨㄚˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_hw_3",
@@ -28692,7 +29180,8 @@ const QUESTION_BANK = [
             "噪",
             "騰",
             "隙"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_1_1",
@@ -28741,7 +29230,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "暮"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_1_2",
@@ -28790,7 +29280,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "幕"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_1_3",
@@ -28839,7 +29330,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "慕"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_1_4",
@@ -28888,7 +29380,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "墓"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_2_1",
@@ -28931,7 +29424,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "無與倫比"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_2_2",
@@ -28974,7 +29468,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "大勢已去"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_2_3",
@@ -29017,7 +29512,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "盡其所能"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_3_1",
@@ -29066,7 +29562,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "著迷不已"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_3_2",
@@ -29115,7 +29612,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "燦爛奪目"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_3_3",
@@ -29164,7 +29662,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "不足為奇"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_cloze_3_4",
@@ -29213,7 +29712,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "如願以償"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_explain_1",
@@ -29262,7 +29762,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "說明的方法"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_explain_2",
@@ -29311,7 +29812,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "提出問題"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_explain_3",
@@ -29360,7 +29862,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "說明的順序"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_explain_4",
@@ -29409,7 +29912,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "整理資料"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_word_1",
@@ -29454,7 +29958,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "秋高氣「爽」：陰沉、晦暗"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_word_2",
@@ -29499,7 +30004,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "花徑不曾「緣」客掃：順著、沿著"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_word_3",
@@ -29544,7 +30050,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "利「益」：增加、助長"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_1",
@@ -29589,7 +30096,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "爆 ／ 曝 ／ 瀑"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_2",
@@ -29634,7 +30142,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "了解並尊重牠的習性（給予安全空間、不刻意"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_3",
@@ -29679,7 +30188,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "熱情好客、率真隨和、樂於與人分享同樂"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_4",
@@ -29724,7 +30234,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "讓讀者有身臨其境（置身火災或演唱會現場）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_5",
@@ -29769,7 +30280,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "我們漸漸距離拉近了，我就要眼看追過他，這"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_6",
@@ -29814,7 +30326,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "不經一番寒徹骨，焉得梅花撲鼻香"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_7",
@@ -29859,7 +30372,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "千「載」難逢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_mc_8",
@@ -29904,7 +30418,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "律詩的第三、四句（頷聯）及第五、六句（頸"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_read1_1",
@@ -29949,7 +30464,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "雙方雖然在生命中偶然相遇，但仍是獨立的個"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_read1_2",
@@ -29994,7 +30510,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "心靈相遇時互相啟發、照亮彼此、豐富生命的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_read1_3",
@@ -30039,7 +30556,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "最好你忘掉（隨緣放下，不執著、不給對方負"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_read1_4",
@@ -30084,7 +30602,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "相遇的偶然、短暫、易逝與不可強求"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_read2_1",
@@ -30129,7 +30648,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "說精妙的畫像仙人通靈一樣，幻化而去（羽化"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_read2_2",
@@ -30174,7 +30694,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他很擅長畫山水人物，臨摹（仿畫）技藝極為"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_chongde_read2_3",
@@ -30219,7 +30740,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "都使用了欺騙或不正當的手段將別人的東西據"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_hw_1",
@@ -30254,7 +30776,8 @@ const QUESTION_BANK = [
             "ㄇㄞˊ",
             "跡",
             "ㄕㄜˋ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_hw_2",
@@ -30286,7 +30809,8 @@ const QUESTION_BANK = [
             "ㄒㄧ",
             "ㄖㄨㄥˊ",
             "舒"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_hw_3",
@@ -30319,7 +30843,8 @@ const QUESTION_BANK = [
             "稿",
             "添",
             "ㄐㄧㄢ"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_hw_4",
@@ -30348,7 +30873,8 @@ const QUESTION_BANK = [
             "ㄓˋ",
             "ㄊㄥˊ",
             "惹"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_word_1",
@@ -30393,7 +30919,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "秋高氣「爽」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_word_2",
@@ -30438,7 +30965,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "詩人平日少有人探訪的孤獨僻靜感（藉此反襯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_word_3",
@@ -30483,7 +31011,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "春風化雨"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_word_4",
@@ -30528,7 +31057,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "流散、傾瀉（流暢地湧出或傾瀉而下）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_word_5",
@@ -30573,7 +31103,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "形容天氣陰沉、晦暗（亦比喻心境鬱悶沉重）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_word_6",
@@ -30619,7 +31150,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "春天暴漲充盈的溪流河水（指浣花溪流水）"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_text_1",
@@ -30664,7 +31196,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "只要展現誠實與公平競爭的運動家精神，不管"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_text_2",
@@ -30709,7 +31242,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "廚師的料理刀工技巧"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_text_3",
@@ -30754,7 +31288,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "與動物建立信賴關係完全不需花時間，第一天"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_text_4",
@@ -30799,7 +31334,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「天下沒有不散的筵席。」這句話說明了我們"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_text_5",
@@ -30844,7 +31380,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "由孤寂期待變得熱烈喜悅"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_text_6",
@@ -30889,7 +31426,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "溫暖的輕風吹動水面，泛起陣陣漣漪波紋"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_rhet_1",
@@ -30934,7 +31472,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "你還想到哪些令你好奇的內容呢？"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_rhet_2",
@@ -30979,7 +31518,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "寬寬鬆鬆的燕尾服"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_rhet_3",
@@ -31024,7 +31564,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "擬人（父母的再三呼喚）、視覺摹寫（飛向籠"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_contrast_1",
@@ -31061,7 +31602,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "激動吶喊"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_contrast_2",
@@ -31098,7 +31640,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "悠閒自在"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_read1_1",
@@ -31147,7 +31690,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "變得更熱鬧"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_read1_2",
@@ -31196,7 +31740,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "作者的心情"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_read1_3",
@@ -31245,7 +31790,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "要有責任心"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_read1_4",
@@ -31294,7 +31840,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "動物和人一樣需要關心"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_read1_5",
@@ -31343,7 +31890,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "寵物是人類最好的朋友，要用心照顧牠們"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_read2_1",
@@ -31388,7 +31936,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "杜甫 與 李白"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_read2_2",
@@ -31433,7 +31982,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "花徑不曾緣客掃，蓬門今始為君開（杜甫〈客"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_hw_1",
@@ -31512,6 +32062,9 @@ const QUESTION_BANK = [
             "ㄙㄠ",
             "袖",
             "緒"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -31591,6 +32144,9 @@ const QUESTION_BANK = [
             "瀰",
             "ㄠˋ",
             "惱"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -31680,7 +32236,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "對於新建的大門不滿意"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t1_mc_2",
@@ -31769,7 +32326,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "擾亂軍心，不利戰爭"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t1_mc_3",
@@ -31861,7 +32419,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "自恃聰明"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t1_mc_4",
@@ -31946,6 +32505,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "《火燒連環船》著重於敵我陣營的交鋒，《曹"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -32044,6 +32606,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "失足：「跌」"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -32133,6 +32698,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "我不會，連山頂洞人都會生火，但我就是不會"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -32222,7 +32790,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "由於『〔對手〕的〔粗心大意〕而〔僥倖〕〔"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t1_mc_8",
@@ -32311,6 +32880,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人餉魏武一杯酪，魏武噉（ㄉㄢˋ）少許，蓋"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -32455,7 +33027,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "口若懸河"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_cloze_2",
@@ -32594,6 +33167,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "運籌帷幄"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -32735,6 +33311,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "三足鼎立"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -32874,6 +33453,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一臂之力"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -33013,7 +33595,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "飢腸轆轆"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_cloze_6",
@@ -33152,7 +33735,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "以卵擊石"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_cloze_7",
@@ -33291,6 +33875,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "拍案叫絕"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -33435,7 +34022,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "撫今追昔"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_hw_3",
@@ -33513,6 +34101,9 @@ const QUESTION_BANK = [
             "ㄔˋ",
             "ㄐㄩˋ",
             "瞬"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -33584,6 +34175,9 @@ const QUESTION_BANK = [
             "牲",
             "ㄐㄧㄝˊ",
             "ㄐㄩ"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -33673,7 +34267,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "田徑是歷史最悠久的奧運項目"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t2_mc_2",
@@ -33762,7 +34357,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "肯亞"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t2_mc_3",
@@ -33851,7 +34447,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "改善各國的經濟困境"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t2_mc_4",
@@ -33940,7 +34537,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "標槍"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t2_mc_5",
@@ -34027,6 +34625,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "躡手躡腳"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -34124,6 +34725,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "面對實力強大的美國男子籃球隊，巴西隊感到"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -34214,7 +34818,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "圖徽 ②"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t2_mc_8",
@@ -34307,7 +34912,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "每週不間斷的耐力訓練"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_hw_5",
@@ -34388,6 +34994,9 @@ const QUESTION_BANK = [
             "傾",
             "鞏",
             "肅"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -34468,6 +35077,9 @@ const QUESTION_BANK = [
             "遍",
             "咳",
             "獻"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -34557,7 +35169,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "繡有日本皇室菊花家徽的軍裝"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t3_mc_2",
@@ -34644,7 +35257,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "俄羅斯的蒲丁先生"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t3_mc_3",
@@ -34738,7 +35352,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "地圖 ③"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t3_mc_4",
@@ -34831,7 +35446,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「故宮三寶」是故宮最知名的文物展"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_anhe_t3_mc_5",
@@ -34924,6 +35540,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "戲術一文中展示的魔術表演動畫"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -35016,6 +35635,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "央求"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -35108,6 +35730,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "貪多嚼不爛"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -35193,6 +35818,9 @@ const QUESTION_BANK = [
             "嘖嘖",
             "鼎鼎",
             "ㄔㄚˋ"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -35270,6 +35898,9 @@ const QUESTION_BANK = [
             "瞬",
             "莫",
             "ㄘㄜˋ"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -35357,6 +35988,9 @@ const QUESTION_BANK = [
             "維",
             "猶",
             "惱"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -35450,7 +36084,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "大自然的動、植物們"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_rdg_2",
@@ -35543,7 +36178,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人類可以向大自然請教，找到使生活更美好的"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_rdg_3",
@@ -35636,7 +36272,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "說明文"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_mc_1",
@@ -35729,7 +36366,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "目標太多就好像水壺裡裝太多的水"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_mc_2",
@@ -35827,7 +36465,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「ㄅㄧㄢˋ」布／普「ㄅㄧㄢˋ」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_mc_3",
@@ -35920,6 +36559,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "主旨為成長需朋友陪伴，要彼此體諒"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -36017,6 +36659,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他因經濟「拮据」，所以買了一棟大房子"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -36110,6 +36755,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "諸葛亮為「只欠東風」憂心如焚"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -36202,6 +36850,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "杳無人煙"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -36301,6 +36952,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「枕」木／高「枕」無憂"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -36394,6 +37048,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "文中使用倒敘法"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -36487,6 +37144,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "桶可容「升」，「升」指容量"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -36580,7 +37240,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "哈利波特—冒險"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_mc_11",
@@ -36673,6 +37334,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "破折號"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -36766,6 +37430,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "火，既是朋友，也是守衛"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -36859,6 +37526,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "苦惱－頹喪－冷靜－歡欣"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -36956,7 +37626,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "臺上一分鐘，臺下十年功"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_mc_15",
@@ -37049,7 +37720,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人生有很多面向，我們也有各種潛能和才藝，"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_neihu_cloze_1",
@@ -37235,6 +37907,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "氣定神閒"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -37421,6 +38096,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "變幻莫測"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -37607,6 +38285,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "固執己見"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -37793,6 +38474,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "與眾不同"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -37979,6 +38663,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "夜以繼日"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -38165,6 +38852,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "目不轉睛"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -38351,6 +39041,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "引人入勝"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -38431,6 +39124,9 @@ const QUESTION_BANK = [
             "瀰",
             "ㄌㄩˇ",
             "ㄐㄧ"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -38516,6 +39212,9 @@ const QUESTION_BANK = [
             "叢",
             "竄",
             "懊"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -38596,6 +39295,9 @@ const QUESTION_BANK = [
             "ㄖㄤˇ",
             "躡",
             "頹"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -38668,6 +39370,9 @@ const QUESTION_BANK = [
             "ㄩㄢˋ",
             "ㄧˋ",
             "衡"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -38752,6 +39457,9 @@ const QUESTION_BANK = [
             "熄",
             "剝",
             "炭"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -38832,6 +39540,9 @@ const QUESTION_BANK = [
             "ㄕㄥ",
             "懸",
             "ㄙㄨˋ"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -38919,6 +39630,9 @@ const QUESTION_BANK = [
             "惱",
             "搔",
             "啜"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -39006,6 +39720,9 @@ const QUESTION_BANK = [
             "斥",
             "敷",
             "腫"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -39099,7 +39816,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "好端端的一個人居然頭上蓋著外紅裡黑的布。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_mc_2",
@@ -39192,6 +39910,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "水量越多代表目標越多"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -39284,6 +40005,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人生的目標要追求越多才不會後悔"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -39377,6 +40101,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "苦惱→沮喪→冷靜→興奮。"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -39469,6 +40196,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "碎紙片"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -39562,6 +40292,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "形成三方分立的局面"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -39654,6 +40387,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "顛簸"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -39751,6 +40487,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這是一篇超過百字的白話文小說。"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -39843,6 +40582,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "對於歷史事件及社會寫實特別感興趣"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -39936,6 +40678,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "照片保存了瞬間的景象，不會再變化"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -40029,6 +40774,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "覺得敘里奧最近行為反常而感到很失望"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -40118,7 +40866,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "她燃燒了自己的生命。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_mc_13",
@@ -40211,6 +40960,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "追憶童年及懷念家鄉"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -40303,6 +41055,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "周瑜精通天文料事如神而氣定神閒。"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -40395,6 +41150,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "偵探小說：哈利波特"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -40499,7 +41257,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "只要……就能……"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_conj_2",
@@ -40600,7 +41359,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "與其……不如……"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_conj_3",
@@ -40704,7 +41464,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "直到……才……"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_cloze_1",
@@ -40840,6 +41601,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "屏氣凝神"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -40976,6 +41740,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "嘖嘖稱奇"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -41112,6 +41879,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "變幻莫測"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -41248,6 +42018,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "氣喘吁吁"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -41384,6 +42157,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "出神入化"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -41473,7 +42249,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他從小對音樂有濃厚的興趣"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_read_2",
@@ -41566,7 +42343,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他在朋友參加電視節目時擔任鋼琴伴奏"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_read_3",
@@ -41663,7 +42441,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "仿效國外流行音樂風格"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_read_4",
@@ -41756,7 +42535,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "音樂熱愛、努力創作與堅持不懈"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_read_5",
@@ -41848,7 +42628,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "中華隊曾在奧運棒球項目中獲得金牌。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_shihu_read_6",
@@ -41937,7 +42718,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "首次奪得國際一級賽事冠軍。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_hw_1",
@@ -42022,6 +42804,9 @@ const QUESTION_BANK = [
             "跌",
             "膝",
             "腫"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -42107,6 +42892,9 @@ const QUESTION_BANK = [
             "寡",
             "履",
             "敷"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -42180,6 +42968,9 @@ const QUESTION_BANK = [
             "糧",
             "墊",
             "ㄈㄨˇ"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -42259,6 +43050,9 @@ const QUESTION_BANK = [
             "抄",
             "ㄕㄢ",
             "竄"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -42338,6 +43132,9 @@ const QUESTION_BANK = [
             "ㄧㄢˋ",
             "吁",
             "頹"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -42425,6 +43222,9 @@ const QUESTION_BANK = [
             "飢",
             "鉅",
             "苞"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -42512,6 +43312,9 @@ const QUESTION_BANK = [
             "憊",
             "詫",
             "熬"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -42637,7 +43440,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "口若懸河"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_cloze_2",
@@ -42762,7 +43566,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "束手無策"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_cloze_3",
@@ -42887,7 +43692,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "鼎力相助"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_cloze_4",
@@ -43012,7 +43818,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "先聲奪人"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_cloze_5",
@@ -43137,6 +43944,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "勃然大怒"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -43230,6 +44040,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "拮据／寬裕"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -43323,6 +44136,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "玄關"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -43416,6 +44232,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "萬事「俱」備：僅、只有"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -43510,6 +44329,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "惱 / 腦 / 惱"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -43608,6 +44430,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "拮"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -43701,6 +44526,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一擲千金"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -43799,6 +44627,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "恍然"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -43894,6 +44725,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "事件發生的原因"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -43987,6 +44821,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "拍照時刻意以櫻島為背景，是因為櫻島是鹿耳"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -44076,6 +44913,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "水壺中水量越多代表追求的目標越多"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -44165,6 +45005,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "對話"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -44258,7 +45101,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "如"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_rdg_1",
@@ -44353,7 +45197,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "活動的地點"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_rdg_2",
@@ -44446,7 +45291,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "阿笠決定從現在起只參加有關保護水資源的活"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_rdg_3",
@@ -44535,7 +45381,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "機群在空中的特技表演"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_rdg_4",
@@ -44634,7 +45481,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "灰面鵟鷹成群過境，引起賞鳥的風潮"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_rdg_5",
@@ -44730,7 +45578,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "流浪動物之家新增野鳥急救站"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_rdg_6",
@@ -44824,7 +45673,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "發現一隻翅膀受傷的小白鷺，可以送往野鳥急"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_113_taozijiao_rdg_7",
@@ -44915,7 +45765,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "兩篇文章都提到人類對野生動物的關愛"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_hw_1",
@@ -44988,6 +45839,9 @@ const QUESTION_BANK = [
             "膝",
             "ㄊㄨㄟˊ",
             "ㄧˋ"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -45060,6 +45914,9 @@ const QUESTION_BANK = [
             "ㄑㄧㄥ",
             "ㄇㄧˇ",
             "詫"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -45140,6 +45997,9 @@ const QUESTION_BANK = [
             "ㄐㄧㄝˊ",
             "憊",
             "ㄔㄨㄛˋ"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -45226,6 +46086,9 @@ const QUESTION_BANK = [
             "勃",
             "蕩",
             "徽"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -45314,6 +46177,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "篇幅"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -45402,6 +46268,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "編織"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -45490,6 +46359,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "遍地"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -45594,6 +46466,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "屏氣凝神"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -45695,6 +46570,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "輕重緩急"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -45799,6 +46677,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "以寡擊眾"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -45903,7 +46784,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "靈光一閃"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_cloze_2_5",
@@ -46008,6 +46890,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "躡手躡腳"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -46097,6 +46982,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "捨棄部分數量，但品質有效維持。"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -46190,6 +47078,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "知識與毅力是求生的關鍵，絕境中不能停止思"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -46279,6 +47170,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "都是讓曹操放下戒心，完全相信自己已經穩操"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -46371,6 +47265,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這部小說的情節，變幻莫測，一成不變，真是"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -46460,6 +47357,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "說明氣味比影像更能喚醒記憶深處，且更具家"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -46549,6 +47449,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "父親從擔憂兒子的前途，轉為對兒子行為的嚴"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -46641,6 +47544,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "跟「欲速則不達」的意思完全相反。"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -46739,6 +47645,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "炭：山部"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -46831,6 +47740,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "愁眉苦臉／垂頭喪氣"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -46923,6 +47835,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「旋出」：一邊旋轉，一邊將物品拿出"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -47015,7 +47930,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "夜裡的冷風襲來，讓旅人不由得渾身「顫抖」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_mc_12",
@@ -47114,7 +48030,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "穀「ㄘㄤ」／船「ㄘㄤ」"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_read_1",
@@ -47203,7 +48120,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "霓虹光影互相輝映。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_read_2",
@@ -47292,7 +48210,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "成為具備文化與繁榮的國際城市。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_read_3",
@@ -47381,7 +48300,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "高雄成功轉型為美麗的新都城。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_read_4",
@@ -47478,7 +48398,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "共同體現了高雄的轉型與特色。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_chongde_read_5",
@@ -47567,7 +48488,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "愛河承載了高雄的歷史與轉型，代表了城市精"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_dahua_hw_1",
@@ -47655,6 +48577,9 @@ const QUESTION_BANK = [
             "懸",
             "殊",
             "頹"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -47734,6 +48659,9 @@ const QUESTION_BANK = [
             "鼎",
             "ㄔㄚˋ",
             "辯"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -47812,6 +48740,9 @@ const QUESTION_BANK = [
             "逝",
             "ㄙㄨˋ",
             "衡"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -47899,6 +48830,9 @@ const QUESTION_BANK = [
             "模",
             "仿",
             "叢"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -47990,6 +48924,9 @@ const QUESTION_BANK = [
             "徒",
             "瞞",
             "憊"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -48083,6 +49020,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "作者認為做出明智抉擇的具體做法是：先去除"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -48176,6 +49116,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "倒掉一半的水：象徵為了確保重點目標能達成"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -48269,6 +49212,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "火不僅能提供溫暖，還能擔任守衛防止野獸靠"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -48362,6 +49308,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "烈焰"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -48455,6 +49404,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "充滿自信：過度依賴常理判斷，忽略了氣象變"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -48552,6 +49504,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "氣定神閒，洞燭機先。"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -48645,6 +49600,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "加強使人詫異的神奇效果"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -48738,6 +49696,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "頃刻兩席皆滿"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -48831,6 +49792,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "作者因懷念故鄉，在凝視照片時，腦海中自然"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -48924,6 +49888,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "父親雖然言詞嚴厲、容易發脾氣，但仍重視家"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -49021,6 +49988,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "譬喻"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -49114,6 +50084,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "課文開頭先描寫敘里奧的家庭生活困窮，這是"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -49190,6 +50163,9 @@ const QUESTION_BANK = [
             "ㄇㄧˇ",
             "ㄇㄧˊ",
             "ㄍㄡˋ"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -49265,6 +50241,9 @@ const QUESTION_BANK = [
             "ㄌㄠˊ",
             "ㄆㄧˇ",
             "ㄞˋ"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -49341,6 +50320,9 @@ const QUESTION_BANK = [
             "ㄧˋ",
             "ㄓㄠˋ",
             "ㄌㄠˋ"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -49435,6 +50417,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "丁→乙→甲→丙"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -49528,6 +50513,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "丙→乙→丁→甲"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -49621,7 +50609,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "與國際大廠實力相差甚遠，且代工模式不被外"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_dahua_rdg_2",
@@ -49713,7 +50702,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "台積電以較小規模與有限資源，成功在強敵環"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_dahua_rdg_3",
@@ -49806,7 +50796,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "強調若不謹慎處理海外設廠與技術保護的平衡"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_hw_1",
@@ -49891,6 +50882,9 @@ const QUESTION_BANK = [
             "ㄘㄨㄢˋ",
             "蹣",
             "搔"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -49965,6 +50959,9 @@ const QUESTION_BANK = [
             "ㄍㄨㄥˇ",
             "ㄋㄧㄝˋ",
             "肅"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -50037,6 +51034,9 @@ const QUESTION_BANK = [
             "ㄇㄧˇ",
             "懊",
             "ㄑㄧㄥ"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -50115,6 +51115,9 @@ const QUESTION_BANK = [
             "酣",
             "敷",
             "据"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -50193,6 +51196,9 @@ const QUESTION_BANK = [
             "複",
             "蕩",
             "啜"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -50287,6 +51293,9 @@ const QUESTION_BANK = [
             "瞬",
             "衡",
             "獻"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -50355,6 +51364,9 @@ const QUESTION_BANK = [
             "國徽",
             "徽章",
             "徽號）"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -50432,6 +51444,9 @@ const QUESTION_BANK = [
             "穀倉",
             "倉促",
             "米倉）"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -50504,6 +51519,9 @@ const QUESTION_BANK = [
             "猶豫",
             "記憶猶新",
             "過猶不及）"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -50571,6 +51589,9 @@ const QUESTION_BANK = [
             "履歷",
             "草履",
             "西裝革履）"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -50694,7 +51715,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "滄海一粟"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_idiom_2",
@@ -50817,7 +51839,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人謀不臧"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_idiom_3",
@@ -50940,7 +51963,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "相形見絀"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_idiom_4",
@@ -51063,7 +52087,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "中流砥柱"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_idiom_5",
@@ -51181,7 +52206,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "既往不咎"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_txt_1",
@@ -51270,6 +52296,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "想達到目標就得做出抉擇"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -51363,6 +52392,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "苦惱->頹喪->冷靜->興奮"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -51452,6 +52484,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "全文以不到百字的篇幅描述表演經過"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -51537,6 +52572,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "母親趕緊央求父親：「拜託，今天請不要發脾"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -51630,6 +52668,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "發現真相後，父親對之前的態度感到後悔"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -51723,6 +52764,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "曹操獲得勝利，占領了北方"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -51815,7 +52859,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "投奔／投靠"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_mc_2",
@@ -51907,6 +52952,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "烈「焰」騰空／「宴」會"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -52007,6 +53055,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "鉅／距／拒"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -52092,6 +53143,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "和口語表達一樣淺顯"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -52184,6 +53238,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "你我過往的恩「怨」情仇也該就此放下了吧!"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -52269,6 +53326,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "蓬頭垢面"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -52356,6 +53416,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "姐姐因為準備充足而「氣定神閒」的面對考試"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -52445,6 +53508,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "哈利波特:冒險小說"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -52534,7 +53600,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一道金屬閃光引起他的注意"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_mc_10",
@@ -52626,6 +53693,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "變幻「莫」測：不能、無法"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -52711,6 +53781,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他正在「酣睡」，你別去吵醒他"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -52808,7 +53881,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這件作品是他自己用來欣賞的，所以旁人怎麼"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_mc_13",
@@ -52893,6 +53967,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "選擇句"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -52980,6 +54057,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "徒然／枉然"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -53078,6 +54158,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「咳」嗽"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -53170,6 +54253,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "土「壤」：ㄖㄤˇ"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -53255,7 +54341,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "要懂得保護好個人資料"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_read_1",
@@ -53340,7 +54427,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "評斷事情應做全面的探討，不可以偏概全"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_read_2",
@@ -53427,7 +54515,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "喜歡比較，不願意承認別人的成就"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_read_3",
@@ -53512,7 +54601,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他故意模仿學問很高的樣子"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_read_4",
@@ -53597,7 +54687,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "假裝和欺騙最後會被真相揭穿"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_final_114_heshun_read_5",
@@ -53694,7 +54785,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "白雪公主中的壞皇后"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_neihu_hw_1",
@@ -53781,6 +54873,9 @@ const QUESTION_BANK = [
             "跚",
             "懊",
             "犧"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -53858,6 +54953,9 @@ const QUESTION_BANK = [
             "ㄔˋ",
             "緒",
             "叢"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -53945,6 +55043,9 @@ const QUESTION_BANK = [
             "惱",
             "泛",
             "鞏"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -54032,6 +55133,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "荊軻刺秦，窮圖匕見"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -54121,6 +55225,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "赤壁一戰後，造成三足鼎立的局面"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -54210,6 +55317,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "時間"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -54307,6 +55417,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "鉅細「靡」遺／委「靡」不振"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -54394,6 +55507,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "貪多嚼不爛"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -54483,6 +55599,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "那些火花跟我一樣，也快被餓死了"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -54572,6 +55691,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "奇在多也"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -54664,6 +55786,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "出自蒲松齡的三國演義"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -54757,6 +55882,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "弟弟：愛笑"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -54846,7 +55974,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他把心裡的害怕塞進最深的角落"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_neihu_mc_11",
@@ -54935,6 +56064,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "掌握首尾呼應的寫作技巧來加深讀者印象"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -55027,7 +56159,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "福爾摩斯"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_neihu_mc_13",
@@ -55112,6 +56245,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "常以奇幻情節呈現道理或人性"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -55193,6 +56329,9 @@ const QUESTION_BANK = [
             "杳",
             "倫",
             "固"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -55274,6 +56413,9 @@ const QUESTION_BANK = [
             "屏",
             "筋",
             "案"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -55397,6 +56539,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "勃然大怒"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -55515,6 +56660,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "自怨自艾"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -55635,6 +56783,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "固執己見"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -55753,6 +56904,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "杳無人煙"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -55873,6 +57027,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "屏氣凝神"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -55993,6 +57150,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "筋疲力盡"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -56111,6 +57271,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "精采絕倫"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -56231,6 +57394,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "拍案叫絕"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -56320,7 +57486,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "展現真實可及、活生生的生活感"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_neihu_read_2",
@@ -56409,7 +57576,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "可以看到法國人對美食的執著"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_neihu_read_3",
@@ -56501,7 +57669,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "固然…但是…"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_neihu_read_4",
@@ -56590,7 +57759,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "作者覺得自己像當地人，融入當地生活，增添"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_hw_1",
@@ -56675,6 +57845,9 @@ const QUESTION_BANK = [
             "徽",
             "竄",
             "焰"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -56761,6 +57934,9 @@ const QUESTION_BANK = [
             "鼎",
             "ㄧㄠˇ",
             "啜"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -56833,6 +58009,9 @@ const QUESTION_BANK = [
             "腫",
             "ㄊㄧˋ",
             "勃"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -56919,6 +58098,9 @@ const QUESTION_BANK = [
             "ㄒㄩ",
             "ㄒㄩ",
             "鑼"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -57043,7 +58225,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人云亦云"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_cloze_2",
@@ -57167,7 +58350,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "隔靴搔癢"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_cloze_3",
@@ -57288,7 +58472,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "悔不當初"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_cloze_4",
@@ -57412,7 +58597,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "口若懸河"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_cloze_5",
@@ -57536,7 +58722,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "哀鴻遍野"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_mc_1",
@@ -57634,6 +58821,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "神情嚴「肅」"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -57730,6 +58920,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「枕」戈待旦／地「震」"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -57816,6 +59009,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「糧」食"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -57902,7 +59098,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "味同嚼蠟"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_mc_5",
@@ -57994,6 +59191,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "躡手躡腳"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -58086,6 +59286,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "店小二――服務生"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -58187,6 +59390,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "叟／瘦／搜／艘"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -58287,6 +59493,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "踵／種／腫／動"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -58376,6 +59585,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「我會瞞著你父親，請照相師傅將你鼻子上的"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -58469,6 +59681,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "桶可容升、無底、中空"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -58558,6 +59773,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "敘里奧為了幫爸爸分擔工作，而減少了睡眠時"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -58647,6 +59865,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "在抉擇時應該將心力放在最重要的事上"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -58740,6 +59961,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "周瑜和諸葛亮討論後，決定採取火攻"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -58828,6 +60052,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "作者在文章首尾描述回憶，中間段則敘述現在"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -58921,6 +60148,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "找到生火靈感――埋怨"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -59014,6 +60244,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "江面映照的波光如白月般明亮"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -59101,7 +60334,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "那些火花跟我一樣，也快被餓死了"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read1_1",
@@ -59186,7 +60420,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "沒有好好安排時間"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read1_2",
@@ -59275,7 +60510,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "比徹讀完《英國史》"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read1_3",
@@ -59364,7 +60600,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "他的鋼琴老師"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read1_4",
@@ -59454,7 +60691,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "有時甚至比一次長時間運動更好"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read1_5",
@@ -59543,7 +60781,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "善用零星時間能讓人生更豐富"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read2_1",
@@ -59632,7 +60871,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "永凍土崩解造成堰塞湖"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read2_2",
@@ -59724,7 +60964,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "小島嶼發展中國家和其他開發中國家"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read2_3",
@@ -59813,7 +61054,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "人為製造的溫室氣體量減去被移除的量接近零"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read2_4",
@@ -59902,7 +61144,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "成本上升，但產品不一定能提高價格"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_114_taozijiao_read2_5",
@@ -59989,7 +61232,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "讓高碳排放進口商品繳納較高費用"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_hw_1",
@@ -60069,6 +61313,9 @@ const QUESTION_BANK = [
             "庭",
             "述",
             "搔"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -60141,6 +61388,9 @@ const QUESTION_BANK = [
             "ㄑㄧㄥˇ",
             "瞬",
             "舀"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -60213,6 +61463,9 @@ const QUESTION_BANK = [
             "緒",
             "猶",
             "擇"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -60300,6 +61553,9 @@ const QUESTION_BANK = [
             "拮",
             "据",
             "肅"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -60389,7 +61645,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "首尾呼應。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_mc_2",
@@ -60478,7 +61735,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "重要而不急迫的事。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_mc_3",
@@ -60572,6 +61830,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "小英：這兩篇文章都提醒著我們在做事情時，"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -60645,6 +61906,9 @@ const QUESTION_BANK = [
             "裊",
             "勞",
             "惱"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -60721,6 +61985,9 @@ const QUESTION_BANK = [
         "targets": [
             "瀰",
             "糧"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -60814,6 +62081,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「靡」不稱慶／所向披「靡」"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -60913,7 +62183,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "一言九「ㄉㄧㄥˇ」／「ㄇㄢˊ」天過海"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_mc_6",
@@ -61006,6 +62277,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "氣「焰」高張：人的氣勢或威勢如火焰的光熱"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -61105,6 +62379,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "蹣「ㄕㄢ」／意興闌「ㄕㄢ」"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -61198,6 +62475,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「若你肯付出心力，面對人生，就能活得燦爛"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -61291,6 +62571,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「在一片漆黑的荒野中，遠方小屋中的暈黃燭"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -61383,6 +62666,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "甲乙丁"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -61470,7 +62756,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "這部小說的情節變化多端，卻又一成不變，令"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_mc_12",
@@ -61557,6 +62844,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "貓哭耗子假慈悲。"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -61651,6 +62941,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "少年的體悟是：面對過多想做的事情時，必須"
+        ],
+        "lessonRefs": [
+            "L7"
         ]
     },
     {
@@ -61740,6 +63033,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "布萊恩在被豪豬攻擊後感到相當憤怒，希望可"
+        ],
+        "lessonRefs": [
+            "L8"
         ]
     },
     {
@@ -61829,6 +63125,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "諸葛亮：「火攻的關鍵在風向，若東南風起，"
+        ],
+        "lessonRefs": [
+            "L9"
         ]
     },
     {
@@ -61919,6 +63218,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "作者一開始以「有桶戲者，桶可容升，無底，"
+        ],
+        "lessonRefs": [
+            "L10"
         ]
     },
     {
@@ -62011,6 +63313,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "「我會瞞著你父親，請照相師傅將你鼻子上的"
+        ],
+        "lessonRefs": [
+            "L11"
         ]
     },
     {
@@ -62101,6 +63406,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "父親在看到敘里奧複習功課時打瞌睡，認為敘"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -62195,6 +63503,9 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "當爸爸說出「我們一家的希望都寄託在你身上"
+        ],
+        "lessonRefs": [
+            "L12"
         ]
     },
     {
@@ -62285,7 +63596,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "面臨「三心二意搞不定」的困境時我們應該要"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_mc_21",
@@ -62374,7 +63686,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "讓家人知道妹妹的身體狀況。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_mc_22",
@@ -62463,7 +63776,8 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "父親不善於當面表達情感。"
-        ]
+        ],
+        "lessonRefs": []
     },
     {
         "id": "q_exam_zx_f_mc_23",
@@ -62552,6 +63866,7 @@ const QUESTION_BANK = [
         ],
         "targets": [
             "父親說不出口的愛。"
-        ]
+        ],
+        "lessonRefs": []
     }
 ];

@@ -1023,7 +1023,7 @@ function renderDashboardView() {
 
       <div class="section-title">
         <h2>📚 課次進度地圖</h2>
-        <span class="muted">康軒版六上 · 第 1～${lessonCount} 課 + 段考全真題庫</span>
+        <span class="muted">南一版六上 · 第 1～${lessonCount} 課 + 段考全真題庫</span>
       </div>
       <section class="unit-grid">
         ${unitCardsHtml}
@@ -1942,18 +1942,22 @@ function finishQuiz() {
         </div>
 
         <div class="review-sol-panel" id="detail-${idx}" style="display: ${a && a.result === 'bad' ? 'grid' : 'none'};">
-          ${expText ? `
-            <div class="box insight">
-              <h4>💡 解析說明</h4>
-              <div>${expText}</div>
-            </div>
-          ` : ''}
-          ${q.trap ? `
-            <div class="box trap">
-              <h4>⚠️ 常犯錯誤診斷</h4>
-              <div>${q.trap}</div>
-            </div>
-          ` : ''}
+          ${q.detail4D
+            ? render4DExplanationHtml(q, q.type === 'mcq' ? (q.options || []) : [])
+            : `
+              ${expText ? `
+                <div class="box insight">
+                  <h4>💡 解析說明</h4>
+                  <div>${expText}</div>
+                </div>
+              ` : ''}
+              ${q.trap ? `
+                <div class="box trap">
+                  <h4>⚠️ 常犯錯誤診斷</h4>
+                  <div>${q.trap}</div>
+                </div>
+              ` : ''}
+            `}
         </div>
       </div>
     `;

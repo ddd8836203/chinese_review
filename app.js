@@ -6,6 +6,7 @@ const STORAGE_PREFIX = 'g6_chinese_';
 const ACTIVE_USER_KEY = 'g6_chinese_active_user';
 const LEGACY_MIGRATED_KEY = 'g6_chinese_legacy_migrated_v2';
 const CLOUD_SYNC_URL_KEY = 'g6_chinese_firebase_db_url';
+const FONT_SCALE_KEY = 'g6_chinese_font_scale';
 const DEFAULT_FIREBASE_DB_URL = 'https://math-review-6-default-rtdb.asia-southeast1.firebasedatabase.app';
 
 const USERS = [
@@ -32,7 +33,10 @@ const state = {
   quizQuestions: [],
   quizIndex: 0,
   resumeTargetIdx: null,
-  answers: {},          // qId -> { result: 'ok'|'slow'|'bad', selectedOptionText, revealed, wrongBlanks: [] }
+  answers: {},          // qId -> { result: 'ok'|'slow'|'bad', selectedOptionText, pendingOptIdx, revealed, wrongBlanks: [] }
+  groupRevealed: {},    // passageId -> boolean
+  passageCollapsed: false,
+  fontScale: localStorage.getItem(FONT_SCALE_KEY) || 'normal', // 'normal' | 'lg'
   optionOrders: {},     // qId -> options array
   imgModeQuestions: {}, // qId -> boolean
   sessionHistory: [],
@@ -258,8 +262,9 @@ function buildSlimLogEntry(q, resultState, chosenOpt, userText, durationSec) {
   }
 
   const nowStr = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false });
+  const pObj = getPassageObj(q);
 
-  return {
+  const logEntry = {
     t: nowStr,
     id: q.id,
     code: q.code || '',
@@ -274,6 +279,12 @@ function buildSlimLogEntry(q, resultState, chosenOpt, userText, durationSec) {
     res: resultState, // 'ok' | 'slow' | 'bad'
     sec: durationSec || 1
   };
+  if (pObj && pObj.text) {
+    logEntry.pId = q.passageId;
+    logEntry.pTitle = pObj.title || '';
+    logEntry.pTxt = pObj.text.length > 420 ? pObj.text.slice(0, 420) + '…' : pObj.text;
+  }
+  return logEntry;
 }
 
 async function pushSlimLogToCloud(q, resultState, chosenOpt, userText, durationSec) {
@@ -371,6 +382,121 @@ function updateNavUserUI() {
 
 function getCleanBank() {
   return (typeof QUESTION_BANK !== 'undefined' ? QUESTION_BANK : []).filter(Boolean);
+}
+
+function getCleanPassages() {
+  return (typeof PASSAGES !== 'undefined' && PASSAGES && typeof PASSAGES === 'object') ? PASSAGES : {};
+}
+
+function getPassageObj(q) {
+  if (!q || !q.passageId) return null;
+  return getCleanPassages()[q.passageId] || null;
+}
+
+function applyFontScale() {
+  if (typeof document !== 'undefined' && document.body && document.body.classList) {
+    document.body.classList.toggle('font-scale-lg', state.fontScale === 'lg');
+  }
+}
+
+function toggleFontScale() {
+  state.fontScale = state.fontScale === 'lg' ? 'normal' : 'lg';
+  try { localStorage.setItem(FONT_SCALE_KEY, state.fontScale); } catch (e) {}
+  applyFontScale();
+  if (state.view === 'quiz') {
+    renderQuizQuestion();
+  }
+  showToast(state.fontScale === 'lg' ? '🔤 已切換為放大閱讀字體' : '🔤 已恢復標準閱讀字體');
+}
+
+function orderPassageGroupsInPool(pool) {
+  if (!Array.isArray(pool) || pool.length <= 1) return pool;
+  const byPid = new Map();
+  pool.forEach(q => {
+    if (q && q.passageId) {
+      if (!byPid.has(q.passageId)) byPid.set(q.passageId, []);
+      byPid.get(q.passageId).push(q);
+    }
+  });
+  const seen = new Set();
+  const ordered = [];
+  for (const q of pool) {
+    if (!q || seen.has(q.id)) continue;
+    if (q.passageId && byPid.get(q.passageId).length > 1) {
+      const grp = [...byPid.get(q.passageId)].sort((a, b) => (a.passageOrder || 0) - (b.passageOrder || 0));
+      for (const item of grp) {
+        if (!seen.has(item.id)) {
+          seen.add(item.id);
+          ordered.push(item);
+        }
+      }
+    } else {
+      seen.add(q.id);
+      ordered.push(q);
+    }
+  }
+  return ordered;
+}
+
+function getActivePassageGroup(questions, idx) {
+  const q = questions[idx];
+  if (!q) return { startIdx: idx, endIdx: idx, items: [], isGroup: false, passage: null, passageKind: '' };
+  const passage = getPassageObj(q);
+  if (!q.passageId) {
+    return { startIdx: idx, endIdx: idx, items: [q], isGroup: false, passage: null, passageKind: '' };
+  }
+  let startIdx = idx;
+  while (startIdx > 0 && questions[startIdx - 1] && questions[startIdx - 1].passageId === q.passageId) startIdx--;
+  let endIdx = idx;
+  while (endIdx < questions.length - 1 && questions[endIdx + 1] && questions[endIdx + 1].passageId === q.passageId) endIdx++;
+  const items = questions.slice(startIdx, endIdx + 1);
+  return {
+    startIdx,
+    endIdx,
+    passageId: q.passageId,
+    passageKind: q.passageKind || (passage && passage.kind) || 'reading',
+    passage,
+    items,
+    isGroup: items.length > 1
+  };
+}
+
+function expandPassageGroupInSession(passageId) {
+  if (!passageId) return;
+  const bank = getCleanBank();
+  const fullGroup = bank
+    .filter(x => x.passageId === passageId)
+    .sort((a, b) => (a.passageOrder || 0) - (b.passageOrder || 0));
+  if (fullGroup.length <= 1) return;
+
+  fullGroup.forEach(item => {
+    if (item.type === 'mcq' && Array.isArray(item.options) && !state.optionOrders[item.id]) {
+      state.optionOrders[item.id] = (isExamUnitId(item.lessonId) || item.options.length > 4)
+        ? [...item.options]
+        : [...item.options].sort(() => Math.random() - 0.5);
+    }
+  });
+
+  const existingIds = new Set(fullGroup.map(x => x.id));
+  const curIdx = state.quizQuestions.findIndex(x => x && x.passageId === passageId);
+  const insertAt = curIdx >= 0 ? curIdx : state.quizIndex;
+  const filtered = [];
+  let inserted = false;
+  state.quizQuestions.forEach((item, i) => {
+    if (i === insertAt && !inserted) {
+      filtered.push(...fullGroup);
+      inserted = true;
+    }
+    if (!existingIds.has(item.id)) filtered.push(item);
+  });
+  if (!inserted) filtered.push(...fullGroup);
+
+  state.quizQuestions = filtered;
+  state.quizIndex = filtered.findIndex(x => x.passageId === passageId);
+  state.groupRevealed[passageId] = false;
+  state.passageCollapsed = false;
+  renderQuizQuestion();
+  showToast(`📖 已展開同組全部 ${fullGroup.length} 題`);
 }
 
 function isExamUnitId(unitId) {
@@ -1203,12 +1329,16 @@ function startQuiz(mode, unitId = null, schoolFilter = null) {
     return;
   }
 
+  pool = orderPassageGroupsInPool(pool);
+
   state.quizMode = mode;
   state.currentUnitId = nextUnitId;
   state.currentTopicId = nextTopicId;
   state.quizQuestions = pool;
   state.quizIndex = 0;
   state.answers = {};
+  state.groupRevealed = {};
+  state.passageCollapsed = false;
   state.optionOrders = {};
   state.imgModeQuestions = {};
   state.sessionHistory = [];
@@ -1289,31 +1419,282 @@ function recordQuizAnswer(q, resultState, userText = '', chosenOpt = null, durat
   else state.sessionHistory.push(rec);
 }
 
+function renderPassagePaneHtml(passageObj, isClozeBank, isCollapsed) {
+  if (!passageObj || !passageObj.text) return '';
+  const kindLabel = isClozeBank ? '📚 共用選項庫' : '📖 閱讀原文';
+  return `
+    <aside class="passage-pane ${isCollapsed ? 'collapsed' : ''}" id="quiz-passage-pane">
+      <div class="passage-pane-head">
+        <div class="passage-pane-title-wrap">
+          <span class="tag ${isClozeBank ? 'exam-badge' : 'lv'}">${kindLabel}</span>
+          <strong class="passage-title-text">${escapeHtml(passageObj.title || '')}</strong>
+        </div>
+        <button type="button" class="btn btn-ghost btn-sm passage-mobile-toggle" id="btn-toggle-passage">
+          ${isCollapsed ? '展開內容 ▾' : '收合內容 ▴'}
+        </button>
+      </div>
+      <div class="passage-body">${escapeHtml(passageObj.text).replace(/\n/g, '<br>')}</div>
+    </aside>
+  `;
+}
+
+function renderPassageGroupQuizHtml(group, isGroupRevealed) {
+  const letters = ['A', 'B', 'C', 'D'];
+  const items = group.items || [];
+  const pObj = group.passage;
+
+  if (group.passageKind === 'handwriting_story') {
+    const segsHtml = items.map((subQ, si) => {
+      const globalNo = group.startIdx + si + 1;
+      const subAns = state.answers[subQ.id] || {};
+      const subRevealed = isGroupRevealed || !!subAns.revealed;
+      const wrongBlanks = subAns.wrongBlanks || [];
+      let blankCounter = 0;
+      const stemHtml = String(subQ.question || '').replace(/\[\[(國字|注音):(.*?):(.*?)\]\]/g, (_, mode, prompt, answer) => {
+        const bIdx = blankCounter++;
+        const isWrong = wrongBlanks.includes(bIdx);
+        const statusIcon = subRevealed
+          ? (isWrong ? '<span class="hw-blank-status" style="color:#e11d48;">❌</span>' : '<span class="hw-blank-status" style="color:#059669;">✅</span>')
+          : '';
+        return `
+          <span class="hw-inline-blank ${subRevealed ? 'revealed' : ''} ${isWrong ? 'wrong-blank' : ''}"
+                data-hw-blank="${bIdx}"
+                data-hw-qid="${escapeHtml(subQ.id)}"
+                title="${subRevealed ? '點擊可單獨標記此字寫錯或寫對' : '點擊揭曉答案'}">
+            <span class="hw-tag">寫${mode}</span>
+            <span class="hw-prompt">${prompt}</span>
+            <span class="hw-ans font-kai">${subRevealed ? answer : '？'}</span>
+            ${statusIcon}
+          </span>
+        `;
+      });
+      const stPill = subAns.result === 'ok'
+        ? '<span class="tag ok">✅ 全對熟練</span>'
+        : subAns.result === 'slow'
+        ? '<span class="tag" style="background:#fef3c7;color:#92400e;">⏳ 待複習</span>'
+        : subAns.result === 'bad'
+        ? '<span class="tag bad">❌ 有錯字</span>'
+        : '';
+
+      return `
+        <div class="hw-story-seg" data-sub-qid="${escapeHtml(subQ.id)}">
+          <div class="hw-story-seg-head">
+            <span class="sub-q-num">第 ${si + 1} 段（第 ${globalNo} 題）</span>
+            <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+              ${subQ.code ? `<span class="tag code-badge">🏷️ ${escapeHtml(subQ.code)}</span>` : ''}
+              ${stPill}
+            </div>
+          </div>
+          <div class="hw-story-seg-body font-kai">${stemHtml}</div>
+          ${subRevealed ? `
+            <div class="hw-story-seg-fb">
+              <div style="font-size:15px;font-weight:800;color:#065f46;margin-bottom:8px;">
+                🎯 本段正解：<span class="font-kai" style="font-size:18px;">${escapeHtml(subQ.correctAnswer || '')}</span>
+              </div>
+              ${(subQ.detail4D || subQ.explanation || subQ.trap) ? `
+                <details class="sub-q-details">
+                  <summary>💡 查看第 ${si + 1} 段詳解與避坑</summary>
+                  <div class="sub-q-details-body">
+                    ${subQ.detail4D ? render4DExplanationHtml(subQ) : `
+                      ${subQ.explanation ? `<div class="box insight"><h4>💡 字詞解析</h4><div>${subQ.explanation}</div></div>` : ''}
+                      ${subQ.trap ? `<div class="box trap"><h4>⚠️ 避坑診斷</h4><div>${subQ.trap}</div></div>` : ''}
+                    `}
+                  </div>
+                </details>
+              ` : ''}
+              <div class="fb-row">
+                <button type="button" class="fb ok ${subAns.result === 'ok' ? 'picked' : subAns.result ? 'dim' : ''}" data-group-fb-qid="${escapeHtml(subQ.id)}" data-fb="ok">
+                  <span class="emo">👍</span><span>本段全對</span>
+                </button>
+                <button type="button" class="fb slow ${subAns.result === 'slow' ? 'picked' : subAns.result ? 'dim' : ''}" data-group-fb-qid="${escapeHtml(subQ.id)}" data-fb="slow">
+                  <span class="emo">⏳</span><span>寫對想很久</span>
+                </button>
+                <button type="button" class="fb bad ${subAns.result === 'bad' ? 'picked' : subAns.result ? 'dim' : ''}" data-group-fb-qid="${escapeHtml(subQ.id)}" data-fb="bad">
+                  <span class="emo">❌</span><span>本段有錯字</span>
+                </button>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }).join('');
+
+    const unratedCount = items.filter(it => !(state.answers[it.id] && state.answers[it.id].result)).length;
+    return `
+      <div class="paper-hint">
+        <span>✍️</span>
+        <span>${escapeHtml((pObj && pObj.title) || '連貫短文手寫題組')}：請先在紙上寫出各段國字或注音，全部寫完後點下方「一併對答案」！</span>
+      </div>
+      <div class="hw-story-box">${segsHtml}</div>
+      ${!isGroupRevealed ? `
+        <div class="group-reveal-bar">
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-reveal-group">
+            👀 整篇寫好了，一併對答案！（共 ${items.length} 段）
+          </button>
+        </div>
+      ` : `
+        <div class="group-summary-banner">
+          <span>🎯 整篇答案已揭曉！可點擊上方單字框標記錯字，或完成各段自評。</span>
+          ${unratedCount > 0 ? `
+            <button type="button" class="btn btn-primary btn-sm" id="btn-group-all-ok">
+              ✨ 一鍵標記其餘 ${unratedCount} 段「全對熟練 👍」
+            </button>
+          ` : ''}
+        </div>
+      `}
+    `;
+  }
+
+  // reading / cloze_bank 同頁雙欄題組
+  const isClozeBank = group.passageKind === 'cloze_bank';
+  let pickedCount = 0;
+  let okCount = 0;
+  let badCount = 0;
+
+  const subCardsHtml = items.map((subQ, si) => {
+    const globalNo = group.startIdx + si + 1;
+    const subAns = state.answers[subQ.id] || {};
+    const subAnswered = !!subAns.result;
+    if (subAns.pendingOptIdx != null || subAnswered) pickedCount++;
+    if (subAns.result === 'ok') okCount++;
+    else if (subAns.result === 'bad') badCount++;
+
+    const options = state.optionOrders[subQ.id] || subQ.options || [];
+    const correctOpt = options.find(o => o.isCorrect);
+
+    const statusBadge = !isGroupRevealed
+      ? (subAns.pendingOptIdx != null ? '<span class="tag ok">✔ 已選答案</span>' : '<span class="tag">待作答</span>')
+      : subAns.result === 'ok'
+      ? '<span class="tag ok">✅ 答對</span>'
+      : subAns.result === 'slow'
+      ? '<span class="tag" style="background:#fef3c7;color:#92400e;">⏳ 想很久</span>'
+      : subAns.result === 'bad'
+      ? '<span class="tag bad">❌ 答錯</span>'
+      : '<span class="tag">點擊補答</span>';
+
+    const optsHtml = options.map((opt, oIdx) => {
+      let stateCls = '';
+      if (isGroupRevealed && subAnswered) {
+        if (opt.isCorrect) stateCls = 'opt-correct';
+        else if (subAns.selectedOptionText === opt.text && !opt.isCorrect) stateCls = 'opt-wrong';
+        else stateCls = 'opt-dim';
+      } else if (subAns.pendingOptIdx === oIdx) {
+        stateCls = 'opt-selected-pending';
+      }
+      const badge = opt.label || letters[oIdx] || (oIdx + 1);
+      return `
+        <button type="button" class="opt-btn ${stateCls}" data-group-opt-qid="${escapeHtml(subQ.id)}" data-opt-idx="${oIdx}" ${(isGroupRevealed && subAnswered) ? 'disabled' : ''}>
+          <span class="opt-letter">${badge}</span>
+          <span class="opt-text">${opt.text}</span>
+        </button>
+      `;
+    }).join('');
+
+    const expSteps = options.map((opt, oIdx) => {
+      if (!opt.explanation) return '';
+      const mark = opt.isCorrect ? '✅' : '❌';
+      const badge = opt.label || letters[oIdx] || (oIdx + 1);
+      return `<li><b>(${badge}) ${opt.text}</b>：${mark} ${opt.explanation}</li>`;
+    }).filter(Boolean).join('');
+
+    return `
+      <div class="sub-q-card ${isGroupRevealed && subAns.result === 'bad' ? 'sub-q-bad' : ''}" data-sub-qid="${escapeHtml(subQ.id)}">
+        <div class="sub-q-head">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+            <span class="sub-q-num">第 ${si + 1} 小題（第 ${globalNo} 題）</span>
+            ${subQ.code ? `<span class="tag code-badge">🏷️ ${escapeHtml(subQ.code)}</span>` : ''}
+          </div>
+          ${statusBadge}
+        </div>
+        <div class="sub-q-stem">${String(subQ.question || '').replace(/\n/g, '<br>')}</div>
+        ${subQ.questionImage ? `
+          <div class="q-question-img-wrap" data-sub-img-src="${escapeHtml(subQ.questionImage)}">
+            <img src="${subQ.questionImage}" alt="小題附圖" class="q-question-img">
+          </div>
+        ` : ''}
+        <div class="options-grid ${options.length > 4 ? 'multi-opts cloze-compact-grid' : ''}">
+          ${optsHtml}
+        </div>
+        ${isGroupRevealed && subAnswered ? `
+          <div class="sub-q-feedback">
+            <div class="sub-q-ans-row">
+              <span>🎯 正解：<b>${escapeHtml(correctOpt ? correctOpt.text : '')}</b></span>
+              ${subAns.result === 'ok' ? `
+                <button type="button" class="btn btn-ghost btn-sm" data-group-mark-slow="${escapeHtml(subQ.id)}">
+                  ⏳ 雖然對但想很久
+                </button>
+              ` : ''}
+            </div>
+            <details class="sub-q-details" ${subAns.result === 'bad' ? 'open' : ''}>
+              <summary>💡 查看本題詳解與避坑</summary>
+              <div class="sub-q-details-body">
+                ${subQ.detail4D ? render4DExplanationHtml(subQ, options) : `
+                  ${expSteps ? `<div class="box steps"><h4>📖 選項解析</h4><ol>${expSteps}</ol></div>` : ''}
+                  ${subQ.trap ? `<div class="box trap"><h4>⚠️ 避坑診斷</h4><div>${subQ.trap}</div></div>` : ''}
+                `}
+              </div>
+            </details>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="quiz-split-layout">
+      ${renderPassagePaneHtml(pObj, isClozeBank, state.passageCollapsed)}
+      <div class="subq-pane">
+        <div class="subq-list">${subCardsHtml}</div>
+        ${!isGroupRevealed ? `
+          <div class="group-reveal-bar">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-reveal-group">
+              👀 全部選好了，一併對答案！（已選 ${pickedCount} / ${items.length} 題）
+            </button>
+          </div>
+        ` : `
+          <div class="group-summary-banner">
+            <span>🏁 本組結算：<b>✅ 答對 ${okCount} 題</b> ｜ <b>❌ 答錯 ${badCount} 題</b>（已同步寫入題號盤與雲端）</span>
+          </div>
+        `}
+      </div>
+    </div>
+  `;
+}
+
 function renderQuizQuestion() {
   const total = state.quizQuestions.length;
   const idx = state.quizIndex;
   const q = state.quizQuestions[idx];
   if (!q) return;
 
+  const group = getActivePassageGroup(state.quizQuestions, idx);
+  const pObj = group.passage || getPassageObj(q);
+
   if (state.quizMode === 'unit' && state.currentUnitId) {
     const curSch = isExamUnitId(state.currentUnitId) ? getSelectedSchool(state.currentUnitId) : 'ALL';
     const saveKey = curSch !== 'ALL' ? `${state.currentUnitId}_${curSch}` : state.currentUnitId;
-    saveUnitProgress(saveKey, idx);
+    saveUnitProgress(saveKey, group.startIdx);
   } else if (state.quizMode === 'topic' && state.currentTopicId) {
-    saveUnitProgress(`TOPIC_${state.currentTopicId}_${state.currentTopicId === 'IDM' ? state.idiomSubFilter : 'ALL'}`, idx);
+    saveUnitProgress(`TOPIC_${state.currentTopicId}_${state.currentTopicId === 'IDM' ? state.idiomSubFilter : 'ALL'}`, group.startIdx);
   }
 
-  // 記錄本題開始思考時間戳
+  // 記錄本題（或題組各子題）開始思考時間戳
   if (!state.questionStartTimes) state.questionStartTimes = {};
-  if (!state.questionStartTimes[q.id]) {
-    state.questionStartTimes[q.id] = Date.now();
-  }
+  (group.items || [q]).forEach(it => {
+    if (!state.questionStartTimes[it.id]) {
+      state.questionStartTimes[it.id] = Date.now();
+    }
+  });
 
-  const cur = idx + 1;
+  const cur = group.isGroup ? group.endIdx + 1 : idx + 1;
   const pct = Math.round((cur / total) * 100);
   const ans = state.answers[q.id] || {};
   const isAnswered = !!ans.result;
-  const inImgMode = !!state.imgModeQuestions[q.id];
+  const isGroupRevealed = group.isGroup
+    ? (!!state.groupRevealed[group.passageId] || group.items.every(it => !!(state.answers[it.id] && state.answers[it.id].result)))
+    : isAnswered;
+  const groupExamImg = q.examPageImage || ((group.items.find(x => x.examPageImage) || {}).examPageImage) || '';
+  const inImgMode = !!(groupExamImg && state.imgModeQuestions[group.isGroup ? group.passageId : q.id]);
 
   // Scheme C 學校切換 Tabs (通用於任何段考單元)
   let schoolTabsHtml = '';
@@ -1378,7 +1759,7 @@ function renderQuizQuestion() {
 
   const drawerBtnsHtml = state.quizQuestions.map((item, i) => {
     const a = state.answers[item.id];
-    const curCls = i === idx ? 'current' : '';
+    const curCls = (i >= group.startIdx && i <= group.endIdx) ? 'current' : '';
 
     const errCnt = ecMap[item.id] || 0;
     const okCnt = ccMap[item.id] || 0;
@@ -1412,9 +1793,11 @@ function renderQuizQuestion() {
     </div>
   ` : '';
 
-  // 題目主體 (區分 Handwriting 與 MCQ)
+  // 題目主體 (多題同頁題組 vs 單題/錯題模式)
   let questionContentHtml = '';
-  if (q.type === 'handwriting') {
+  if (group.isGroup) {
+    questionContentHtml = renderPassageGroupQuizHtml(group, isGroupRevealed);
+  } else if (q.type === 'handwriting') {
     let blankCounter = 0;
     const isRevealed = !!ans.revealed;
     const wrongBlanks = ans.wrongBlanks || [];
@@ -1579,6 +1962,39 @@ function renderQuizQuestion() {
     `;
   }
 
+  // 方案 4：單題模式（錯題本／課次歸屬單題）若帶有 passageId，自動附掛原文／選項庫＋展開整組按鈕
+  if (!group.isGroup && q.passageId) {
+    const fullGroupCount = getCleanBank().filter(x => x.passageId === q.passageId).length;
+    const expandBarHtml = fullGroupCount > 1 ? `
+      <div class="single-passage-expand-bar">
+        <span>🧩 此題原屬共 <b>${fullGroupCount} 題</b> 之題組${pObj && pObj.title ? `（${escapeHtml(pObj.title)}）` : ''}</span>
+        <button type="button" class="btn btn-ghost btn-sm" data-expand-passage-group="${escapeHtml(q.passageId)}">
+          📖 展開重練整組（共 ${fullGroupCount} 題）
+        </button>
+      </div>
+    ` : '';
+    if (pObj && pObj.text) {
+      questionContentHtml = `
+        <div class="quiz-split-layout single-with-passage">
+          ${renderPassagePaneHtml(pObj, (q.passageKind || pObj.kind) === 'cloze_bank', state.passageCollapsed)}
+          <div class="subq-pane">
+            ${expandBarHtml}
+            ${questionContentHtml}
+          </div>
+        </div>
+      `;
+    } else if (expandBarHtml) {
+      questionContentHtml = expandBarHtml + questionContentHtml;
+    }
+  }
+
+  const counterLabel = group.isGroup
+    ? `🔢 第 ${group.startIdx + 1}～${group.endIdx + 1} / ${total} 題 ▾`
+    : `🔢 第 ${cur} / ${total} 題 ▾`;
+  const hasPrev = group.startIdx > 0;
+  const hasNext = group.endIdx < total - 1;
+  const isReadyNext = group.isGroup ? isGroupRevealed : isAnswered;
+
   const app = document.getElementById('app');
   app.innerHTML = `
     <div class="view quiz">
@@ -1592,13 +2008,13 @@ function renderQuizQuestion() {
           <span class="crumb">${state.quizTitle}</span>
         </div>
         <div class="progress"><i style="width: ${pct}%"></i></div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <button type="button" class="btn btn-ghost btn-sm" id="btn-prev-q-top" ${idx === 0 ? 'disabled' : ''}>← 上一題</button>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-ghost btn-sm" id="btn-prev-q-top" ${!hasPrev ? 'disabled' : ''}>← 上一題</button>
           <button type="button" class="count-badge-btn" id="btn-toggle-drawer" title="展開題號速跳盤">
-            🔢 第 ${cur} / ${total} 題 ▾
+            ${counterLabel}
           </button>
           <button type="button" class="btn btn-ghost btn-sm" id="btn-next-q-top">
-            ${cur === total ? '結算 🏁' : '下一題 →'}
+            ${!hasNext ? '結算 🏁' : '下一題 →'}
           </button>
         </div>
       </div>
@@ -1621,22 +2037,27 @@ function renderQuizQuestion() {
             <span class="tag">${LESSONS.find(x => x.id === q.lessonId)?.title || q.lessonId}</span>
             ${(q.lessonId === 'EXAM_FINAL' && Array.isArray(q.lessonRefs) && q.lessonRefs.length > 0) ? `<span class="tag">📖 ${LESSONS.find(x => x.id === q.lessonRefs[0])?.shortTitle || q.lessonRefs[0]}</span>` : ''}
             ${q.school ? `<span class="tag exam-badge">🏫 ${q.school}</span>` : ''}
-            <span class="tag lv">${q.category || q.batch}</span>
-            ${q.code ? `<span class="tag code-badge" title="知識點分類代碼">🏷️ ${q.code}</span>` : ''}
-            ${renderLevelBadge(q)}
+            ${group.isGroup ? `<span class="tag lv">📚 題組共 ${group.items.length} 題</span>` : `<span class="tag lv">${q.category || q.batch}</span>`}
+            ${(!group.isGroup && q.code) ? `<span class="tag code-badge" title="知識點分類代碼">🏷️ ${q.code}</span>` : ''}
+            ${!group.isGroup ? renderLevelBadge(q) : ''}
             <span class="stars">${'★'.repeat(q.difficulty || 2)}</span>
           </div>
-          ${q.examPageImage ? `
-            <button type="button" class="btn-crop-toggle ${inImgMode ? 'active' : ''}" id="btn-crop-toggle">
-              ${inImgMode ? '📝 返回文字題目' : '📷 查看考卷原圖'}
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-toggle-font-scale" title="切換閱讀字體大小">
+              ${state.fontScale === 'lg' ? '🔤 標準字' : '🔤 放大字'}
             </button>
-          ` : ''}
+            ${groupExamImg ? `
+              <button type="button" class="btn-crop-toggle ${inImgMode ? 'active' : ''}" id="btn-crop-toggle">
+                ${inImgMode ? '📝 返回文字題目' : '📷 查看考卷原圖'}
+              </button>
+            ` : ''}
+          </div>
         </div>
 
-        ${q.examPageImage ? `
+        ${groupExamImg ? `
           <div id="crop-image-container" class="crop-image-container" style="display: ${inImgMode ? 'block' : 'none'};">
             <div class="crop-img-wrap" id="crop-img-wrap">
-              <img src="${q.examPageImage}" alt="考卷原圖" class="exam-crop-img">
+              <img src="${groupExamImg}" alt="考卷原圖" class="exam-crop-img">
               <span class="crop-zoom-hint">🔍 點擊全螢幕放大</span>
             </div>
           </div>
@@ -1648,29 +2069,30 @@ function renderQuizQuestion() {
 
         <div class="quiz-bottom-nav" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
           <div style="display:flex;gap:8px;">
-            <button type="button" class="btn btn-ghost" id="btn-prev-q" ${idx === 0 ? 'disabled' : ''}>← 上一題</button>
+            <button type="button" class="btn btn-ghost" id="btn-prev-q" ${!hasPrev ? 'disabled' : ''}>← 上一題</button>
             <button type="button" class="btn btn-ghost" id="btn-bottom-drawer">🔢 題號盤</button>
           </div>
-          <button type="button" class="btn ${isAnswered ? 'btn-primary btn-lg' : 'btn-ghost'}" id="btn-next-q">
-            ${cur === total ? '完成測驗並結算 🏁' : isAnswered ? '進入下一題 →' : '跳過，看下一題 →'}
+          <button type="button" class="btn ${isReadyNext ? 'btn-primary btn-lg' : 'btn-ghost'}" id="btn-next-q">
+            ${!hasNext ? '完成測驗並結算 🏁' : isReadyNext ? '進入下一題 →' : '跳過，看下一題 →'}
           </button>
         </div>
       </article>
     </div>
   `;
 
-  // 綁定返回與上下題導航
+  // 綁定返回與上下題（整組跨步）導航
   document.getElementById('btn-quit-quiz').onclick = () => renderDashboardView();
   const handlePrev = () => {
-    if (state.quizIndex > 0) {
-      state.quizIndex--;
+    if (group.startIdx > 0) {
+      const prevGrp = getActivePassageGroup(state.quizQuestions, group.startIdx - 1);
+      state.quizIndex = prevGrp.startIdx;
       renderQuizQuestion();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
   const handleNext = () => {
-    if (state.quizIndex < state.quizQuestions.length - 1) {
-      state.quizIndex++;
+    if (group.endIdx < state.quizQuestions.length - 1) {
+      state.quizIndex = group.endIdx + 1;
       renderQuizQuestion();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -1681,6 +2103,23 @@ function renderQuizQuestion() {
   document.getElementById('btn-prev-q').onclick = handlePrev;
   document.getElementById('btn-next-q-top').onclick = handleNext;
   document.getElementById('btn-next-q').onclick = handleNext;
+
+  const fontBtn = document.getElementById('btn-toggle-font-scale');
+  if (fontBtn) fontBtn.onclick = () => toggleFontScale();
+
+  const togglePassageBtn = document.getElementById('btn-toggle-passage');
+  if (togglePassageBtn) {
+    togglePassageBtn.onclick = () => {
+      state.passageCollapsed = !state.passageCollapsed;
+      const pane = document.getElementById('quiz-passage-pane');
+      if (pane) pane.classList.toggle('collapsed', state.passageCollapsed);
+      togglePassageBtn.textContent = state.passageCollapsed ? '展開內容 ▾' : '收合內容 ▴';
+    };
+  }
+
+  app.querySelectorAll('[data-expand-passage-group]').forEach(btn => {
+    btn.onclick = () => expandPassageGroupInSession(btn.getAttribute('data-expand-passage-group'));
+  });
 
   // 綁定題號抽屜
   const toggleDrawer = () => {
@@ -1728,23 +2167,174 @@ function renderQuizQuestion() {
   });
 
   // 綁定原圖切換與放大
+  const imgStateKey = group.isGroup ? group.passageId : q.id;
   const cropToggle = document.getElementById('btn-crop-toggle');
   if (cropToggle) {
     cropToggle.onclick = () => {
-      state.imgModeQuestions[q.id] = !state.imgModeQuestions[q.id];
+      state.imgModeQuestions[imgStateKey] = !state.imgModeQuestions[imgStateKey];
       renderQuizQuestion();
     };
   }
   const cropWrap = document.getElementById('crop-img-wrap');
   if (cropWrap) {
-    cropWrap.onclick = () => openLightbox(q.examPageImage, `${q.school || '段考'} - 原始考卷檢視`);
+    cropWrap.onclick = () => openLightbox(groupExamImg, `${q.school || '段考'} - 原始考卷檢視`);
   }
   const qImgWrap = document.getElementById('q-question-img-wrap');
   if (qImgWrap) {
     qImgWrap.onclick = () => openLightbox(q.questionImage, `${q.school || '題目'} - 題目附圖檢視`);
   }
+  app.querySelectorAll('[data-sub-img-src]').forEach(el => {
+    el.onclick = () => openLightbox(el.getAttribute('data-sub-img-src'), `${q.school || '題目'} - 題目附圖檢視`);
+  });
 
-  // 綁定手寫題互動
+  if (group.isGroup) {
+    // 多題同頁題組互動
+    const revealGroupBtn = document.getElementById('btn-reveal-group');
+    if (revealGroupBtn) {
+      revealGroupBtn.onclick = () => {
+        if (group.passageKind === 'handwriting_story') {
+          group.items.forEach(subQ => {
+            state.answers[subQ.id] = { ...(state.answers[subQ.id] || {}), revealed: true, wrongBlanks: (state.answers[subQ.id] && state.answers[subQ.id].wrongBlanks) || [] };
+          });
+          state.groupRevealed[group.passageId] = true;
+          renderQuizQuestion();
+          return;
+        }
+        group.items.forEach(subQ => {
+          const curA = state.answers[subQ.id];
+          if (curA && curA.pendingOptIdx != null && !curA.result) {
+            const opts = state.optionOrders[subQ.id] || subQ.options || [];
+            const chosen = opts[curA.pendingOptIdx];
+            if (chosen) {
+              const resState = chosen.isCorrect ? 'ok' : 'bad';
+              state.answers[subQ.id] = {
+                result: resState,
+                selectedOptionText: chosen.text,
+                chosenOpt: chosen,
+                revealed: true
+              };
+              const stTime = (state.questionStartTimes && state.questionStartTimes[subQ.id]) || Date.now();
+              const durSec = Math.max(1, Math.round((Date.now() - stTime) / 1000));
+              recordQuizAnswer(subQ, resState, chosen.text, chosen, durSec);
+            }
+          }
+        });
+        state.groupRevealed[group.passageId] = true;
+        renderQuizQuestion();
+      };
+    }
+
+    if (group.passageKind === 'handwriting_story') {
+      app.querySelectorAll('[data-hw-qid][data-hw-blank]').forEach(el => {
+        el.onclick = () => {
+          const qid = el.getAttribute('data-hw-qid');
+          const bIdx = parseInt(el.getAttribute('data-hw-blank'), 10);
+          const curAns = state.answers[qid] || { revealed: false, wrongBlanks: [] };
+          if (!curAns.revealed && !isGroupRevealed) {
+            curAns.revealed = true;
+            state.answers[qid] = curAns;
+            renderQuizQuestion();
+            return;
+          }
+          const arr = curAns.wrongBlanks || [];
+          const p = arr.indexOf(bIdx);
+          if (p >= 0) arr.splice(p, 1);
+          else arr.push(bIdx);
+          curAns.revealed = true;
+          curAns.wrongBlanks = arr;
+          state.answers[qid] = curAns;
+          renderQuizQuestion();
+        };
+      });
+
+      app.querySelectorAll('[data-group-fb-qid]').forEach(btn => {
+        btn.onclick = () => {
+          const qid = btn.getAttribute('data-group-fb-qid');
+          const val = btn.getAttribute('data-fb');
+          const subQ = group.items.find(x => x.id === qid);
+          if (!subQ) return;
+          const curAns = state.answers[qid] || { revealed: true, wrongBlanks: [] };
+          curAns.revealed = true;
+          curAns.result = val;
+          state.answers[qid] = curAns;
+
+          const blanks = parseHandwritingBlanks(subQ.question);
+          let desc = val === 'ok' ? '👍 全寫對秒殺' : val === 'slow' ? '⏳ 寫對但想很久' : '❌ 我有寫錯字';
+          if (val === 'bad' && curAns.wrongBlanks && curAns.wrongBlanks.length > 0) {
+            const missed = curAns.wrongBlanks.map(i => blanks[i] ? `${blanks[i].prompt}➔${blanks[i].answer}` : '').filter(Boolean);
+            desc = `❌ 寫錯：${missed.join('、')}`;
+          }
+          const stTime = (state.questionStartTimes && state.questionStartTimes[qid]) || Date.now();
+          const durSec = Math.max(1, Math.round((Date.now() - stTime) / 1000));
+          recordQuizAnswer(subQ, val, desc, null, durSec);
+          renderQuizQuestion();
+        };
+      });
+
+      const allOkBtn = document.getElementById('btn-group-all-ok');
+      if (allOkBtn) {
+        allOkBtn.onclick = () => {
+          group.items.forEach(subQ => {
+            const curAns = state.answers[subQ.id] || { revealed: true, wrongBlanks: [] };
+            if (!curAns.result) {
+              curAns.revealed = true;
+              curAns.result = 'ok';
+              state.answers[subQ.id] = curAns;
+              const stTime = (state.questionStartTimes && state.questionStartTimes[subQ.id]) || Date.now();
+              const durSec = Math.max(1, Math.round((Date.now() - stTime) / 1000));
+              recordQuizAnswer(subQ, 'ok', '👍 全寫對秒殺', null, durSec);
+            }
+          });
+          renderQuizQuestion();
+        };
+      }
+    } else {
+      app.querySelectorAll('[data-group-opt-qid]').forEach(btn => {
+        btn.onclick = () => {
+          const qid = btn.getAttribute('data-group-opt-qid');
+          const oIdx = parseInt(btn.getAttribute('data-opt-idx'), 10);
+          const subQ = group.items.find(x => x.id === qid);
+          if (!subQ) return;
+          const opts = state.optionOrders[qid] || subQ.options || [];
+          const chosen = opts[oIdx];
+          if (!chosen) return;
+          if (!isGroupRevealed) {
+            state.answers[qid] = { ...(state.answers[qid] || {}), pendingOptIdx: oIdx };
+            renderQuizQuestion();
+          } else {
+            const resState = chosen.isCorrect ? 'ok' : 'bad';
+            state.answers[qid] = {
+              result: resState,
+              selectedOptionText: chosen.text,
+              chosenOpt: chosen,
+              revealed: true
+            };
+            const stTime = (state.questionStartTimes && state.questionStartTimes[qid]) || Date.now();
+            const durSec = Math.max(1, Math.round((Date.now() - stTime) / 1000));
+            recordQuizAnswer(subQ, resState, chosen.text, chosen, durSec);
+            renderQuizQuestion();
+          }
+        };
+      });
+
+      app.querySelectorAll('[data-group-mark-slow]').forEach(btn => {
+        btn.onclick = () => {
+          const qid = btn.getAttribute('data-group-mark-slow');
+          const subQ = group.items.find(x => x.id === qid);
+          if (!subQ || !state.answers[qid]) return;
+          state.answers[qid].result = 'slow';
+          const chosen = state.answers[qid].chosenOpt || null;
+          const stTime = (state.questionStartTimes && state.questionStartTimes[qid]) || Date.now();
+          const durSec = Math.max(1, Math.round((Date.now() - stTime) / 1000));
+          recordQuizAnswer(subQ, 'slow', state.answers[qid].selectedOptionText + ' (想很久)', chosen, durSec);
+          renderQuizQuestion();
+        };
+      });
+    }
+    return;
+  }
+
+  // 綁定單題手寫互動
   if (q.type === 'handwriting') {
     const showBtn = document.getElementById('btn-show-answer');
     if (showBtn) {
@@ -2245,7 +2835,7 @@ function renderPrintSetupView() {
         <div class="field">
           <label>題目數量：</label>
           <div class="range-row">
-            <input type="range" id="print-q-count" min="4" max="16" value="${state.printConfig.count}">
+            <input type="range" id="print-q-count" min="4" max="30" value="${state.printConfig.count}">
             <b id="print-q-count-val">${state.printConfig.count}</b>
           </div>
         </div>
@@ -2365,10 +2955,38 @@ function renderPaperSheet() {
     selected = state.printSelectionIds.map(id => pool.find(q => q.id === id)).filter(Boolean);
   }
   if (selected.length === 0) {
-    const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, state.printConfig.count);
-    const hwList = shuffled.filter(q => q.type === 'handwriting');
-    const mcqList = shuffled.filter(q => q.type === 'mcq');
-    selected = [...hwList, ...mcqList];
+    // 方案 5：以 passageId 為原子單位打包抽題，確保閱讀／選項庫題組整組出現不拆散
+    const groupMap = new Map();
+    const buckets = [];
+    for (const q of pool) {
+      if (q.passageId) {
+        if (!groupMap.has(q.passageId)) {
+          const arr = [];
+          groupMap.set(q.passageId, arr);
+          buckets.push(arr);
+        }
+        groupMap.get(q.passageId).push(q);
+      } else {
+        buckets.push([q]);
+      }
+    }
+    buckets.forEach(b => {
+      if (b.length > 1) b.sort((a, b2) => (a.passageOrder || 0) - (b2.passageOrder || 0));
+    });
+    const shuffledBuckets = [...buckets].sort(() => Math.random() - 0.5);
+    const pickedBuckets = [];
+    let totalPicked = 0;
+    const limit = state.printConfig.count;
+    for (const b of shuffledBuckets) {
+      if (totalPicked === 0 || (totalPicked < limit && totalPicked + b.length <= limit + 2)) {
+        pickedBuckets.push(b);
+        totalPicked += b.length;
+        if (totalPicked >= limit) break;
+      }
+    }
+    const hwBuckets = pickedBuckets.filter(b => b[0] && b[0].type === 'handwriting');
+    const mcqBuckets = pickedBuckets.filter(b => b[0] && b[0].type !== 'handwriting');
+    selected = [...hwBuckets.flat(), ...mcqBuckets.flat()];
     state.printSelectionIds = selected.map(q => q.id);
   }
 
@@ -2405,12 +3023,29 @@ function renderPaperSheet() {
     `;
   };
 
+  const printedPassages = new Set();
   const questionsHtml = selected.map((q, idx) => {
+    const pObj = getPassageObj(q);
+    let passageHeaderHtml = '';
+    if (q.passageId && !printedPassages.has(q.passageId)) {
+      printedPassages.add(q.passageId);
+      if (pObj && pObj.text) {
+        const isClk = (q.passageKind || pObj.kind) === 'cloze_bank';
+        passageHeaderHtml = `
+          <div class="print-passage-box ${isClk ? 'print-cloze-bank' : ''}">
+            <h4>${isClk ? '📚 共用選項庫' : '📖 閱讀題組文本'}：${escapeHtml(pObj.title || '')}</h4>
+            <div class="print-passage-text">${escapeHtml(pObj.text).replace(/\n/g, '<br>')}</div>
+          </div>
+        `;
+      }
+    }
+
     if (q.type === 'handwriting') {
       const stemWithBoxes = q.question.replace(/\[\[(國字|注音):(.*?):(.*?)\]\]/g, (_, mode, prompt, ans) => {
         return `<span class="print-hw-blank"><span>${prompt}</span><span class="print-hw-box font-kai">${isParentMode ? escapeHtml(ans) : ''}</span></span>`;
       });
       return `
+        ${passageHeaderHtml}
         <div class="pq">
           <div class="pq-title">
             <span class="pq-no">${idx + 1}.</span>
@@ -2424,15 +3059,19 @@ function renderPaperSheet() {
         </div>
       `;
     } else {
-      const optsHtml = (q.options || []).map((o, oi) => `<div>(${o.label || ['A','B','C','D'][oi] || (oi+1)}) ${o.text}</div>`).join('');
+      const isClozeSub = !!(pObj && pObj.text && (q.passageKind || pObj.kind) === 'cloze_bank');
+      const optsHtml = isClozeSub
+        ? ''
+        : (q.options || []).map((o, oi) => `<div>(${o.label || ['A','B','C','D'][oi] || (oi+1)}) ${o.text}</div>`).join('');
       return `
+        ${passageHeaderHtml}
         <div class="pq">
           <div class="pq-title">
             <span class="pq-no">${idx + 1}.</span>
             <div style="flex:1;">
               <div><b>(　　)</b> <small style="font-size:9.5pt;color:#555;">[${q.code || q.category || ''}]</small> ${String(q.question || '').replace(/\n/g, '<br>')}</div>
               ${q.questionImage ? `<div><img src="${q.questionImage}" alt="附圖" class="print-q-img"></div>` : ''}
-              <div class="print-mcq-grid" style="margin-top:6px;font-size:12.5pt;">${optsHtml}</div>
+              ${optsHtml ? `<div class="print-mcq-grid" style="margin-top:6px;font-size:12.5pt;">${optsHtml}</div>` : ''}
               ${renderParentNote(q)}
             </div>
           </div>
@@ -2499,13 +3138,19 @@ function buildMarkdownReport(singleSession = false) {
       const a = s.answersMap[q.id];
       const st = a && a.result ? a.result : 'skipped';
       const correctAns = q.type === 'handwriting' ? q.correctAnswer : (q.options.find(o => o.isCorrect)?.text || '');
-      lines.push(`${i + 1}. **[${st.toUpperCase()}]** ${formatPlainStem(q.question)} ｜ 正解：\`${correctAns}\``);
+      const pObj = getPassageObj(q);
+      const pNote = (pObj && pObj.text) ? ` [題組：${pObj.title || q.passageId}]` : '';
+      lines.push(`${i + 1}. **[${st.toUpperCase()}]**${pNote} ${formatPlainStem(q.question)} ｜ 正解：\`${correctAns}\``);
     });
   } else {
     lines.push(`## 一、目前錯題本弱點清單（共 ${errQs.length} 題）`);
     errQs.forEach((q, i) => {
       const correctAns = q.type === 'handwriting' ? q.correctAnswer : (q.options.find(o => o.isCorrect)?.text || '');
+      const pObj = getPassageObj(q);
       lines.push(`${i + 1}. **[${q.code || q.lessonId} ${q.category || ''}]** (累計錯 ${ec[q.id] || 1} 次)`);
+      if (pObj && pObj.text) {
+        lines.push(`   - 題組文本（${pObj.title || q.passageId}）：${pObj.text.slice(0, 120).replace(/\n/g, ' ')}…`);
+      }
       lines.push(`   - 題目：${formatPlainStem(q.question)}`);
       lines.push(`   - 正解：\`${correctAns}\``);
       if (q.trap) lines.push(`   - 盲點診斷：${q.trap}`);
@@ -2590,7 +3235,7 @@ function checkDeepLinkOnLoad() {
   if (qIdsParam) {
     const ids = qIdsParam.split(',').map(s => s.trim()).filter(Boolean);
     const bank = getCleanBank();
-    const matched = ids.map(id => bank.find(q => q.id === id)).filter(Boolean);
+    const matched = orderPassageGroupsInPool(ids.map(id => bank.find(q => q.id === id)).filter(Boolean));
     if (matched.length > 0) {
       window.history.replaceState({}, document.title, window.location.pathname);
       state.quizTitle = `🖨️ A4 考卷掃碼對答案 (${matched.length}題)`;
@@ -2599,6 +3244,8 @@ function checkDeepLinkOnLoad() {
       state.quizQuestions = matched;
       state.quizIndex = 0;
       state.answers = {};
+      state.groupRevealed = {};
+      state.passageCollapsed = false;
       state.optionOrders = {};
       matched.forEach(q => {
         if (q.type === 'mcq' && Array.isArray(q.options)) state.optionOrders[q.id] = [...q.options];
@@ -2614,6 +3261,7 @@ function checkDeepLinkOnLoad() {
 
 window.addEventListener('DOMContentLoaded', () => {
   migrateLegacyDataToRex();
+  applyFontScale();
   updateNavUserUI();
   updateNavBadge();
 
@@ -2627,4 +3275,66 @@ window.addEventListener('DOMContentLoaded', () => {
     renderDashboardView();
   }
   syncFromCloud(state.currentUser, false);
+});
+
+window.addEventListener('keydown', e => {
+  if (state.view !== 'quiz' || e.ctrlKey || e.metaKey || e.altKey) return;
+  const tag = (e.target && e.target.tagName) ? e.target.tagName.toUpperCase() : '';
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  const userModal = document.getElementById('user-modal');
+  const lbModal = document.getElementById('lightbox-modal');
+  if ((userModal && userModal.classList.contains('open')) || (lbModal && lbModal.classList.contains('open'))) return;
+
+  if (e.key === 'ArrowLeft') {
+    const prevBtn = document.getElementById('btn-prev-q');
+    if (prevBtn && !prevBtn.disabled) {
+      e.preventDefault();
+      prevBtn.click();
+    }
+    return;
+  }
+  if (e.key === 'ArrowRight') {
+    const nextBtn = document.getElementById('btn-next-q');
+    if (nextBtn) {
+      e.preventDefault();
+      nextBtn.click();
+    }
+    return;
+  }
+  if (e.key === 'Enter') {
+    const revealGroupBtn = document.getElementById('btn-reveal-group');
+    if (revealGroupBtn && !revealGroupBtn.disabled) {
+      e.preventDefault();
+      revealGroupBtn.click();
+      return;
+    }
+    const q = state.quizQuestions[state.quizIndex];
+    const group = getActivePassageGroup(state.quizQuestions, state.quizIndex);
+    const ready = group.isGroup
+      ? !!state.groupRevealed[group.passageId]
+      : !!(q && state.answers[q.id] && state.answers[q.id].result);
+    if (ready) {
+      const nextBtn = document.getElementById('btn-next-q');
+      if (nextBtn) {
+        e.preventDefault();
+        nextBtn.click();
+      }
+    }
+    return;
+  }
+
+  const keyLower = String(e.key || '').toLowerCase();
+  const keyMap = { '1': 0, '2': 1, '3': 2, '4': 3, a: 0, b: 1, c: 2, d: 3 };
+  if (keyLower in keyMap) {
+    const group = getActivePassageGroup(state.quizQuestions, state.quizIndex);
+    if (group.isGroup) return;
+    const q = state.quizQuestions[state.quizIndex];
+    if (!q || q.type !== 'mcq' || (q.options && q.options.length > 4)) return;
+    if (state.answers[q.id] && state.answers[q.id].result) return;
+    const optBtn = document.querySelector(`#q-content .opt-btn[data-opt-idx="${keyMap[keyLower]}"]`);
+    if (optBtn && !optBtn.disabled) {
+      e.preventDefault();
+      optBtn.click();
+    }
+  }
 });

@@ -261,28 +261,74 @@ function buildSlimLogEntry(q, resultState, chosenOpt, userText, durationSec) {
     studentAns = userText || (resultState === 'ok' ? '全對秒殺' : resultState === 'slow' ? '寫對想很久' : '寫錯');
   }
 
-  const nowStr = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false });
+  const nowMs = Date.now();
+  const nowStr = (window.AIExportCore && window.AIExportCore.formatTaipeiTime)
+    ? window.AIExportCore.formatTaipeiTime(nowMs)
+    : new Date(nowMs).toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false });
   const pObj = getPassageObj(q);
+  const correctAns = q.type === 'mcq' && Array.isArray(q.options)
+    ? (q.options.find(o => o.isCorrect)?.text || '')
+    : (q.correctAnswer || '');
 
-  const logEntry = {
-    t: nowStr,
-    id: q.id,
+  const extra = {
     code: q.code || '',
     dom: q.domain || '',
     tags: Array.isArray(q.tags) ? q.tags : [],
-    tgts: Array.isArray(q.targets) ? q.targets : [],
-    sch: q.school || '單元特訓',
-    cat: q.category || q.batch || '',
-    q: q.question,
-    opts: optsStr,
-    ans: studentAns,
-    res: resultState, // 'ok' | 'slow' | 'bad'
-    sec: durationSec || 1
+    tgts: Array.isArray(q.targets) ? q.targets : []
   };
   if (pObj && pObj.text) {
-    logEntry.pId = q.passageId;
-    logEntry.pTitle = pObj.title || '';
-    logEntry.pTxt = pObj.text.length > 420 ? pObj.text.slice(0, 420) + '…' : pObj.text;
+    extra.pId = q.passageId;
+    extra.pTitle = pObj.title || '';
+    extra.pTxt = pObj.text.length > 420 ? pObj.text.slice(0, 420) + '…' : pObj.text;
+  }
+
+  if (window.AIExportCore && typeof window.AIExportCore.createSlimLogEntry === 'function') {
+    return window.AIExportCore.createSlimLogEntry({
+      ts: nowMs,
+      t: nowStr,
+      subj: 'g6_chinese',
+      id: q.id,
+      unit: q.lessonId || '',
+      cat: q.category || q.batch || '',
+      sch: q.school || '單元特訓',
+      q: formatPlainStem(q.question),
+      opts: optsStr,
+      correct: correctAns,
+      ans: studentAns,
+      res: resultState,
+      sec: durationSec || 1,
+      trap: q.trap || (q.detail4D && q.detail4D.trapCode) || '',
+      concept: (q.detail4D && q.detail4D.examPurpose) || '',
+      extra
+    });
+  }
+
+  const logEntry = {
+    v: 2,
+    ts: nowMs,
+    t: nowStr,
+    subj: 'g6_chinese',
+    id: q.id,
+    unit: q.lessonId || '',
+    code: extra.code,
+    dom: extra.dom,
+    tags: extra.tags,
+    tgts: extra.tgts,
+    sch: q.school || '單元特訓',
+    cat: q.category || q.batch || '',
+    q: formatPlainStem(q.question),
+    opts: optsStr,
+    correct: correctAns,
+    ans: studentAns,
+    res: resultState, // 'ok' | 'slow' | 'bad'
+    sec: durationSec || 1,
+    trap: q.trap || '',
+    concept: (q.detail4D && q.detail4D.examPurpose) || ''
+  };
+  if (extra.pId) {
+    logEntry.pId = extra.pId;
+    logEntry.pTitle = extra.pTitle;
+    logEntry.pTxt = extra.pTxt;
   }
   return logEntry;
 }
@@ -3178,8 +3224,57 @@ function downloadMarkdownReport(singleSession = false) {
 
 function renderExportView() {
   state.view = 'export';
-  const md = buildMarkdownReport(false);
   const app = document.getElementById('app');
+  if (window.AIExportCore && typeof window.AIExportCore.mountExportCenter === 'function') {
+    const bank = getCleanBank();
+    const lessonTitleMap = {};
+    if (typeof LESSONS !== 'undefined') LESSONS.forEach(l => { lessonTitleMap[l.id] = l.title; });
+    const allQuestionsMap = {};
+    bank.forEach(q => {
+      const correctAns = q.type === 'mcq' && Array.isArray(q.options)
+        ? (q.options.find(o => o.isCorrect)?.text || '')
+        : (q.correctAnswer || '');
+      const optsStr = q.type === 'mcq' && Array.isArray(q.options)
+        ? q.options.map(o => `${o.label ? `[${o.label}] ` : ''}${o.text}${o.isCorrect ? '*' : ''}`).join(' | ')
+        : '';
+      const pObj = getPassageObj(q);
+      allQuestionsMap[q.id] = {
+        code: q.code || '',
+        unit: lessonTitleMap[q.lessonId] || q.lessonId || '綜合課次',
+        cat: q.category || q.batch || '',
+        sch: q.school || '南一課本',
+        q: formatPlainStem(q.question),
+        opts: optsStr,
+        correct: correctAns,
+        trap: q.trap || '',
+        concept: (q.detail4D && q.detail4D.examPurpose) || '',
+        passage: pObj && pObj.text ? pObj.text : '',
+        qType: q.type || ''
+      };
+    });
+    let localLogs = [];
+    try { localLogs = JSON.parse(localStorage.getItem(getUserKey('recent_answer_logs')) || '[]'); } catch (e) {}
+
+    window.AIExportCore.mountExportCenter(app, {
+      subjectKey: 'g6_chinese',
+      dbUrl: state.cloudDbUrl,
+      logsNode: 'g6_chinese_logs',
+      uid: state.currentUser,
+      user: getCurrentUserObj(),
+      supportsSlow: true,
+      allQuestionsMap,
+      errorBookIds: getErrorBook(),
+      errorCounts: getErrorCounts(),
+      slowIds: getSlowIds(),
+      localLogs,
+      onBack: () => renderDashboardView(),
+      onToast: showToast,
+      downloadFilenamePrefix: '六上國語AI練習'
+    });
+    return;
+  }
+
+  const md = buildMarkdownReport(false);
   app.innerHTML = `
     <div class="view export">
       <div class="glass q-card">
@@ -3187,36 +3282,11 @@ function renderExportView() {
           <h2>📤 匯出給 AI 家教進行弱點加強</h2>
           <button class="btn btn-ghost" id="btn-exp-back">← 回首頁</button>
         </div>
-        <p class="muted">一鍵複製下方診斷報告貼給 ChatGPT / Claude / Gemini，即可獲得專屬字音字形口訣與 5 題變形抽考！</p>
-        <div style="display:flex;gap:10px;margin:16px 0;flex-wrap:wrap;">
-          <button class="btn btn-primary" id="btn-copy-ai">📋 一鍵複製 AI 診斷指令 (Markdown)</button>
-          <button class="btn btn-ghost" id="btn-copy-slim-logs">🤖 複製做法 B 完整自給自足日誌 (JSON)</button>
-          <button class="btn btn-ghost" id="btn-dl-ai">📥 下載 Markdown 報告 (.md)</button>
-        </div>
         <textarea id="ai-prompt-box" readonly style="width:100%;min-height:360px;padding:16px;border-radius:16px;border:1.5px solid var(--line);font-family:monospace;font-size:14px;line-height:1.6;">${md}</textarea>
       </div>
     </div>
   `;
-
   document.getElementById('btn-exp-back').onclick = () => renderDashboardView();
-  document.getElementById('btn-copy-ai').onclick = () => {
-    navigator.clipboard.writeText(md).then(() => showToast('✅ 已複製到剪貼簿！可直接貼給 AI！'));
-  };
-  document.getElementById('btn-dl-ai').onclick = () => downloadMarkdownReport(false);
-  const copySlimBtn = document.getElementById('btn-copy-slim-logs');
-  if (copySlimBtn) {
-    copySlimBtn.onclick = () => {
-      const logs = JSON.parse(localStorage.getItem(getUserKey('recent_answer_logs')) || '[]');
-      if (logs.length === 0) {
-        showToast('目前尚無最新自給自足日誌，請先至測驗作答題目！');
-        return;
-      }
-      const jsonStr = JSON.stringify(logs, null, 2);
-      navigator.clipboard.writeText(jsonStr).then(() => {
-        showToast(`📋 已複製 ${logs.length} 筆自給自足 AI 日誌 (JSON) 到剪貼簿！`);
-      });
-    };
-  }
 }
 
 // ============================================================================
